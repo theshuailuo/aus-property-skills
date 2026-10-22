@@ -1,0 +1,33 @@
+# Secrets / 密钥
+.env
+.env.*
+!.env.example
+
+# Private overlay and personal data / 自用版与个人数据(永不提交)
+*.local.md
+buyer-strategy.md
+.agents/*
+
+# Agent install artifacts / agent 本地安装产物
+.claude/
+skills-lock.json
+
+# Python / Node
+__pycache__/
+*.pyc
+node_modules/
+
+# OS junk / 系统垃圾
+.DS_Store
+**/.DS_Store
+Thumbs.db
+desktop.ini
+* 2.*
+* 2/
+
+# Editors
+*.swp
+*.swo
+*~
+.idea/
+.vscode/

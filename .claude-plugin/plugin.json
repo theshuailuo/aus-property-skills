@@ -1,0 +1,12 @@
+{
+  "name": "aus-property-skills",
+  "description": "Agent skills for buying, holding and selling residential property in Australia. 澳洲买房全流程 AI skill。",
+  "version": "0.1.0",
+  "author": {
+    "name": "Shuai Luo"
+  },
+  "homepage": "https://github.com/theshuailuo/aus-property-skills",
+  "repository": "https://github.com/theshuailuo/aus-property-skills",
+  "license": "MIT",
+  "skills": "./skills"
+}

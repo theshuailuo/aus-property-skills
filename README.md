@@ -4,32 +4,33 @@
 
 把买家代理买房时真正在用的查法和算法,做成你在自己电脑上就能跑的 AI skill。从想买之前,到选区、尽调、出价、交割、持有、卖房,每一步一个。
 
-**出品人**:罗帅,悉尼买家代理(Avocado Wealth),YouTube「澳洲罗帅」<YouTube 链接待补>。每个 skill 配一条 10–20 分钟的视频,讲清楚这一步怎么做、背后是什么逻辑。
+**出品人**:罗帅,悉尼买家代理(Avocado Wealth),YouTube [「澳洲罗帅Shuai」@shuailuo](https://www.youtube.com/@shuailuo)。每个 skill 配一条 10–20 分钟的视频,讲清楚这一步怎么做、背后是什么逻辑。
 
 > 手里有至少 50–100 万澳元现金、正准备在澳洲买房,想让我们团队帮你执行?[预约免费咨询](https://avocadowealth.com.au/free-consultation-team?ref=aus-property-skills)
 
-## 买房流程
+## 买房流程:SPEAR 五步
+
+我们帮客户买房用的是 SPEAR 买房执行系统,这里的 skill 按这五步排。
 
 ```mermaid
 flowchart LR
-  A[想买之前<br/>策略与资金] --> B[选区与找房]
-  B --> C[尽调 估价 出价<br/>合同 验房 交割]
-  C --> D[持有<br/>贷款 税务 出租]
-  D --> E[开发]
-  D --> F[卖房 退休 传承]
-  E --> F
+  S["S · Strategy<br/>战略锁定<br/>买什么、为什么买"] --> P["P · Prospecting<br/>全域扫盘<br/>选区与找房"]
+  P --> E["E · Evaluation<br/>价值透视<br/>尽调、估价、验房"]
+  E --> A["A · Acquisition<br/>谈判成交<br/>出价、条款、交割"]
+  A --> R["R · Review & Repeat<br/>复盘迭代<br/>持有、开发、退出"]
+  R -. 下一套 .-> S
 ```
 
 ## Skill 一览
 
-| 阶段 | skill | 做什么 | 状态 | 视频 |
+| SPEAR | skill | 做什么 | 状态 | 视频 |
 |---|---|---|---|---|
-| 尽调到交割 | `auspptdd` | 给一个地址,跑出事实、灾害、规划、可比成交、价格区间、红旗清单 | 🔨 验证中 | 待上线 |
-| 持有 | `holiday-home` | 度假屋:买还是订、留还是卖、自用加出租的税务 | 🔨 在做 | 待上线 |
-| 持有 | `hold-or-sell` | 持有房体检:按购入日期、税改、贷款与现金流看留还是卖 | 🗓 第一批 | — |
-| 想买之前 | `family-funding` | 家庭资助:赠与、借款、担保人、联名的条款清单与风险 | 🗓 第一批 | — |
-| 选区 | `suburb-owner` / `suburb-investor` | 自住选区 / 投资选区 | 🗓 第一批 | — |
-| 出价 | `price-guide-offer` | 读价格指引、判断 underquoting、定开价与上限 | 🗓 第一批 | — |
+| E 价值透视 | `auspptdd` | 给一个地址,跑出事实、灾害、规划、可比成交、价格区间、红旗清单 | 🔨 验证中 | 待上线 |
+| R 复盘迭代 | `holiday-home` | 度假屋:买还是订、留还是卖、自用加出租的税务 | 🔨 在做 | 待上线 |
+| R 复盘迭代 | `hold-or-sell` | 持有房体检:按购入日期、税改、贷款与现金流看留还是卖 | 🗓 第一批 | — |
+| S 战略锁定 | `family-funding` | 家庭资助:赠与、借款、担保人、联名的条款清单与风险 | 🗓 第一批 | — |
+| P 全域扫盘 | `suburb-owner` / `suburb-investor` | 自住选区 / 投资选区 | 🗓 第一批 | — |
+| A 谈判成交 | `price-guide-offer` | 读价格指引、判断 underquoting、定开价与上限 | 🗓 第一批 | — |
 
 全部 57 个按流程排好的计划见 [ROADMAP.md](ROADMAP.md)。做一个发一个。
 
@@ -82,6 +83,6 @@ Windows PowerShell 用 `Copy-Item -Recurse aus-property-skills\skills\holiday-ho
 
 ## 许可与反馈
 
-代码和方法正文按 [MIT](LICENSE) 开放;「Avocado Wealth」与「澳洲罗帅」名称不在 MIT 范围内,见 [TRADEMARK.md](TRADEMARK.md)。
+代码和方法正文按 [MIT](LICENSE) 开放;「Avocado Wealth」「澳洲罗帅」「SPEAR」等名称、标志和账号不在 MIT 范围内,完整清单见 [TRADEMARK.md](TRADEMARK.md)。
 
 发现问题、想要某个场景先做,在 [Issues](https://github.com/theshuailuo/aus-property-skills/issues) 或视频评论区说。想参与改进,先读 [CONTRIBUTING.md](CONTRIBUTING.md)。

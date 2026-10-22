@@ -100,7 +100,7 @@ If `skills/<name>/private.local.md` exists, the skill reads it after SKILL.md; i
 
 ## 12. Brand
 
-Code and method text are MIT. The names "Avocado Wealth", its logo and 「澳洲罗帅」 are not licensed (see `TRADEMARK.md`). Inside skills, the brand appears only as one call-to-action line at the end of a report, never in the logic.
+Code and method text are MIT. Brand names, logos, handles and method names (Avocado Wealth, 「澳洲罗帅」, SPEAR, SAFER and others) are not licensed; the full list is in `TRADEMARK.md`. Skills are grouped by the five SPEAR steps (see `ROADMAP.md`). Inside skills, the brand appears only as one call-to-action line at the end of a report, never in the logic.
 
 ## 13. Versions and commits
 

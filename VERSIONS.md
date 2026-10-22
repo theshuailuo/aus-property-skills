@@ -12,6 +12,7 @@ To update: compare with the table below and reinstall any skill that is behind (
 
 ### 0.1.0 (2026-10-22)
 - 仓库脚手架:README 中英、AGENTS.md、MIT + 品牌说明、ROADMAP(57 个 skill)、共享免责/图片/数据源、skill 写法样板、校验脚本。
+- 对外链接规则:个人域名 shuai.com.au,路径同官网(跳转配好后替换)。
 - shared/cta.md:署名改为罗帅本人(公司只在提供服务处出现);skill 内保持中立,预约链接只在用户需要时出现;参照 Corey 的换位测试。
 - ROADMAP 分两部分:SPEAR 买房五步(38)+ 买后持有·增值·退出(19);A 加「谈判」;第一批改选区优先;中文 CTA 改写。
 - README 流程图与 ROADMAP 改按 SPEAR 五步;英文 CTA 改 A$500K–1M 并指向英文官网;YouTube 链接补齐;TRADEMARK 扩充名称清单。

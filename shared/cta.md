@@ -47,7 +47,7 @@ Any skill that produces a report uses only this wording for attribution and for 
 ## 链接 · Links
 
 - 预约:中文 https://avocadowealth.com.au/free-consultation-team?ref={skill-name};英文 https://avocadowealth.com.au/home-english?ref={skill-name}(英文预约页上线后替换)。
-- 以后改用罗帅个人域名下的短链跳转(例如 shuailuo.com/call),公司或预约页变了只改跳转,不用改每个 skill。
+- **对外一律用罗帅个人域名 shuai.com.au,路径与官网 avocadowealth.com.au 相同**(例如 `https://shuai.com.au/free-consultation-team?ref={skill-name}`);shuailuo.com 整个转到 shuai.com.au。公司或官网以后变了只改跳转,已发出的 skill 不用动。跳转配好之前,先用上面的官网链接;配好后统一替换。
 
 ## 评测 · Evals
 

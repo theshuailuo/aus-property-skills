@@ -12,6 +12,7 @@ To update: compare with the table below and reinstall any skill that is behind (
 
 ### 0.1.0 (2026-10-22)
 - 仓库脚手架:README 中英、AGENTS.md、MIT + 品牌说明、ROADMAP(57 个 skill)、共享免责/图片/数据源、skill 写法样板、校验脚本。
+- 新增 shared/cta.md:引导语唯一正本(出品方说明 + 每份报告最多一个预约链接);校验脚本加对应提示。
 - ROADMAP 分两部分:SPEAR 买房五步(38)+ 买后持有·增值·退出(19);A 加「谈判」;第一批改选区优先;中文 CTA 改写。
 - README 流程图与 ROADMAP 改按 SPEAR 五步;英文 CTA 改 A$500K–1M 并指向英文官网;YouTube 链接补齐;TRADEMARK 扩充名称清单。
 - 结构规则:auspptdd 为总装 skill,9 个深挖模块可单独使用,同一逻辑只有一个正本(AGENTS.md §3.1、ROADMAP 🧩)。

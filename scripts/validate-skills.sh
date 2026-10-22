@@ -153,6 +153,9 @@ for base in $SKILLS_DIRS; do
 
     # disclaimers come from the shared library
     grep -q 'shared/disclaimers.md' "$skill_file" || errs+=("SKILL.md must point to shared/disclaimers.md for its disclaimer")
+    grep -q 'shared/cta.md' "$skill_file" || warns+=("SKILL.md does not point to shared/cta.md (needed if the skill writes a report that mentions our service)")
+    links=$(grep -o 'avocadowealth\.com\.au/[A-Za-z0-9_-]*consult' "$skill_file" | wc -l)
+    (( links > 1 )) && warns+=("SKILL.md has $links consultation links; use shared/cta.md wording, one link per report")
 
     # banned permission-style / promise wording
     hits=$(grep -rEn "$BANNED" "$skill_dir" --include='*.md' 2>/dev/null | grep -v 'BANNED-EXAMPLE' | head -3)

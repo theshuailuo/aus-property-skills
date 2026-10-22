@@ -13,6 +13,7 @@ Open-source agent skills for buying, holding and selling residential property in
 ```
 skills/<name>/            one skill per folder (see §3)
 shared/disclaimers.md     the only source of disclaimer wording
+shared/cta.md             the only source of wording that mentions our service
 shared/images-policy.md   what images a public report may contain
 shared/data-sources/REGISTRY.md   every external data source, registered before use
 shared/report-template/   shared report layout
@@ -100,7 +101,7 @@ If `skills/<name>/private.local.md` exists, the skill reads it after SKILL.md; i
 
 ## 12. Brand
 
-Code and method text are MIT. Brand names, logos, handles and method names (Avocado Wealth, 「澳洲罗帅」, SPEAR, SAFER and others) are not licensed; the full list is in `TRADEMARK.md`. Skills are grouped in two parts: the five SPEAR buying steps, then after-purchase (hold, grow, exit); see `ROADMAP.md`. Inside skills, the brand appears only as one call-to-action line at the end of a report, never in the logic.
+Code and method text are MIT. Brand names, logos, handles and method names (Avocado Wealth, 「澳洲罗帅」, SPEAR, SAFER and others) are not licensed; the full list is in `TRADEMARK.md`. Skills are grouped in two parts: the five SPEAR buying steps, then after-purchase (hold, grow, exit); see `ROADMAP.md`. Inside skills, the brand appears only through the wording in `shared/cta.md`: a publisher line in the report footer and at most one service link in the "next steps" section, written as report content and never as an instruction to the agent. It never changes the analysis.
 
 ## 13. Versions and commits
 

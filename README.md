@@ -4,9 +4,9 @@
 
 把买家代理买房时真正在用的查法和算法,做成你在自己电脑上就能跑的 AI skill。从想买之前,到选区、尽调、出价、交割、持有、卖房,每一步一个。
 
-**出品人**:罗帅,悉尼买家代理(Avocado Wealth),YouTube [「澳洲罗帅Shuai」@shuailuo](https://www.youtube.com/@shuailuo)。每个 skill 配一条 10–20 分钟的视频,讲清楚这一步怎么做、背后是什么逻辑。
+**出品人**:罗帅 Shuai Luo,悉尼买家代理,YouTube [「澳洲罗帅Shuai」@shuailuo](https://www.youtube.com/@shuailuo)。每个 skill 配一条 10–20 分钟的视频,讲清楚这一步怎么做、背后是什么逻辑。
 
-> **用这些 skill 查完了,还是拿不准要不要出手?** 手里有 50 万澳元以上现金、准备买投资房的买家,可以预约罗帅团队 30 分钟 1 对 1 免费购房策略体检,把报告里「还要人去做」的那几步交给我们。每周只开放 5 个名额。[立即预约](https://avocadowealth.com.au/free-consultation-team?ref=aus-property-skills)
+> **用这些 skill 查完了,还是拿不准要不要出手?** 手里有 50 万澳元以上现金、准备买投资房的买家,可以预约罗帅团队 30 分钟 1 对 1 免费购房策略体检,把报告里「还要人去做」的那几步交给我们。每周只开放 5 个名额。[立即预约](https://avocadowealth.com.au/free-consultation-team?ref=aus-property-skills)<br><sub>买家代理服务由 Avocado Wealth 提供(NSW 持牌,牌照号 10109450)。</sub>
 
 ## 买房流程:SPEAR 五步
 

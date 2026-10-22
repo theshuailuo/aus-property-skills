@@ -2,8 +2,8 @@
 
 本仓库的代码和方法正文按 MIT 许可开放(见 `LICENSE`)。**以下名称、标识和账号不在 MIT 许可范围内**(无论是否注册为商标):
 
-- **公司与业务**:「Avocado Wealth」「澳洲牛油果财富」及其标志
 - **个人与频道**:「澳洲罗帅」「澳洲罗帅Shuai」「罗帅」「Shuai Luo」「Luo Shuai」,以及 `shuailuo`、`theshuailuo` 等账号名与频道视觉
+- **公司与业务**:「Avocado Wealth」「澳洲牛油果财富」及其标志
 - **方法与课程名称**:「SPEAR 买房执行系统」「SAFER 买房筛选系统」「罗帅的地产私教课」
 - **网站域名**:avocadowealth.com.au、avocadowealth.com、avocadovip.com、shuailuo.com、shuai.com.au
 
@@ -18,8 +18,8 @@
 
 The code and method text in this repository are released under the MIT License (see `LICENSE`). **The following names, marks and handles are not licensed under MIT**, whether or not they are registered trademarks:
 
-- **Business**: "Avocado Wealth", 「澳洲牛油果财富」 and their logos
 - **Personal and channel**: 「澳洲罗帅」, 「澳洲罗帅Shuai」, 「罗帅」, "Shuai Luo", "Luo Shuai", the handles `shuailuo` and `theshuailuo`, and channel artwork
+- **Business**: "Avocado Wealth", 「澳洲牛油果财富」 and their logos
 - **Method and course names**: "SPEAR" buying system, "SAFER" screening system, 「罗帅的地产私教课」
 - **Domains**: avocadowealth.com.au, avocadowealth.com, avocadovip.com, shuailuo.com, shuai.com.au
 

@@ -4,9 +4,9 @@
 
 The checks and calculations a buyer's agent actually uses, packaged as AI skills you can run on your own computer. One skill per step: before buying, choosing a suburb, due diligence, making an offer, settlement, holding, and selling.
 
-**Made by** Shuai Luo, a Sydney buyer's agent (Avocado Wealth), YouTube [「澳洲罗帅Shuai」@shuailuo](https://www.youtube.com/@shuailuo). Each skill comes with a 10–20 minute video explaining how the step is done and the reasoning behind it.
+**Made by** Shuai Luo, a Sydney buyer's agent, YouTube [「澳洲罗帅Shuai」@shuailuo](https://www.youtube.com/@shuailuo). Each skill comes with a 10–20 minute video explaining how the step is done and the reasoning behind it.
 
-> **Ran these skills and still unsure whether to buy?** If you have A$500K+ in cash and are buying an investment property, talk to our team about the steps your report says still need a person. [Get in touch](https://avocadowealth.com.au/home-english?ref=aus-property-skills)
+> **Ran these skills and still unsure whether to buy?** If you have A$500K+ in cash and are buying an investment property, talk to our team about the steps your report says still need a person. [Get in touch](https://avocadowealth.com.au/home-english?ref=aus-property-skills)<br><sub>Buyer's agent services provided by Avocado Wealth (NSW licence 10109450).</sub>
 
 ## The SPEAR buying system
 

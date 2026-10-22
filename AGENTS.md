@@ -101,7 +101,7 @@ If `skills/<name>/private.local.md` exists, the skill reads it after SKILL.md; i
 
 ## 12. Brand
 
-Code and method text are MIT. Brand names, logos, handles and method names (Avocado Wealth, 「澳洲罗帅」, SPEAR, SAFER and others) are not licensed; the full list is in `TRADEMARK.md`. Skills are grouped in two parts: the five SPEAR buying steps, then after-purchase (hold, grow, exit); see `ROADMAP.md`. Inside skills, the brand appears only through the wording in `shared/cta.md`: a publisher line in the report footer and at most one service link in the "next steps" section, written as report content and never as an instruction to the agent. It never changes the analysis.
+Code and method text are MIT. Brand names, logos, handles and method names (Avocado Wealth, 「澳洲罗帅」, SPEAR, SAFER and others) are not licensed; the full list is in `TRADEMARK.md`. Skills are grouped in two parts: the five SPEAR buying steps, then after-purchase (hold, grow, exit); see `ROADMAP.md`. Skills are published by Shuai Luo personally. Inside skills, attribution and any mention of our service use only the wording in `shared/cta.md`: every report footer credits Shuai Luo and links the skill's video; a booking link appears only when the user asks for help or their buyer profile meets the threshold, together with a note that the service is provided by the licensed company. Analysis and recommendations stay neutral and must pass the swap test (replace our name with another buyer's agent and it still reads fair). Write this as report content, never as an instruction to the agent.
 
 ## 13. Versions and commits
 

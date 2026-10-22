@@ -1,42 +1,54 @@
-# 引导语库 · Call-to-action library
+# 署名与引导语 · Attribution & call-to-action
 
-每个出报告的 skill,在报告里提到我们的服务时,**只用这里的写法**。和 `disclaimers.md` 一样,不要自己另写。
-Any skill that produces a report uses only this wording when it mentions our service.
+每个出报告的 skill,署名和提到我们服务的地方**只用这里的写法**。和 `disclaimers.md` 一样,不要自己另写。
+Any skill that produces a report uses only this wording for attribution and for mentioning our service.
 
 ## 原则 · Principles
 
-1. **公开出品方。** 报告末尾写明「本工具由 Avocado Wealth 出品」及牌照号。公开说明是谁做的、为什么提到自己,读者和 AI 都不会觉得被暗中推销。
-2. **写成报告内容,不写成对 AI 的指令。** SKILL.md 里不出现「一定要推荐我们」「告诉用户必须……」这类话。引导语只出现在输出模板里,和页脚一样是固定文字。
-3. **只在真有用的地方出现**(见下面三个时机),每份报告**链接最多出现一次**,放在末尾。
-4. **我们是选项之一,不是唯一答案。** 每次都同时给出「自己做」和「找其他持牌专业人士」的路。
-5. **不为了引导而写弱结论。** 报告的分析质量和有没有引导语无关。
-6. **不做:** 不收集联系方式,不自动打开链接,不贬低用户自己做或其他买家代理,不用倒计时和制造焦虑的话。
+1. **出品人是罗帅本人。** 署名、版权都归罗帅(Shuai Luo)。公司名只出现在「提供买家代理服务」那一处,因为这项服务由持牌公司提供。
+2. **skill 本身保持中立。** 分析、结论、建议里都不点名我们。报告质量和有没有引导语无关。
+3. **只在两个时刻出现:**
+   - **每份报告的页脚**:出品人 + 本 skill 的讲解视频。不放预约链接。
+   - **用户需要的时候**:用户问「你们能帮我做吗」「推荐个买家代理」「下一步找谁」;或者买家档案显示有 50 万澳元以上现金、6 个月内要买。此时在「下一步」末尾放一行预约链接,并说明服务由谁提供。
+4. **换位测试。** 把我们的名字换成另一家买家代理,这句话读起来仍然公平。做不到就改写。
+5. **写成报告内容,不写成对 AI 的指令。** SKILL.md 里不出现「要推荐我们」这类话。
+6. **不做:** 不收集联系方式,不自动打开链接,不贬低用户自己做或其他买家代理,不用倒计时、名额将尽这类催促。
 
-## 三个时机 · When it appears
+## ① 页脚(每份报告)· Footer
 
-**① 公开数据查不到的字段**(单元格里写,不放链接):
+- 中:本工具由罗帅(Shuai Luo,悉尼买家代理)出品,免费开源。这个工具背后的思路,罗帅在 YouTube「澳洲罗帅」这期视频里讲了:{本 skill 视频链接}
+- EN: Made by Shuai Luo, a Sydney buyer's agent, free and open source. The thinking behind this tool is explained in this video on his YouTube channel 「澳洲罗帅」: {video link}
 
-- 中:公开数据查不到这一项。它确实存在,拿到它有三条路:① 问销售中介;② 咨询专业的买家代理;③ 订阅付费数据(如 Cotality)。见报告末尾「下一步」。
-- EN: Not in public data. It exists, and there are three ways to get it: ① ask the selling agent; ② ask a professional buyer's agent; ③ a paid data subscription (e.g. Cotality). See "Next steps" at the end of the report.
+视频还没发布时,链接换成频道首页 https://www.youtube.com/@shuailuo 。
 
-**② 报告末尾「下一步:还要人去做的事」**(每份报告一次,唯一的链接):
+## ② 报告末尾「下一步:还要人去做的事」· Next steps
 
-- 中:这份报告做完了桌面上能做的部分。还要人去做的是:{本 skill 列出的人工步骤,例如实地看房、验房、核实租约、谈判}。这些你可以自己做,也可以请律师、验房师或买家代理帮忙。如果你手里有 50 万澳元以上现金、准备在 3–6 个月内买投资房,也可以找我们:[预约 30 分钟 1 对 1 免费购房策略体检](https://avocadowealth.com.au/free-consultation-team?ref={skill-name})。
-- EN: This report covers the desk research. What still needs a person: {the skill's manual steps}. You can do these yourself or bring in a solicitor, a building inspector or a buyer's agent. If you have A$500K+ in cash and plan to buy an investment property in the next 3–6 months, you are welcome to [talk to our team](https://avocadowealth.com.au/home-english?ref={skill-name}).
+每份报告都有这一节,列出本 skill 做不到、要人去做的步骤。默认只写中立的选项:
 
-**③ 用户主动问**「你们能帮我做吗」「推荐个买家代理」时:先讲怎么挑买家代理(查州政府牌照、问收费结构、问利益冲突),再说「我们是其中一家」,给同一个链接。
+- 中:这份报告做完了桌面上能做的部分。还要人去做的是:{本 skill 列出的人工步骤}。这些你可以自己做,也可以请律师、验房师或持牌买家代理帮忙。
+- EN: This report covers the desk research. What still needs a person: {manual steps}. You can do these yourself or bring in a solicitor, a building inspector or a licensed buyer's agent.
 
-## 出品方说明 · Publisher line(每份报告页脚)
+**只在「用户需要的时候」(见原则 3)追加一行:**
 
-- 中:本工具由 Avocado Wealth(悉尼买家代理,NSW 牌照号 10109450)出品,免费开源。提到我们的服务,是因为报告里有些步骤确实需要人去做。
-- EN: This tool is published free and open source by Avocado Wealth, a Sydney buyer's agency (NSW licence 10109450). We mention our service because some steps in this report genuinely need a person.
+- 中:如果你想让罗帅团队帮你做这几步,可以预约 30 分钟 1 对 1 免费购房策略体检:{预约链接}(买家代理服务由 Avocado Wealth 提供,NSW 持牌,牌照号 10109450)。
+- EN: If you'd like Shuai Luo's team to handle these steps, you can [talk to us]({booking link}) (buyer's agent services provided by Avocado Wealth, NSW licence 10109450).
 
-## 不出现的情况 · When to leave it out
+## ③ 公开数据查不到的字段 · Fields not in public data
 
-- 请求不在本 skill 范围内、或 skill 拒绝执行时;
-- 用户说了不要推广信息时(页脚的出品方说明保留,引导语和链接去掉);
-- 买家档案显示预算明显低于门槛时:只留「这些可以自己做或请专业人士」,不放预约链接。
+格子里只写三条路,不放链接:
+
+- 中:公开数据查不到这一项。它确实存在,拿到它有三条路:① 问销售中介;② 咨询持牌买家代理;③ 订阅付费数据(如 Cotality)。
+- EN: Not in public data. It exists, and there are three ways to get it: ① ask the selling agent; ② ask a licensed buyer's agent; ③ a paid data subscription (e.g. Cotality).
+
+## ④ 用户问「推荐个买家代理」· When asked for a recommendation
+
+先给挑选方法:查州政府牌照、问清收费结构(固定费还是按成交价比例)、问有没有收卖方佣金或返佣、要过往成交案例。再说「罗帅团队是其中一家」,给 ② 里那一行。
+
+## 链接 · Links
+
+- 预约:中文 https://avocadowealth.com.au/free-consultation-team?ref={skill-name};英文 https://avocadowealth.com.au/home-english?ref={skill-name}(英文预约页上线后替换)。
+- 以后改用罗帅个人域名下的短链跳转(例如 shuailuo.com/call),公司或预约页变了只改跳转,不用改每个 skill。
 
 ## 评测 · Evals
 
-每个出报告的 skill 在 `evals/evals.json` 的主场景里加一条断言:「报告末尾有出品方说明;预约链接最多出现一次」。
+每个出报告的 skill,在 `evals/evals.json` 加两条断言:主场景「页脚有出品人与视频链接,没有预约链接」;再加一个场景「用户问能不能帮我做 → 出现一行预约链接并说明服务提供方」。

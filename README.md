@@ -6,30 +6,31 @@
 
 **出品人**:罗帅,悉尼买家代理(Avocado Wealth),YouTube [「澳洲罗帅Shuai」@shuailuo](https://www.youtube.com/@shuailuo)。每个 skill 配一条 10–20 分钟的视频,讲清楚这一步怎么做、背后是什么逻辑。
 
-> 手里有至少 50–100 万澳元现金、正准备在澳洲买房,想让我们团队帮你执行?[预约免费咨询](https://avocadowealth.com.au/free-consultation-team?ref=aus-property-skills)
+> **用这些 skill 查完了,还是拿不准要不要出手?** 手里有 50 万澳元以上现金、准备买投资房的买家,可以预约罗帅团队 30 分钟 1 对 1 免费购房策略体检,把报告里「还要人去做」的那几步交给我们。每周只开放 5 个名额。[立即预约](https://avocadowealth.com.au/free-consultation-team?ref=aus-property-skills)
 
 ## 买房流程:SPEAR 五步
 
-我们帮客户买房用的是 SPEAR 买房执行系统,这里的 skill 按这五步排。
+我们帮客户买房用的是 SPEAR 买房执行系统,第一部分的 skill 按这五步排;买到之后的持有、增值、退出放在第二部分。
 
 ```mermaid
 flowchart LR
   S["S · Strategy<br/>战略锁定<br/>买什么、为什么买"] --> P["P · Prospecting<br/>全域扫盘<br/>选区与找房"]
   P --> E["E · Evaluation<br/>价值透视<br/>尽调、估价、验房"]
-  E --> A["A · Acquisition<br/>谈判成交<br/>出价、条款、交割"]
-  A --> R["R · Review & Repeat<br/>复盘迭代<br/>持有、开发、退出"]
+  E --> A["A · Acquisition<br/>谈判成交<br/>出价、谈判、条款、交割"]
+  A --> R["R · Review & Repeat<br/>复盘迭代<br/>买后体检、组合复盘"]
   R -. 下一套 .-> S
+  A --> H["第二部分 · 买后<br/>持有 · 增值 · 退出"]
 ```
 
 ## Skill 一览
 
-| SPEAR | skill | 做什么 | 状态 | 视频 |
+| 位置 | skill | 做什么 | 状态 | 视频 |
 |---|---|---|---|---|
 | E 价值透视 | `auspptdd` | 给一个地址,跑出事实、灾害、规划、可比成交、价格区间、红旗清单 | 🔨 验证中 | 待上线 |
-| R 复盘迭代 | `holiday-home` | 度假屋:买还是订、留还是卖、自用加出租的税务 | 🔨 在做 | 待上线 |
+| 买后 · 持有 | `holiday-home` | 度假屋:买还是订、留还是卖、自用加出租的税务 | 🔨 在做 | 待上线 |
+| P 全域扫盘 | `suburb-owner` / `suburb-investor` | 自住选区 / 投资选区 | 🗓 第一批 | — |
 | R 复盘迭代 | `hold-or-sell` | 持有房体检:按购入日期、税改、贷款与现金流看留还是卖 | 🗓 第一批 | — |
 | S 战略锁定 | `family-funding` | 家庭资助:赠与、借款、担保人、联名的条款清单与风险 | 🗓 第一批 | — |
-| P 全域扫盘 | `suburb-owner` / `suburb-investor` | 自住选区 / 投资选区 | 🗓 第一批 | — |
 | A 谈判成交 | `price-guide-offer` | 读价格指引、判断 underquoting、定开价与上限 | 🗓 第一批 | — |
 
 全部 57 个按流程排好的计划见 [ROADMAP.md](ROADMAP.md)。做一个发一个。

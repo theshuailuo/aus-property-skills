@@ -1,16 +1,20 @@
 # 路线图 · Roadmap(57 个 skill)
 
-按 **SPEAR 买房执行系统**的五步排:Strategy 战略锁定 → Prospecting 全域扫盘 → Evaluation 价值透视 → Acquisition 谈判成交 → Review & Repeat 复盘迭代。做一个发一个,每个 skill 配一条 10–20 分钟长视频。顺序会按大家在评论区和 Issues 里的反馈调整。
-Ordered by the five steps of the SPEAR buying system: Strategy → Prospecting → Evaluation → Acquisition → Review & Repeat. Skills ship one at a time, each with a 10–20 minute video. Order changes with feedback from comments and Issues.
+分两部分。**第一部分**按 **SPEAR 买房执行系统**的五步排:Strategy 战略锁定 → Prospecting 全域扫盘 → Evaluation 价值透视 → Acquisition 谈判成交 → Review & Repeat 复盘迭代。**第二部分**是买到之后的事:持有、增值、退出。做一个发一个,每个 skill 配一条 10–20 分钟长视频。顺序会按大家在评论区和 Issues 里的反馈调整。
+Two parts. **Part 1** follows the five steps of the SPEAR buying system: Strategy → Prospecting → Evaluation → Acquisition → Review & Repeat. **Part 2** covers life after the purchase: hold, grow, exit. Skills ship one at a time, each with a 10–20 minute video. Order changes with feedback from comments and Issues.
 
 **结构 · Structure**:`auspptdd` 是**总装 skill**,一份报告覆盖买家的五个问题,每节只做到初判并指向对应模块。下面标 🧩 的是**可单独使用的深挖模块**,各有自己的场景入口和视频。同一段逻辑只有一个正本,放在所属模块(或 `shared/`),总装调用不复制。
 `auspptdd` is the assembly skill: one report, first-pass depth per section, each pointing to a 🧩 module that can also be used on its own. Each rule lives in exactly one module (or `shared/`); the assembly skill calls it rather than copying it.
 
 状态 · Status:✅ 已发布 released · 🔨 在做 in progress · 🗓 第一批 next batch · ⏳ 规划中 planned
 
-## S · Strategy 战略锁定:想买之前,策略与资金(15)
+# 第一部分 · SPEAR 买房执行系统(38)
 
-_S · Strategy: before buying — strategy & money_
+_Part 1 · The SPEAR buying system_
+
+## S · Strategy 战略锁定:买什么、为什么买
+
+_Strategy: what to buy and why — goals, budget, structure_
 
 | # | skill | 中文名 | 做什么 | 状态 |
 |---|---|---|---|---|
@@ -30,9 +34,9 @@ _S · Strategy: before buying — strategy & money_
 | 14 | policy-change-impact | 政策/税改影响 | 把预算案和税改翻译成「对你这类持有人的影响」和时间线 | ⏳ |
 | 15 | business-owner-buyer | 老板买房 | 自雇和公司老板买房:收入证明与贷款、公司资金怎么合规拿出来、信托买房的税 | ⏳ |
 
-## P · Prospecting 全域扫盘:选区与找房(7)
+## P · Prospecting 全域扫盘:选区与找房
 
-_P · Prospecting: where to buy & finding property_
+_Prospecting: where to buy and finding property_
 
 | # | skill | 中文名 | 做什么 | 状态 |
 |---|---|---|---|---|
@@ -44,9 +48,9 @@ _P · Prospecting: where to buy & finding property_
 | 21 | buyers-agent-hire | 请不请买家代理 | 要不要请、费用结构、怎么挑、合同注意点 | ⏳ |
 | 22 | 🧩 open-home-checklist | 看房清单 | 开放日现场检查项与红旗(结构、噪音、潮湿、邻里) | ⏳ |
 
-## E · Evaluation 价值透视:尽调、估价、验房、合同风险(8)
+## E · Evaluation 价值透视:尽调、估价、验房、合同风险
 
-_E · Evaluation: due diligence, valuation, inspections, contract risk_
+_Evaluation: due diligence, valuation, inspections, contract risk_
 
 | # | skill | 中文名 | 做什么 | 状态 |
 |---|---|---|---|---|
@@ -59,9 +63,9 @@ _E · Evaluation: due diligence, valuation, inspections, contract risk_
 | 29 | off-the-plan-check | 楼花体检 | 开发商、合同、估价风险、交付与延期、收益测算 | ⏳ |
 | 30 | house-land-build-check | 买地建房与新房缺陷 | 房地套餐合同、建筑商资质、交付缺陷处理 | ⏳ |
 
-## A · Acquisition 谈判成交:出价、拍卖、条款、交割(4)
+## A · Acquisition 谈判成交:出价、谈判、条款、交割
 
-_A · Acquisition: offers, auctions, terms, settlement_
+_Acquisition: offers, negotiation, terms, settlement_
 
 | # | skill | 中文名 | 做什么 | 状态 |
 |---|---|---|---|---|
@@ -70,37 +74,50 @@ _A · Acquisition: offers, auctions, terms, settlement_
 | 33 | special-conditions-cooling-off | 特殊条款与冷静期 | 贷款、验房、冷静期、交割期等特殊条款清单与取舍 | ⏳ |
 | 34 | pre-settlement-inspection | 交割前验房与交割 | 交割前检查清单、延期/违约应对、保险与资金到位 | ⏳ |
 
-## R · Review & Repeat 复盘迭代:持有、开发、退出(23)
+## R · Review & Repeat 复盘迭代:买后体检、组合复盘、下一套
 
-_R · Review & Repeat: holding, development, exit_
-
-### 持有 · Holding
+_Review & Repeat: post-purchase check-up, portfolio review, the next property_
 
 | # | skill | 中文名 | 做什么 | 状态 |
 |---|---|---|---|---|
-| 35 | hold-or-sell | 持有房体检(留还是卖) | 按购入日期、税改、贷款与现金流评估单套房留还是卖 | 🗓 |
-| 36 | portfolio-review | 组合体检 | 多套房整体评分,重贷、加租、出售的优先级 | ⏳ |
-| 37 | refinance-and-offset | 重贷与 offset | 固定期到期、重贷成本、offset 用没用对、只还利息还是本息 | ⏳ |
+| 35 | property-manager | 物业管理 | 要不要请物业经理、费用结构、考核与更换 | ⏳ |
+| 36 | hold-or-sell | 持有房体检(留还是卖) | 按购入日期、税改、贷款与现金流评估单套房留还是卖 | 🗓 |
+| 37 | portfolio-review | 组合体检 | 多套房整体评分,重贷、加租、出售的优先级 | ⏳ |
 | 38 | equity-for-next-purchase | 用 equity 买下一套 | 可用 equity、可借额、交叉抵押与拆分 | ⏳ |
-| 39 | mortgage-stress-hardship | 房贷压力与负资产 | 还款困难怎么办、hardship 申请、负资产下的选择 | ⏳ |
-| 40 | rental-tax-deductions | 出租房税务与折旧 | 可抵扣项、折旧、维修与改良的区别、年度记录清单 | ⏳ |
-| 41 | land-tax-check | 土地税 | 各州土地税估算,信托、多套房、外国人附加 | ⏳ |
-| 42 | property-manager | 物业管理 | 要不要请物业经理、费用结构、考核与更换 | ⏳ |
+
+# 第二部分 · 买后:持有、增值、退出(19)
+
+_Part 2 · After you buy: hold, grow, exit_
+
+## 持有 · Hold:贷款、税务、出租、strata、度假屋
+
+_Loans, tax, renting, strata, holiday homes_
+
+| # | skill | 中文名 | 做什么 | 状态 |
+|---|---|---|---|---|
+| 39 | refinance-and-offset | 重贷与 offset | 固定期到期、重贷成本、offset 用没用对、只还利息还是本息 | ⏳ |
+| 40 | mortgage-stress-hardship | 房贷压力与负资产 | 还款困难怎么办、hardship 申请、负资产下的选择 | ⏳ |
+| 41 | rental-tax-deductions | 出租房税务与折旧 | 可抵扣项、折旧、维修与改良的区别、年度记录清单 | ⏳ |
+| 42 | land-tax-check | 土地税 | 各州土地税估算,信托、多套房、外国人附加 | ⏳ |
 | 43 | landlord-playbook | 房东手册 | 涨租、押金、欠租、终止租约、房东险、定租金与空置 | ⏳ |
 | 44 | strata-owner-life | strata 业主日常 | by-law、装修审批、管理费与特别摊派、物业公司、纠纷 | ⏳ |
-| 45 | renovate-or-rebuild | 翻新还是重建 | 翻新回报、推倒重建、审批、卖前翻新取舍 | ⏳ |
-| 46 | holiday-home | 度假屋 | 买还是订、留还是卖、自用加出租的税务 | 🔨 |
-| 47 | short-term-rental | 短租合规与回报 | 本州本市短租规则、by-law、回报测算 | ⏳ |
+| 45 | holiday-home | 度假屋 | 买还是订、留还是卖、自用加出租的税务 | 🔨 |
+| 46 | short-term-rental | 短租合规与回报 | 本州本市短租规则、by-law、回报测算 | ⏳ |
 
-### 开发 · Development
+## 增值 · Grow:翻新、分割、加建、小开发
+
+_Renovation, subdivision, granny flats, small developments_
 
 | # | skill | 中文名 | 做什么 | 状态 |
 |---|---|---|---|---|
+| 47 | renovate-or-rebuild | 翻新还是重建 | 翻新回报、推倒重建、审批、卖前翻新取舍 | ⏳ |
 | 48 | 🧩 subdivision-check | 土地分割可行性 | 分区、最小地块、成本、时间与税务影响 | ⏳ |
 | 49 | 🧩 granny-flat-duplex | granny flat 与 duplex | 能不能建、成本、租金、CGT 与养老金影响 | ⏳ |
 | 50 | small-development-feasibility | 小型开发可行性 | 2–4 套开发算账、DA 流程、合作模式 | ⏳ |
 
-### 卖房、退休、传承 · Selling, retirement & estate
+## 退出 · Exit:卖房、换房、退休、传承
+
+_Selling, switching, retirement, estate_
 
 | # | skill | 中文名 | 做什么 | 状态 |
 |---|---|---|---|---|
@@ -114,7 +131,7 @@ _R · Review & Repeat: holding, development, exit_
 
 ---
 
-**第一批顺序 · Next batch**:holiday-home → hold-or-sell → family-funding → suburb-owner / suburb-investor → price-guide-offer。auspptdd 验证完成后发布。
+**第一批顺序 · Next batch**:suburb-owner / suburb-investor → hold-or-sell → family-funding → price-guide-offer。auspptdd 验证完成后发布;holiday-home 在做。
 
 想要哪个先做?在 [Issues](https://github.com/theshuailuo/aus-property-skills/issues) 或视频评论区说。
 Want one sooner? Say so in Issues or in the video comments.

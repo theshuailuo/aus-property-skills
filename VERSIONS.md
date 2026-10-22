@@ -12,4 +12,5 @@ To update: compare with the table below and reinstall any skill that is behind (
 
 ### 0.1.0 (2026-10-22)
 - 仓库脚手架:README 中英、AGENTS.md、MIT + 品牌说明、ROADMAP(57 个 skill)、共享免责/图片/数据源、skill 写法样板、校验脚本。
+- 结构规则:auspptdd 为总装 skill,9 个深挖模块可单独使用,同一逻辑只有一个正本(AGENTS.md §3.1、ROADMAP 🧩)。
 - Repository scaffold: bilingual README, AGENTS.md, MIT + trademark notice, 57-skill roadmap, shared disclaimers / images policy / data-source registry, skill template, validation script.

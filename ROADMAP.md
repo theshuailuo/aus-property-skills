@@ -3,6 +3,9 @@
 按买房流程六个阶段排。做一个发一个,每个 skill 配一条 10–20 分钟长视频。顺序会按大家在评论区和 Issues 里的反馈调整。
 Ordered by the six stages of the property journey. Skills ship one at a time, each with a 10–20 minute video. Order changes with feedback from comments and Issues.
 
+**结构 · Structure**:`auspptdd` 是**总装 skill**,一份报告覆盖买家的五个问题,每节只做到初判并指向对应模块。下面标 🧩 的是**可单独使用的深挖模块**,各有自己的场景入口和视频。同一段逻辑只有一个正本,放在所属模块(或 `shared/`),总装调用不复制。
+`auspptdd` is the assembly skill: one report, first-pass depth per section, each pointing to a 🧩 module that can also be used on its own. Each rule lives in exactly one module (or `shared/`); the assembly skill calls it rather than copying it.
+
 状态 · Status:✅ 已发布 released · 🔨 在做 in progress · 🗓 第一批 next batch · ⏳ 规划中 planned
 
 ## 1. 想买之前:策略与资金 · Before buying: strategy & money(15)
@@ -33,23 +36,23 @@ Ordered by the six stages of the property journey. Skills ship one at a time, ea
 | 17 | suburb-investor | 投资选区 | 品类 > 可负担性 > 具体选区;看租金回报、空置率、可负担性 | 🗓 |
 | 18 | city-chooser | 选城市 | 悉尼、墨尔本、布里斯班、珀斯、阿德莱德等按预算与目的对比 | ⏳ |
 | 19 | property-type-chooser | 户型选择 | house / unit / townhouse / land 在增值、租金、成本、风险上的差异 | ⏳ |
-| 20 | listing-decoder-agent-questions | 房源解码与问中介 | 翻译房源措辞,给出问中介的问题清单和哪些话别说 | ⏳ |
+| 20 | 🧩 listing-decoder-agent-questions | 房源解码与问中介 | 翻译房源措辞,给出问中介的问题清单和哪些话别说 | ⏳ |
 | 21 | buyers-agent-hire | 请不请买家代理 | 要不要请、费用结构、怎么挑、合同注意点 | ⏳ |
-| 22 | open-home-checklist | 看房清单 | 开放日现场检查项与红旗(结构、噪音、潮湿、邻里) | ⏳ |
+| 22 | 🧩 open-home-checklist | 看房清单 | 开放日现场检查项与红旗(结构、噪音、潮湿、邻里) | ⏳ |
 
 ## 3. 尽调、估价、出价、合同、验房、交割 · Due diligence to settlement(12)
 
 | # | skill | 中文名 | 做什么 | 状态 |
 |---|---|---|---|---|
-| 23 | auspptdd | 桌面尽调 | 给一个地址,跑出事实、灾害、规划、可比成交、价格区间、红旗清单 | 🔨 |
-| 24 | hazard-and-insurance | 灾害与保险 | 洪水、山火、滑坡、噪音,保险能不能买、保费预判 | ⏳ |
-| 25 | comparable-sales-valuation | 估价与可比 | 选可比、做调整、得出价格区间;处理银行估价低于合同价 | ⏳ |
-| 26 | price-guide-offer | 价格指引与出价 | 读价格指引、判断 underquoting、给出开价与上限策略 | 🗓 |
-| 27 | auction-day | 拍卖实战 | 拍卖前准备、上限设定、叫价节奏、流拍后谈判 | ⏳ |
+| 23 | auspptdd(总装) | 桌面尽调 | 给一个地址,跑出事实、灾害、规划、可比成交、价格区间、红旗清单 | 🔨 |
+| 24 | 🧩 hazard-and-insurance | 灾害与保险 | 洪水、山火、滑坡、噪音,保险能不能买、保费预判 | ⏳ |
+| 25 | 🧩 comparable-sales-valuation | 估价与可比 | 选可比、做调整、得出价格区间;处理银行估价低于合同价 | ⏳ |
+| 26 | 🧩 price-guide-offer | 价格指引与出价 | 读价格指引、判断 underquoting、给出开价与上限策略 | 🗓 |
+| 27 | 🧩 auction-day | 拍卖实战 | 拍卖前准备、上限设定、叫价节奏、流拍后谈判 | ⏳ |
 | 28 | contract-risk-triage | 合同风险筛查 | 逐条标出合同与 section 32 / vendor statement 的红旗并分级 | ⏳ |
 | 29 | special-conditions-cooling-off | 特殊条款与冷静期 | 贷款、验房、冷静期、交割期等特殊条款清单与取舍 | ⏳ |
 | 30 | building-pest-report | 验房报告解读 | 解读建筑与虫害报告,区分结构性与维修性问题,给出压价或退出思路 | ⏳ |
-| 31 | strata-report | strata 报告解读 | 维修基金、管理费趋势、诉讼、缺陷、特别摊派风险 | ⏳ |
+| 31 | 🧩 strata-report | strata 报告解读 | 维修基金、管理费趋势、诉讼、缺陷、特别摊派风险 | ⏳ |
 | 32 | off-the-plan-check | 楼花体检 | 开发商、合同、估价风险、交付与延期、收益测算 | ⏳ |
 | 33 | house-land-build-check | 买地建房与新房缺陷 | 房地套餐合同、建筑商资质、交付缺陷处理 | ⏳ |
 | 34 | pre-settlement-inspection | 交割前验房与交割 | 交割前检查清单、延期/违约应对、保险与资金到位 | ⏳ |
@@ -76,8 +79,8 @@ Ordered by the six stages of the property journey. Skills ship one at a time, ea
 
 | # | skill | 中文名 | 做什么 | 状态 |
 |---|---|---|---|---|
-| 48 | subdivision-check | 土地分割可行性 | 分区、最小地块、成本、时间与税务影响 | ⏳ |
-| 49 | granny-flat-duplex | granny flat 与 duplex | 能不能建、成本、租金、CGT 与养老金影响 | ⏳ |
+| 48 | 🧩 subdivision-check | 土地分割可行性 | 分区、最小地块、成本、时间与税务影响 | ⏳ |
+| 49 | 🧩 granny-flat-duplex | granny flat 与 duplex | 能不能建、成本、租金、CGT 与养老金影响 | ⏳ |
 | 50 | small-development-feasibility | 小型开发可行性 | 2–4 套开发算账、DA 流程、合作模式 | ⏳ |
 
 ## 6. 卖房、退出、退休、传承 · Selling, exit, retirement & estate(7)

@@ -46,6 +46,15 @@ metadata:
 
 End every SKILL.md with a `## Related Skills` section: one line per neighbouring skill saying when to hand over.
 
+### 3.1 Assembly skill vs. modules — one source of truth
+
+- **`auspptdd` is the assembly skill.** One report answers the buyer's five questions; each section goes only to first-pass depth and points to the module that goes deeper.
+- **Modules can be used on their own**, each with its own scenario entry and video: `hazard-and-insurance`, `comparable-sales-valuation`, `price-guide-offer`, `auction-day`, `subdivision-check`, `granny-flat-duplex`, `strata-report`, `listing-decoder-agent-questions`, `open-home-checklist`.
+- **The same logic lives in exactly one place.** Rules and scripts sit in the module that owns them (or in `shared/` when several skills need them). The assembly skill references and calls them; it never copies them. When you change a rule, change it in its owning module only.
+- Each module's SKILL.md says it is the source of truth for its topic; `auspptdd`'s Related Skills section lists which module owns each section.
+
+总装 skill(auspptdd)每节只做初判并指向模块;模块可单独使用;同一段逻辑只有一个正本,放在所属模块或 `shared/`,总装调用不复制。
+
 ## 4. Cross-agent rules
 
 - Plain Markdown and ordinary scripts only. No Claude Code-only syntax in SKILL.md (for example `` !`command` `` injection or tool names specific to one agent). Agent-specific enhancements belong in a local private overlay, not in this repo.

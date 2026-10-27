@@ -1,0 +1,2026 @@
+{
+ "meta": {
+  "lang": "zh",
+  "title": "18/90 Terrace Road, East Perth WA 6004 · 买家尽调(公开数据免费版)",
+  "date": "2026-10-27",
+  "one_liner": "只凭地址、只用免费官方数据:这套 2013 年改建的河畔遗产楼 3 房公寓(Level 2,SP 58159,115 户)标价 $1,249,000 值不值、风险在哪。",
+  "edition": "public",
+  "human_minutes": 0,
+  "active_minutes": 23,
+  "wall_minutes": 26
+ },
+ "subject": {
+  "address": "18/90 Terrace Road, East Perth WA 6004",
+  "lot_dp": "Lot 18 on Strata Plan 58159(SP 58159;lot 号按单元号推定,未经产权核对)",
+  "title_type": "strata",
+  "land_m2": 187,
+  "strata_m2": 187,
+  "list_price": 1249000,
+  "built": 2013,
+  "dwelling": "公寓 Apartment · Level 2 · Strata(SP 58159,115 户,Adagio)",
+  "beds": 3,
+  "baths": 2,
+  "cars": 2,
+  "floor_m2": 136,
+  "status_line": "洪水条件项:母地块在 DWER Swan River 管理洪泛区内(1% 洪水范围在 21 m 外);本单元在 Level 2,风险落在地下车库与 strata 保险——出价前先拿洪水位与保险信息。Strata 费约 $14,400/年,偏高。",
+  "status_class": "cond",
+  "lon": 115.86941,
+  "lat": -31.960283,
+  "facts": [
+   [
+    "地址",
+    "18/90 Terrace Road, East Perth WA 6004(City of Perth)"
+   ],
+   [
+    "地块 / 产权",
+    "母地块 land_id 4059340;同点叠三张图:D 12226、DP 63152、SP 58159 —— SP 前缀 = Strata Plan(分层产权),本报告挂「Strata 模块」。Landgate 免费地籍没有单元级记录,lot 18 按单元号推定,unit entitlement 要看 strata plan(Landgate $33.90)"
+   ],
+   [
+    "面积",
+    "中介文案:室内 136 m² + 阳台 20 + 车位 26 + 储物 5 = 187 m²(Aussie/Cotality 记 139 m² 室内、187 m² 「land」)。母地块自算约 3,900 m²(地址多边形鞋带公式),以产权为准"
+   ],
+   [
+    "分区",
+    "Residential R160 — City of Perth City Planning Scheme No. 2(DPLH-071,刊宪 2004-01-09);Precinct P13;MRS Central City Area"
+   ],
+   [
+    "楼层 / 朝向",
+    "Level 2,朝西南(中介文案);2013 年建成(Aussie),前 ABC 电台电视演播室地块改建"
+   ],
+   [
+    "中介",
+    "Inhabit Property(Aussie 页 RealEstateAgent 结构化数据)"
+   ],
+   [
+    "挂牌",
+    "Offers Over $1,249,000;Aussie 首挂 2026-09-10"
+   ],
+   [
+    "上一笔成交",
+    "2014-02 $1,000,000(Aussie/Cotality Property history)"
+   ],
+   [
+    "Strata / 持有成本(中介自述)",
+    "Strata $2,551.59/季(Admin)+ $1,058.75/季(Reserve)= 约 $14,441/年;Council $2,888.85/年;Water $2,026.26/年"
+   ],
+   [
+    "设施",
+    "影院、泳池 spa、BBQ、桑拿、住户休息室、会议室、健身房(中介文案)——这是 strata 费高的原因,也是 10 年计划里的大额维修项"
+   ]
+  ]
+ },
+ "photos": {
+  "images": [
+   {
+    "url": "https://images.corelogic.asia/1280x720/filters:fit()/filters:watermark(cla-digital-assets-prod,watermarks/logo.png,-2p,-2p,30,16,16)/assets/perm/2gecez5ndyi7dji2ugvyjtqubm?signature=f1b37f47afe53665807109305d94bc5144b8b95d96be6e8256e944042f7b38c8",
+    "caption": "挂牌主图(Aussie / Cotality 托管,带水印)"
+   }
+  ],
+  "credit_source": "Aussie Homes 物业页(Cotality 数据);其余 31 张由页面脚本加载,本次未抓取",
+  "sources": [
+   {
+    "name": "Aussie 物业页",
+    "url": "https://www.aussie.com.au/property/wa/east-perth-6004/18-90-terrace-road/",
+    "crosscheck": "地址、3 房 2 卫 2 车位、标价 $1,249,000、中介 Inhabit Property、建年 2013 —— 5 项一致"
+   }
+  ],
+  "streetview_url": "https://www.google.com/maps?q=&layer=c&cbll=-31.960283,115.86941",
+  "material_from_photos": "未判:只拿到 1 张远景图。楼体为 2013 年改建的混凝土/砖体多层公寓(按建筑类型推断,非照片判读);外墙/屋面材料进「问中介」与验房 brief"
+ },
+ "summary": {
+  "verdict_line": "标价「Offers Over $1,249,000」低于本楼近 12 个月三笔 3 房成交($1.38M–$1.50M,同户型 136–137 m²)约 9–17%,也低于 Terrace Rd 一线同房数成交的主流 $1.30M–$1.48M:这是「低挂等竞价」的定价,不是便宜货。合理区间 $1.28M–$1.40M。它是「条件项」:母地块在 Swan River 管理洪泛区,规划洪水位 2.28 m AHD 与地面层只差 0–2 m,Level 2 住面无虞,但地下车库与 strata 保险要先问清;strata 费约 $14,400/年偏高、楼体是州遗产登记地、临 SPP 5.4 噪音走廊——三项都是价格折扣项,不是否决项。",
+  "max_risk": "Strata 层面的钱:115 户、泳池/桑拿/影院/健身房 + 州遗产登记外立面 + 2013 年改建进入第二个十年 + 临河地下车库 —— 四件事叠在一起,意味着 levies(已经 $14,441/年)与 special levy 的上行压力是最大、也最难从公开数据看到的风险。买家最该先拿的是:Precontractual disclosure、10 年维修计划、储备金余额、strata 保险(含洪水)保单。",
+  "range": [
+   1280000,
+   1400000
+  ],
+  "range_note": "三明治法(同楼):上夹板 10/90 $1,425,000(2026-02,136 m²、podium 庭院 + 公园景观)——同规格放在更好位置,减景观/庭院溢价约 2–4% ≈ $1.37M–1.40M;下夹板 66/90 $1,380,000(2025-12,137 m²、2 车位,楼层朝向未知)——与标的几乎同规格,成交前挂了 6 个月,减去「标的朝向景观未知」的不确定性约 5–7% ≈ $1.28M–1.31M。旁证:106/90 $1.5M(3 车位);Terrace Rd 其它楼 3 房 13 笔 $1.20M–1.56M、中位 $1.35M;全区 3 房非独立屋 12 个月中位见标尺。两头都没有标的的朝向/景观/翻新信息,区间按规则放宽。",
+  "avm_range": [
+   1200000,
+   1250000,
+   1300000
+  ],
+  "offer": {
+   "first": 1250000,
+   "walk_away": 1380000,
+   "confidence": "中",
+   "confidence_note": "首次出价 $1.25M = 卖方自己定的「Offers Over」门槛,也是本楼 OnTheHouse AVM 带($1.2–1.3M,模型值)的中点;挂了约 7 周、超区均在市 14 天四倍,卖方有谈判空间。放手价 $1.38M = 同楼 66 号同规格成交价,超过它就等于买一套更好位置的 10 号。把握「中」:夹板两笔都是同楼同户型(6/8、5/8),但标的朝向景观、翻新、levies 年度都未核;洪水为条件项(地下车库高程 + strata 保险两项拿到前出价只能是条件出价)。"
+  },
+  "cards": [
+   {
+    "label": "洪水(地库/大堂)Flood",
+    "status": "cond",
+    "value": "条件项 · Swan River 管理洪泛区",
+    "note": "DWER FPM「Designated flood event floodplain」多边形命中,1% AEP 洪水范围线在 21 m 外;1% 水位 1.43 m AHD、规划水位 DFE 2.28 m AHD(305 m 处测点),地面约 2–4 m AHD;Level 2 单元不受影响,地下车库/储物与 strata 保险是要问的点"
+   },
+   {
+    "label": "山火 Bushfire",
+    "status": "ok",
+    "value": "未检出 ✓",
+    "note": "DFES Bushfire Prone Areas(OBRM-026)点上 0,1,500 m 内 0;无需 BAL"
+   },
+   {
+    "label": "噪音与干道 Noise",
+    "status": "warn",
+    "value": "SPP 5.4 噪音走廊命中",
+    "note": "DPLH SPP 5.4「Other significant freight/traffic route」命中;Terrace Rd 5,316 辆/工作日(2021/22,重车 6.3%)在 73 m;Adelaide Tce 17,196(2025/26,重车 16.5%)在 129 m。朝西南临河一侧较安静,高峰时实地听"
+   },
+   {
+    "label": "Strata 体检 Strata check",
+    "status": "warn",
+    "value": "约 $14,441/年(中介自述)",
+    "note": "Admin $2,551.59/季 + Reserve $1,058.75/季;115 户、泳池/健身房/影院/桑拿;占标价 1.2%/年。要看 Precontractual disclosure、10 年计划与储备金余额"
+   },
+   {
+    "label": "规划与供应 Planning",
+    "status": "warn",
+    "value": "州遗产登记地(Place 14911)",
+    "note": "母地块 = 「ABC Sound Broadcasting and Television Studios, Perth」State Register Place;同时在 Heritage List 与 Local Heritage Survey。外立面/共用部分改动受 Heritage Act 2018 约束,维修标准与费用进 strata 10 年计划"
+   }
+  ]
+ },
+ "timeline": [
+  {
+   "date": "2004-01-09",
+   "event": "City Planning Scheme No. 2 刊宪(DPLH-071 图层属性);地块 Residential R160、Precinct P13",
+   "source": "SLIP DPLH-071 / DPLH-070 / LPS Special Area"
+  },
+  {
+   "date": "2013",
+   "event": "Adagio 建成(前 ABC 演播室地块改建,SP 58159 登记;115 户)",
+   "source": "Aussie/Cotality 建年;Landgate Plan Extent(LGATE-284);中介文案"
+  },
+  {
+   "date": "2014-02",
+   "event": "本单元成交 $1,000,000",
+   "source": "Aussie/Cotality Property history"
+  },
+  {
+   "date": "2026-09-10",
+   "event": "挂牌 Offers Over $1,249,000(Inhabit Property)",
+   "source": "Aussie 页 datePosted;Property history「Listed for sale Sep 2026」"
+  }
+ ],
+ "dom": {
+  "months_approx": 2,
+  "basis": "Aussie 首挂 2026-09-10 → 取数日 2026-10-27 约 1.6 个月,按规则写「约 2 个月」",
+  "suburb_median_dom": 14,
+  "suburb_dom_source": "Aussie 页「Unit median days on market 14 Days」(Cotality,East Perth 区均,不是本套);区内近 12 个月成交 592 套、上月在售 159 套",
+  "price_history_text": "Domain 物业档案页 curl 403(规则 d 第二级);web.archive.org 快照未试;只知道现价 Offers Over $1,249,000。调价史未能重建。",
+  "price_history_status": "unverified"
+ },
+ "ruler": {
+  "prices": [
+   655000,
+   681000,
+   688000,
+   715000,
+   735000,
+   740000,
+   750000,
+   755000,
+   765000,
+   773000,
+   800000,
+   800000,
+   814000,
+   814000,
+   818000,
+   825000,
+   840888,
+   845000,
+   860000,
+   867000,
+   870000,
+   890000,
+   894000,
+   925000,
+   925000,
+   940000,
+   950000,
+   959000,
+   965000,
+   976666,
+   1000000,
+   1015000,
+   1020000,
+   1050000,
+   1051000,
+   1100000,
+   1100000,
+   1120000,
+   1150000,
+   1150000,
+   1160000,
+   1174000,
+   1200000,
+   1200000,
+   1200000,
+   1215000,
+   1250000,
+   1275000,
+   1295000,
+   1300000,
+   1325000,
+   1330000,
+   1349786,
+   1350000,
+   1365000,
+   1370000,
+   1370000,
+   1380000,
+   1400000,
+   1400000,
+   1400000,
+   1425000,
+   1450000,
+   1470000,
+   1480000,
+   1500000,
+   1560000,
+   1730888,
+   1895000,
+   1950000,
+   2000000,
+   3300000
+  ],
+  "list": 1249000,
+  "window_label": "2025-10-27 – 2026-10-22(OnTheHouse 成交列表,East Perth 3 房非独立屋)",
+  "n": 72,
+  "median": 1100000,
+  "min": 655000,
+  "max": 3300000
+ },
+ "hazards": [
+  {
+   "item": "洪水(DWER Floodplain Management,Swan River)",
+   "status": "cond",
+   "tier": "covered",
+   "result": "条件项:FPM Floodplain Area(DWER-020)「Designated flood event floodplain」命中;1% AEP Floodplain DCA(DWER-003)命中;Extent of Flooding(DWER-017)未命中(最近 21 m,Swan River 10% 与设计洪水范围);Floodway / Flood Fringe(DWER-014)未命中",
+   "source": "SLIP Water MapServer 8/21/23/54 + Flood Level Points(DWER-019);BMT WBM Swan & Helena Rivers Flood Study(2017),LiDAR 2008/2022",
+   "date": "2026-10-27",
+   "note": "最近洪水位测点(305 m,Swan River Fremantle–Causeway 段):10% AEP 1.16 m、1% AEP 1.43 m、DFE(1% + 海平面上升,规划用)2.28 m、PMF 23.99 m AHD。地块周边 2 m 等高线在 18 m 外、4 m 线在 55 m 外,地面约 2–4 m AHD —— 地面层与规划洪水位只差 0–2 m。本单元在 Level 2,居住面不受影响;暴露点是地下车库、储物间、电梯机房与共用部分(由 strata 保险与储备金兜底)。",
+   "next": "① 向 City of Perth / DWER 申请地址洪水信息:规划洪水位 DFE 2.28 m AHD 与本楼地面层、地下车库最低点的高程比较(律师在合同附件/你向 council 申请);② 向 strata manager 要 strata 保险保单与 certificate of currency,确认洪水是否承保、免赔额多少;另问一家保险公司对本址的 contents 报价(你)"
+  },
+  {
+   "item": "山火 Bushfire Prone Area(DFES / OBRM)",
+   "status": "ok",
+   "tier": "covered",
+   "result": "未检出 ✓:点上 0,1,500 m 内 0",
+   "source": "SLIP Bush_Fire_Prone_Areas MapServer 23(OBRM-026,最新指定日 2025-12-13)",
+   "date": "2026-10-27",
+   "note": "市中心河畔,周边无林地;无需 BAL 评估",
+   "next": "合同里确认无 bushfire 标注即可(律师)"
+  },
+  {
+   "item": "遗产 Heritage(州登记 / Heritage List / Local Heritage Survey)",
+   "status": "warn",
+   "tier": "covered",
+   "result": "命中:State Register Place 14911「ABC Sound Broadcasting and Television Studios, Perth(Rosehill Studios)」187–193 Adelaide Tce;同时在 Heritage List(DPLH-090)与 Local Heritage Survey(DPLH-008);Heritage Areas(DPLH-089)未命中;300 m 内另有 16 处 LHS 记录(Carlton Hotel、Grosvenor Hotel、Langley Park 等)",
+   "source": "SLIP People_and_Society MapServer 7/16/9/15;inHerit https://inherit.dplh.wa.gov.au/public/p/14911",
+   "date": "2026-10-27",
+   "note": "State Register = 有法律约束(Heritage Act 2018):外立面、结构与共用部分的改动要经 Heritage Council;对单元内部装修影响小,但维修标准更高、费用进 strata 储备金;inHerit 正文由脚本渲染,本次只拿到标题",
+   "next": "① 律师核 title 与 strata by-laws 里的遗产条款、有无 heritage agreement;② 向 strata manager 要 10 年维修计划里与遗产外立面相关的项目与金额(你 / 买家代理);③ inHerit 页读 Statement of Significance(你)"
+  },
+  {
+   "item": "酸性硫酸盐土 ASS(Swan Coastal Plain)",
+   "status": "ok",
+   "tier": "covered",
+   "result": "未检出 ✓:点上 0",
+   "source": "SLIP Soil_Risk_Map MapServer 3(DWER-055)",
+   "date": "2026-10-27",
+   "note": "图层覆盖珀斯滨海平原;公寓单元无开挖需求",
+   "next": "无需动作;若 strata 有地下室防水工程,问 strata manager 有无 ASS 管理记录(买家代理)"
+  },
+  {
+   "item": "污染场地 Contaminated Sites(DWER-059)",
+   "status": "ok",
+   "tier": "covered",
+   "result": "未检出 ✓:点上 0,300 m 内 0",
+   "source": "SLIP Environment MapServer 5",
+   "date": "2026-10-27",
+   "note": "该库只含已分类场地。地块前身是广播电视演播室(非工业),2013 改建",
+   "next": "律师看 title 有无 contaminated-sites memorial;Precontractual disclosure 里看有无环境备注(律师)"
+  },
+  {
+   "item": "道路噪音 SPP 5.4 + 车流量(Main Roads Traffic Digest)",
+   "status": "warn",
+   "tier": "covered",
+   "result": "命中:SPP 5.4 Road and Rail Noise「Other significant freight/traffic route」。1.5 km 内 12 个计数点:Terrace Rd(Bennett St 以西)5,316 辆/工作日、重车 6.3%(2021/22)73 m;Adelaide Tce(Hill St 以东)17,196、重车 16.5%(2025/26)129 m;Hay St 3,718(2021/22)278 m;Wellington St 14,998(2025/26)549 m",
+   "source": "SLIP Property_and_Planning MapServer 100(DPLH-057);Main Roads WA OpenData RoadAssets_DataPortal/27(数据 2025-06-05 更新)",
+   "date": "2026-10-27",
+   "note": "SPP 5.4 命中意味着新建时要做噪音评估;本楼 2013 年建成,看的是实际隔音。Terrace Rd 本身车流不大(5 千),Adelaide Tce 一侧重车比例高(16.5%);本单元朝西南(河侧)",
+   "next": "工作日早晚高峰各去一次,开窗 / 关窗听;问中介玻璃规格与是否双层(你)"
+  },
+  {
+   "item": "铁路 / 机场",
+   "status": "ok",
+   "tier": "covered",
+   "result": "最近火车站 Elizabeth Quay 步行 1,253 m(17 分)、McIver 1,560 m、Perth 1,789 m;SPP 5.1 Perth Airport / SPP 5.3 Jandakot 周边区均未命中",
+   "source": "SLIP Transport MapServer 14(PTA 站点)+ OSRM 步行路由;Property_and_Planning MapServer 77/78",
+   "date": "2026-10-27",
+   "note": "ANEF 等值线无免费 REST 图层;SPP 5.1 范围外通常不在 ANEF 20 以上",
+   "next": "无需动作"
+  },
+  {
+   "item": "坡地 / 滑坡 Landslip",
+   "status": "na",
+   "tier": "uncovered",
+   "result": "免费数据不覆盖:SLIP 无公共滑坡图层;地势 2–4 m AHD 平地",
+   "source": "SLIP Terrain MapServer 0(DPIRD-072 2 m 等高线)",
+   "date": "2026-10-27",
+   "note": "平地,公寓单元不适用坡地类别;脚本剖面 3 点全为 2 m",
+   "next": "无需动作"
+  },
+  {
+   "item": "公屋比例 Social housing(ABS Census 2021 G37)",
+   "status": "ok",
+   "tier": "covered",
+   "result": "East Perth SAL 5.03%(280 / 5,564 户);SA2 4.99%(280 / 5,607 户)",
+   "source": "ABS Data API C21_G37_SAL / C21_G37_SA2;ASGS2021 点查",
+   "date": "2026-10-27",
+   "note": "两口径一致;全州基线本次未取(脚本只给郊区值)。SA1(街区级)要 Census DataPack",
+   "next": "若在意,下载 Census DataPack 看本楼所在 SA1(你)"
+  },
+  {
+   "item": "犯罪 Crime",
+   "status": "na",
+   "tier": "uncovered",
+   "result": "免费数据不可脚本:WA Police Crime Statistics 是 Power BI 仪表盘,页面 HTML 无郊区数据(BOCSAR 脚本只适用 NSW)",
+   "source": "https://www.police.wa.gov.au/Crime/CrimeStatistics",
+   "date": "2026-10-27",
+   "note": "",
+   "next": "浏览器打开上面链接,选 Perth District → East Perth 看近 12 个月分类计数,和 WA 整体比(你 / 买家代理)"
+  },
+  {
+   "item": "DA / 周边开发活动",
+   "status": "na",
+   "tier": "uncovered",
+   "result": "免费数据不覆盖:DPLH Subdivision/Strata Applications(DPLH-087/088)要 SLIP 登录(401/302);City of Perth DA 登记册要浏览器",
+   "source": "state-WA.md §7;https://planningonline.dplh.wa.gov.au/",
+   "date": "2026-10-27",
+   "note": "对 Level 2 河景单元,Terrace Rd / Langley Park 一线的新塔楼会直接影响景观与采光",
+   "next": "City of Perth 网站查 Terrace Rd 80–110 号与 Adelaide Tce 对应地段近 3 年的 DA 与 DAP 申请(你 / 买家代理)"
+  },
+  {
+   "item": "规划 / overlay(分区、R 码、MRS、结构规划、Bush Forever、Swan Canning DCA、排污)",
+   "status": "ok",
+   "tier": "covered",
+   "result": "Residential R160(CPS2,刊宪 2004-01-09),LPS Special Area「Specific policy areas」+ Precinct P13;MRS Central City Area(Zone);Structure Plan 0;Bush Forever 0;Swan Canning DCA(规划)0;已接污水区 SD058 PERTH(Subiaco WWTP);Declared Drainage Area 命中(Water Corporation 排水区,3 条重叠记录)",
+   "source": "SLIP Property_and_Planning 112/111/109/32/48/89/11;Infrastructure_and_Utilities 80/81",
+   "date": "2026-10-27",
+   "note": "R160 高密度码,对既有公寓无增值意义;Precinct P13 的名称与 CPS2 条文本次未读(council 页为脚本渲染)",
+   "next": "无需动作;若关心楼宇外改造规则,读 CPS2 Precinct P13 政策(律师 / 你)"
+  },
+  {
+   "item": "Strata 文件(Precontractual disclosure、strata plan、unit entitlement、10 年计划、储备金、by-laws、会议纪要、保险)",
+   "status": "na",
+   "tier": "uncovered",
+   "result": "免费数据没有:WA 没有公开的 strata 公司登记;Landgate strata plan 副本 $33.90(Survey plans and documents);卖方依 Strata Titles Act 1985 必须在签约前给「Precontractual disclosure statement to the buyer」(Landgate 批准表格)",
+   "source": "Landgate Resources for strata buyers;Landgate Survey plans and documents 页(2026-10-27 读取)",
+   "date": "2026-10-27",
+   "note": "中介文案给的 levies / 115 户 / Level 2 都是卖方自述。签约后买家可书面向 strata company 申请查档(付 $1)",
+   "next": "① 向中介索要 Precontractual disclosure 全套 + 最近两年 AGM 纪要 + 10 年计划 + 储备金余额 + 保险 certificate(你);② Landgate 买 SP 58159 副本看 lot 18 的 unit entitlement 与车位/储物是否在 lot 内(律师 / 你,$33.90);③ 律师读 by-laws(宠物、短租、装修)"
+  },
+  {
+   "item": "官方估价 GRV / UV",
+   "status": "na",
+   "tier": "paid",
+   "result": "",
+   "source": "Landgate Valuation Extract(付费)",
+   "date": "2026-10-27",
+   "note": "",
+   "next": "问中介要上一期 City of Perth rates notice(上面印 GRV)",
+   "slug": "grv-uv"
+  },
+  {
+   "item": "在市天数全史 / 调价史 / vendor discount",
+   "status": "na",
+   "tier": "paid",
+   "result": "",
+   "source": "",
+   "date": "2026-10-27",
+   "note": "",
+   "next": "",
+   "slug": "days-on-market"
+  },
+  {
+   "item": "外墙 / 屋面材料(档案记录)、楼宇缺陷史",
+   "status": "na",
+   "tier": "paid",
+   "result": "",
+   "source": "",
+   "date": "2026-10-27",
+   "note": "",
+   "next": "",
+   "slug": "wall-roof"
+  }
+ ],
+ "land": {
+  "facts": [
+   [
+    "母地块",
+    "90 Terrace Rd 地址多边形 8 个顶点,自算约 3,933 m²(鞋带公式),以产权为准;SP 58159 下 Cadastre(No Attributes,LGATE-001)在同一点叠 116 个无属性多边形 = 115 个 strata lot + 共用部分"
+   ],
+   [
+    "本单元的土地含量",
+    "= 母地块 UV × lot 18 的 unit entitlement ÷ 总 entitlement。两项都没有免费源:UV 要 Landgate 估值摘录(付费)或 rates notice;entitlement 在 strata plan(Landgate $33.90)。本报告无法给出土地含量数字"
+   ],
+   [
+    "街的哪一侧",
+    "Terrace Rd 在母地块南侧(临河 / Langley Park 侧),脚本按最近路段判临街边;本单元朝西南"
+   ],
+   [
+    "等高线剖面",
+    "2 m 等高线在 18 m 外、4 m 线在 55 m 外,地面约 2–4 m AHD;脚本剖面 3 点全为 2 m,落差 0、坡度 0%(2 m 等高线太稀,不能细分)"
+   ],
+   [
+    "含义",
+    "平地、低洼、临河:规划洪水位 2.28 m AHD 与地面层只差 0–2 m,地下车库是洪水暴露点"
+   ]
+  ],
+  "site_svg": "<svg viewBox=\"0 0 624 517\" width=\"100%\" style=\"max-width:640px\" role=\"img\" aria-label=\"地块、街道与等高线示意图\"><rect width=\"624\" height=\"517\" fill=\"#f4f1e8\"/><defs><marker id=\"ah\" markerWidth=\"8\" markerHeight=\"8\" refX=\"6\" refY=\"4\" orient=\"auto\"><path d=\"M0,0 L8,4 L0,8z\" fill=\"#b42318\"/></marker></defs><clipPath id=\"cp\"><rect width=\"624\" height=\"517\"/></clipPath><g clip-path=\"url(#cp)\"><polyline points=\"644.9,143.5 623.3,153.1 554.7,198.6 503.8,203.0 484.6,198.2 451.1,179.6 366.0,154.3 350.7,141.4 341.7,123.6 348.0,105.4 365.1,91.3 387.2,82.8 458.0,77.2 500.1,66.4 491.9,55.5 451.0,37.9 374.3,12.3\" fill=\"none\" stroke=\"#b08a4a\" stroke-width=\"1\" opacity=\".8\"/><text x=\"348.0\" y=\"105.4\" font-size=\"11\" fill=\"#8a6a2f\" paint-order=\"stroke\" stroke=\"#f4f1e8\" stroke-width=\"3\">2</text><polyline points=\"391.3,489.2 392.2,516.6 406.7,528.9 422.5,533.8 439.2,528.7 445.8,514.9 439.3,500.9 425.9,488.5 397.9,482.5 391.3,489.2\" fill=\"none\" stroke=\"#b08a4a\" stroke-width=\"1\" opacity=\".8\"/><polyline points=\"267.5,484.0 257.4,515.4 265.5,546.7\" fill=\"none\" stroke=\"#b08a4a\" stroke-width=\"1\" opacity=\".8\"/><polyline points=\"334.1,546.6 350.8,514.1 339.7,482.5 302.0,475.8 267.5,484.0\" fill=\"none\" stroke=\"#b08a4a\" stroke-width=\"1\" opacity=\".8\"/><polyline points=\"-2231.6,-1619.8 -2117.7,-1562.9 -1883.2,-1459.4 -746.6,-1022.7 -480.9,-915.8 179.9,-664.3 180.1,-664.2 1476.8,-174.3 2816.2,346.7 3489.1,612.0 3576.4,639.7 3737.1,668.6\" fill=\"none\" stroke=\"#fff\" stroke-width=\"39\" stroke-linecap=\"round\"/><polyline points=\"-2231.6,-1619.8 -2117.7,-1562.9 -1883.2,-1459.4 -746.6,-1022.7 -480.9,-915.8 179.9,-664.3 180.1,-664.2 1476.8,-174.3 2816.2,346.7 3489.1,612.0 3576.4,639.7 3737.1,668.6\" fill=\"none\" stroke=\"#c9c5b8\" stroke-width=\"1\" stroke-dasharray=\"6 6\"/><polyline points=\"-6463.1,-966.2 -6462.0,-945.5 -6456.0,-926.6 -6447.8,-911.6 -6432.9,-898.0 -6414.2,-887.0 -6097.4,-764.8 -4824.9,-279.3 -3864.1,85.3 -3543.8,208.1 -2965.8,464.2 -2916.6,486.3 -2598.7,651.5 -1479.7,1104.6 349.5,1808.5 1795.5,2376.5 2313.7,2575.2 2676.4,2749.3 2826.3,2821.4 3026.2,2904.4 3366.8,3011.2 3643.7,3063.7 3996.9,3081.8 4175.7,3067.4 4323.9,3055.9 4620.1,2996.0 4653.3,2984.6 4908.3,2894.0 5147.8,2781.0\" fill=\"none\" stroke=\"#fff\" stroke-width=\"39\" stroke-linecap=\"round\"/><polyline points=\"-6463.1,-966.2 -6462.0,-945.5 -6456.0,-926.6 -6447.8,-911.6 -6432.9,-898.0 -6414.2,-887.0 -6097.4,-764.8 -4824.9,-279.3 -3864.1,85.3 -3543.8,208.1 -2965.8,464.2 -2916.6,486.3 -2598.7,651.5 -1479.7,1104.6 349.5,1808.5 1795.5,2376.5 2313.7,2575.2 2676.4,2749.3 2826.3,2821.4 3026.2,2904.4 3366.8,3011.2 3643.7,3063.7 3996.9,3081.8 4175.7,3067.4 4323.9,3055.9 4620.1,2996.0 4653.3,2984.6 4908.3,2894.0 5147.8,2781.0\" fill=\"none\" stroke=\"#c9c5b8\" stroke-width=\"1\" stroke-dasharray=\"6 6\"/><polyline points=\"3126.9,-4519.5 3019.0,-4226.6 2975.4,-4108.3 2938.1,-4017.6 2740.5,-3498.8 2475.5,-2803.9 2459.4,-2761.5 2450.4,-2737.2 2133.9,-1884.4 1944.6,-1401.4 1820.3,-1084.1 1494.1,-220.2 1476.8,-174.3\" fill=\"none\" stroke=\"#fff\" stroke-width=\"39\" stroke-linecap=\"round\"/><polyline points=\"3126.9,-4519.5 3019.0,-4226.6 2975.4,-4108.3 2938.1,-4017.6 2740.5,-3498.8 2475.5,-2803.9 2459.4,-2761.5 2450.4,-2737.2 2133.9,-1884.4 1944.6,-1401.4 1820.3,-1084.1 1494.1,-220.2 1476.8,-174.3\" fill=\"none\" stroke=\"#c9c5b8\" stroke-width=\"1\" stroke-dasharray=\"6 6\"/><polyline points=\"-2181.3,-1688.8 -2004.2,-1585.1 -1863.2,-1511.6 -1749.0,-1464.0 -1480.8,-1357.1 -461.4,-967.9 193.5,-716.7 199.7,-714.3 1494.1,-220.2 3515.6,542.7 3593.0,580.6 3726.0,661.8 3737.1,668.6\" fill=\"none\" stroke=\"#fff\" stroke-width=\"39\" stroke-linecap=\"round\"/><polyline points=\"-2181.3,-1688.8 -2004.2,-1585.1 -1863.2,-1511.6 -1749.0,-1464.0 -1480.8,-1357.1 -461.4,-967.9 193.5,-716.7 199.7,-714.3 1494.1,-220.2 3515.6,542.7 3593.0,580.6 3726.0,661.8 3737.1,668.6\" fill=\"none\" stroke=\"#c9c5b8\" stroke-width=\"1\" stroke-dasharray=\"6 6\"/><polyline points=\"-6388.8,-992.2 -6377.3,-970.2 -6350.8,-946.0 -6264.7,-904.4 -6169.5,-872.3 -6088.4,-845.0 -5989.9,-812.6 -4749.9,-315.1 -4643.8,-272.2 -3646.7,109.8 -2944.3,403.7 -2884.8,428.5 -2340.8,711.0 -1811.0,922.9 -1335.3,1093.7 -787.3,1305.0 -580.4,1388.3 -199.3,1541.6 201.3,1692.7 650.3,1862.7 1347.2,2126.4 2353.3,2514.9 2709.1,2663.5 3091.4,2823.5 3435.9,2924.4 3606.4,2960.2 3882.9,2980.1 4059.9,2981.1 4138.5,2978.5 4217.1,2971.4 4296.9,2964.2 4374.4,2950.1 4455.5,2933.8 4599.3,2892.9 4653.3,2876.7 4821.0,2811.0 5096.7,2685.7\" fill=\"none\" stroke=\"#fff\" stroke-width=\"39\" stroke-linecap=\"round\"/><polyline points=\"-6388.8,-992.2 -6377.3,-970.2 -6350.8,-946.0 -6264.7,-904.4 -6169.5,-872.3 -6088.4,-845.0 -5989.9,-812.6 -4749.9,-315.1 -4643.8,-272.2 -3646.7,109.8 -2944.3,403.7 -2884.8,428.5 -2340.8,711.0 -1811.0,922.9 -1335.3,1093.7 -787.3,1305.0 -580.4,1388.3 -199.3,1541.6 201.3,1692.7 650.3,1862.7 1347.2,2126.4 2353.3,2514.9 2709.1,2663.5 3091.4,2823.5 3435.9,2924.4 3606.4,2960.2 3882.9,2980.1 4059.9,2981.1 4138.5,2978.5 4217.1,2971.4 4296.9,2964.2 4374.4,2950.1 4455.5,2933.8 4599.3,2892.9 4653.3,2876.7 4821.0,2811.0 5096.7,2685.7\" fill=\"none\" stroke=\"#c9c5b8\" stroke-width=\"1\" stroke-dasharray=\"6 6\"/><polyline points=\"1047.2,-4923.1 936.1,-4689.7 784.7,-4257.5 644.0,-3901.3 513.0,-3555.5 495.7,-3509.9 488.3,-3490.6 290.7,-2975.5 161.2,-2638.1 -33.1,-2122.3 -138.1,-1843.5 -461.4,-967.9 -480.9,-915.8\" fill=\"none\" stroke=\"#fff\" stroke-width=\"39\" stroke-linecap=\"round\"/><polyline points=\"1047.2,-4923.1 936.1,-4689.7 784.7,-4257.5 644.0,-3901.3 513.0,-3555.5 495.7,-3509.9 488.3,-3490.6 290.7,-2975.5 161.2,-2638.1 -33.1,-2122.3 -138.1,-1843.5 -461.4,-967.9 -480.9,-915.8\" fill=\"none\" stroke=\"#c9c5b8\" stroke-width=\"1\" stroke-dasharray=\"6 6\"/><polyline points=\"-34.2,-91.8 -262.0,518.8\" fill=\"none\" stroke=\"#fff\" stroke-width=\"39\" stroke-linecap=\"round\"/><polyline points=\"-34.2,-91.8 -262.0,518.8\" fill=\"none\" stroke=\"#c9c5b8\" stroke-width=\"1\" stroke-dasharray=\"6 6\"/><polyline points=\"199.7,-714.3 180.1,-664.2 167.6,-632.1 117.5,-496.9 67.4,-361.6 16.6,-226.4\" fill=\"none\" stroke=\"#fff\" stroke-width=\"39\" stroke-linecap=\"round\"/><polyline points=\"199.7,-714.3 180.1,-664.2 167.6,-632.1 117.5,-496.9 67.4,-361.6 16.6,-226.4\" fill=\"none\" stroke=\"#c9c5b8\" stroke-width=\"1\" stroke-dasharray=\"6 6\"/><polyline points=\"-480.9,-915.8 -928.5,262.4\" fill=\"none\" stroke=\"#fff\" stroke-width=\"39\" stroke-linecap=\"round\"/><polyline points=\"-480.9,-915.8 -928.5,262.4\" fill=\"none\" stroke=\"#c9c5b8\" stroke-width=\"1\" stroke-dasharray=\"6 6\"/><polyline points=\"1041.5,1006.9 1476.8,-174.3\" fill=\"none\" stroke=\"#fff\" stroke-width=\"39\" stroke-linecap=\"round\"/><polyline points=\"1041.5,1006.9 1476.8,-174.3\" fill=\"none\" stroke=\"#c9c5b8\" stroke-width=\"1\" stroke-dasharray=\"6 6\"/><polyline points=\"-4423.2,-1045.7 -4380.6,-1055.9 -4334.9,-1050.8 -4293.5,-1035.1 -2659.2,-401.4 -928.5,262.4 -262.0,518.8 118.4,664.4 1041.5,1006.9 3041.7,1783.2\" fill=\"none\" stroke=\"#fff\" stroke-width=\"39\" stroke-linecap=\"round\"/><polyline points=\"-4423.2,-1045.7 -4380.6,-1055.9 -4334.9,-1050.8 -4293.5,-1035.1 -2659.2,-401.4 -928.5,262.4 -262.0,518.8 118.4,664.4 1041.5,1006.9 3041.7,1783.2\" fill=\"none\" stroke=\"#c9c5b8\" stroke-width=\"1\" stroke-dasharray=\"6 6\"/><polygon points=\"265.1,622.7 -9.4,517.3 189.7,-15.0 427.6,74.8 432.2,76.5 459.3,86.8 464.7,88.8\" fill=\"#1f6f54\" fill-opacity=\".28\" stroke=\"#14342b\" stroke-width=\"2.5\"/><text x=\"318.5\" y=\"197.7\" font-size=\"13\" font-weight=\"700\" fill=\"#14342b\" text-anchor=\"middle\">90 Terrace Road (母地块, SP 58159)</text><text x=\"318.5\" y=\"223.7\" font-size=\"11\" fill=\"#14342b\" text-anchor=\"middle\">自算约 3,900 m² 母地块</text><path d=\"M109.7,604.5 L136.9,552.7\" stroke=\"#b42318\" stroke-width=\"3\" marker-end=\"url(#ah)\"/><text x=\"97.6\" y=\"647.0\" font-size=\"12\" fill=\"#b42318\" font-weight=\"700\" text-anchor=\"middle\">入口:街面在高处,往下走</text></g><line x1=\"429.0\" y1=\"491.9\" x2=\"559.0\" y2=\"491.9\" stroke=\"#1d2433\" stroke-width=\"3\"/><text x=\"565.0\" y=\"495.9\" font-size=\"11\" fill=\"#1d2433\">20 米</text><path d=\"M591.5,52.5 l0,-24 m0,0 l-5,9 m5,-9 l5,9\" stroke=\"#1d2433\" stroke-width=\"2\" fill=\"none\"/><text x=\"591.5\" y=\"66.5\" font-size=\"12\" fill=\"#1d2433\" text-anchor=\"middle\">北</text><text x=\"8\" y=\"509\" font-size=\"11\" fill=\"#8a6a2f\">棕线 = 官方等高线(米);绿块 = 地块边界</text></svg>",
+  "profile_svg": "<svg viewBox=\"0 0 1536 150\" width=\"100%\" style=\"max-width:720px\" role=\"img\" aria-label=\"沿进深的地形剖面图\"><line x1=\"44.0\" y1=\"102.0\" x2=\"1524.4\" y2=\"102.0\" stroke=\"#eee\"/><text x=\"38\" y=\"106.0\" font-size=\"11\" fill=\"#667085\" text-anchor=\"end\">0</text><line x1=\"44.0\" y1=\"62.0\" x2=\"1524.4\" y2=\"62.0\" stroke=\"#eee\"/><text x=\"38\" y=\"66.0\" font-size=\"11\" fill=\"#667085\" text-anchor=\"end\">2</text><line x1=\"44.0\" y1=\"22.0\" x2=\"1524.4\" y2=\"22.0\" stroke=\"#eee\"/><text x=\"38\" y=\"26.0\" font-size=\"11\" fill=\"#667085\" text-anchor=\"end\">4</text><polygon points=\"44.0,62.0 49.0,62.0 54.0,62.0 59.0,62.0 64.0,62.0 69.0,62.0 74.0,62.0 79.0,62.0 84.0,62.0 89.0,62.0 94.0,62.0 99.0,62.0 104.0,62.0 109.0,62.0 114.0,62.0 119.0,62.0 124.0,62.0 129.0,62.0 134.0,62.0 139.0,62.0 144.0,62.0 149.0,62.0 154.0,62.0 159.0,62.0 164.0,62.0 169.0,62.0 174.0,62.0 179.0,62.0 184.0,62.0 189.0,62.0 194.0,62.0 199.0,62.0 204.0,62.0 209.0,62.0 214.0,62.0 219.0,62.0 224.0,62.0 229.0,62.0 234.0,62.0 239.0,62.0 244.0,62.0 249.0,62.0 254.0,62.0 259.0,62.0 264.0,62.0 269.0,62.0 274.0,62.0 279.0,62.0 284.0,62.0 289.0,62.0 294.0,62.0 299.0,62.0 304.0,62.0 309.0,62.0 314.0,62.0 319.0,62.0 324.0,62.0 329.0,62.0 334.0,62.0 339.0,62.0 344.0,62.0 349.0,62.0 354.0,62.0 359.0,62.0 364.0,62.0 369.0,62.0 374.0,62.0 379.0,62.0 384.0,62.0 389.0,62.0 394.0,62.0 399.0,62.0 404.0,62.0 409.0,62.0 414.0,62.0 419.0,62.0 424.0,62.0 429.0,62.0 434.0,62.0 439.0,62.0 444.0,62.0 449.0,62.0 454.0,62.0 459.0,62.0 464.0,62.0 469.0,62.0 474.0,62.0 479.0,62.0 484.0,62.0 489.0,62.0 494.0,62.0 499.0,62.0 504.0,62.0 509.0,62.0 514.0,62.0 519.0,62.0 524.0,62.0 529.0,62.0 534.0,62.0 539.0,62.0 544.0,62.0 549.0,62.0 554.0,62.0 559.0,62.0 564.0,62.0 569.0,62.0 574.0,62.0 579.0,62.0 584.0,62.0 589.0,62.0 594.0,62.0 599.0,62.0 604.0,62.0 609.0,62.0 614.0,62.0 619.0,62.0 624.0,62.0 629.0,62.0 634.0,62.0 639.0,62.0 644.0,62.0 649.0,62.0 654.0,62.0 659.0,62.0 664.0,62.0 669.0,62.0 674.0,62.0 679.0,62.0 684.0,62.0 689.0,62.0 694.0,62.0 699.0,62.0 704.0,62.0 709.0,62.0 714.0,62.0 719.0,62.0 724.0,62.0 729.0,62.0 734.0,62.0 739.0,62.0 744.0,62.0 749.0,62.0 754.0,62.0 759.0,62.0 764.0,62.0 769.0,62.0 774.0,62.0 779.0,62.0 784.0,62.0 789.0,62.0 794.0,62.0 799.0,62.0 804.0,62.0 809.0,62.0 814.0,62.0 819.0,62.0 824.0,62.0 829.0,62.0 834.0,62.0 839.0,62.0 844.0,62.0 849.0,62.0 854.0,62.0 859.0,62.0 864.0,62.0 869.0,62.0 874.0,62.0 879.0,62.0 884.0,62.0 889.0,62.0 894.0,62.0 899.0,62.0 904.0,62.0 909.0,62.0 914.0,62.0 919.0,62.0 924.0,62.0 929.0,62.0 934.0,62.0 939.0,62.0 944.0,62.0 949.0,62.0 954.0,62.0 959.0,62.0 964.0,62.0 969.0,62.0 974.0,62.0 979.0,62.0 984.0,62.0 989.0,62.0 994.0,62.0 999.0,62.0 1004.0,62.0 1009.0,62.0 1014.0,62.0 1019.0,62.0 1024.0,62.0 1029.0,62.0 1034.0,62.0 1039.0,62.0 1044.0,62.0 1049.0,62.0 1054.0,62.0 1059.0,62.0 1064.0,62.0 1069.0,62.0 1074.0,62.0 1079.0,62.0 1084.0,62.0 1089.0,62.0 1094.0,62.0 1099.0,62.0 1104.0,62.0 1109.0,62.0 1114.0,62.0 1119.0,62.0 1124.0,62.0 1129.0,62.0 1134.0,62.0 1139.0,62.0 1144.0,62.0 1149.0,62.0 1154.0,62.0 1159.0,62.0 1164.0,62.0 1169.0,62.0 1174.0,62.0 1179.0,62.0 1184.0,62.0 1189.0,62.0 1194.0,62.0 1199.0,62.0 1204.0,62.0 1209.0,62.0 1214.0,62.0 1219.0,62.0 1224.0,62.0 1229.0,62.0 1234.0,62.0 1239.0,62.0 1244.0,62.0 1249.0,62.0 1254.0,62.0 1259.0,62.0 1264.0,62.0 1269.0,62.0 1274.0,62.0 1279.0,62.0 1284.0,62.0 1289.0,62.0 1294.0,62.0 1299.0,62.0 1304.0,62.0 1309.0,62.0 1314.0,62.0 1319.0,62.0 1324.0,62.0 1329.0,62.0 1334.0,62.0 1339.0,62.0 1344.0,62.0 1349.0,62.0 1354.0,62.0 1359.0,62.0 1364.0,62.0 1369.0,62.0 1374.0,62.0 1379.0,62.0 1384.0,62.0 1389.0,62.0 1394.0,62.0 1399.0,62.0 1404.0,62.0 1409.0,62.0 1414.0,62.0 1419.0,62.0 1424.0,62.0 1429.0,62.0 1434.0,62.0 1439.0,62.0 1444.0,62.0 1449.0,62.0 1454.0,62.0 1459.0,62.0 1464.0,62.0 1469.0,62.0 1474.0,62.0 1479.0,62.0 1484.0,62.0 1489.0,62.0 1494.0,62.0 1499.0,62.0 1504.0,62.0 1509.0,62.0 1514.0,62.0 1519.0,62.0 1524.0,62.0 1524.4,102.0 44.0,102.0\" fill=\"#d9c9a3\"/><polyline points=\"44.0,62.0 49.0,62.0 54.0,62.0 59.0,62.0 64.0,62.0 69.0,62.0 74.0,62.0 79.0,62.0 84.0,62.0 89.0,62.0 94.0,62.0 99.0,62.0 104.0,62.0 109.0,62.0 114.0,62.0 119.0,62.0 124.0,62.0 129.0,62.0 134.0,62.0 139.0,62.0 144.0,62.0 149.0,62.0 154.0,62.0 159.0,62.0 164.0,62.0 169.0,62.0 174.0,62.0 179.0,62.0 184.0,62.0 189.0,62.0 194.0,62.0 199.0,62.0 204.0,62.0 209.0,62.0 214.0,62.0 219.0,62.0 224.0,62.0 229.0,62.0 234.0,62.0 239.0,62.0 244.0,62.0 249.0,62.0 254.0,62.0 259.0,62.0 264.0,62.0 269.0,62.0 274.0,62.0 279.0,62.0 284.0,62.0 289.0,62.0 294.0,62.0 299.0,62.0 304.0,62.0 309.0,62.0 314.0,62.0 319.0,62.0 324.0,62.0 329.0,62.0 334.0,62.0 339.0,62.0 344.0,62.0 349.0,62.0 354.0,62.0 359.0,62.0 364.0,62.0 369.0,62.0 374.0,62.0 379.0,62.0 384.0,62.0 389.0,62.0 394.0,62.0 399.0,62.0 404.0,62.0 409.0,62.0 414.0,62.0 419.0,62.0 424.0,62.0 429.0,62.0 434.0,62.0 439.0,62.0 444.0,62.0 449.0,62.0 454.0,62.0 459.0,62.0 464.0,62.0 469.0,62.0 474.0,62.0 479.0,62.0 484.0,62.0 489.0,62.0 494.0,62.0 499.0,62.0 504.0,62.0 509.0,62.0 514.0,62.0 519.0,62.0 524.0,62.0 529.0,62.0 534.0,62.0 539.0,62.0 544.0,62.0 549.0,62.0 554.0,62.0 559.0,62.0 564.0,62.0 569.0,62.0 574.0,62.0 579.0,62.0 584.0,62.0 589.0,62.0 594.0,62.0 599.0,62.0 604.0,62.0 609.0,62.0 614.0,62.0 619.0,62.0 624.0,62.0 629.0,62.0 634.0,62.0 639.0,62.0 644.0,62.0 649.0,62.0 654.0,62.0 659.0,62.0 664.0,62.0 669.0,62.0 674.0,62.0 679.0,62.0 684.0,62.0 689.0,62.0 694.0,62.0 699.0,62.0 704.0,62.0 709.0,62.0 714.0,62.0 719.0,62.0 724.0,62.0 729.0,62.0 734.0,62.0 739.0,62.0 744.0,62.0 749.0,62.0 754.0,62.0 759.0,62.0 764.0,62.0 769.0,62.0 774.0,62.0 779.0,62.0 784.0,62.0 789.0,62.0 794.0,62.0 799.0,62.0 804.0,62.0 809.0,62.0 814.0,62.0 819.0,62.0 824.0,62.0 829.0,62.0 834.0,62.0 839.0,62.0 844.0,62.0 849.0,62.0 854.0,62.0 859.0,62.0 864.0,62.0 869.0,62.0 874.0,62.0 879.0,62.0 884.0,62.0 889.0,62.0 894.0,62.0 899.0,62.0 904.0,62.0 909.0,62.0 914.0,62.0 919.0,62.0 924.0,62.0 929.0,62.0 934.0,62.0 939.0,62.0 944.0,62.0 949.0,62.0 954.0,62.0 959.0,62.0 964.0,62.0 969.0,62.0 974.0,62.0 979.0,62.0 984.0,62.0 989.0,62.0 994.0,62.0 999.0,62.0 1004.0,62.0 1009.0,62.0 1014.0,62.0 1019.0,62.0 1024.0,62.0 1029.0,62.0 1034.0,62.0 1039.0,62.0 1044.0,62.0 1049.0,62.0 1054.0,62.0 1059.0,62.0 1064.0,62.0 1069.0,62.0 1074.0,62.0 1079.0,62.0 1084.0,62.0 1089.0,62.0 1094.0,62.0 1099.0,62.0 1104.0,62.0 1109.0,62.0 1114.0,62.0 1119.0,62.0 1124.0,62.0 1129.0,62.0 1134.0,62.0 1139.0,62.0 1144.0,62.0 1149.0,62.0 1154.0,62.0 1159.0,62.0 1164.0,62.0 1169.0,62.0 1174.0,62.0 1179.0,62.0 1184.0,62.0 1189.0,62.0 1194.0,62.0 1199.0,62.0 1204.0,62.0 1209.0,62.0 1214.0,62.0 1219.0,62.0 1224.0,62.0 1229.0,62.0 1234.0,62.0 1239.0,62.0 1244.0,62.0 1249.0,62.0 1254.0,62.0 1259.0,62.0 1264.0,62.0 1269.0,62.0 1274.0,62.0 1279.0,62.0 1284.0,62.0 1289.0,62.0 1294.0,62.0 1299.0,62.0 1304.0,62.0 1309.0,62.0 1314.0,62.0 1319.0,62.0 1324.0,62.0 1329.0,62.0 1334.0,62.0 1339.0,62.0 1344.0,62.0 1349.0,62.0 1354.0,62.0 1359.0,62.0 1364.0,62.0 1369.0,62.0 1374.0,62.0 1379.0,62.0 1384.0,62.0 1389.0,62.0 1394.0,62.0 1399.0,62.0 1404.0,62.0 1409.0,62.0 1414.0,62.0 1419.0,62.0 1424.0,62.0 1429.0,62.0 1434.0,62.0 1439.0,62.0 1444.0,62.0 1449.0,62.0 1454.0,62.0 1459.0,62.0 1464.0,62.0 1469.0,62.0 1474.0,62.0 1479.0,62.0 1484.0,62.0 1489.0,62.0 1494.0,62.0 1499.0,62.0 1504.0,62.0 1509.0,62.0 1514.0,62.0 1519.0,62.0 1524.0,62.0\" fill=\"none\" stroke=\"#8a6a2f\" stroke-width=\"2.5\"/><line x1=\"89.0\" y1=\"48.0\" x2=\"89.0\" y2=\"62.0\" stroke=\"#b42318\" stroke-dasharray=\"4 4\"/><text x=\"89.0\" y=\"30.0\" font-size=\"11.5\" fill=\"#b42318\" text-anchor=\"middle\">街面中线</text><text x=\"89.0\" y=\"43.0\" font-size=\"11\" fill=\"#b42318\" text-anchor=\"middle\">2.0 m</text><line x1=\"164.0\" y1=\"48.0\" x2=\"164.0\" y2=\"62.0\" stroke=\"#1d2433\" stroke-dasharray=\"4 4\"/><text x=\"164.0\" y=\"30.0\" font-size=\"11.5\" fill=\"#1d2433\" text-anchor=\"middle\">临街边界</text><text x=\"164.0\" y=\"43.0\" font-size=\"11\" fill=\"#1d2433\" text-anchor=\"middle\">2.0 m</text><line x1=\"1424.4\" y1=\"48.0\" x2=\"1424.4\" y2=\"62.0\" stroke=\"#1d2433\" stroke-dasharray=\"4 4\"/><text x=\"1424.4\" y=\"30.0\" font-size=\"11.5\" fill=\"#1d2433\" text-anchor=\"middle\">后边界</text><text x=\"1424.4\" y=\"43.0\" font-size=\"11\" fill=\"#1d2433\" text-anchor=\"middle\">2.0 m</text><text x=\"64.0\" y=\"116.0\" font-size=\"11\" fill=\"#667085\" text-anchor=\"middle\">-10</text><text x=\"164.0\" y=\"116.0\" font-size=\"11\" fill=\"#667085\" text-anchor=\"middle\">0</text><text x=\"264.0\" y=\"116.0\" font-size=\"11\" fill=\"#667085\" text-anchor=\"middle\">10</text><text x=\"364.0\" y=\"116.0\" font-size=\"11\" fill=\"#667085\" text-anchor=\"middle\">20</text><text x=\"464.0\" y=\"116.0\" font-size=\"11\" fill=\"#667085\" text-anchor=\"middle\">30</text><text x=\"564.0\" y=\"116.0\" font-size=\"11\" fill=\"#667085\" text-anchor=\"middle\">40</text><text x=\"664.0\" y=\"116.0\" font-size=\"11\" fill=\"#667085\" text-anchor=\"middle\">50</text><text x=\"764.0\" y=\"116.0\" font-size=\"11\" fill=\"#667085\" text-anchor=\"middle\">60</text><text x=\"864.0\" y=\"116.0\" font-size=\"11\" fill=\"#667085\" text-anchor=\"middle\">70</text><text x=\"964.0\" y=\"116.0\" font-size=\"11\" fill=\"#667085\" text-anchor=\"middle\">80</text><text x=\"1064.0\" y=\"116.0\" font-size=\"11\" fill=\"#667085\" text-anchor=\"middle\">90</text><text x=\"1164.0\" y=\"116.0\" font-size=\"11\" fill=\"#667085\" text-anchor=\"middle\">100</text><text x=\"1264.0\" y=\"116.0\" font-size=\"11\" fill=\"#667085\" text-anchor=\"middle\">110</text><text x=\"1364.0\" y=\"116.0\" font-size=\"11\" fill=\"#667085\" text-anchor=\"middle\">120</text><text x=\"1464.0\" y=\"116.0\" font-size=\"11\" fill=\"#667085\" text-anchor=\"middle\">130</text><text x=\"790.2\" y=\"132.0\" font-size=\"11\" fill=\"#667085\" text-anchor=\"middle\">离临街边界的距离(米,负值在街上)</text><text x=\"6\" y=\"12\" font-size=\"11\" fill=\"#667085\">高程(米)</text></svg>",
+  "profile_flat": {
+   "street": 2.0,
+   "rear": 2.0,
+   "fall": 0.0
+  },
+  "lv_note": "WA 没有免费逐地块官方估价(GRV/UV 走 Landgate 付费摘录或 rates notice);也没有 NSW 式官方成交图层。地价史一栏在 WA 留空。",
+  "street_sales": [
+   {
+    "addr": "10/90 Terrace Rd(3 房)",
+    "price": 1425000,
+    "date": "26 February 2026",
+    "land": 136
+   },
+   {
+    "addr": "106/90 Terrace Rd(3 房,3 车位)",
+    "price": 1500000,
+    "date": "13 December 2025",
+    "land": 137
+   },
+   {
+    "addr": "66/90 Terrace Rd(3 房)",
+    "price": 1380000,
+    "date": "2 December 2025",
+    "land": 137
+   },
+   {
+    "addr": "29/90 Terrace Rd(2 房)",
+    "price": 940000,
+    "date": "22 February 2026",
+    "land": 102
+   },
+   {
+    "addr": "99/90 Terrace Rd(2 房)",
+    "price": 980000,
+    "date": "22 December 2025",
+    "land": 102
+   },
+   {
+    "addr": "35/90 Terrace Rd(2 房)",
+    "price": 930000,
+    "date": "6 November 2025",
+    "land": 101
+   },
+   {
+    "addr": "18/90 Terrace Rd(标的,上一笔)",
+    "price": 1000000,
+    "date": "1 February 2014",
+    "land": 136
+   }
+  ]
+ },
+ "comps": {
+  "source_note": "来源:OnTheHouse 成交列表与单元页(Cotality/Landgate 数据,免费、curl 可开、无限速)+ Aussie 单元页(限速,8 次后 202)+ REIWA 郊区页(内嵌 JSON)。WA 没有官方逐笔成交图层。打分轴(unit 版):面积与车位 / 楼层·朝向·景观 / 房况(建年、翻新)。",
+  "filter_note": "筛选:① 同楼(SP 58159)近 12 个月全部住宅成交 6 笔(3 房 3 笔、2 房 3 笔);② East Perth 其它 3 房非独立屋成交,$1.2M–1.6M,近 12 个月,取 Terrace Rd / Adelaide Tce 一线 11 笔 + 2 笔河湾对照。OnTheHouse 列表只回溯到 2025-10-27,所以是 12 个月样本;其它楼成交没有面积、楼层、建年。",
+  "subject": {
+   "land_m2": 187,
+   "floor_m2": 136
+  },
+  "p_lv_note": "WA 无免费地价,地价倍数一栏不适用。",
+  "items": [
+   {
+    "address": "10/90 Terrace Rd(同楼)",
+    "price": 1425000,
+    "date": "26 February 2026",
+    "dist_m": 0,
+    "lon": 115.86941,
+    "lat": -31.960283,
+    "land_m2": 187,
+    "lv": null,
+    "lv_m2": null,
+    "p_lv": null,
+    "landslip": "同楼 · 平地 2–4 m AHD",
+    "street_side": "同楼(Terrace Rd 南侧,临 Langley Park)",
+    "elev": 2.0,
+    "beds": 3,
+    "baths": 2,
+    "floor_m2": 136,
+    "built": 2013,
+    "storeys": "Podium L1",
+    "wall": null,
+    "reno": null,
+    "scores": {
+     "land": 0,
+     "slope": 1,
+     "condition": 0
+    },
+    "bookend": "upper",
+    "note": "同楼同户型 136 m² 室内、2 车位;一层 podium、25 m² 庭院、Langley Park 全景(挂牌文案),本层只有两户。比标的多景观与庭院 → 优于。Council $3,108、Strata $2,841+$1,387/季(2024/25,OnTheHouse 文案)。完整度 6/8(楼层、朝向、建年、面积、车位、成交)",
+    "level": "Podium L1",
+    "cars": 2,
+    "levies": "$2,841 + $1,387/季(2024/25,挂牌文案)"
+   },
+   {
+    "address": "106/90 Terrace Rd(同楼)",
+    "price": 1500000,
+    "date": "13 December 2025",
+    "dist_m": 0,
+    "lon": 115.86941,
+    "lat": -31.960283,
+    "land_m2": 197,
+    "lv": null,
+    "lv_m2": null,
+    "p_lv": null,
+    "landslip": "同楼 · 平地 2–4 m AHD",
+    "street_side": "同楼(Terrace Rd 南侧,临 Langley Park)",
+    "elev": 2.0,
+    "beds": 3,
+    "baths": 2,
+    "floor_m2": 137,
+    "built": 2013,
+    "storeys": null,
+    "wall": null,
+    "reno": null,
+    "scores": {
+     "land": 1,
+     "slope": null,
+     "condition": 0
+    },
+    "bookend": null,
+    "note": "同楼 137 m²、3 车位(多 1 个车位,约 +$50–80k)、strata lot 197 m²;Strata $3,634+$1,774/季(文案)说明 entitlement 更大。楼层朝向未知。优于,但完整度 5/8,不做上夹板(unit 10 更贴近)",
+    "cars": 3,
+    "levies": "$3,634 + $1,774/季(挂牌文案)"
+   },
+   {
+    "address": "66/90 Terrace Rd(同楼)",
+    "price": 1380000,
+    "date": "2 December 2025",
+    "dist_m": 0,
+    "lon": 115.86941,
+    "lat": -31.960283,
+    "land_m2": 185,
+    "lv": null,
+    "lv_m2": null,
+    "p_lv": null,
+    "landslip": "同楼 · 平地 2–4 m AHD",
+    "street_side": "同楼(Terrace Rd 南侧,临 Langley Park)",
+    "elev": 2.0,
+    "beds": 3,
+    "baths": 2,
+    "floor_m2": 137,
+    "built": 2013,
+    "storeys": null,
+    "wall": null,
+    "reno": null,
+    "scores": {
+     "land": 0,
+     "slope": null,
+     "condition": 0
+    },
+    "bookend": "lower",
+    "note": "同楼 137 m²、2 车位、strata lot 185 m²,与标的几乎同规格;2025-05-22 挂牌、12 月成交(约 6 个月,成交日可能是过户日)。楼层朝向未知 → 相当。完整度 5/8,作下夹板",
+    "cars": 2
+   },
+   {
+    "address": "29/90 Terrace Rd(同楼 2 房)",
+    "price": 940000,
+    "date": "22 February 2026",
+    "dist_m": 0,
+    "lon": 115.86941,
+    "lat": -31.960283,
+    "land_m2": null,
+    "lv": null,
+    "lv_m2": null,
+    "p_lv": null,
+    "landslip": "同楼 · 平地 2–4 m AHD",
+    "street_side": "同楼(Terrace Rd 南侧,临 Langley Park)",
+    "elev": 2.0,
+    "beds": 2,
+    "baths": 2,
+    "floor_m2": 102,
+    "built": 2013,
+    "storeys": null,
+    "wall": null,
+    "reno": null,
+    "scores": {
+     "land": -1,
+     "slope": null,
+     "condition": 0
+    },
+    "bookend": null,
+    "note": "同楼 2 房 102 m²,EOI 成交;只作本楼 2 房价位参照(逊于)"
+   },
+   {
+    "address": "99/90 Terrace Rd(同楼 2 房)",
+    "price": 980000,
+    "date": "22 December 2025",
+    "dist_m": 0,
+    "lon": 115.86941,
+    "lat": -31.960283,
+    "land_m2": null,
+    "lv": null,
+    "lv_m2": null,
+    "p_lv": null,
+    "landslip": "同楼 · 平地 2–4 m AHD",
+    "street_side": "同楼(Terrace Rd 南侧,临 Langley Park)",
+    "elev": 2.0,
+    "beds": 2,
+    "baths": 2,
+    "floor_m2": 102,
+    "built": 2013,
+    "storeys": null,
+    "wall": null,
+    "reno": null,
+    "scores": {
+     "land": -1,
+     "slope": null,
+     "condition": 0
+    },
+    "bookend": null,
+    "note": "同楼 2 房 102 m²;上一笔 2024-07 $910,000 → 17 个月 +7.7%,这是本楼最直接的增长证据"
+   },
+   {
+    "address": "35/90 Terrace Rd(同楼 2 房)",
+    "price": 930000,
+    "date": "6 November 2025",
+    "dist_m": 0,
+    "lon": 115.86941,
+    "lat": -31.960283,
+    "land_m2": null,
+    "lv": null,
+    "lv_m2": null,
+    "p_lv": null,
+    "landslip": "同楼 · 平地 2–4 m AHD",
+    "street_side": "同楼(Terrace Rd 南侧,临 Langley Park)",
+    "elev": 2.0,
+    "beds": 2,
+    "baths": 2,
+    "floor_m2": 101,
+    "built": 2013,
+    "storeys": null,
+    "wall": null,
+    "reno": null,
+    "scores": {
+     "land": -1,
+     "slope": null,
+     "condition": 0
+    },
+    "bookend": null,
+    "note": "同楼 2 房 101 m²(逊于)"
+   },
+   {
+    "address": "91/60 Terrace Rd",
+    "price": 1480000,
+    "date": "28 July 2026",
+    "dist_m": 189,
+    "lon": 115.871244,
+    "lat": -31.96096,
+    "land_m2": null,
+    "lv": null,
+    "lv_m2": null,
+    "p_lv": null,
+    "landslip": null,
+    "street_side": null,
+    "elev": null,
+    "beds": 3,
+    "baths": 2,
+    "floor_m2": null,
+    "built": null,
+    "storeys": null,
+    "wall": null,
+    "reno": null,
+    "scores": {
+     "land": null,
+     "slope": null,
+     "condition": null
+    },
+    "bookend": null,
+    "note": "Terrace Rd 河畔楼;面积/楼层/建年未知;3 房 2 卫 2 车位(OnTheHouse 成交列表)。完整度 3/8,不做夹板,只画价位"
+   },
+   {
+    "address": "63/100 Terrace Rd",
+    "price": 1330000,
+    "date": "6 July 2026",
+    "dist_m": 80,
+    "lon": 115.868686,
+    "lat": -31.959914,
+    "land_m2": null,
+    "lv": null,
+    "lv_m2": null,
+    "p_lv": null,
+    "landslip": null,
+    "street_side": null,
+    "elev": null,
+    "beds": 3,
+    "baths": 2,
+    "floor_m2": null,
+    "built": null,
+    "storeys": null,
+    "wall": null,
+    "reno": null,
+    "scores": {
+     "land": null,
+     "slope": null,
+     "condition": null
+    },
+    "bookend": null,
+    "note": "隔壁 100 号;面积未知;3 房 2 卫 2 车位(OnTheHouse 成交列表)。完整度 3/8,不做夹板,只画价位"
+   },
+   {
+    "address": "75/78 Terrace Rd",
+    "price": 1349786,
+    "date": "4 June 2026",
+    "dist_m": 86,
+    "lon": 115.870309,
+    "lat": -31.960421,
+    "land_m2": null,
+    "lv": null,
+    "lv_m2": null,
+    "p_lv": null,
+    "landslip": null,
+    "street_side": null,
+    "elev": null,
+    "beds": 3,
+    "baths": 2,
+    "floor_m2": null,
+    "built": null,
+    "storeys": null,
+    "wall": null,
+    "reno": null,
+    "scores": {
+     "land": null,
+     "slope": null,
+     "condition": null
+    },
+    "bookend": null,
+    "note": "78 号;面积未知;3 房 2 卫 2 车位(OnTheHouse 成交列表)。完整度 3/8,不做夹板,只画价位"
+   },
+   {
+    "address": "60/100 Terrace Rd",
+    "price": 1200000,
+    "date": "28 May 2026",
+    "dist_m": 80,
+    "lon": 115.868686,
+    "lat": -31.959914,
+    "land_m2": null,
+    "lv": null,
+    "lv_m2": null,
+    "p_lv": null,
+    "landslip": null,
+    "street_side": null,
+    "elev": null,
+    "beds": 3,
+    "baths": 2,
+    "floor_m2": null,
+    "built": null,
+    "storeys": null,
+    "wall": null,
+    "reno": null,
+    "scores": {
+     "land": null,
+     "slope": null,
+     "condition": null
+    },
+    "bookend": null,
+    "note": "隔壁 100 号;面积未知,价位接近标价;3 房 2 卫 2 车位(OnTheHouse 成交列表)。完整度 3/8,不做夹板,只画价位"
+   },
+   {
+    "address": "24/98 Terrace Rd",
+    "price": 1200000,
+    "date": "1 May 2026",
+    "dist_m": 63,
+    "lon": 115.868861,
+    "lat": -31.959965,
+    "land_m2": null,
+    "lv": null,
+    "lv_m2": null,
+    "p_lv": null,
+    "landslip": null,
+    "street_side": null,
+    "elev": null,
+    "beds": 3,
+    "baths": 2,
+    "floor_m2": null,
+    "built": null,
+    "storeys": null,
+    "wall": null,
+    "reno": null,
+    "scores": {
+     "land": null,
+     "slope": null,
+     "condition": null
+    },
+    "bookend": null,
+    "note": "98 号;OTH 记 193 m²(疑为总面积);3 房 2 卫 2 车位(OnTheHouse 成交列表)。完整度 3/8,不做夹板,只画价位"
+   },
+   {
+    "address": "103/42-52 Terrace Rd",
+    "price": 1400000,
+    "date": "3 March 2026",
+    "dist_m": 287,
+    "lon": 115.872308,
+    "lat": -31.961054,
+    "land_m2": null,
+    "lv": null,
+    "lv_m2": null,
+    "p_lv": null,
+    "landslip": null,
+    "street_side": null,
+    "elev": null,
+    "beds": 3,
+    "baths": 2,
+    "floor_m2": null,
+    "built": null,
+    "storeys": null,
+    "wall": null,
+    "reno": null,
+    "scores": {
+     "land": null,
+     "slope": null,
+     "condition": null
+    },
+    "bookend": null,
+    "note": "42–52 号;面积未知;3 房 2 卫 2 车位(OnTheHouse 成交列表)。完整度 3/8,不做夹板,只画价位"
+   },
+   {
+    "address": "93/78 Terrace Rd",
+    "price": 1295000,
+    "date": "25 January 2026",
+    "dist_m": 86,
+    "lon": 115.870309,
+    "lat": -31.960421,
+    "land_m2": null,
+    "lv": null,
+    "lv_m2": null,
+    "p_lv": null,
+    "landslip": null,
+    "street_side": null,
+    "elev": null,
+    "beds": 3,
+    "baths": 2,
+    "floor_m2": null,
+    "built": null,
+    "storeys": null,
+    "wall": null,
+    "reno": null,
+    "scores": {
+     "land": null,
+     "slope": null,
+     "condition": null
+    },
+    "bookend": null,
+    "note": "78 号;面积未知;3 房 2 卫 2 车位(OnTheHouse 成交列表)。完整度 3/8,不做夹板,只画价位"
+   },
+   {
+    "address": "82/78 Terrace Rd",
+    "price": 1350000,
+    "date": "2 November 2025",
+    "dist_m": 86,
+    "lon": 115.870309,
+    "lat": -31.960421,
+    "land_m2": null,
+    "lv": null,
+    "lv_m2": null,
+    "p_lv": null,
+    "landslip": null,
+    "street_side": null,
+    "elev": null,
+    "beds": 3,
+    "baths": 2,
+    "floor_m2": null,
+    "built": null,
+    "storeys": null,
+    "wall": null,
+    "reno": null,
+    "scores": {
+     "land": null,
+     "slope": null,
+     "condition": null
+    },
+    "bookend": null,
+    "note": "78 号;面积未知;3 房 2 卫 2 车位(OnTheHouse 成交列表)。完整度 3/8,不做夹板,只画价位"
+   },
+   {
+    "address": "6b/70 Terrace Rd",
+    "price": 1370000,
+    "date": "9 December 2025",
+    "dist_m": 118,
+    "lon": 115.870479,
+    "lat": -31.960831,
+    "land_m2": null,
+    "lv": null,
+    "lv_m2": null,
+    "p_lv": null,
+    "landslip": null,
+    "street_side": null,
+    "elev": null,
+    "beds": 3,
+    "baths": 2,
+    "floor_m2": null,
+    "built": null,
+    "storeys": null,
+    "wall": null,
+    "reno": null,
+    "scores": {
+     "land": null,
+     "slope": null,
+     "condition": null
+    },
+    "bookend": null,
+    "note": "70 号;面积未知;3 房 2 卫 2 车位(OnTheHouse 成交列表)。完整度 3/8,不做夹板,只画价位"
+   },
+   {
+    "address": "185/189 Adelaide Tce",
+    "price": 1275000,
+    "date": "11 August 2026",
+    "dist_m": 96,
+    "lon": 115.869819,
+    "lat": -31.959484,
+    "land_m2": null,
+    "lv": null,
+    "lv_m2": null,
+    "p_lv": null,
+    "landslip": null,
+    "street_side": null,
+    "elev": null,
+    "beds": 3,
+    "baths": 2,
+    "floor_m2": null,
+    "built": null,
+    "storeys": null,
+    "wall": null,
+    "reno": null,
+    "scores": {
+     "land": null,
+     "slope": null,
+     "condition": null
+    },
+    "bookend": null,
+    "note": "母地块北侧 Adelaide Tce 一面(同一街区);面积未知;3 房 2 卫 2 车位(OnTheHouse 成交列表)。完整度 3/8,不做夹板,只画价位"
+   },
+   {
+    "address": "213/189 Adelaide Tce",
+    "price": 1400000,
+    "date": "11 February 2026",
+    "dist_m": 96,
+    "lon": 115.869819,
+    "lat": -31.959484,
+    "land_m2": null,
+    "lv": null,
+    "lv_m2": null,
+    "p_lv": null,
+    "landslip": null,
+    "street_side": null,
+    "elev": null,
+    "beds": 3,
+    "baths": 2,
+    "floor_m2": null,
+    "built": null,
+    "storeys": null,
+    "wall": null,
+    "reno": null,
+    "scores": {
+     "land": null,
+     "slope": null,
+     "condition": null
+    },
+    "bookend": null,
+    "note": "同上;面积未知;3 房 2 卫 2 车位(OnTheHouse 成交列表)。完整度 3/8,不做夹板,只画价位"
+   },
+   {
+    "address": "2/22 Kensington St",
+    "price": 1365000,
+    "date": "25 September 2026",
+    "dist_m": 1475,
+    "lon": 115.879047,
+    "lat": -31.94978,
+    "land_m2": null,
+    "lv": null,
+    "lv_m2": null,
+    "p_lv": null,
+    "landslip": null,
+    "street_side": null,
+    "elev": null,
+    "beds": 3,
+    "baths": 2,
+    "floor_m2": null,
+    "built": null,
+    "storeys": null,
+    "wall": null,
+    "reno": null,
+    "scores": {
+     "land": null,
+     "slope": null,
+     "condition": null
+    },
+    "bookend": null,
+    "note": "Claisebrook 一侧 1.5 km;面积未知;3 房 2 卫 2 车位(OnTheHouse 成交列表)。完整度 3/8,不做夹板,只画价位"
+   },
+   {
+    "address": "9/40 Victory Tce",
+    "price": 1560000,
+    "date": "10 September 2026",
+    "dist_m": 1607,
+    "lon": 115.880413,
+    "lat": -31.949192,
+    "land_m2": null,
+    "lv": null,
+    "lv_m2": null,
+    "p_lv": null,
+    "landslip": null,
+    "street_side": null,
+    "elev": null,
+    "beds": 3,
+    "baths": 2,
+    "floor_m2": null,
+    "built": null,
+    "storeys": null,
+    "wall": null,
+    "reno": null,
+    "scores": {
+     "land": null,
+     "slope": null,
+     "condition": null
+    },
+    "bookend": null,
+    "note": "Claisebrook 河湾 1.6 km;面积未知;3 房 2 卫 2 车位(OnTheHouse 成交列表)。完整度 3/8,不做夹板,只画价位"
+   }
+  ]
+ },
+ "pricing": {
+  "method_note": "Strata 模块:可比只取同楼同户型做夹板(两笔完整度 ≥5/8),其它楼 3 房成交只画价位不打分(无面积/楼层)。三项打分改为:面积与车位 / 楼层·朝向·景观 / 房况。土地含量(母地块 UV × entitlement)两项均无免费源,未计算。",
+  "upper": "10/90 Terrace Rd $1,425,000(2026-02-26,136 m²、2 车位、podium 一层 25 m² 庭院 + Langley Park 景观,Renouf Real Estate)——同户型更好位置;减景观与庭院溢价 ≈ $1.37M–1.40M",
+  "lower": "66/90 Terrace Rd $1,380,000(2025-12-02,137 m²、2 车位、strata lot 185 m²,Realestate 88;挂牌 2025-05-22)——与标的同规格,楼层朝向未知;标的 Level 2 朝西南、只有 20 m² 阳台,减不确定性 ≈ $1.28M–1.31M",
+  "widen_reason": "标的的朝向景观、室内翻新、levies 年度都没核;两块夹板的楼层(66)与翻新都未知;其它楼 13 笔没有面积。区间两头各放宽约 $20k。「两房 ≤ house 中位一半」规则只覆盖两房,本例三房不适用;参考:标价 ÷ East Perth house 中位 = 0.66(REIWA $1.905M,n=22)/ 0.80(Cotality $1.558M),house 样本太小,不作判断依据。",
+  "mortgage": {
+   "rate": 0.0615,
+   "years": 30,
+   "step": 50000
+  },
+  "bank_valuation_note": "州遗产登记楼、strata 费占标价 1.2%/年、洪泛管理区、挂牌 7 周:估价师可能按本楼 OnTheHouse AVM 带($1.2–1.3M)偏保守,出价前让贷款经纪做一次桌面估值。"
+ },
+ "future": [
+  {
+   "path": "分割 Subdivision / 再分层",
+   "status": "na",
+   "conclusion": "不适用",
+   "basis": "标的是 SP 58159 的一个 strata lot,土地增值路径(分割、双拼、granny flat)属于母地块与 strata company,单个 lot 无法操作",
+   "next": ""
+  },
+  {
+   "path": "附属住宅 Granny flat",
+   "status": "na",
+   "conclusion": "不适用",
+   "basis": "R-Codes Vol 1(April 2026)虽允许 strata lot 上建 ancillary dwelling,但 Level 2 公寓没有地面可建",
+   "next": ""
+  },
+  {
+   "path": "室内翻新 Renovation",
+   "status": "ok",
+   "conclusion": "可做,受 by-laws 约束",
+   "basis": "2013 年装修至今 13 年,厨卫更新空间存在;结构墙、外窗、阳台属共用部分/遗产外立面,需 strata 与 Heritage Council 同意",
+   "next": "翻新前读 by-laws 与 strata 对装修的审批流程(你 / strata manager)"
+  },
+  {
+   "path": "楼宇层面:遗产 + 设施 + 2013 改建",
+   "status": "warn",
+   "conclusion": "费用上行压力",
+   "basis": "州遗产登记楼的外立面维修标准高;泳池/桑拿/影院/健身房是长期大额更新项;2013 年改建的建筑保修期已过,防水/机电进入第二个 10 年",
+   "next": "看 10 年维修计划与储备金是否够(你 / 买家代理)"
+  },
+  {
+   "path": "周边开发对景观的影响",
+   "status": "warn",
+   "conclusion": "要查",
+   "basis": "R160 + MRS Central City Area:Terrace Rd / Adelaide Tce 一线允许高层;DA 登记要浏览器",
+   "next": "City of Perth DA 登记 + DAP 清单查近 3 年申请(你)"
+  }
+ ],
+ "future_note": "规划依据:DPLH-071/070 图层属性(CPS2 刊宪 2004-01-09);R-Codes Vol 1 April 2026(wa.gov.au 合集页);CPS2 条文与 Precinct P13 政策本次未读(council 页脚本渲染),出价前律师按现行版复核。",
+ "market": {
+  "vacancy": {
+   "scope": "SQM Research 邮编 6004(East Perth)",
+   "rows": [
+    [
+     2023,
+     10,
+     0.71,
+     27,
+     3808
+    ],
+    [
+     2023,
+     11,
+     0.87,
+     33,
+     3807
+    ],
+    [
+     2023,
+     12,
+     0.66,
+     25,
+     3807
+    ],
+    [
+     2024,
+     1,
+     0.87,
+     33,
+     3807
+    ],
+    [
+     2024,
+     2,
+     0.42,
+     16,
+     3807
+    ],
+    [
+     2024,
+     3,
+     0.6,
+     23,
+     3807
+    ],
+    [
+     2024,
+     4,
+     0.97,
+     37,
+     3807
+    ],
+    [
+     2024,
+     5,
+     1.13,
+     43,
+     3807
+    ],
+    [
+     2024,
+     6,
+     1.26,
+     48,
+     3806
+    ],
+    [
+     2024,
+     7,
+     1.26,
+     48,
+     3806
+    ],
+    [
+     2024,
+     8,
+     1.16,
+     44,
+     3806
+    ],
+    [
+     2024,
+     9,
+     1.08,
+     41,
+     3806
+    ],
+    [
+     2024,
+     10,
+     0.63,
+     24,
+     3806
+    ],
+    [
+     2024,
+     11,
+     0.89,
+     34,
+     3806
+    ],
+    [
+     2024,
+     12,
+     1.05,
+     40,
+     3806
+    ],
+    [
+     2025,
+     1,
+     0.89,
+     34,
+     3806
+    ],
+    [
+     2025,
+     2,
+     0.87,
+     33,
+     3805
+    ],
+    [
+     2025,
+     3,
+     0.97,
+     37,
+     3805
+    ],
+    [
+     2025,
+     4,
+     1.08,
+     41,
+     3805
+    ],
+    [
+     2025,
+     5,
+     1.24,
+     47,
+     3805
+    ],
+    [
+     2025,
+     6,
+     1.21,
+     46,
+     3805
+    ],
+    [
+     2025,
+     7,
+     1.21,
+     46,
+     3805
+    ],
+    [
+     2025,
+     8,
+     1.34,
+     51,
+     3805
+    ],
+    [
+     2025,
+     9,
+     1.42,
+     54,
+     3804
+    ],
+    [
+     2025,
+     10,
+     0.95,
+     36,
+     3804
+    ],
+    [
+     2025,
+     11,
+     1.1,
+     42,
+     3804
+    ],
+    [
+     2025,
+     12,
+     1.45,
+     55,
+     3804
+    ],
+    [
+     2026,
+     1,
+     0.97,
+     37,
+     3804
+    ],
+    [
+     2026,
+     2,
+     0.97,
+     37,
+     3804
+    ],
+    [
+     2026,
+     3,
+     0.92,
+     35,
+     3804
+    ],
+    [
+     2026,
+     4,
+     0.97,
+     37,
+     3804
+    ],
+    [
+     2026,
+     5,
+     0.74,
+     28,
+     3803
+    ],
+    [
+     2026,
+     6,
+     1.18,
+     45,
+     3803
+    ],
+    [
+     2026,
+     7,
+     1.39,
+     53,
+     3803
+    ],
+    [
+     2026,
+     8,
+     1.42,
+     54,
+     3803
+    ],
+    [
+     2026,
+     9,
+     1.66,
+     63,
+     3803
+    ]
+   ],
+   "avg12": 1.14,
+   "note": "近 12 个月均值 1.14%;3 年前(2023-09)0.79%;2026-09 为 1.66%(63 套空置 / 3,804 套出租存量),空置率在爬升但仍低于 2% 的均衡线"
+  },
+  "som": {
+   "rows": [
+    [
+     2023,
+     10,
+     18,
+     212
+    ],
+    [
+     2023,
+     11,
+     18,
+     224
+    ],
+    [
+     2023,
+     12,
+     19,
+     218
+    ],
+    [
+     2024,
+     1,
+     21,
+     198
+    ],
+    [
+     2024,
+     2,
+     18,
+     209
+    ],
+    [
+     2024,
+     3,
+     16,
+     228
+    ],
+    [
+     2024,
+     4,
+     15,
+     209
+    ],
+    [
+     2024,
+     5,
+     16,
+     206
+    ],
+    [
+     2024,
+     6,
+     15,
+     185
+    ],
+    [
+     2024,
+     7,
+     16,
+     162
+    ],
+    [
+     2024,
+     8,
+     16,
+     174
+    ],
+    [
+     2024,
+     9,
+     16,
+     168
+    ],
+    [
+     2024,
+     10,
+     23,
+     168
+    ],
+    [
+     2024,
+     11,
+     23,
+     203
+    ],
+    [
+     2024,
+     12,
+     16,
+     185
+    ],
+    [
+     2025,
+     1,
+     18,
+     194
+    ],
+    [
+     2025,
+     2,
+     22,
+     205
+    ],
+    [
+     2025,
+     3,
+     16,
+     226
+    ],
+    [
+     2025,
+     4,
+     23,
+     204
+    ],
+    [
+     2025,
+     5,
+     24,
+     203
+    ],
+    [
+     2025,
+     6,
+     21,
+     195
+    ],
+    [
+     2025,
+     7,
+     17,
+     193
+    ],
+    [
+     2025,
+     8,
+     14,
+     193
+    ],
+    [
+     2025,
+     9,
+     16,
+     176
+    ],
+    [
+     2025,
+     10,
+     19,
+     175
+    ],
+    [
+     2025,
+     11,
+     17,
+     154
+    ],
+    [
+     2025,
+     12,
+     16,
+     118
+    ],
+    [
+     2026,
+     1,
+     16,
+     116
+    ],
+    [
+     2026,
+     2,
+     16,
+     112
+    ],
+    [
+     2026,
+     3,
+     14,
+     136
+    ],
+    [
+     2026,
+     4,
+     13,
+     130
+    ],
+    [
+     2026,
+     5,
+     16,
+     141
+    ],
+    [
+     2026,
+     6,
+     16,
+     150
+    ],
+    [
+     2026,
+     7,
+     16,
+     177
+    ],
+    [
+     2026,
+     8,
+     17,
+     175
+    ],
+    [
+     2026,
+     9,
+     17,
+     188
+    ]
+   ],
+   "note": "邮编 6004 在售:2026-09 houses 17 套、units 188 套 —— 这是公寓市场,看 units 那条线;2025-12 曾低至 118 套,2026 年回升"
+  },
+  "dom_note": "Cotality(Aussie 页)East Perth 区均:units 中位在市 14 天、houses 12 天;近 12 个月成交 592 套。本套挂牌约 2 个月,已超区均 4 倍",
+  "growth": {
+   "rows": [
+    {
+     "period": "1 年(REIWA 日历年 unit 中位)",
+     "start": 575000,
+     "current": 689000,
+     "cum": 19.8,
+     "ann": 19.8,
+     "kind": "unit"
+    },
+    {
+     "period": "5 年(2021→2026 YTD)",
+     "start": 490000,
+     "current": 689000,
+     "cum": 40.6,
+     "ann": 7.05,
+     "kind": "unit"
+    },
+    {
+     "period": "9 年(2017→2026 YTD)",
+     "start": 502500,
+     "current": 689000,
+     "cum": 37.1,
+     "ann": 3.57,
+     "kind": "unit"
+    },
+    {
+     "period": "5 年 AVM 中位值(OnTheHouse,至 2026-09-30)",
+     "start": 495900,
+     "current": 707601,
+     "cum": 42.7,
+     "ann": 7.37,
+     "kind": "unit"
+    }
+   ],
+   "thirty": {
+    "status": "none",
+    "text": "WA 无免费官方逐笔成交;REIWA 郊区页只回到 2017 年,OnTheHouse 只给 5 年 AVM 增长。10/20/30 年增长本次没有可靠免费源,留空。"
+   },
+   "note": "全部是「全区所有 unit 的中位」(1–3 房混合,2024 年起新楼交付把中位抬高),不是重复销售指数;三家 12 个月增长分别 +11%(OnTheHouse)、+20%(REIWA 2025→2026 YTD)、+23%(Cotality/Aussie),口径不同。本楼自身证据:99/90 两笔 2024-07 $910k → 2025-12 $980k(+7.7%)。"
+  },
+  "ask": [
+   [
+    "2026-05-01",
+    1897245.33,
+    1450265.51
+   ],
+   [
+    "2026-05-08",
+    1823622.66,
+    1387382.76
+   ],
+   [
+    "2026-05-15",
+    1736811.33,
+    1355941.38
+   ],
+   [
+    "2026-05-22",
+    1693405.67,
+    1552970.69
+   ],
+   [
+    "2026-05-29",
+    1671702.83,
+    1751485.34
+   ],
+   [
+    "2026-06-05",
+    1660851.42,
+    1850742.67
+   ],
+   [
+    "2026-06-12",
+    1705425.71,
+    1900371.34
+   ],
+   [
+    "2026-06-19",
+    1562712.85,
+    1825185.67
+   ],
+   [
+    "2026-06-26",
+    1491356.43,
+    1787592.83
+   ],
+   [
+    "2026-07-03",
+    1455678.21,
+    1768796.42
+   ],
+   [
+    "2026-07-10",
+    1437839.11,
+    1759398.21
+   ],
+   [
+    "2026-07-17",
+    1428919.55,
+    1754699.1
+   ],
+   [
+    "2026-07-24",
+    1406959.78,
+    1752349.55
+   ],
+   [
+    "2026-07-31",
+    1395979.89,
+    1751174.78
+   ],
+   [
+    "2026-08-07",
+    1390489.94,
+    1750587.39
+   ],
+   [
+    "2026-08-14",
+    1387744.97,
+    1750293.69
+   ],
+   [
+    "2026-08-21",
+    1491372.49,
+    1711396.85
+   ],
+   [
+    "2026-08-28",
+    1582936.24,
+    1692948.42
+   ],
+   [
+    "2026-09-04",
+    1666468.12,
+    1683724.21
+   ],
+   [
+    "2026-09-11",
+    1708234.06,
+    1679112.11
+   ],
+   [
+    "2026-09-18",
+    1729117.03,
+    1676806.05
+   ],
+   [
+    "2026-09-25",
+    1701808.52,
+    1637903.03
+   ],
+   [
+    "2026-10-02",
+    1688154.26,
+    1618451.51
+   ],
+   [
+    "2026-10-09",
+    1681327.13,
+    1608725.76
+   ],
+   [
+    "2026-10-16",
+    1715663.56,
+    1603862.88
+   ],
+   [
+    "2026-10-23",
+    1695081.78,
+    1601431.44
+   ]
+  ],
+  "rent_note": "SQM 要价与租金页脚本只抓 houses 系列(邮编 6004 house 要价约 $1.69M、3 房 house 周租约 $1,040),对本套公寓没有参考意义;unit 要价/租金系列本次未抓。租金估算走「问中介 / 买家代理」",
+  "yearly": {
+   "2017": [
+    502500,
+    340
+   ],
+   "2018": [
+    531475,
+    296
+   ],
+   "2019": [
+    500000,
+    300
+   ],
+   "2020": [
+    470000,
+    255
+   ],
+   "2021": [
+    490000,
+    410
+   ],
+   "2022": [
+    480000,
+    445
+   ],
+   "2023": [
+    460000,
+    496
+   ],
+   "2024": [
+    505000,
+    659
+   ],
+   "2025": [
+    575000,
+    645
+   ],
+   "2026": [
+    689000,
+    436
+   ]
+  }
+ },
+ "holding": {
+  "rows": [
+   [
+    "Strata levies(中介自述)",
+    "$2,551.59/季 Admin + $1,058.75/季 Reserve = 约 $14,441/年"
+   ],
+   [
+    "Council rates(中介自述)",
+    "$2,888.85/年(City of Perth,按 GRV)"
+   ],
+   [
+    "Water(中介自述)",
+    "$2,026.26/年(Water Corporation 固定费 + 用量)"
+   ],
+   [
+    "保险",
+    "楼体由 strata 保单承保(保费已含在 levies);自住 contents 约 $500–1,000/年(估)"
+   ],
+   [
+    "合计",
+    "约 $20,000/年(不含贷款利息),其中 strata 占七成"
+   ]
+  ],
+  "source_note": "levies / rates / water 全部来自中介文案「Features and Rates (Estimated)」,出价前用 Precontractual disclosure 与上一期 rates notice 核(你)"
+ },
+ "school_commute": {
+  "rows": [
+   [
+    "学区(中介自述)",
+    "Highgate Primary School(直线 2.2 km)与 Bob Hawke College(Subiaco,2.5 km 外);WA 教育厅 local-intake area 多边形不在 SLIP,本次未核"
+   ],
+   [
+    "最近学校(DET-024 点位)",
+    "Mercedes College 0.5 km(7–12,私立);Trinity College 1.2 km;St George's Anglican Grammar 1.3 km;Highgate PS 2.2 km(公立 K–6)"
+   ],
+   [
+    "通勤(OSRM 步行)",
+    "Elizabeth Quay 站 1,253 m / 17 分;McIver 站 1,560 m / 21 分;Perth 站 1,789 m / 24 分;Hay St Mall 1,472 m / 20 分;免费 Red CAT 公交 Carlton 站约 550 m(中介)"
+   ],
+   [
+    "生活",
+    "Langley Park 76 m、河岸 68 m(中介);Queens Gardens 500 m"
+   ]
+  ],
+  "next": "WA 教育厅「Find a school / local-intake area」查地址所属公校(你);高峰时段步行一次到 Elizabeth Quay(你)"
+ },
+ "questions": [
+  {
+   "zh": "Strata 费 $2,551.59 + $1,058.75/季是哪一年度的?最近三年有没有 special levy?储备金现在余额多少?",
+   "en": "Which financial year are the levies ($2,551.59 admin + $1,058.75 reserve per quarter) from? Any special levies in the last three years? Current reserve fund balance?"
+  },
+  {
+   "zh": "10 年维修计划里泳池、电梯、外立面(遗产)、防水各排了多少钱、哪一年?",
+   "en": "In the 10-year maintenance plan, what is budgeted and when for the pool, lifts, heritage façade and waterproofing?"
+  },
+  {
+   "zh": "地下车库进过水吗?strata 保险是否承保洪水、免赔额多少?",
+   "en": "Has the basement car park ever flooded? Does the strata insurance cover flood and what is the excess?"
+  },
+  {
+   "zh": "两个车位和储物间是 lot 18 的一部分、exclusive use by-law,还是 common property 分配?",
+   "en": "Are the two car bays and the store part of lot 18, an exclusive-use by-law, or an allocation of common property?"
+  },
+  {
+   "zh": "Level 2 朝西南看出去是什么?Terrace Rd 对面或邻地有没有已批/在审的高层 DA?",
+   "en": "What does the south-west outlook face? Any approved or pending high-rise DAs across Terrace Rd or on adjoining lots?"
+  },
+  {
+   "zh": "2013 年改建以来楼里有没有缺陷索赔、漏水或工程诉讼?by-laws 对宠物、短租、装修怎么规定?",
+   "en": "Any defect claims, leaks or litigation since the 2013 conversion? What do the by-laws say about pets, short-stay letting and renovations?"
+  },
+  {
+   "zh": "现在自住还是出租?若出租,租金、租约到期日?2014 年 $1M 买入后做过什么翻新?",
+   "en": "Owner-occupied or tenanted? If tenanted, rent and lease expiry? What has been renovated since the 2014 purchase at $1M?"
+  },
+  {
+   "zh": "挂牌 Offers Over $1,249,000 以来收到过出价吗?卖方拒绝过什么价位?",
+   "en": "Any offers since listing at Offers Over $1,249,000? What price has the vendor already rejected?"
+  }
+ ],
+ "manual_items": [
+  {
+   "item": "Strata 披露包",
+   "what": "Precontractual disclosure statement、AGM 纪要、10 年计划、储备金、保险 certificate、by-laws",
+   "who": "你向中介索要;律师读",
+   "where": "卖方 / strata manager"
+  },
+  {
+   "item": "Strata plan SP 58159 副本",
+   "what": "lot 18 的 unit entitlement、车位/储物归属、共用部分范围",
+   "who": "律师 / 你",
+   "where": "Landgate Survey plans and documents($33.90)"
+  },
+  {
+   "item": "Certificate of Title",
+   "what": "产权人、抵押、地役权、遗产或污染备注",
+   "who": "律师",
+   "where": "Landgate(付费)"
+  },
+  {
+   "item": "洪水信息",
+   "what": "DFE 2.28 m AHD vs 本楼地面层与地下车库高程;strata 保险洪水条款",
+   "who": "律师 + 你",
+   "where": "City of Perth / DWER;strata manager"
+  },
+  {
+   "item": "DA 登记",
+   "what": "Terrace Rd / Adelaide Tce 邻地近 3 年高层申请",
+   "who": "你 / 买家代理",
+   "where": "City of Perth 网站;DPLH Planning Online"
+  },
+  {
+   "item": "GRV / rates notice",
+   "what": "官方 GRV、实际 rates",
+   "who": "你向中介要",
+   "where": "上一期 City of Perth rates notice"
+  },
+  {
+   "item": "学区",
+   "what": "地址所属公校 intake area",
+   "who": "你",
+   "where": "WA 教育厅 Find a school"
+  },
+  {
+   "item": "犯罪统计",
+   "what": "East Perth 近 12 个月分类计数",
+   "who": "你",
+   "where": "WA Police Crime Statistics 仪表盘"
+  },
+  {
+   "item": "租金评估",
+   "what": "同楼 3 房的实际租金",
+   "who": "买家代理 / 中介",
+   "where": "租赁中介 / 付费数据"
+  }
+ ],
+ "glossary": [
+  {
+   "term": "Strata Plan(SP)/ Survey-Strata",
+   "text": "WA 分层产权:SP 前缀 = 建筑分层(lot 以楼内空间定义),survey-strata 以地面界址定义(Landgate 同属 Scheme Plans)。Plan Extent 图层的 plan_identifier 前缀 P/D/DP = 普通地块,SP = strata。"
+  },
+  {
+   "term": "Unit entitlement",
+   "text": "每个 lot 在 strata 里的份额,决定 levies 分摊、表决权与土地含量;写在 strata plan 上。"
+  },
+  {
+   "term": "Precontractual disclosure statement",
+   "text": "Strata Titles Act 1985 规定卖方签约前必须给买家的披露表(Landgate 批准表格),含 levies、储备金、10 年计划等。"
+  },
+  {
+   "term": "GRV / UV",
+   "text": "Gross Rental Value / Unimproved Value,Landgate 法定估值,分别用于 council rates 与土地税;不是市场价。"
+  },
+  {
+   "term": "DFE(Designated Flood Event)",
+   "text": "DWER 规划用洪水位 = 1% AEP 水位 + 海平面上升假设;本址附近 2.28 m AHD。"
+  },
+  {
+   "term": "SPP 5.4",
+   "text": "WA State Planning Policy 5.4 Road and Rail Noise:主要货运/交通走廊两侧的噪音评估区。"
+  },
+  {
+   "term": "R160 / CPS2",
+   "text": "R-Codes 密度码 R160(高密度);City Planning Scheme No. 2 是 City of Perth 的地方规划方案。"
+  },
+  {
+   "term": "BFPA",
+   "text": "Bushfire Prone Area,DFES 指定的山火易发区,命中则建设需 BAL 评估。"
+  }
+ ],
+ "blockers": [
+  {
+   "n": 2,
+   "step": "1",
+   "issue": "SKILL.md 第 1 步指到 nsw_layers.py,WA 没有图层脚本",
+   "workaround": "按 state-WA.md 自写 33 个点查的脚本"
+  },
+  {
+   "n": 6,
+   "step": "0",
+   "issue": "Landgate 地籍地址层没有单元级记录,按 road_number_2 查返回 0",
+   "workaround": "Plan Extent 同点 3 个 plan 取 SP 58159;Cadastre No-Attributes 116 个叠放多边形核对 115 户"
+  },
+  {
+   "n": 7,
+   "step": "3",
+   "issue": "unit entitlement、levies、楼层、总户数无任何免费源",
+   "workaround": "全部取自中介文案,标「中介自述,待披露表核」"
+  },
+  {
+   "n": 8,
+   "step": "4",
+   "issue": "WA 无官方成交,NSW 成交/可比脚本全不可用",
+   "workaround": "OnTheHouse 成交列表 + 单元页(免费、无限速)+ REIWA 郊区页;Aussie 连抓 8 页后 202"
+  },
+  {
+   "n": 14,
+   "step": "3",
+   "issue": "洪水三档是 NSW 词汇,DWER Floodplain Area + DCA 命中、Extent 未命中无法按字面归档",
+   "workaround": "判 cond;两条固定下一步改问地下车库高程与 strata 保险"
+  },
+  {
+   "n": 4,
+   "step": "3",
+   "issue": "Domain 物业档案页 curl 403;Aussie 32 张照片只拿到 1 张",
+   "workaround": "在市天数用首挂月;建材未判"
+  },
+  {
+   "n": 11,
+   "step": "5",
+   "issue": "犯罪(WA Police 仪表盘)、学区(无 intake 图层)、SQM unit 要价/租金(脚本只抓 houses)",
+   "workaround": "三项进「要人做」"
+  }
+ ]
+}

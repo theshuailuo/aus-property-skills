@@ -1,0 +1,28 @@
+{
+  "name": "port_stephens",
+  "service": "https://services-ap1.arcgis.com/YixhBZMQhOb0beqS/arcgis/rest/services",
+  "tested": "2026-10-23",
+  "how_found": "council flood-safety / bushfire-zone-maps pages embed ArcGIS Experience Builder apps (experience.arcgis.com/experience/<id>); read https://www.arcgis.com/sharing/rest/content/items/<id>/data?f=json for webmap itemIds, then each webmap's operationalLayers / each Feature Service item's url. One FeatureServer per dataset (not one MapServer), so layer ids below are 'Service/FeatureServer/<n>' strings appended to service.",
+  "positive_controls": {
+    "flood_planning_area": "Salamander Bay foreshore near 152.0800,-32.7290 -> 'Flood Planning Area'; subject 112A Salamander Way -> 'Flood Planning Area Overland Flow'",
+    "flood_negative": "Nelson Bay high ground 152.1442,-32.7205 -> no Flood Planning Area polygon (Flood Prone Land still hits: that layer is near-blanket, 192 km2 polygon, low information)",
+    "bfpl_2021": "Vegetation Category 2 polygon within 300 m of 112A Salamander Way",
+    "anef_2025": "RAAF Williamtown 151.84,-32.80 -> ANEF 40+"
+  },
+  "layers": {
+    "flood_planning_area_2023": {"id": "Flood_Planning_Area_/FeatureServer/2", "field": "CategoryDescription", "near": 400},
+    "flood_prone_land_2023": {"id": "Flood_Prone_Land/FeatureServer/170", "field": "CategoryDescription"},
+    "bfpl_2021": {"id": "Bushfire_Prone_Land/FeatureServer/161", "field": "CategoryDescription", "near": 300},
+    "anef_2025": {"id": "ANEF_2025/FeatureServer/175", "field": "ANEF2025", "near": 5000},
+    "koala_habitat_ckpom": {"id": "Consolidated_CKPoM_Koala_Habitat_Map/FeatureServer/90", "field": "HabitatClass"},
+    "dcp2025_land_application": {"id": "Development_Control_Plan_2025___Land_Application_Map/FeatureServer/221", "field": "OBJECTID"},
+    "drainage_control_area": {"id": "Drainage___Control_Areas/FeatureServer/3", "field": "Label"},
+    "hydrologic_soil_group": {"id": "Hydrologic_Soil_Groups/FeatureServer/129", "field": "HYDRO_GP"},
+    "raaf_height_trigger": {"id": "RAAF_Base_Williamtown_Defence_Aviation_Area___Height_Trigger_Map/FeatureServer/157", "field": "OBJECTID"},
+    "raaf_bird_strike": {"id": "RAAF_Base_Williamtown_and_Salt_Ash_Air_Weapons_Range___Bird_Strike_Zones/FeatureServer/158", "field": "OBJECTID"},
+    "wsud_strategies": {"id": "Drainage___WSUD_Strategies/FeatureServer/5", "field": "OBJECTID"},
+    "lighting_casa": {"id": "Extraneous_Lighting_CASA/FeatureServer/156", "field": "OBJECTID"},
+    "lighting_dod": {"id": "Extraneous_Lighting_DoD/FeatureServer/155", "field": "OBJECTID"}
+  },
+  "not_available_as_rest": "Landslip: none (state Hazard L2 does not cover Port Stephens either). Coastal hazard: CorporateViewerWML has a 'Coastal' group but no public service URL was exposed. Heritage/LotSize/HOB: use the state ePlanning layers."
+}

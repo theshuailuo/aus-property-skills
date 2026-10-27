@@ -53,6 +53,7 @@ End every SKILL.md with a `## Related Skills` section: one line per neighbouring
 - **Modules can be used on their own**, each with its own scenario entry and video: `hazard-and-insurance`, `comparable-sales-valuation`, `price-guide-offer`, `auction-day`, `subdivision-check`, `granny-flat-duplex`, `strata-report`, `listing-decoder-agent-questions`, `open-home-checklist`.
 - **The same logic lives in exactly one place.** Rules and scripts sit in the module that owns them (or in `shared/` when several skills need them). The assembly skill references and calls them; it never copies them. When you change a rule, change it in its owning module only.
 - Each module's SKILL.md says it is the source of truth for its topic; `auspptdd`'s Related Skills section lists which module owns each section.
+- **Until a module is published, its logic lives inside `auspptdd`** (the v0.4 unit path, the hazard tiers, the comparable scoring). Extracting a module means *moving* that text and those scripts out of `auspptdd` and leaving a reference behind, never copying them; `auspptdd` keeps a one-paragraph first-pass summary and the hand-over line.
 
 总装 skill(auspptdd)每节只做初判并指向模块;模块可单独使用;同一段逻辑只有一个正本,放在所属模块或 `shared/`,总装调用不复制。
 

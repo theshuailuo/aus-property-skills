@@ -5,10 +5,17 @@ To update: compare with the table below and reinstall any skill that is behind (
 
 | Skill | Version | Last Updated |
 |---|---|---|
+| auspptdd | 0.4.0 | 2026-10-28 |
 
 <!-- 每发布一个 skill 加一行,例如 | holiday-home | 0.1.0 | 2026-11-01 | -->
 
 ---
+
+### 0.2.0 (2026-10-28)
+- 新 skill `auspptdd` v0.4.0:澳洲住宅尽调公开数据版,独立屋与 strata 公寓两条路径;NSW、WA 各冷跑过独立屋与公寓(Beacon Hill、Salamander Bay、East Perth、North Sydney)。
+- 报告署名与引导语按 `shared/cta.md`(页脚出品人 + 视频;预约行只在用户要求时出现);免责按 `shared/disclaimers.md`;付费口径不带链接。
+- 数据源登记表:auspptdd 的 26 行改为实际核验日期;新增 Domain 楼栋页、OnTheHouse、Allhomes、Landgate SLIP 等。
+- New skill `auspptdd` 0.4.0: residential due diligence on free public data, house and strata-unit paths, cold-run in NSW and WA; attribution and disclaimers now follow the shared wording; data-source registry filled in.
 
 ### 0.1.0 (2026-10-22)
 - 仓库脚手架:README 中英、AGENTS.md、MIT + 品牌说明、ROADMAP(57 个 skill)、共享免责/图片/数据源、skill 写法样板、校验脚本。

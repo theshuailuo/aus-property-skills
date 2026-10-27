@@ -1,0 +1,2000 @@
+{
+ "meta": {
+  "lang": "zh",
+  "title": "Worked example · 112A Salamander Way, Salamander Bay NSW 2317 · 买家尽调(公开数据免费版)",
+  "date": "2026-10-23",
+  "one_liner": "只凭地址、只用免费官方数据:这套 2000 年 5 房单层、908 m² C4 地块、标价 $1.35M 的房子值不值、风险在哪。",
+  "edition": "public",
+  "human_minutes": 5,
+  "active_minutes": 80,
+  "wall_minutes": 518,
+  "machine_minutes": "80(活跃)/ 518(墙钟)"
+ },
+ "subject": {
+  "address": "112A Salamander Way, Salamander Bay NSW 2317",
+  "lot_dp": "Lot 1081 DP 1188746",
+  "land_m2": 908,
+  "list_price": 1350000,
+  "built": 2000,
+  "dwelling": "独立屋 · 单层 · Torrens 地契",
+  "beds": 5,
+  "baths": 2,
+  "cars": 2,
+  "floor_m2": 230,
+  "status_line": "洪水条件项:council 图层 Overland Flow 命中——先拿规划洪水位与保险报价,再出价;自住出售,未见租约",
+  "status_class": "cond",
+  "lon": 152.093903,
+  "lat": -32.739608,
+  "facts": [
+   [
+    "地址",
+    "112A Salamander Way, Salamander Bay NSW 2317(Port Stephens LGA)"
+   ],
+   [
+    "地块 / 产权",
+    "Lot 1081 DP 1188746 — DP = Torrens(非 strata);2013 年从 112 号分出的两块之一(相邻 Lot 1082 = 112 号,1,122 m²)。本报告挂「土地模块」"
+   ],
+   [
+    "土地面积",
+    "908 m²(Valuer General)/ 907.5 m²(Cadastre)/ 908 m²(Domain、Aussie)"
+   ],
+   [
+    "分区",
+    "C4 Environmental Living — Port Stephens LEP 2013(ePlanning Land Zoning,Map Amendment No 5)"
+   ],
+   [
+    "最小地块 / 限高 / FSR",
+    "1 ha(cl 4.1,Lot Size Map)/ 9 m(cl 4.3)/ 无 FSR 图"
+   ],
+   [
+    "中介",
+    "PRD Real Estate Port Stephens — Dane Queenan / Erin Sharp(Domain 挂牌页)"
+   ],
+   [
+    "官方成交中位(区)",
+    "近 12 个月 Salamander Bay 非分层房屋 81 笔,中位 $1,200,000;标价约在第 70 百分位"
+   ],
+   [
+    "Domain 估值(免费公开)",
+    "$1.19M – $1.38M – $1.57M,「高置信」,2026-10-17;租金估 $995/周(低置信)"
+   ]
+  ],
+  "land_value": {
+   "latest": 632000,
+   "date": "2025-07-01",
+   "history": {
+    "2021": 441000,
+    "2022": 606000,
+    "2023": 602000,
+    "2024": 602000,
+    "2025": 632000
+   }
+  }
+ },
+ "photos": {
+  "images": [
+   {
+    "url": "https://rimh2.domainstatic.com.au/cFwAPB-Jdfpq162wjHOPwHmm7Vg=/fit-in/1920x1080/filters:format(webp):quality(85):no_upscale()/2020893571_1_1_260831_110022-w1524-h1032",
+    "caption": "外立面(主图)"
+   },
+   {
+    "url": "https://rimh2.domainstatic.com.au/x7yXFpc5uCrjdV91PxSJ4Oxd0cs=/fit-in/640x360/filters:format(webp):quality(80):no_upscale()/2020893571_2_1_260604_035548-w2000-h1333",
+    "caption": "挂牌照片 2"
+   },
+   {
+    "url": "https://rimh2.domainstatic.com.au/M6QoSZNWL88E4FNGDoWXVCmiwx0=/fit-in/640x360/filters:format(webp):quality(80):no_upscale()/2020893571_3_1_260604_035548-w2000-h1333",
+    "caption": "挂牌照片 3"
+   },
+   {
+    "url": "https://rimh2.domainstatic.com.au/hawBGzPZL63kSN4N4KARhss9XSE=/fit-in/640x360/filters:format(webp):quality(80):no_upscale()/2020893571_4_1_260604_035549-w2000-h1333",
+    "caption": "挂牌照片 4"
+   },
+   {
+    "url": "https://rimh2.domainstatic.com.au/vFIfFwSvekt7pdvR6z1pwu0M0Fg=/fit-in/640x360/filters:format(webp):quality(80):no_upscale()/2020893571_5_1_260604_035549-w2000-h1333",
+    "caption": "挂牌照片 5"
+   },
+   {
+    "url": "https://rimh2.domainstatic.com.au/EqnUKdTF5Hyw-5-LWJl6uDhEoxw=/fit-in/640x360/filters:format(webp):quality(80):no_upscale()/2020893571_6_1_260604_035549-w2000-h1333",
+    "caption": "挂牌照片 6"
+   },
+   {
+    "url": "https://rimh2.domainstatic.com.au/LoFjSMZhezDWoaEM1AbtaZxJn6Q=/fit-in/1920x1080/filters:format(webp):quality(85):no_upscale()/2020893571_7_1_260604_035549-w2000-h1333",
+    "caption": "挂牌照片 7"
+   },
+   {
+    "url": "https://rimh2.domainstatic.com.au/9h5jqH0sEdRqh_saTd8co9uuWvE=/fit-in/1920x1080/filters:format(webp):quality(85):no_upscale()/2020893571_8_1_260604_035549-w2000-h1333",
+    "caption": "挂牌照片 8"
+   },
+   {
+    "url": "https://rimh2.domainstatic.com.au/PGjk9YbGyaxUtYIGctrbSWA9taw=/fit-in/1920x1080/filters:format(webp):quality(85):no_upscale()/2020893571_9_1_260604_035549-w2000-h1333",
+    "caption": "挂牌照片 9"
+   },
+   {
+    "url": "https://rimh2.domainstatic.com.au/95UI3YTMpRoGMMRzN7vdQoI64fw=/fit-in/1920x1080/filters:format(webp):quality(85):no_upscale()/2020893571_10_1_260604_035549-w2000-h1333",
+    "caption": "挂牌照片 10"
+   },
+   {
+    "url": "https://rimh2.domainstatic.com.au/U3InyDE6RWZ9znz7chj8aDdC02A=/fit-in/1920x1080/filters:format(webp):quality(85):no_upscale()/2020893571_11_1_260604_035549-w2000-h1333",
+    "caption": "挂牌照片 11"
+   },
+   {
+    "url": "https://rimh2.domainstatic.com.au/otZikhO6Id1IwKqDzvbvWoXUHrk=/fit-in/1920x1080/filters:format(webp):quality(85):no_upscale()/2020893571_12_1_260604_035549-w2000-h1333",
+    "caption": "挂牌照片 12"
+   },
+   {
+    "url": "https://rimh2.domainstatic.com.au/FL6GZP9jJTxW-mZaSyNj6ugMJI4=/fit-in/1920x1080/filters:format(webp):quality(85):no_upscale()/2020893571_13_1_260604_035549-w2000-h1333",
+    "caption": "挂牌照片 13"
+   },
+   {
+    "url": "https://rimh2.domainstatic.com.au/oitFKm8FjkhgnXqwNIKqba9Ktdg=/fit-in/1920x1080/filters:format(webp):quality(85):no_upscale()/2020893571_14_1_260604_035549-w2000-h1333",
+    "caption": "挂牌照片 14"
+   },
+   {
+    "url": "https://rimh2.domainstatic.com.au/21eAZVSG3HjvumvGhgd2_Ucowfg=/fit-in/1920x1080/filters:format(webp):quality(85):no_upscale()/2020893571_15_1_260604_035549-w2000-h1333",
+    "caption": "挂牌照片 15"
+   },
+   {
+    "url": "https://rimh2.domainstatic.com.au/-DmLn2fsg_U-R26uGicWqHiDlP8=/fit-in/1920x1080/filters:format(webp):quality(85):no_upscale()/2020893571_16_1_260604_035549-w2000-h1333",
+    "caption": "挂牌照片 16"
+   },
+   {
+    "url": "https://rimh2.domainstatic.com.au/BxyHRxx8BEBH4HHVDX5g7Q-D5qE=/fit-in/1920x1080/filters:format(webp):quality(85):no_upscale()/2020893571_17_1_260604_035549-w2000-h1333",
+    "caption": "挂牌照片 17"
+   },
+   {
+    "url": "https://rimh2.domainstatic.com.au/eX18C4bFWDfP7fLSlmxQGIVxeVI=/fit-in/1920x1080/filters:format(webp):quality(85):no_upscale()/2020893571_18_1_260604_035549-w2000-h1333",
+    "caption": "挂牌照片 18"
+   },
+   {
+    "url": "https://rimh2.domainstatic.com.au/RCf_KJmxrd_ol2fCW25trQhbeTg=/fit-in/1920x1080/filters:format(webp):quality(85):no_upscale()/2020893571_19_1_260604_035549-w2000-h1333",
+    "caption": "挂牌照片 19"
+   },
+   {
+    "url": "https://rimh2.domainstatic.com.au/_6czEyA75wMzHz2ZgPzN55tQb1k=/fit-in/1920x1080/filters:format(webp):quality(85):no_upscale()/2020893571_20_1_260604_035549-w2000-h1333",
+    "caption": "挂牌照片 20"
+   },
+   {
+    "url": "https://rimh2.domainstatic.com.au/U-eNP_ep7sHGe-2-otvc4Rsw11w=/fit-in/1920x1080/filters:format(webp):quality(85):no_upscale()/2020893571_21_1_260604_035549-w2000-h1333",
+    "caption": "挂牌照片 21"
+   },
+   {
+    "url": "https://rimh2.domainstatic.com.au/qX5QNVVCThyg4I4eX_RcxH4Vc6Y=/fit-in/1920x1080/filters:format(webp):quality(85):no_upscale()/2020893571_22_1_260604_035549-w2000-h1333",
+    "caption": "挂牌照片 22"
+   },
+   {
+    "url": "https://rimh2.domainstatic.com.au/IexHght5SmELHIGaWMOLTx_tmiY=/fit-in/1920x1080/filters:format(webp):quality(85):no_upscale()/2020893571_23_1_260604_035549-w2000-h1333",
+    "caption": "挂牌照片 23"
+   },
+   {
+    "url": "https://rimh2.domainstatic.com.au/i6ZhcHFE-X4_oWgjmR5D3rGFdVY=/fit-in/1920x1080/filters:format(webp):quality(85):no_upscale()/2020893571_24_1_260604_035549-w2000-h1333",
+    "caption": "挂牌照片 24"
+   },
+   {
+    "url": "https://rimh2.domainstatic.com.au/aFF6vjgcDwNK5xDJylZXKtNwJWA=/fit-in/1920x1080/filters:format(webp):quality(85):no_upscale()/2020893571_25_1_260604_035549-w2000-h1333",
+    "caption": "挂牌照片 25"
+   },
+   {
+    "url": "https://rimh2.domainstatic.com.au/-FzdQgKssZY7NFhDxJJTde4JmuY=/fit-in/1920x1080/filters:format(webp):quality(85):no_upscale()/2020893571_26_1_260604_035549-w2000-h1333",
+    "caption": "挂牌照片 26"
+   }
+  ],
+  "credit_source": "domain.com.au 挂牌页(2026-10-23 读取;链接为 Domain 图片 CDN 签名地址,可能过期)",
+  "sources": [
+   {
+    "name": "Domain 挂牌页(27 张照片 + 视频)",
+    "url": "https://www.domain.com.au/112a-salamander-way-salamander-bay-nsw-2317-2020893571",
+    "crosscheck": "地址、5 卧 2 卫 2 车、908 m²、$1,350,000、PRD Dane Queenan —— 与 Aussie 页(5/2/2、908 m²、2000 年建)五项一致,认同一套房"
+   },
+   {
+    "name": "Domain 物业档案页(估值、历史成交、洪水/山火 overlay 提示)",
+    "url": "https://www.domain.com.au/property-profile/112a-salamander-way-salamander-bay-nsw-2317",
+    "crosscheck": "同上;历史成交 2019 $785k 与 VG 一致"
+   },
+   {
+    "name": "Aussie / Cotality 物业页(事实主源)",
+    "url": "https://www.aussie.com.au/property/nsw/salamander-bay-2317/112a-salamander-way/",
+    "crosscheck": "5 卧 2 卫 2 车、230 m² 建筑、908 m² 土地、2000 年建、首挂 2026-06"
+   }
+  ],
+  "streetview_url": "https://www.google.com/maps?q=&layer=c&cbll=-32.739608,152.093903",
+  "material_from_photos": "从照片判读(Domain 主图 1 张,高清;其余 25 张未逐张看):单层、浅色面砖外墙、深色瓦屋顶(带太阳能板)、双车库、前院大草坪;外墙是面砖还是渲染、屋顶是瓦还是彩钢,以看房与验房师确认为准。"
+ },
+ "summary": {
+  "verdict_line": "标价 $1.35M 落在合理区间 $1.28M–$1.42M 内偏中,不算贵;但它是「条件项」:council 2023 年洪水规划区图层命中的是 Overland Flow(地表漫流,不是主流洪水),出价前要先拿到两样东西——council 的规划洪水位 vs 房屋地板高度、两家保险公司含洪水的报价。挂了近 5 个月没卖掉,说明市场也在为洪水/C4/主路打折,首次出价从区间下沿起步。",
+  "max_risk": "洪水规划区(Overland Flow)命中 + 地块只有 6 m AHD、落差 0 的平地 + 酸性硫酸盐土 Class 4 + RFS 山火 Vegetation Buffer:四件事叠在一起,意味着任何加建/双拼 DA 都要带洪水、山火、ASS 三份评估,保险费也会比邻区高;买家最该先问的是「规划洪水位是多少、地板比它高多少、保险公司报价多少」。",
+  "range": [
+   1280000,
+   1420000
+  ],
+  "avm_range": [
+   1190000,
+   1380000,
+   1570000
+  ],
+  "range_note": "三明治法:上夹板 10 Kestrel Ave $1,700,000(2025-07,2000 年 241 m² 单层、760 m² R2、无洪水/山火/主路)——同样的房放在干净地块上;扣洪水规划区、C4 不可分割、临次干道、地价倍数差异约 15–17% ≈ $1.42M–1.45M。下夹板 9 Compass Cl $1,400,000(2025-08,1998 年 175 m²、800 m² R2 无洪水)——房比标的小 55 m² 旧 2 年(约 +6%),但同样要扣洪水/C4/主路(约 −10%)≈ $1.34M。两头再按建材/翻新未知放宽:$1.28M–$1.42M。同街旁证:136 Salamander Way $1.38M(2025-10,1,117 m² C4 无洪水、1996 年)。地价倍数旁证:16 笔成交价 ÷ 地价中位 2.3,同街 2.25 × $632,000 ≈ $1.42M。挂牌 4.6 个月未售(区均 58 天)说明 $1.35M 是市场已经犹豫的价。",
+  "offer": {
+   "first": 1280000,
+   "walk_away": 1370000,
+   "confidence": "低–中",
+   "confidence_note": "洪水为条件项(先拿规划洪水位与保险报价);首次出价 $1.28M(区间下沿,也是挂 5 个月后的合理起点)、放手价 $1.37M(略高于标价即走)。夹板完整度各 5/8;建材、翻新、街面侧未知;16 笔里 8 笔无建年或面积。"
+  }
+ },
+ "status_cards": [
+  {
+   "label": "洪水 Flood",
+   "status": "cond",
+   "value": "条件项 · Overland Flow",
+   "note": "council 2023 洪水规划区的地表漫流类别命中(不是主流洪水区,主流 FPA 多边形在 124 m 外);出价前先拿规划洪水位与保险报价"
+  },
+  {
+   "label": "山火 Bushfire",
+   "status": "warn",
+   "value": "RFS Vegetation Buffer",
+   "note": "RFS BFPL(2026 版)buffer 命中;Cat 1 斑块 57 m(3,821 m²);council 2021 版点未命中、buffer 25 m"
+  },
+  {
+   "label": "坡地类别 Landslip",
+   "status": "na",
+   "value": "无图层 · 平地",
+   "note": "州 Landslide 图层与 council 均不覆盖 Port Stephens;地势 6 m AHD、落差 0,滑坡风险本身很低"
+  },
+  {
+   "label": "实测坡度 Slope",
+   "status": "ok",
+   "value": "落差 0 m / 0%",
+   "note": "NSW 2 m 等高线:地块内只有 6 m 一条线;SRTM 四角 7–9 m。平地,排水靠街面与管网"
+  },
+  {
+   "label": "开发潜力 Development",
+   "status": "na",
+   "value": "只能原地翻新 / 双拼(难)",
+   "note": "不能分割(C4 最小 1 ha);不能 granny flat(C4 不在 Housing SEPP);双拼表上允许但洪水+山火+ASS 三重约束"
+  }
+ ],
+ "timeline": [
+  {
+   "date": "2013-05",
+   "event": "成交(价格免费源未显示);DP 1188746 于 2013 年登记,112 号分出 112A",
+   "source": "Aussie 物业页 Property history;NSW Cadastre"
+  },
+  {
+   "date": "2015-02",
+   "event": "成交 $680,000(McGrath,21 天在市)",
+   "source": "Domain 物业档案"
+  },
+  {
+   "date": "2019-02-11",
+   "event": "成交 $785,000(PRD,131 天在市,私人协议)——VG 标记为最近一笔",
+   "source": "NSW Valuer General SIX Valuation L1;Domain"
+  },
+  {
+   "date": "2021-06",
+   "event": "Aussie 页显示「Sold Jun 2021」但 VG 与 Domain 均无此笔——待问中介(可能是撤回或数据错)",
+   "source": "Aussie 物业页"
+  },
+  {
+   "date": "2026-06-04",
+   "event": "挂牌 $1,350,000(PRD Port Stephens)",
+   "source": "Domain 挂牌页;Aussie 首挂 2026-06"
+  }
+ ],
+ "dom": {
+  "months_approx": 5,
+  "basis": "Domain「Listed on 4 Jun 2026」/ Aussie 首挂 2026-06 → 至 2026-10-23 约 4.6 个月",
+  "suburb_median_dom": 58,
+  "suburb_dom_source": "Domain Insight:本区房屋平均 58 天售出(物业档案页);这是区均,不是本套",
+  "price_history_text": "Domain 只显示现价 $1,350,000;web.archive.org 对挂牌页无快照;oldlistings 只收已下架挂牌。调价史未能重建。",
+  "price_history_status": "unverified"
+ },
+ "ruler": {
+  "prices": [
+   485000,
+   500000,
+   685000,
+   688000,
+   720000,
+   720000,
+   770000,
+   775000,
+   775000,
+   840000,
+   840000,
+   850000,
+   850000,
+   860000,
+   860000,
+   870000,
+   870000,
+   875000,
+   895000,
+   920000,
+   925000,
+   925000,
+   946000,
+   950000,
+   950000,
+   960000,
+   975000,
+   980000,
+   987000,
+   1000000,
+   1010000,
+   1050000,
+   1050000,
+   1090000,
+   1110000,
+   1132500,
+   1175000,
+   1180000,
+   1200000,
+   1200000,
+   1200000,
+   1235000,
+   1237500,
+   1250000,
+   1250000,
+   1250000,
+   1265000,
+   1270000,
+   1276000,
+   1290000,
+   1300000,
+   1300000,
+   1325000,
+   1325000,
+   1330000,
+   1330000,
+   1340000,
+   1350000,
+   1380000,
+   1400000,
+   1500000,
+   1510000,
+   1520000,
+   1550000,
+   1600000,
+   1675000,
+   1700000,
+   1700000,
+   1725000,
+   1760000,
+   1860000,
+   1900000,
+   2545000,
+   2600000,
+   2640000,
+   2900000,
+   3000000,
+   3050000,
+   3125000,
+   3300000,
+   5850000
+  ],
+  "list": 1350000,
+  "window_label": "2025-10-22 – 2026-10-22",
+  "n": 81,
+  "median": 1200000,
+  "min": 485000,
+  "max": 5850000
+ },
+ "hazards": [
+  {
+   "item": "洪水(council 洪水规划区 2023)",
+   "status": "cond",
+   "tier": "covered",
+   "result": "条件项:Flood Planning Area – Overland Flow 命中(地表漫流,非主流洪水区)",
+   "source": "Port Stephens Council · Flood Planning Area 2023(services-ap1 FeatureServer,MapPublicationDate 2023-11-01)",
+   "date": "2026-10-23",
+   "note": "阳性对照:Salamander Bay 岸边命中「Flood Planning Area」;阴性对照:Nelson Bay 高地未命中。标的命中的是 Overland Flow(地表漫流)类别,主流 FPA 多边形在 124 m 外;同条街 84A 同样命中。另一层「Flood Prone Land 2023」是一张 192 km² 的近乎全覆盖多边形,三个对照点全命中,信息量低,只作旁注。",
+   "next": "① 向 Port Stephens Council 申请洪水信息(Flood Information / Section 10.7 第 2 部分含洪水标注),拿「规划洪水位 FPL」与「1% AEP 水位」;② 看房时量房屋地板相对街面/后院高度,问中介是否进过水;③ 保险公司按地址报价(含洪水)——律师 + 你 + 买家代理"
+  },
+  {
+   "item": "洪水(州 Flood Planning 图层)",
+   "status": "na",
+   "tier": "uncovered",
+   "result": "州图层不覆盖 Port Stephens",
+   "source": "NSW Planning/Hazard L1(只覆盖 10 个 LGA)",
+   "date": "2026-10-23",
+   "note": "返回 0 条不作「安全」",
+   "next": "以上 council 图层为准;Section 10.7 证书复核(律师)"
+  },
+  {
+   "item": "山火 Bushfire Prone Land(RFS)",
+   "status": "warn",
+   "tier": "covered",
+   "result": "命中:Vegetation Buffer(Category 0)",
+   "source": "NSW RFS BFPL(Fire/BFPL L0,VerDate 2026-10)",
+   "date": "2026-10-23",
+   "note": "四要素:房屋不在林地包围中(周边为住宅区);最近 Cat 1 斑块 57 m、3,821 m²(小斑块);Cat 2 斑块 106 m(134 m²);更大的 Cat 3 林地在 council 2021 版 300 m 内。council 2021 版点未命中,Buffer 25 m。命中 buffer = 新建/加建要做 BAL 评估;也是 Housing SEPP LMR 新政排除项。",
+   "next": "① Section 10.7 证书看 bushfire prone 标注(律师);② 任何加建前做 BAL 评估(bushfire consultant);③ 看房时看周边植被与清理情况(你)"
+  },
+  {
+   "item": "坡地 / 滑坡 Landslip",
+   "status": "na",
+   "tier": "uncovered",
+   "result": "州与 council 均无滑坡图层",
+   "source": "NSW Planning/Hazard L2(只覆盖 6 个 LGA);Port Stephens 无",
+   "date": "2026-10-23",
+   "note": "但实测地势 6 m AHD、落差 0,滑坡风险本身低;要关注的是排水而不是滑坡",
+   "next": "看房时看地块排水方向、后院是否积水、挡土墙(你 / 验房师)"
+  },
+  {
+   "item": "酸性硫酸盐土 Acid Sulfate Soils",
+   "status": "warn",
+   "tier": "covered",
+   "result": "Class 4",
+   "source": "ePlanning Protection L1(Port Stephens LEP 2013 ASS Map)",
+   "date": "2026-10-23",
+   "note": "LEP cl 7.1:Class 4 = 地表以下 2 m 以上的工程、或使地下水位降到地表下 2 m 以下的工程需 consent + ASS 管理计划。泳池、地下室、深桩都碰得到。",
+   "next": "计划挖泳池/地下室前问 council 是否要 ASS 评估(你 / 买家代理)"
+  },
+  {
+   "item": "机场噪音 ANEF(RAAF Williamtown)",
+   "status": "ok",
+   "tier": "covered",
+   "result": "未检出 ✓(5 km 内无 ANEF 2025 等值线)",
+   "source": "Port Stephens Council ANEF 2025 图层(Williamtown 机场阳性对照 ANEF 40+ 命中);州 Protection L2 不覆盖本 LGA",
+   "date": "2026-10-23",
+   "note": "LEP cl 7.5 只管 ANEF ≥20 的地;本地块不在。但 Williamtown 战斗机训练航线噪音在 Port Stephens 半岛普遍可闻。",
+   "next": "工作日白天去一次现场听飞机(你);Section 10.7 证书核对 ANEF 标注(律师)"
+  },
+  {
+   "item": "Heritage 文物",
+   "status": "ok",
+   "tier": "covered",
+   "result": "未检出 ✓",
+   "source": "ePlanning EPI L0 Heritage",
+   "date": "2026-10-23",
+   "note": "Domain 亦标 Heritage Not detected",
+   "next": "Section 10.7 证书核对(律师)"
+  },
+  {
+   "item": "征地 Land Reservation Acquisition",
+   "status": "ok",
+   "tier": "covered",
+   "result": "未检出 ✓",
+   "source": "ePlanning EPI L3",
+   "date": "2026-10-23",
+   "note": "",
+   "next": "Section 10.7 证书核对(律师)"
+  },
+  {
+   "item": "河岸 / 景观 / 生物多样性 / 环境敏感 / 考拉栖息地",
+   "status": "ok",
+   "tier": "covered",
+   "result": "州 4 层未检出 ✓;council 考拉图 = Mainly Cleared Land",
+   "source": "ePlanning Protection L7/L9/L10/L12;Port Stephens CKPoM Koala Habitat Map(2002)",
+   "date": "2026-10-23",
+   "note": "C4 分区本身是「环境居住」区,树木砍伐受 council 树木管理控制",
+   "next": "砍树/清地前查 council 树木保护规定(你);10.7 证书(律师)"
+  },
+  {
+   "item": "雨水 / 排水控制区",
+   "status": "warn",
+   "tier": "covered",
+   "result": "命中:Stormwater Control Area",
+   "source": "Port Stephens Council · Drainage Control Areas 图层",
+   "date": "2026-10-23",
+   "note": "新建/加建多半要做现场滞洪(OSD)或 WSUD;与洪水 Overland Flow 同源——这块地是地表水汇流路径的一部分",
+   "next": "DA 前读 Port Stephens DCP 2025 洪水与雨水章(规划师 / 买家代理)"
+  },
+  {
+   "item": "主干道 / 交通噪音",
+   "status": "warn",
+   "tier": "covered",
+   "result": "临 Salamander Way(functionhierarchy 4 = 次干道)",
+   "source": "NSW Transport Theme L5 RoadSegment",
+   "date": "2026-10-23",
+   "note": "地块最近边距路中线 21.7 m(宽路保留地),房屋退界未知;Salamander Way 是 Nelson Bay 方向的主通道之一,车流中等。车流量 AADT 无免费接口。",
+   "next": "TfNSW Traffic Volume Viewer 查最近计数站 AADT(你 / 买家代理,5 分钟);高峰时段现场听一次(你)"
+  },
+  {
+   "item": "铁路",
+   "status": "ok",
+   "tier": "covered",
+   "result": "800 m 内无铁路 ✓(Port Stephens 半岛无铁路)",
+   "source": "NSW Transport Theme L7 Railway",
+   "date": "2026-10-23",
+   "note": "",
+   "next": "无"
+  },
+  {
+   "item": "社会住房 Social housing",
+   "status": "ok",
+   "tier": "covered",
+   "result": "SAL Salamander Bay 3.2%(69 / 2,159 户);SA2 Nelson Bay Peninsula 2.2%(205 / 9,176 户)",
+   "source": "ABS Census 2021 G37(Data API)",
+   "date": "2026-10-23",
+   "note": "两口径都低于 NSW 平均(约 4.5%)",
+   "next": "街区级(SA1)要下载 Census DataPack;看房时留意邻居与街面(你)"
+  },
+  {
+   "item": "犯罪 Crime",
+   "status": "ok",
+   "tier": "covered",
+   "result": "68.6 起/千人 vs 全州 72.9(比值 0.94)",
+   "source": "BOCSAR SuburbData.zip(2025-07 至 2026-06,12 个月);人口 ABS SAL 4,824 / NSW 8,670,105(2026-Q1 ERP)",
+   "date": "2026-10-23",
+   "note": "12 个月 331 起:盗窃 121(含欺诈 43、商店盗窃 30)、袭击 54(其中家暴 30)、恐吓骚扰 43、恶意损坏 32。商店盗窃集中在购物中心,住宅街区感受应低于数字。",
+   "next": "BOCSAR Crime Mapping 看热点是否在本街(你,5 分钟)"
+  },
+  {
+   "item": "污染场地",
+   "status": "na",
+   "tier": "uncovered",
+   "result": "免费图层无",
+   "source": "—",
+   "date": "2026-10-23",
+   "note": "",
+   "next": "NSW EPA Contaminated Land Record 按 Salamander Bay 搜(你);Section 10.7 第 2 部分(律师)"
+  },
+  {
+   "item": "采矿沉降",
+   "status": "na",
+   "tier": "uncovered",
+   "result": "免费图层无",
+   "source": "—",
+   "date": "2026-10-23",
+   "note": "Port Stephens 半岛不是煤田区,大概率不在",
+   "next": "Subsidence Advisory NSW 地图查一次(你)"
+  },
+  {
+   "item": "高压线 / 变电站 / 污水厂",
+   "status": "na",
+   "tier": "uncovered",
+   "result": "OSM 镜像未用,未查",
+   "source": "—",
+   "date": "2026-10-23",
+   "note": "",
+   "next": "Street View + 卫星图看 500 m 内(你)"
+  },
+  {
+   "item": "地下管线 / 下水道 / 地役权(含车道通行权)",
+   "status": "na",
+   "tier": "uncovered",
+   "result": "免费图层无;112A 是 2013 年从 112 分出的地块,通道/排水地役权可能性高",
+   "source": "—",
+   "date": "2026-10-23",
+   "note": "",
+   "next": "① 合同附的 sewer service diagram 与 title 上的 easement / right of carriageway(律师);② Before You Dig Australia(BYDA)提交一次免费查询,各资产方回 PDF(你)"
+  },
+  {
+   "item": "调价史 / vendor discount",
+   "status": "na",
+   "tier": "paid",
+   "result": "",
+   "source": "—",
+   "date": "2026-10-23",
+   "note": "免费源只有首挂月份与现价",
+   "next": "",
+   "slug": "price-history"
+  },
+  {
+   "item": "外墙 / 屋顶建材(在册)",
+   "status": "na",
+   "tier": "paid",
+   "result": "",
+   "source": "—",
+   "date": "2026-10-23",
+   "note": "照片判读见「概览」",
+   "next": "",
+   "slug": "wall-roof"
+  },
+  {
+   "item": "自动估值 AVM 置信区间(RP Data)",
+   "status": "na",
+   "tier": "paid",
+   "result": "",
+   "source": "—",
+   "date": "2026-10-23",
+   "note": "Domain 免费估值 $1.19–1.57M 已列入事实",
+   "next": "",
+   "slug": "avm"
+  },
+  {
+   "item": "精确在市天数 / 看房人数",
+   "status": "na",
+   "tier": "paid",
+   "result": "",
+   "source": "—",
+   "date": "2026-10-23",
+   "note": "",
+   "next": "",
+   "slug": "days-on-market"
+  }
+ ],
+ "land": {
+  "facts": [
+   [
+    "形状",
+    "十边形;东西长约 34 m、南北约 23–27 m,临 Salamander Way 一侧为三段 5.2 m 的弧形边(约 15.6 m)。面积 908 m²(VG)。"
+   ],
+   [
+    "街的哪一侧",
+    "Salamander Way 在地块北侧,路中线距最近边 21.7 m(宽路保留地);脚本按「最近路段」判临街边,现场确认车道入口与退界"
+   ],
+   [
+    "等高线剖面",
+    "地块缓冲区内只有一条 6 m 等高线;街面 6 m → 后边界 6 m,落差 0、坡度 0%(NSW Elevation 2 m 等高线);SRTM 四角 7–9 m"
+   ],
+   [
+    "含义",
+    "平地、低洼(6 m AHD):进门不爬坡、好建、好老龄居住;但地表水靠管网和街面排走——这正是洪水规划区 Overland Flow 的物理原因"
+   ],
+   [
+    "地价与邻居",
+    "$632,000($696/m²);同为 2013 年分出的 114A/118/118A(940–1,016 m²)同 $632,000;更大的 112/114/116A(1,079–1,212 m²)反而 $588,000;街对面 111–119 号 2,300–2,450 m² 大地 $784,000——VG 对本街面积溢价打得很平"
+   ]
+  ],
+  "site_svg": "example/site_svg.svg",
+  "profile_svg": "example/profile_svg.svg",
+  "profile_flat": {
+   "street": 6,
+   "rear": 6,
+   "fall": 0
+  },
+  "lv_note": "地价 2021 $441,000 → 2022 $606,000(+37%)→ 2025 $632,000;四年累计 +43%,与区中位房价同期 +49% 同向。",
+  "street_sales": [
+   {
+    "addr": "154 Salamander Way",
+    "price": 1900000,
+    "date": "3 July 2026",
+    "land": 3498
+   },
+   {
+    "addr": "84A Salamander Way",
+    "price": 1700000,
+    "date": "6 June 2026",
+    "land": 1006
+   },
+   {
+    "addr": "2/110 Salamander Way",
+    "price": 840000,
+    "date": "27 March 2026",
+    "land": 1098
+   },
+   {
+    "addr": "95 Salamander Way",
+    "price": 1860000,
+    "date": "25 March 2026",
+    "land": 2106
+   },
+   {
+    "addr": "122 Salamander Way",
+    "price": 1300000,
+    "date": "9 March 2026",
+    "land": 2229
+   },
+   {
+    "addr": "146 Salamander Way",
+    "price": 1675000,
+    "date": "30 January 2026",
+    "land": 1320
+   },
+   {
+    "addr": "93 Salamander Way",
+    "price": 3000000,
+    "date": "22 January 2026",
+    "land": 2126
+   },
+   {
+    "addr": "136 Salamander Way",
+    "price": 1380000,
+    "date": "30 October 2025",
+    "land": 1117
+   },
+   {
+    "addr": "64 Salamander Way",
+    "price": 2082000,
+    "date": "11 September 2025",
+    "land": 2185
+   },
+   {
+    "addr": "126 Salamander Way",
+    "price": 1250000,
+    "date": "29 August 2025",
+    "land": 1481
+   },
+   {
+    "addr": "101A Salamander Way",
+    "price": 2475000,
+    "date": "29 August 2025",
+    "land": 1290
+   },
+   {
+    "addr": "134 Salamander Way",
+    "price": 1680000,
+    "date": "10 July 2025",
+    "land": 1905
+   },
+   {
+    "addr": "60 Salamander Way",
+    "price": 1355000,
+    "date": "16 May 2025",
+    "land": 1337
+   },
+   {
+    "addr": "103 Salamander Way",
+    "price": 1600000,
+    "date": "9 May 2025",
+    "land": 2106
+   }
+  ]
+ },
+ "comps": {
+  "source_note": "来源:NSW Valuer General 官方成交(2025–2026 非分层房屋)+ Aussie / Cotality 物业页(房型、面积、建年)+ VG 地价 + council 洪水/山火图层 + SRTM 高程。打分规则:土地(面积、分区、洪水)/ 坡度与街面侧(SRTM 高程;街面侧未逐笔跑等高线)/ 房况(建年、面积)。",
+  "filter_note": "筛选:成交价 $1.0M–1.7M、土地 590–1,225 m²、距离 ≤1.6 km、2025-04 以后,从 50 个候选里按距离取 16 笔。REA 已售页未打开,无文案与照片,房况按建年/面积推断,建材未知。",
+  "subject": {
+   "land_m2": 908
+  },
+  "items": [
+   {
+    "address": "136 Salamander Way",
+    "price": 1380000.0,
+    "date": "30 October 2025",
+    "dist_m": 405,
+    "land_m2": 1117.0,
+    "lv": 612000.0,
+    "lv_m2": 548,
+    "p_lv": 2.25,
+    "landslip": "无图层(平地)",
+    "street_side": null,
+    "elev": 12.0,
+    "lon": 152.097994737373,
+    "lat": -32.740790668289,
+    "beds": "4",
+    "baths": "3",
+    "floor_m2": null,
+    "built": "1996",
+    "storeys": "one storey / lowset",
+    "wall": null,
+    "reno": null,
+    "scores": {
+     "land": 1,
+     "slope": 0,
+     "condition": 0
+    },
+    "bookend": null,
+    "note": "同街同分区(C4)、1,117 m² 比标的大 23%,不在洪水规划区;成交 $1.38M(2025-10)。 洪水规划区:未命中;山火:Vegetation Buffer。1996 年建 4 卧 3 卫单层(Aussie 无建筑面积);与标的同期同型,房况打平。完整度 4/8,不能做夹板,但它是同街同分区最直接的参照"
+   },
+   {
+    "address": "84A Salamander Way",
+    "price": 1700000.0,
+    "date": "6 June 2026",
+    "dist_m": 481,
+    "land_m2": 1006.0,
+    "lv": 623000.0,
+    "lv_m2": 619,
+    "p_lv": 2.73,
+    "landslip": "无图层(平地)",
+    "street_side": null,
+    "elev": 11.0,
+    "lon": 152.088910849806,
+    "lat": -32.738586688758,
+    "beds": "4",
+    "baths": "4",
+    "floor_m2": null,
+    "built": null,
+    "storeys": "semi detached",
+    "wall": null,
+    "reno": null,
+    "scores": {
+     "land": 0,
+     "slope": 0,
+     "condition": null
+    },
+    "bookend": null,
+    "note": "同街同分区 1,006 m²,同样落在 Overland Flow 洪水规划区;成交 $1.70M(2026-06)。 洪水规划区:Flood Planning Area Overland Flow;山火:未命中。Aussie 标 semi detached 4 卧 4 卫、无建年——可能是双拼的一半或新建,$1.70M 不能直接类比;完整度 3/8"
+   },
+   {
+    "address": "27 Compass Cl",
+    "price": 1010000.0,
+    "date": "5 September 2025",
+    "dist_m": 600,
+    "land_m2": 700.5,
+    "lv": 574000.0,
+    "lv_m2": 819,
+    "p_lv": 1.76,
+    "landslip": "无图层(平地)",
+    "street_side": null,
+    "elev": 8.0,
+    "lon": 152.088849410456,
+    "lat": -32.736301237129,
+    "beds": "5",
+    "baths": "2",
+    "floor_m2": "155",
+    "built": "1990",
+    "storeys": null,
+    "wall": null,
+    "reno": null,
+    "scores": {
+     "land": -1,
+     "slope": 0,
+     "condition": -1
+    },
+    "bookend": null,
+    "note": "R2 700 m²,山火 buffer;$1.01M(2025-09)。 洪水规划区:未命中;山火:Vegetation Buffer/Buffer。1990 年 155 m² 5 卧,比标的旧且小 75 m²"
+   },
+   {
+    "address": "9 Compass Cl",
+    "price": 1400000.0,
+    "date": "27 August 2025",
+    "dist_m": 740,
+    "land_m2": 800.0,
+    "lv": 528000.0,
+    "lv_m2": 660,
+    "p_lv": 2.65,
+    "landslip": "无图层(平地)",
+    "street_side": null,
+    "elev": 8.0,
+    "lon": 152.088458478492,
+    "lat": -32.734785998582,
+    "beds": "4",
+    "baths": "2",
+    "floor_m2": "175",
+    "built": "1998",
+    "storeys": null,
+    "wall": null,
+    "reno": null,
+    "scores": {
+     "land": 0,
+     "slope": 0,
+     "condition": -1
+    },
+    "bookend": "lower",
+    "note": "R2 800 m²,山火 buffer;$1.40M(2025-08)。 洪水规划区:未命中;山火:Vegetation Buffer/Buffer。1998 年 175 m² 4 卧 2 卫;地 800 m² R2 无洪水(有山火 buffer);房比标的小 55 m²。下夹板:房况逊于标的、但没有洪水/C4/主路三项减分,两边大致相抵"
+   },
+   {
+    "address": "39 Yachtsman Cres",
+    "price": 1110000.0,
+    "date": "17 April 2026",
+    "dist_m": 755,
+    "land_m2": 785.5,
+    "lv": 597000.0,
+    "lv_m2": 760,
+    "p_lv": 1.86,
+    "landslip": "无图层(平地)",
+    "street_side": null,
+    "elev": 9.0,
+    "lon": 152.087922204327,
+    "lat": -32.735059583902,
+    "beds": "4",
+    "baths": "2",
+    "floor_m2": "172",
+    "built": "1990",
+    "storeys": null,
+    "wall": null,
+    "reno": null,
+    "scores": {
+     "land": 0,
+     "slope": 0,
+     "condition": -1
+    },
+    "bookend": null,
+    "note": "R2 786 m²,无洪水/山火命中;$1.11M(2026-04)。 洪水规划区:未命中;山火:未命中。1990 年 172 m² 4 卧;地 786 m² R2 干净"
+   },
+   {
+    "address": "7 Sanderling Cl",
+    "price": 1330000.0,
+    "date": "20 May 2025",
+    "dist_m": 986,
+    "land_m2": 967.2,
+    "lv": 467000.0,
+    "lv_m2": 483,
+    "p_lv": 2.85,
+    "landslip": "无图层(平地)",
+    "street_side": null,
+    "elev": 10.0,
+    "lon": 152.083456661591,
+    "lat": -32.740715650255,
+    "beds": "5",
+    "baths": "2",
+    "floor_m2": null,
+    "built": null,
+    "storeys": "one storey / lowset",
+    "wall": null,
+    "reno": null,
+    "scores": {
+     "land": 0,
+     "slope": 0,
+     "condition": null
+    },
+    "bookend": null,
+    "note": "R2 967 m²(与标的相近),RFS buffer;$1.33M(2025-05)。 洪水规划区:未命中;山火:Vegetation Buffer。5 卧 2 卫单层,Aussie 无建年/面积;地 967 m² 与标的最接近;完整度 3/8"
+   },
+   {
+    "address": "9 The Jib",
+    "price": 1330000.0,
+    "date": "25 May 2026",
+    "dist_m": 992,
+    "land_m2": 701.9,
+    "lv": 521000.0,
+    "lv_m2": 742,
+    "p_lv": 2.55,
+    "landslip": "无图层(平地)",
+    "street_side": null,
+    "elev": 12.0,
+    "lon": 152.087493805256,
+    "lat": -32.732514167546,
+    "beds": "4",
+    "baths": "2",
+    "floor_m2": "150",
+    "built": "2000",
+    "storeys": null,
+    "wall": null,
+    "reno": null,
+    "scores": {
+     "land": -1,
+     "slope": 0,
+     "condition": -1
+    },
+    "bookend": null,
+    "note": "R2 702 m²,山火 buffer;$1.33M(2026-05)。 洪水规划区:未命中;山火:Vegetation Buffer/Buffer。2000 年 150 m² 4 卧 2 卫(重试取到);地 702 m² R2、山火 buffer;同年但房小 80 m²"
+   },
+   {
+    "address": "1 The Port Hole",
+    "price": 1200000.0,
+    "date": "14 August 2025",
+    "dist_m": 995,
+    "land_m2": 677.5,
+    "lv": 644000.0,
+    "lv_m2": 951,
+    "p_lv": 1.86,
+    "landslip": "无图层(平地)",
+    "street_side": null,
+    "elev": 8.0,
+    "lon": 152.101875726181,
+    "lat": -32.733700877397,
+    "beds": "4",
+    "baths": "2",
+    "floor_m2": null,
+    "built": "1988",
+    "storeys": null,
+    "wall": null,
+    "reno": null,
+    "scores": {
+     "land": -1,
+     "slope": 0,
+     "condition": -1
+    },
+    "bookend": null,
+    "note": "R2 678 m²,无命中;$1.20M(2025-08)。 洪水规划区:未命中;山火:未命中。1988 年 4 卧 2 卫(无面积);地 678 m² R2 干净"
+   },
+   {
+    "address": "10 Kestrel Ave",
+    "price": 1700000.0,
+    "date": "11 July 2025",
+    "dist_m": 1153,
+    "land_m2": 760.0,
+    "lv": 500000.0,
+    "lv_m2": 658,
+    "p_lv": 3.4,
+    "landslip": "无图层(平地)",
+    "street_side": null,
+    "elev": 10.0,
+    "lon": 152.081650696733,
+    "lat": -32.738549137832,
+    "beds": "4",
+    "baths": "2",
+    "floor_m2": "241",
+    "built": "2000",
+    "storeys": "one storey / lowset",
+    "wall": null,
+    "reno": null,
+    "scores": {
+     "land": 0,
+     "slope": 0,
+     "condition": 0
+    },
+    "bookend": "upper",
+    "note": "R2 760 m²,无命中;$1.70M(2025-07)——价高多半来自房况/位置,见房况分。 洪水规划区:未命中;山火:未命中。2000 年 241 m² 4 卧 2 卫单层——与标的同年、同面积量级;地 760 m² R2、无洪水/山火、不临主路。上夹板:三项打分相当,但没有标的的洪水规划区、C4 与次干道三项减分,成交 $1.70M 是「同样的房放在干净地块上」的价"
+   },
+   {
+    "address": "8 Endeavour Pl",
+    "price": 1200000.0,
+    "date": "16 June 2026",
+    "dist_m": 1234,
+    "land_m2": 652.8,
+    "lv": 520000.0,
+    "lv_m2": 797,
+    "p_lv": 2.31,
+    "landslip": "无图层(平地)",
+    "street_side": null,
+    "elev": 11.0,
+    "lon": 152.104878710632,
+    "lat": -32.733470207422,
+    "beds": "4",
+    "baths": "1",
+    "floor_m2": "125",
+    "built": "1999",
+    "storeys": null,
+    "wall": null,
+    "reno": null,
+    "scores": {
+     "land": -1,
+     "slope": 0,
+     "condition": -1
+    },
+    "bookend": null,
+    "note": "R3 653 m²,无命中;$1.20M(2026-06)。 洪水规划区:未命中;山火:未命中。1999 年 125 m² 4 卧 1 卫;R3 653 m²;房小一半"
+   },
+   {
+    "address": "18 Endeavour Pl",
+    "price": 1600000.0,
+    "date": "24 July 2026",
+    "dist_m": 1279,
+    "land_m2": 924.3,
+    "lv": 531000.0,
+    "lv_m2": 574,
+    "p_lv": 3.01,
+    "landslip": "无图层(平地)",
+    "street_side": null,
+    "elev": 13.0,
+    "lon": 152.105615312283,
+    "lat": -32.733692118308,
+    "beds": "4",
+    "baths": "2",
+    "floor_m2": "120",
+    "built": null,
+    "storeys": null,
+    "wall": null,
+    "reno": null,
+    "scores": {
+     "land": 0,
+     "slope": 0,
+     "condition": -1
+    },
+    "bookend": null,
+    "note": "R3 924 m²(与标的相近),无命中,地势 13 m;$1.60M(2026-07)。 洪水规划区:未命中;山火:未命中。建年未知、120 m² 4 卧 2 卫(重试取到);地 924 m² R3 干净、地势 13 m;房比标的小 110 m²"
+   },
+   {
+    "address": "7 Kanimbla Dr",
+    "price": 1090000.0,
+    "date": "17 July 2026",
+    "dist_m": 1258,
+    "land_m2": 791.3,
+    "lv": 554000.0,
+    "lv_m2": 700,
+    "p_lv": 1.97,
+    "landslip": "无图层(平地)",
+    "street_side": null,
+    "elev": 17.0,
+    "lon": 152.081429665946,
+    "lat": -32.735414599411,
+    "beds": "4",
+    "baths": "2",
+    "floor_m2": "150",
+    "built": "1995",
+    "storeys": null,
+    "wall": null,
+    "reno": null,
+    "scores": {
+     "land": -1,
+     "slope": 0,
+     "condition": -1
+    },
+    "bookend": null,
+    "note": "R2 791 m²,山火 buffer,地势 17 m(本组最高);$1.09M(2026-07)。 洪水规划区:未命中;山火:Vegetation Buffer/Buffer。1995 年 150 m² 4 卧 2 卫;山火 buffer"
+   },
+   {
+    "address": "7 Shores Cl",
+    "price": 1510000.0,
+    "date": "19 December 2025",
+    "dist_m": 1397,
+    "land_m2": 608.0,
+    "lv": 614000.0,
+    "lv_m2": 1010,
+    "p_lv": 2.46,
+    "landslip": "无图层(平地)",
+    "street_side": null,
+    "elev": 9.0,
+    "lon": 152.084409935439,
+    "lat": -32.729930864987,
+    "beds": "4",
+    "baths": "3",
+    "floor_m2": null,
+    "built": null,
+    "storeys": null,
+    "wall": null,
+    "reno": null,
+    "scores": {
+     "land": -1,
+     "slope": 0,
+     "condition": null
+    },
+    "bookend": null,
+    "note": "R2 608 m²,无命中;$1.51M(2025-12)。 洪水规划区:未命中;山火:未命中。4 卧 3 卫,Aussie 无建年/面积;地 608 m²;完整度 3/8"
+   },
+   {
+    "address": "36 Kestrel Ave",
+    "price": 1235000.0,
+    "date": "8 May 2026",
+    "dist_m": 1418,
+    "land_m2": 760.1,
+    "lv": 500000.0,
+    "lv_m2": 658,
+    "p_lv": 2.47,
+    "landslip": "无图层(平地)",
+    "street_side": null,
+    "elev": 6.0,
+    "lon": 152.078788612075,
+    "lat": -32.738776203589,
+    "beds": "4",
+    "baths": "2",
+    "floor_m2": null,
+    "built": null,
+    "storeys": null,
+    "wall": null,
+    "reno": null,
+    "scores": {
+     "land": 0,
+     "slope": 0,
+     "condition": null
+    },
+    "bookend": null,
+    "note": "R2 760 m²,地势 6 m(与标的同样低);$1.235M(2026-05)。 洪水规划区:未命中;山火:未命中。4 卧 2 卫,无建年/面积;2026-07 出租记录(投资盘);完整度 3/8"
+   },
+   {
+    "address": "234 Sandy Point Rd",
+    "price": 1340000.0,
+    "date": "2 May 2026",
+    "dist_m": 1493,
+    "land_m2": 798.0,
+    "lv": 641000.0,
+    "lv_m2": 803,
+    "p_lv": 2.09,
+    "landslip": "无图层(平地)",
+    "street_side": null,
+    "elev": 8.0,
+    "lon": 152.106274129872,
+    "lat": -32.731143349191,
+    "beds": "4",
+    "baths": "2",
+    "floor_m2": "170",
+    "built": "1995",
+    "storeys": null,
+    "wall": null,
+    "reno": null,
+    "scores": {
+     "land": -1,
+     "slope": 0,
+     "condition": -1
+    },
+    "bookend": null,
+    "note": "R2 798 m²,同样在 Overland Flow 洪水规划区 + council 山火 buffer;$1.34M(2026-05)。 洪水规划区:Flood Planning Area Overland Flow;山火:Buffer。1995 年 170 m² 4 卧 2 卫(重试取到,完整度 5/8);同样 Overland Flow + council 山火 buffer;房小 60 m²、旧 5 年;$1.34M 是「同样洪水的小一号房」的价,与下夹板互证"
+   },
+   {
+    "address": "52 Boronia Dr",
+    "price": 1290000.0,
+    "date": "24 August 2026",
+    "dist_m": 1578,
+    "land_m2": 670.3,
+    "lv": 578000.0,
+    "lv_m2": 862,
+    "p_lv": 2.23,
+    "landslip": "无图层(平地)",
+    "street_side": null,
+    "elev": 7.0,
+    "lon": 152.085467396344,
+    "lat": -32.727338551882,
+    "beds": "5",
+    "baths": "3",
+    "floor_m2": "170",
+    "built": "1960",
+    "storeys": null,
+    "wall": null,
+    "reno": null,
+    "scores": {
+     "land": -1,
+     "slope": 0,
+     "condition": -1
+    },
+    "bookend": null,
+    "note": "R2 670 m²,落在主流 Flood Planning Area(比标的的 Overland Flow 更重);$1.29M(2026-08)。 洪水规划区:Flood Planning Area;山火:未命中。1960 年 170 m² 5 卧 3 卫;落在主流 Flood Planning Area,地 670 m²"
+   }
+  ],
+  "p_lv_note": "16 笔「成交价 ÷ 地价」中位约 2.3;同街同分区两笔 2.25(136 号)与 2.73(84A)。标的地价 $632,000 × 2.25 ≈ $1.42M,× 2.3 ≈ $1.45M。C4 大地块的地价倍数通常低于 R2 小地块,所以取同街倍数。"
+ },
+ "pricing": {
+  "method_note": "先给每张可比卡按土地 / 坡度与街面侧 / 房况打分,再从完整度 ≥5/8 的「相当」与「略优/略逊」里取夹板,最后按差异调整得区间。洪水为条件项:区间成立的前提是规划洪水位与保险报价两项拿到后没有意外。",
+  "upper": "10 Kestrel Ave $1,700,000(2025-07,2000 年 241 m² 单层、760 m² R2,无洪水/山火/主路,完整度 5/8)——三项打分「相当」,减去标的独有的洪水规划区、C4、次干道三项 ≈ $1.42M–1.45M。同街 136 Salamander Way $1.38M 只有 4/8,不做夹板只作旁证",
+  "lower": "9 Compass Cl $1,400,000(2025-08,1998 年 175 m²、800 m² R2 无洪水,完整度 5/8)——房况逊于标的(+6%)但没有洪水/C4/主路减分(−10%)≈ $1.34M;原拟的 234 Sandy Point Rd(同样 Overland Flow)Aussie 三次限速、完整度 3/8,不够格",
+  "widen_reason": "两块夹板的外墙建材、翻新程度与街面侧都未知(免费数据无;REA 未打开);16 笔里只有 10 笔拿到建年或面积(3 笔第一轮限速 202、第二轮重试取到);下沿放宽 $60k、上沿压 $30k。",
+  "mortgage": {
+   "rate": 0.0615,
+   "years": 30,
+   "step": 50000
+  },
+  "bank_valuation_note": "洪水规划区命中、C4 分区、挂牌近 5 个月、地势低:银行估值可能低于成交价。出价前让 broker 做一次桌面估值,并问贷款机构对 flood planning area 地块的 LVR 政策。"
+ },
+ "future": [
+  {
+   "path": "分割 Subdivision(Torrens)",
+   "status": "bad",
+   "conclusion": "不可",
+   "basis": "Port Stephens LEP 2013 cl 4.1:Lot Size Map 最小 1 ha(ePlanning L4,Amendment No 44);地块 908 m²",
+   "next": ""
+  },
+  {
+   "path": "Strata / community 分割",
+   "status": "bad",
+   "conclusion": "不可",
+   "basis": "cl 4.1A(strata)与 4.1AA(community)对 C4 同样套 Lot Size Map 1 ha",
+   "next": ""
+  },
+  {
+   "path": "双拼 Dual occupancy(不分割)",
+   "status": "warn",
+   "conclusion": "表上允许,实际很难",
+   "basis": "C4 土地用途表「permitted with consent」含 Dual occupancies;cl 4.1B 的最小面积表没有 C4(交给 DCP 与 merit);cl 7.15 只管 RU1/RU2/C2/C3。但洪水 Overland Flow + 山火 buffer + ASS Class 4 + 雨水控制区四重约束,且分不了地、卖不了一半。",
+   "next": "有此打算先做 pre-DA 会议(规划师;council 收费)"
+  },
+  {
+   "path": "附属住宅 Granny flat(Secondary dwelling)",
+   "status": "bad",
+   "conclusion": "不可",
+   "basis": "Housing SEPP 2021 Ch 3 Pt 1 s 49–50 只适用于 R1–R5 住宅区;C4 不在;LEP C4 土地用途表也没有 secondary dwellings → 属「其他未列明 = 禁止」",
+   "next": "若中介说可以,要他给 council 书面意见(你)"
+  },
+  {
+   "path": "低中密度 LMR / TOD 新政",
+   "status": "bad",
+   "conclusion": "不适用",
+   "basis": "Housing SEPP s 164(1)(a) 排除 bushfire prone land、(g)(xvi) 排除 Port Stephens 的 flood planning area;且 1.2 km 内无 Town Centre / 车站(SEPP_Housing L2–L6 全空)",
+   "next": ""
+  },
+  {
+   "path": "原地翻新 / 加建",
+   "status": "ok",
+   "conclusion": "可,是主要增值路径",
+   "basis": "限高 9 m,单层 230 m² 在 908 m² 上还有加建空间;2000 年建、厨房已翻新。DA 要带洪水(地板高度)、BAL、ASS、OSD 考量;2 m 以下挖土触发 cl 7.1",
+   "next": "翻新前拿 council 洪水信息定地板高度(你 / 建筑师)"
+  },
+  {
+   "path": "短租 STRA",
+   "status": "na",
+   "conclusion": "未查",
+   "basis": "SEPP_Housing L2 STRA 图层未命中(该层只标有特别限制的区域);Port Stephens 非自住短租天数上限以 council 现行规定为准",
+   "next": "council 网站查 STRA 天数上限(你)"
+  }
+ ],
+ "future_note": "LEP 条文取自 legislation.nsw.gov.au 的 web.archive.org 2026-08-01 快照(epi-2013-0755);Housing SEPP 取 2025-09-17 快照(epi-2021-0714)。出价前由律师按现行版复核。",
+ "market": {
+  "vacancy": {
+   "scope": "SQM Research postcode 2317(含 Salamander Bay、Soldiers Point、Corlette 等)",
+   "rows": [
+    [
+     2024,
+     10,
+     0.19,
+     1,
+     536
+    ],
+    [
+     2024,
+     11,
+     0.0,
+     0,
+     533
+    ],
+    [
+     2024,
+     12,
+     0.57,
+     3,
+     529
+    ],
+    [
+     2025,
+     1,
+     0.57,
+     3,
+     525
+    ],
+    [
+     2025,
+     2,
+     0.96,
+     5,
+     522
+    ],
+    [
+     2025,
+     3,
+     0.58,
+     3,
+     518
+    ],
+    [
+     2025,
+     4,
+     1.36,
+     7,
+     514
+    ],
+    [
+     2025,
+     5,
+     3.13,
+     16,
+     511
+    ],
+    [
+     2025,
+     6,
+     1.97,
+     10,
+     507
+    ],
+    [
+     2025,
+     7,
+     0.99,
+     5,
+     503
+    ],
+    [
+     2025,
+     8,
+     0.6,
+     3,
+     499
+    ],
+    [
+     2025,
+     9,
+     0.4,
+     2,
+     496
+    ],
+    [
+     2025,
+     10,
+     0.0,
+     0,
+     492
+    ],
+    [
+     2025,
+     11,
+     0.61,
+     3,
+     488
+    ],
+    [
+     2025,
+     12,
+     0.82,
+     4,
+     485
+    ],
+    [
+     2026,
+     1,
+     1.04,
+     5,
+     481
+    ],
+    [
+     2026,
+     2,
+     0.84,
+     4,
+     477
+    ],
+    [
+     2026,
+     3,
+     1.48,
+     7,
+     473
+    ],
+    [
+     2026,
+     4,
+     1.49,
+     7,
+     470
+    ],
+    [
+     2026,
+     5,
+     2.15,
+     10,
+     466
+    ],
+    [
+     2026,
+     6,
+     1.52,
+     7,
+     462
+    ],
+    [
+     2026,
+     7,
+     2.4,
+     11,
+     459
+    ],
+    [
+     2026,
+     8,
+     1.98,
+     9,
+     455
+    ],
+    [
+     2026,
+     9,
+     0.89,
+     4,
+     451
+    ]
+   ],
+   "avg12": 1.27,
+   "note": "最新 2026-09 0.89%;近 12 个月均值 1.27%;3 年前(2023-09)0.51%。空置率仍低但较 3 年前翻倍;出租总量 585 → 451 套(投资房在减少)"
+  },
+  "som": {
+   "rows": [
+    [
+     2024,
+     10,
+     28,
+     23
+    ],
+    [
+     2024,
+     11,
+     30,
+     24
+    ],
+    [
+     2024,
+     12,
+     34,
+     23
+    ],
+    [
+     2025,
+     1,
+     38,
+     22
+    ],
+    [
+     2025,
+     2,
+     43,
+     23
+    ],
+    [
+     2025,
+     3,
+     41,
+     18
+    ],
+    [
+     2025,
+     4,
+     40,
+     21
+    ],
+    [
+     2025,
+     5,
+     37,
+     24
+    ],
+    [
+     2025,
+     6,
+     27,
+     23
+    ],
+    [
+     2025,
+     7,
+     25,
+     23
+    ],
+    [
+     2025,
+     8,
+     34,
+     26
+    ],
+    [
+     2025,
+     9,
+     35,
+     28
+    ],
+    [
+     2025,
+     10,
+     43,
+     32
+    ],
+    [
+     2025,
+     11,
+     43,
+     30
+    ],
+    [
+     2025,
+     12,
+     41,
+     22
+    ],
+    [
+     2026,
+     1,
+     41,
+     23
+    ],
+    [
+     2026,
+     2,
+     38,
+     23
+    ],
+    [
+     2026,
+     3,
+     42,
+     30
+    ],
+    [
+     2026,
+     4,
+     47,
+     24
+    ],
+    [
+     2026,
+     5,
+     49,
+     30
+    ],
+    [
+     2026,
+     6,
+     48,
+     32
+    ],
+    [
+     2026,
+     7,
+     47,
+     35
+    ],
+    [
+     2026,
+     8,
+     46,
+     28
+    ],
+    [
+     2026,
+     9,
+     46,
+     30
+    ]
+   ],
+   "note": "2026-09 在售 46 房 + 30 单元 = 76 套;3 年前(2023-09)23 + 15 = 38 套——翻倍,买方选择变多,议价空间在扩大"
+  },
+  "dom_note": "Domain Insight:Salamander Bay 房屋平均 58 天售出;标的已在市约 4.6 个月,是区均的 2.4 倍。HtAG 公开页已把 DOM 锁进付费层;REA suburb 页未打开。",
+  "growth": {
+   "rows": [
+    {
+     "period": "5 年",
+     "start": 710000,
+     "current": 1150000,
+     "cum": 62.0,
+     "ann": 10.13
+    },
+    {
+     "period": "10 年",
+     "start": 529000,
+     "current": 1150000,
+     "cum": 117.4,
+     "ann": 8.07
+    },
+    {
+     "period": "20 年",
+     "start": 415000,
+     "current": 1150000,
+     "cum": 177.1,
+     "ann": 5.23
+    },
+    {
+     "period": "2001 年起(24 年)",
+     "start": 367500,
+     "current": 1150000,
+     "cum": 212.9,
+     "ann": 4.87
+    }
+   ],
+   "thirty": {
+    "status": "none",
+    "text": "SIX 成交图层只到 2001;1990–2000 要下载 VG 年度 PSI 包(psi_archive_median.py,需浏览器下载)或退到悉尼市级 ABS/RBA 指数并注明「市级非本区」。本次未做。"
+   },
+   "note": "VG 非分层成交中位价(3 年窗口),不是重复销售指数,含房型/地块混合效应;图层每物业只留最近一笔,早年样本偏薄。2021 → 2026 年中位 $830k → $1,235k。"
+  },
+  "ask": [
+   [
+    "2026-07-24",
+    1142852.73,
+    974819.86
+   ],
+   [
+    "2026-07-31",
+    1176426.36,
+    912409.93
+   ],
+   [
+    "2026-08-07",
+    1200713.18,
+    881204.97
+   ],
+   [
+    "2026-08-14",
+    1164106.59,
+    858102.48
+   ],
+   [
+    "2026-08-21",
+    1145803.3,
+    839051.24
+   ],
+   [
+    "2026-08-28",
+    1170401.65,
+    837025.62
+   ],
+   [
+    "2026-09-04",
+    1182700.82,
+    906012.81
+   ],
+   [
+    "2026-09-11",
+    1151350.41,
+    928006.41
+   ],
+   [
+    "2026-09-18",
+    1125675.21,
+    976503.2
+   ],
+   [
+    "2026-09-25",
+    1112837.6,
+    963251.6
+   ],
+   [
+    "2026-10-02",
+    1106418.8,
+    956625.8
+   ],
+   [
+    "2026-10-09",
+    1093209.4,
+    888312.9
+   ],
+   [
+    "2026-10-16",
+    1096604.7,
+    919156.45
+   ]
+  ],
+  "rent_note": "SQM postcode 2317 房屋周租要价 $781/周(2026-10-15),3 房 $747;Domain 对标的估 $995/周(低置信)→ 按标价毛收益 3.8%。本区 60 岁以上占 44%、自住 73%,是退休/度假区而非租赁区。",
+  "yearly": {
+   "2001": [
+    272500,
+    26
+   ],
+   "2002": [
+    329000,
+    33
+   ],
+   "2003": [
+    435000,
+    38
+   ],
+   "2004": [
+    430000,
+    17
+   ],
+   "2005": [
+    357500,
+    20
+   ],
+   "2006": [
+    437000,
+    22
+   ],
+   "2007": [
+    395000,
+    23
+   ],
+   "2008": [
+    370000,
+    27
+   ],
+   "2009": [
+    410000,
+    33
+   ],
+   "2010": [
+    409250,
+    28
+   ],
+   "2011": [
+    435000,
+    39
+   ],
+   "2012": [
+    387500,
+    44
+   ],
+   "2013": [
+    407500,
+    51
+   ],
+   "2014": [
+    500000,
+    63
+   ],
+   "2015": [
+    565000,
+    68
+   ],
+   "2016": [
+    536250,
+    74
+   ],
+   "2017": [
+    615000,
+    61
+   ],
+   "2018": [
+    680000,
+    54
+   ],
+   "2019": [
+    690000,
+    73
+   ],
+   "2020": [
+    685000,
+    95
+   ],
+   "2021": [
+    830000,
+    68
+   ],
+   "2022": [
+    890000,
+    79
+   ],
+   "2023": [
+    1011500,
+    66
+   ],
+   "2024": [
+    1062500,
+    90
+   ],
+   "2025": [
+    1146000,
+    98
+   ],
+   "2026": [
+    1235000,
+    53
+   ]
+  }
+ },
+ "holding": {
+  "rows": [
+   [
+    "Council rates",
+    "约 $2,400–3,000/年(Port Stephens 按地价 $632,000 的普通费率 + 垃圾 + 雨水费估;council 费率页本次未打开,要人核)"
+   ],
+   [
+    "水费",
+    "约 $1,200–1,500/年(Hunter Water 固定费 + 用量估;有 spear pump 浇花可省部分用量)"
+   ],
+   [
+    "房屋保险",
+    "约 $2,500–4,500/年(洪水规划区 + 山火 buffer 地块,保险公司报价为准;有的保险公司对 flood planning area 加价或除外)"
+   ],
+   [
+    "合计",
+    "约 $6,100–9,000/年,不含维护与太阳能系统维护"
+   ]
+  ],
+  "source_note": "估算;出价前用 council 费率通知(问中介要上一期 rates notice)与两家保险公司报价核实(你)"
+ },
+ "school_commute": {
+  "rows": [
+   [
+    "学区(Domain 列出的公立 catchment)",
+    "Tomaree Public School(K–6)与 Tomaree High School(7–12),直线 1.8 km、步行约 2.2 km;NSW School Finder 本次未查"
+   ],
+   [
+    "购物",
+    "Salamander Bay Square 步行约 2.0 km(中介文案写约 1.5 km);Nelson Bay 镇中心约 4.4 km"
+   ],
+   [
+    "通勤",
+    "无铁路;Newcastle CBD 约 55 km、开车约 60–70 分钟(估);Williamtown 机场约 35 km"
+   ]
+  ],
+  "next": "School Finder 输入地址核对 catchment;高峰时段实测一次到 Newcastle 的通勤(你)"
+ },
+ "questions": [
+  {
+   "zh": "Aussie 页显示 2021 年 6 月有一笔「Sold」,但 Valuer General 和 Domain 都没有——那是什么?",
+   "en": "Aussie/Cotality shows a 'Sold Jun 2021' entry that neither the Valuer General nor Domain records — what was that?"
+  },
+  {
+   "zh": "房子有没有进过水或后院积过水?房屋地板比街面高多少?有没有 council 的洪水信息或规划洪水位?",
+   "en": "Has water ever entered the house or pooled in the yard? How high is the floor above street level? Do you have council flood information or the flood planning level?"
+  },
+  {
+   "zh": "车道是自己的还是与 112 号共用?title 上有没有 right of carriageway 或排水地役权?",
+   "en": "Is the driveway exclusive or shared with No. 112? Are there any rights of carriageway or drainage easements on title?"
+  },
+  {
+   "zh": "外墙和屋顶是什么材料?厨房以外还翻新过什么、哪一年?有没有 council 批文?",
+   "en": "What are the wall and roof materials? Besides the kitchen, what else was renovated and when? Any council approvals?"
+  },
+  {
+   "zh": "22 块太阳能板和 spear pump 是业主的还是租赁的?有无 feed-in 合约和水井许可?",
+   "en": "Are the 22 solar panels and the spear pump owned outright? Any feed-in agreement or bore licence?"
+  },
+  {
+   "zh": "挂牌近 5 个月、标价有没有调过?业主为何出售、拒绝过什么价位的出价?",
+   "en": "The listing is about five months old — has the price changed? Why is the vendor selling, and what offers have been declined?"
+  },
+  {
+   "zh": "信息包里的 building & pest 报告是谁做的、哪天做的?能否给出完整版?",
+   "en": "Who prepared the building & pest report in the information pack and when? Can we have the full version?"
+  }
+ ],
+ "manual_items": [
+  {
+   "item": "council 洪水信息 / 规划洪水位",
+   "what": "拿 FPL 与 1% AEP 水位,和房屋地板高度比",
+   "who": "律师(10.7 第 2 部分)+ 你(council 洪水信息申请)",
+   "where": "Port Stephens Council 洪水页 / Section 10.7"
+  },
+  {
+   "item": "BAL 评估与 10.7 山火标注",
+   "what": "确认 bushfire prone 标注;加建前 BAL",
+   "who": "律师 / bushfire consultant",
+   "where": "Section 10.7;RFS"
+  },
+  {
+   "item": "地役权与车道通行权",
+   "what": "title 与 DP 1188746 上的 easement / ROW",
+   "who": "律师",
+   "where": "合同附件"
+  },
+  {
+   "item": "AADT 车流量",
+   "what": "Salamander Way 最近计数站",
+   "who": "你 / 买家代理",
+   "where": "TfNSW Traffic Volume Viewer"
+  },
+  {
+   "item": "council rates 与保险报价",
+   "what": "上一期 rates notice;两家保险公司含洪水报价",
+   "who": "你",
+   "where": "中介 / 保险公司"
+  },
+  {
+   "item": "污染场地 / 沉降",
+   "what": "EPA 记录;Subsidence Advisory",
+   "who": "你",
+   "where": "EPA / SA NSW 网站"
+  },
+  {
+   "item": "BYDA 地下管线",
+   "what": "提交一次查询拿各资产方 PDF",
+   "who": "你",
+   "where": "byda.com.au"
+  },
+  {
+   "item": "建材与翻新",
+   "what": "现场目测 + B&P 报告",
+   "who": "你 / 验房师",
+   "where": "看房"
+  },
+  {
+   "item": "SA1 公屋 / BOCSAR 热点",
+   "what": "街区级公屋;犯罪热点图",
+   "who": "你",
+   "where": "ABS DataPack;BOCSAR Crime Mapping"
+  },
+  {
+   "item": "30 年增长",
+   "what": "VG 1990–2000 PSI 包",
+   "who": "你(浏览器下载)",
+   "where": "valuergeneral.nsw.gov.au/__psi/yearly/"
+  }
+ ],
+ "glossary": [
+  {
+   "term": "Valuer General 地价(Land value)",
+   "text": "州估价官每年 7 月 1 日评估的「只算地、不算房」的价值,也是 council rates 与土地税的基数。",
+   "url": "https://www.valuergeneral.nsw.gov.au/land_values"
+  },
+  {
+   "term": "Flood Planning Area(洪水规划区)",
+   "text": "council 划定的、新建/加建要按规划洪水位(FPL,通常 1% AEP + 0.5 m)设计的地块范围;Overland Flow 指地表漫流路径,不是河流主流。",
+   "url": "https://www.portstephens.nsw.gov.au/development/flood-safety"
+  },
+  {
+   "term": "Bush Fire Prone Land / Vegetation Buffer",
+   "text": "RFS 认证的山火易发地图;Buffer 是植被斑块外围 30–100 m 的缓冲带,命中即要按山火规范建造。",
+   "url": "https://www.rfs.nsw.gov.au/plan-and-prepare/building-in-a-bush-fire-area/planning-for-bush-fire-protection/bush-fire-prone-land"
+  },
+  {
+   "term": "C4 Environmental Living",
+   "text": "NSW 标准 LEP 的「环境居住」区:允许低影响住宅,通常配大最小地块(本区 1 ha),不能像 R2 那样分割或建附属住宅。",
+   "url": "https://legislation.nsw.gov.au/view/html/inforce/current/epi-2013-0755"
+  },
+  {
+   "term": "Section 10.7 证书",
+   "text": "council 出具的规划证书,合同必附;第 2 部分含洪水、山火、ASS、征地、heritage 等标注。",
+   "url": "https://www.planning.nsw.gov.au/"
+  },
+  {
+   "term": "Acid Sulfate Soils(酸性硫酸盐土)",
+   "text": "沿海低地含硫土壤,挖开暴露后产酸;Class 1–5 按深度分级,Class 4 = 2 m 以下的工程要管理计划。",
+   "url": "https://www.environment.nsw.gov.au/topics/land-and-soil/soil-degradation/acid-sulfate-soils"
+  }
+ ],
+ "blockers": [
+  {
+   "n": 1,
+   "step": "0",
+   "issue": "auto 权限模式对会话目录外路径与每次打开 domain.com.au 都要人点「允许」;用户不在时停住约 7.3 小时",
+   "workaround": "skill 文件复制到工作目录跑;Domain 读完即停用浏览器;页脚分开报活跃机器时间与墙钟"
+  },
+  {
+   "n": 3,
+   "step": "1",
+   "issue": "Port Stephens 无 council 配置;council 官网没有 rest/services 字样,地图是 ArcGIS Experience Builder",
+   "workaround": "从 arcgis.com items API 反查 webmap → FeatureServer,得 13 层;写成 templates/council-port-stephens.json"
+  },
+  {
+   "n": 4,
+   "step": "1",
+   "issue": "nsw_layers.py 的 council 配置只认整数图层号(%d),接不了「每数据集一个 FeatureServer」的 council",
+   "workaround": "副本里改一字 %s 跑通;建议回写 skill"
+  },
+  {
+   "n": 8,
+   "step": "3",
+   "issue": "Aussie 页 Property history 抓不到价格;另抓到一笔 VG/Domain 都没有的 2021 成交",
+   "workaround": "价格靠 Domain;2021 进「要问中介」"
+  },
+  {
+   "n": 9,
+   "step": "3",
+   "issue": "REA / property.com.au curl 429;会话浏览器未再试",
+   "workaround": "照片、文案、挂牌价走 Domain(与 Aussie 五项交叉核对一致)"
+  },
+  {
+   "n": 15,
+   "step": "6",
+   "issue": "附属住宅条款:Housing SEPP 只适用 R1–R5,C4 不在;skill 没写非住宅区分支",
+   "workaround": "按 LEP C4 土地用途表判「不可」"
+  }
+ ]
+}

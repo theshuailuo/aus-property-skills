@@ -1,0 +1,26 @@
+{
+  "name": "north_sydney",
+  "service": "https://services-ap1.arcgis.com/33nKDOPkQG7pavgq/arcgis/rest/services",
+  "tested": "2026-10-27",
+  "positive_controls": {"flood": "NONE - no council or statewide ArcGIS flood layer covers North Sydney (council flood planning area is PDF-only; NSW Hazard/1 Flood Planning has 0 North Sydney features)"},
+  "note": "Council public ArcGIS Online org (portaladmin_nsy) exposes only LEP Land Zoning (FeatureServer/40) plus boundary/label layers. No flood, bushfire, heritage, height, FSR, ASS, landslip or foreshore-building-line layers. Council's LEP/flood web map is a proprietary SIS WebMap (https://webmap.northsydney.nsw.gov.au/siswebmap9.1/en-gb/PublicMap/NSCMAPS), not ArcGIS REST. Use state_fallback for heritage/FSR/height; flood must come from the PDF Floodplain Risk Management Study and Plan (flood control lots are listed on the s10.7 certificate). An empty flood result must never be read as not flood affected.",
+  "layers": {
+    "zoning": {"id": "Land_Zoning_Public/FeatureServer/40", "field": "zoning", "near": 0}
+  },
+  "state_fallback": {
+    "service": "https://mapprod3.environment.nsw.gov.au/arcgis/rest/services/Planning/EPI_Primary_Planning_Layers/MapServer",
+    "layers": {
+      "heritage": {"id": 0, "field": "LAY_CLASS", "name_field": "H_NAME", "near": 0, "tested": "hit at polygon interior (Cremorne Point conservation area CA06); no hit at subject; do not use distance param (400 error)"},
+      "fsr": {"id": 1, "field": "FSR", "near": 0, "tested": "hit at polygon interior (FSR 1.0); no hit at subject (CBD, no FSR value)"},
+      "height": {"id": 5, "field": "MAX_B_H", "near": 0, "tested": "HIT at subject: 125 m RL, LAY_CLASS >100, units m(RL)"},
+      "zoning": {"id": 2, "field": "SYM_CODE", "near": 0, "tested": "HIT at subject: MU1"}
+    },
+    "flood_planning_state": {"service": "https://mapprod3.environment.nsw.gov.au/arcgis/rest/services/Planning/Hazard/MapServer", "id": 1, "usable": false, "reason": "0 features with LGA_NAME NORTH SYDNEY; empty at subject, Berrys Bay and ridge"},
+    "bushfire": {"service": "https://mapprod3.environment.nsw.gov.au/arcgis/rest/services/Fire/BFPL/MapServer", "id": 0, "field": "Category", "tested": "empty at subject and at Balls Head control (151.1995,-33.8515); statewide layer, unvalidated for North Sydney"}
+  },
+  "pdf_maps": {
+    "flood_study_and_plan": "https://www.northsydney.nsw.gov.au/downloads/file/1993/floodplain-risk-management-study-and-plan",
+    "flood_page": "https://www.northsydney.nsw.gov.au/development-regulatory-documents-policies-plans/floodplain-management-study-plan",
+    "lep_page": "https://www.northsydney.nsw.gov.au/development-regulatory-documents-policies-plans/north-sydney-local-environmental-plan-2013-lep"
+  }
+}

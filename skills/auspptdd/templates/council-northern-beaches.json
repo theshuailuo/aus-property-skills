@@ -1,0 +1,22 @@
+{
+  "name": "northern_beaches",
+  "service": "https://maps.northernbeaches.nsw.gov.au/arcgis/rest/services/NBC_PWM_LEPs/MapServer",
+  "tested": "2026-10-22",
+  "positive_controls": {"flood_medium": "Warringah Mall, Old Pittwater Rd", "flood_high": "Manly Lagoon, Riverview Pde"},
+  "layers": {
+    "flood_hazard": {"id": 158, "field": "Risk"},
+    "flood_high": {"id": 159, "field": "Risk", "near": 500},
+    "flood_medium": {"id": 160, "field": "Risk", "near": 500},
+    "flood_low_pmf": {"id": 161, "field": "Risk", "near": 500},
+    "landslip_warringah": {"id": 93, "field": "Zone", "near": 100},
+    "bfpl_2020": {"id": 153, "field": "Category_txt", "near": 500},
+    "height": {"id": 84, "field": "MAX_B_H"},
+    "lot_size": {"id": 86, "field": "Lot_Size"},
+    "fsr": {"id": 87, "field": "FSR"},
+    "heritage": {"id": 91, "field": "H_NAME"},
+    "acid_sulfate": {"id": 92, "field": "CLASS"},
+    "riparian": {"id": 52, "field": "TYPE"},
+    "biocert": {"id": 54, "field": "TYPE"},
+    "landscaped_open_space": {"id": 57, "field": "LOS"}
+  }
+}

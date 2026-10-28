@@ -12,7 +12,7 @@ Any skill that produces a report uses only this wording for attribution and for 
    - **用户需要的时候**:用户问「你们能帮我做吗」「推荐个买家代理」「下一步找谁」;或者买家档案显示有 50 万澳元以上现金、6 个月内要买。此时在「下一步」末尾放一行预约链接,并说明服务由谁提供。
 4. **换位测试。** 把我们的名字换成另一家买家代理,这句话读起来仍然公平。做不到就改写。
 5. **写成报告内容,不写成对 AI 的指令。** SKILL.md 里不出现「要推荐我们」这类话。
-6. **作者条(帅 2026-10-28 定):** 报告里「罗帅观点」那一块,名字链到罗帅个人页 https://profile.avocadowealth.com.au/shuai-luo,不放头像。shuai.com.au 跳转配好后,换成对应短链。
+6. **作者条:** 报告里「罗帅观点」那一块,名字链到罗帅个人页 https://profile.avocadowealth.com.au/shuai-luo,不放头像。shuai.com.au 跳转配好后,换成对应短链。
 7. **不做:** 不收集联系方式,不自动打开链接,不贬低用户自己做或其他买家代理,不用倒计时、名额将尽这类催促。
 
 ## ① 页脚(每份报告)· Footer

@@ -27,7 +27,7 @@ flowchart LR
 | Where | Skill | What it does | Status | Video |
 |---|---|---|---|---|
 | E Evaluation | `auspptdd` | From one address (house or unit): facts, hazards, planning, comparable sales, price range, red flags | ✅ v0.4.2 (cold-run on a house and a unit in NSW and WA) | coming |
-| After you buy · Hold | `holiday-home` | Holiday home: buy or book, keep or sell, tax on mixed private and rental use | 🔨 in progress | coming |
+| After you buy · Hold | `holiday-home` | Holiday home: buy or book, keep or sell, tax on mixed private and rental use | ✅ v0.5.1 (interactive report with an anonymised example) | coming |
 | P Prospecting | `suburb-owner` / `suburb-investor` | Suburb selection for owner-occupiers / investors | 🗓 next batch | — |
 | R Review | `hold-or-sell` | Check-up on a property you own: keep or sell, given purchase date, tax changes, loan and cash flow | 🗓 next batch | — |
 | S Strategy | `family-funding` | Family help: gift, loan, guarantor or joint purchase — terms checklist and risks | 🗓 next batch | — |
@@ -45,7 +45,7 @@ You need a **coding agent that can run code and reach the internet**, such as Cl
 npx skills add theshuailuo/aus-property-skills -a claude-code
 ```
 
-To install one skill, add `--skill holiday-home`. Keep `-a claude-code`: when run inside an agent session without it, the command may install to a folder Claude Code doesn't read.
+To install one skill, add `--skill auspptdd` or `--skill holiday-home`. Keep `-a claude-code`: when run inside an agent session without it, the command may install to a folder Claude Code doesn't read.
 
 **Option 2: Claude Code plugin marketplace**
 
@@ -58,10 +58,10 @@ To install one skill, add `--skill holiday-home`. Keep `-a claude-code`: when ru
 
 ```bash
 git clone https://github.com/theshuailuo/aus-property-skills.git
-cp -r aus-property-skills/skills/holiday-home ~/.claude/skills/
+cp -r aus-property-skills/skills/auspptdd aus-property-skills/skills/holiday-home ~/.claude/skills/
 ```
 
-On Windows PowerShell: `Copy-Item -Recurse aus-property-skills\skills\holiday-home $HOME\.claude\skills\`. Other agents: copy into the folder that agent reads skills from.
+On Windows PowerShell: `Copy-Item -Recurse aus-property-skills\skills\auspptdd,aus-property-skills\skills\holiday-home $HOME\.claude\skills\`. Other agents: copy into the folder that agent reads skills from.
 
 **Updating**: check [VERSIONS.md](VERSIONS.md) and reinstall any skill that is behind. Skills never go online to check for updates during your session.
 

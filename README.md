@@ -27,7 +27,7 @@ flowchart LR
 | 位置 | skill | 做什么 | 状态 | 视频 |
 |---|---|---|---|---|
 | E 价值透视 | `auspptdd` | 给一个地址(独立屋或公寓),跑出事实、灾害、规划、可比成交、价格区间、红旗清单 | ✅ v0.4.2(NSW、WA 各冷跑过独立屋与公寓) | 待上线 |
-| 买后 · 持有 | `holiday-home` | 度假屋:买还是订、留还是卖、自用加出租的税务 | 🔨 在做 | 待上线 |
+| 买后 · 持有 | `holiday-home` | 度假屋:买还是订、留还是卖、自用加出租的税务 | ✅ v0.5.1(交互报告,附匿名示例) | 待上线 |
 | P 全域扫盘 | `suburb-owner` / `suburb-investor` | 自住选区 / 投资选区 | 🗓 第一批 | — |
 | R 复盘迭代 | `hold-or-sell` | 持有房体检:按购入日期、税改、贷款与现金流看留还是卖 | 🗓 第一批 | — |
 | S 战略锁定 | `family-funding` | 家庭资助:赠与、借款、担保人、联名的条款清单与风险 | 🗓 第一批 | — |
@@ -45,7 +45,7 @@ flowchart LR
 npx skills add theshuailuo/aus-property-skills -a claude-code
 ```
 
-只装一个:在后面加 `--skill holiday-home`。`-a claude-code` 别省:在 agent 会话里运行这条命令时,不加它可能装到 Claude Code 读不到的目录。
+只装一个:在后面加 `--skill auspptdd` 或 `--skill holiday-home`。`-a claude-code` 别省:在 agent 会话里运行这条命令时,不加它可能装到 Claude Code 读不到的目录。
 
 **方式二:Claude Code 插件市场**
 
@@ -58,10 +58,10 @@ npx skills add theshuailuo/aus-property-skills -a claude-code
 
 ```bash
 git clone https://github.com/theshuailuo/aus-property-skills.git
-cp -r aus-property-skills/skills/holiday-home ~/.claude/skills/
+cp -r aus-property-skills/skills/auspptdd aus-property-skills/skills/holiday-home ~/.claude/skills/
 ```
 
-Windows PowerShell 用 `Copy-Item -Recurse aus-property-skills\skills\holiday-home $HOME\.claude\skills\`。其他 agent:放到它读取 skill 的目录。
+Windows PowerShell 用 `Copy-Item -Recurse aus-property-skills\skills\auspptdd,aus-property-skills\skills\holiday-home $HOME\.claude\skills\`。其他 agent:放到它读取 skill 的目录。
 
 **更新**:看 [VERSIONS.md](VERSIONS.md),本机版本旧了就重新安装。skill 不会在你的会话里自己联网检查更新。
 

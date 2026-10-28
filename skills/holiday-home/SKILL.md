@@ -3,10 +3,10 @@ name: holiday-home
 description: Australian holiday home check · 澳洲度假屋:买还是订 / 留还是卖。For the moment on holiday when you see local prices, fall for a listing, or stay in an Airbnb and wonder whether to just buy one, and for owners asking keep, sell or switch to long-term after ATO TR 2026/1 and the 2026 negative gearing / CGT reform. Checks state and council short-stay rules, screens the own-use calendar against TR 2026/1, works out net yield after the Airbnb host-only fee (about 15.5%), management, holding costs and land tax, and shows the price growth needed to beat booking, a term deposit, an index fund, paying down your home loan or a long-term rental. Ends with a six-gate self-check. Free public data only. 触发:「度假屋值不值得买」「要不要在这里买一套度假」「住了个 Airbnb 想自己买」「我的度假屋还要不要留」「Airbnb 还赚钱吗」/ Triggers — "should I buy a holiday home", "is buying an Airbnb worth it", "keep or sell my holiday home", "holiday home tax ATO", /holiday-home. 地址层面的洪水、山火、规划见 auspptdd / For address-level hazards and planning, see auspptdd. Residential only.
 license: MIT
 metadata:
-  version: 0.5.0
+  version: 0.5.1
 ---
 
-# /holiday-home — buy or book, keep or sell (v0.5.0)
+# /holiday-home — buy or book, keep or sell (v0.5.1)
 
 Made by Shuai Luo, a Sydney buyer's agent, from the method he uses for his own family's decisions. The number at the end matters less than showing **why** it comes out that way: which rule bites, which cost eats the yield, what growth you are betting on. Every figure carries its source or says it is the user's own input.
 

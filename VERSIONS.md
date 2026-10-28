@@ -5,11 +5,15 @@ To update: compare with the table below and reinstall any skill that is behind (
 
 | Skill | Version | Last Updated |
 |---|---|---|
-| auspptdd | 0.4.0 | 2026-10-28 |
+| auspptdd | 0.4.1 | 2026-10-28 |
 
 <!-- 每发布一个 skill 加一行,例如 | holiday-home | 0.1.0 | 2026-11-01 | -->
 
 ---
+
+### 0.2.1 (2026-10-28)
+- `auspptdd` 0.4.1:读报告后的第二轮版式与口径修正——总览只留身份信息、来源核对收成英雄面板下的一行、时间线点上标价并按事件类型分形、首次出价改为可选(拍卖不给,给不出理由就写「待与中介沟通后定」)、区间措辞改「基于已核实信息的判断范围」、所有自画图加图例与防重叠、unit 路径第 4 节改楼栋两张图与楼内全部成交表、同楼可比省略地图并给 Google 地图兜底、第 2/5 节加 AI 生成提示、月供按 LVR 算并修正利率单位(小数,填 6.15 会被纠正为 0.0615)。
+- `auspptdd` 0.4.1: second-pass layout and wording fixes after reading the reports — overview deduplicated against the hero panel, source chips, priced timeline, optional first offer, range wording, chart legends and label dodging, building charts and building-sales table for units, map fallback, AI note on sections 2 and 5, repayments on LVR with the rate-unit bug fixed.
 
 ### 0.2.0 (2026-10-28)
 - 新 skill `auspptdd` v0.4.0:澳洲住宅尽调公开数据版,独立屋与 strata 公寓两条路径;NSW、WA 各冷跑过独立屋与公寓(Beacon Hill、Salamander Bay、East Perth、North Sydney)。

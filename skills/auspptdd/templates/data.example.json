@@ -183,17 +183,20 @@
    {
     "name": "Domain 挂牌页(27 张照片 + 视频)",
     "url": "https://www.domain.com.au/112a-salamander-way-salamander-bay-nsw-2317-2020893571",
-    "crosscheck": "地址、5 卧 2 卫 2 车、908 m²、$1,350,000、PRD Dane Queenan —— 与 Aussie 页(5/2/2、908 m²、2000 年建)五项一致,认同一套房"
+    "crosscheck": "地址、5 卧 2 卫 2 车、908 m²、$1,350,000、PRD Dane Queenan —— 与 Aussie 页(5/2/2、908 m²、2000 年建)五项一致,认同一套房",
+    "ok": true
    },
    {
     "name": "Domain 物业档案页(估值、历史成交、洪水/山火 overlay 提示)",
     "url": "https://www.domain.com.au/property-profile/112a-salamander-way-salamander-bay-nsw-2317",
-    "crosscheck": "同上;历史成交 2019 $785k 与 VG 一致"
+    "crosscheck": "同上;历史成交 2019 $785k 与 VG 一致",
+    "ok": true
    },
    {
     "name": "Aussie / Cotality 物业页(事实主源)",
     "url": "https://www.aussie.com.au/property/nsw/salamander-bay-2317/112a-salamander-way/",
-    "crosscheck": "5 卧 2 卫 2 车、230 m² 建筑、908 m² 土地、2000 年建、首挂 2026-06"
+    "crosscheck": "5 卧 2 卫 2 车、230 m² 建筑、908 m² 土地、2000 年建、首挂 2026-06",
+    "ok": true
    }
   ],
   "streetview_url": "https://www.google.com/maps?q=&layer=c&cbll=-32.739608,152.093903",
@@ -255,26 +258,34 @@
   {
    "date": "2013-05",
    "event": "成交(价格免费源未显示);DP 1188746 于 2013 年登记,112 号分出 112A",
+   "kind": "sale",
    "source": "Aussie 物业页 Property history;NSW Cadastre"
   },
   {
    "date": "2015-02",
    "event": "成交 $680,000(McGrath,21 天在市)",
+   "kind": "sale",
+   "price": 680000,
    "source": "Domain 物业档案"
   },
   {
    "date": "2019-02-11",
    "event": "成交 $785,000(PRD,131 天在市,私人协议)——VG 标记为最近一笔",
+   "kind": "sale",
+   "price": 785000,
    "source": "NSW Valuer General SIX Valuation L1;Domain"
   },
   {
    "date": "2021-06",
    "event": "Aussie 页显示「Sold Jun 2021」但 VG 与 Domain 均无此笔——待问中介(可能是撤回或数据错)",
+   "kind": "sale",
    "source": "Aussie 物业页"
   },
   {
    "date": "2026-06-04",
    "event": "挂牌 $1,350,000(PRD Port Stephens)",
+   "kind": "list",
+   "price": 1350000,
    "source": "Domain 挂牌页;Aussie 首挂 2026-06"
   }
  ],
@@ -1197,13 +1208,15 @@
  },
  "pricing": {
   "method_note": "先给每张可比卡按土地 / 坡度与街面侧 / 房况打分,再从完整度 ≥5/8 的「相当」与「略优/略逊」里取夹板,最后按差异调整得区间。洪水为条件项:区间成立的前提是规划洪水位与保险报价两项拿到后没有意外。",
-  "upper": "10 Kestrel Ave $1,700,000(2025-07,2000 年 241 m² 单层、760 m² R2,无洪水/山火/主路,完整度 5/8)——三项打分「相当」,减去标的独有的洪水规划区、C4、次干道三项 ≈ $1.42M–1.45M。同街 136 Salamander Way $1.38M 只有 4/8,不做夹板只作旁证",
-  "lower": "9 Compass Cl $1,400,000(2025-08,1998 年 175 m²、800 m² R2 无洪水,完整度 5/8)——房况逊于标的(+6%)但没有洪水/C4/主路减分(−10%)≈ $1.34M;原拟的 234 Sandy Point Rd(同样 Overland Flow)Aussie 三次限速、完整度 3/8,不够格",
+  "bookend_upper_text": "10 Kestrel Ave $1,700,000(2025-07,2000 年 241 m² 单层、760 m² R2,无洪水/山火/主路,完整度 5/8)——三项打分「相当」,减去标的独有的洪水规划区、C4、次干道三项 ≈ $1.42M–1.45M。同街 136 Salamander Way $1.38M 只有 4/8,不做夹板只作旁证",
+  "bookend_lower_text": "9 Compass Cl $1,400,000(2025-08,1998 年 175 m²、800 m² R2 无洪水,完整度 5/8)——房况逊于标的(+6%)但没有洪水/C4/主路减分(−10%)≈ $1.34M;原拟的 234 Sandy Point Rd(同样 Overland Flow)Aussie 三次限速、完整度 3/8,不够格",
+  "first_offer_text": "首次出价 $1.28M:取合理区间下沿,也是挂牌近 5 个月后的合理起点;洪水为条件项,规划洪水位与保险报价到手前只能是条件出价。",
   "widen_reason": "两块夹板的外墙建材、翻新程度与街面侧都未知(免费数据无;REA 未打开);16 笔里只有 10 笔拿到建年或面积(3 笔第一轮限速 202、第二轮重试取到);下沿放宽 $60k、上沿压 $30k。",
   "mortgage": {
    "rate": 0.0615,
    "years": 30,
-   "step": 50000
+   "step": 50000,
+   "lvr": 0.8
   },
   "bank_valuation_note": "洪水规划区命中、C4 分区、挂牌近 5 个月、地势低:银行估值可能低于成交价。出价前让 broker 做一次桌面估值,并问贷款机构对 flood planning area 地块的 LVR 政策。"
  },

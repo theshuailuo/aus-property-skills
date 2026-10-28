@@ -81,7 +81,8 @@
    {
     "name": "Aussie 物业页",
     "url": "https://www.aussie.com.au/property/wa/east-perth-6004/18-90-terrace-road/",
-    "crosscheck": "地址、3 房 2 卫 2 车位、标价 $1,249,000、中介 Inhabit Property、建年 2013 —— 5 项一致"
+    "crosscheck": "地址、3 房 2 卫 2 车位、标价 $1,249,000、中介 Inhabit Property、建年 2013 —— 5 项一致",
+    "ok": true
    }
   ],
   "streetview_url": "https://www.google.com/maps?q=&layer=c&cbll=-31.960283,115.86941",
@@ -101,10 +102,9 @@
    1300000
   ],
   "offer": {
-   "first": 1250000,
    "walk_away": 1380000,
    "confidence": "中",
-   "confidence_note": "首次出价 $1.25M = 卖方自己定的「Offers Over」门槛,也是本楼 OnTheHouse AVM 带($1.2–1.3M,模型值)的中点;挂了约 7 周、超区均在市 14 天四倍,卖方有谈判空间。放手价 $1.38M = 同楼 66 号同规格成交价,超过它就等于买一套更好位置的 10 号。把握「中」:夹板两笔都是同楼同户型(6/8、5/8),但标的朝向景观、翻新、levies 年度都未核;洪水为条件项(地下车库高程 + strata 保险两项拿到前出价只能是条件出价)。"
+   "confidence_note": "放手价 $1.38M = 同楼 66 号同规格成交价,超过它就等于买一套更好位置的 10 号。把握「中」:夹板两笔都是同楼同户型(6/8、5/8),但标的朝向景观、翻新、levies 年度都未核;洪水为条件项(地下车库高程 + strata 保险两项拿到前出价只能是条件出价)。"
   },
   "cards": [
    {
@@ -143,21 +143,27 @@
   {
    "date": "2004-01-09",
    "event": "City Planning Scheme No. 2 刊宪(DPLH-071 图层属性);地块 Residential R160、Precinct P13",
+   "kind": "other",
    "source": "SLIP DPLH-071 / DPLH-070 / LPS Special Area"
   },
   {
    "date": "2013",
    "event": "Adagio 建成(前 ABC 演播室地块改建,SP 58159 登记;115 户)",
+   "kind": "other",
    "source": "Aussie/Cotality 建年;Landgate Plan Extent(LGATE-284);中介文案"
   },
   {
    "date": "2014-02",
    "event": "本单元成交 $1,000,000",
+   "kind": "sale",
+   "price": 1000000,
    "source": "Aussie/Cotality Property history"
   },
   {
    "date": "2026-09-10",
    "event": "挂牌 Offers Over $1,249,000(Inhabit Property)",
+   "kind": "list",
+   "price": 1249000,
    "source": "Aussie 页 datePosted;Property history「Listed for sale Sep 2026」"
   }
  ],
@@ -489,6 +495,78 @@
     "price": 1000000,
     "date": "1 February 2014",
     "land": 136
+   }
+  ],
+  "building_sales": [
+   {
+    "unit": "10/90 Terrace Rd",
+    "beds": 3,
+    "baths": 2,
+    "cars": 2,
+    "floor_m2": 136,
+    "price": 1425000,
+    "date": "26 February 2026",
+    "source": "OnTheHouse"
+   },
+   {
+    "unit": "106/90 Terrace Rd",
+    "beds": 3,
+    "baths": 2,
+    "cars": 3,
+    "floor_m2": 137,
+    "price": 1500000,
+    "date": "13 December 2025",
+    "source": "OnTheHouse"
+   },
+   {
+    "unit": "66/90 Terrace Rd",
+    "beds": 3,
+    "baths": 2,
+    "cars": 2,
+    "floor_m2": 137,
+    "price": 1380000,
+    "date": "2 December 2025",
+    "source": "OnTheHouse"
+   },
+   {
+    "unit": "29/90 Terrace Rd",
+    "beds": 2,
+    "baths": 2,
+    "cars": null,
+    "floor_m2": 102,
+    "price": 940000,
+    "date": "22 February 2026",
+    "source": "OnTheHouse"
+   },
+   {
+    "unit": "99/90 Terrace Rd",
+    "beds": 2,
+    "baths": 2,
+    "cars": null,
+    "floor_m2": 102,
+    "price": 980000,
+    "date": "22 December 2025",
+    "source": "OnTheHouse"
+   },
+   {
+    "unit": "35/90 Terrace Rd",
+    "beds": 2,
+    "baths": 2,
+    "cars": null,
+    "floor_m2": 101,
+    "price": 930000,
+    "date": "6 November 2025",
+    "source": "OnTheHouse"
+   },
+   {
+    "unit": "18/90 Terrace Rd",
+    "beds": 3,
+    "baths": 2,
+    "cars": 2,
+    "floor_m2": 136,
+    "price": 1000000,
+    "date": "1 February 2014",
+    "source": "Aussie/Cotality"
    }
   ]
  },
@@ -1062,13 +1140,15 @@
  },
  "pricing": {
   "method_note": "Strata 模块:可比只取同楼同户型做夹板(两笔完整度 ≥5/8),其它楼 3 房成交只画价位不打分(无面积/楼层)。三项打分改为:面积与车位 / 楼层·朝向·景观 / 房况。土地含量(母地块 UV × entitlement)两项均无免费源,未计算。",
-  "upper": "10/90 Terrace Rd $1,425,000(2026-02-26,136 m²、2 车位、podium 一层 25 m² 庭院 + Langley Park 景观,Renouf Real Estate)——同户型更好位置;减景观与庭院溢价 ≈ $1.37M–1.40M",
-  "lower": "66/90 Terrace Rd $1,380,000(2025-12-02,137 m²、2 车位、strata lot 185 m²,Realestate 88;挂牌 2025-05-22)——与标的同规格,楼层朝向未知;标的 Level 2 朝西南、只有 20 m² 阳台,减不确定性 ≈ $1.28M–1.31M",
+  "bookend_upper_text": "10/90 Terrace Rd $1,425,000(2026-02-26,136 m²、2 车位、podium 一层 25 m² 庭院 + Langley Park 景观,Renouf Real Estate)——同户型更好位置;减景观与庭院溢价 ≈ $1.37M–1.40M",
+  "bookend_lower_text": "66/90 Terrace Rd $1,380,000(2025-12-02,137 m²、2 车位、strata lot 185 m²,Realestate 88;挂牌 2025-05-22)——与标的同规格,楼层朝向未知;标的 Level 2 朝西南、只有 20 m² 阳台,减不确定性 ≈ $1.28M–1.31M",
+  "first_offer_text": "首次出价不在报告里定数,要结合与中介沟通后的信息再定。参考点:卖方自己定的「Offers Over」门槛 $1,249,000,与本楼 OnTheHouse AVM 带($1.2–1.3M,模型值)的中点约 $1.25M;挂了约 7 周、超区均在市 14 天四倍,卖方有谈判空间。",
   "widen_reason": "标的的朝向景观、室内翻新、levies 年度都没核;两块夹板的楼层(66)与翻新都未知;其它楼 13 笔没有面积。区间两头各放宽约 $20k。「两房 ≤ house 中位一半」规则只覆盖两房,本例三房不适用;参考:标价 ÷ East Perth house 中位 = 0.66(REIWA $1.905M,n=22)/ 0.80(Cotality $1.558M),house 样本太小,不作判断依据。",
   "mortgage": {
    "rate": 0.0615,
    "years": 30,
-   "step": 50000
+   "step": 50000,
+   "lvr": 0.8
   },
   "bank_valuation_note": "州遗产登记楼、strata 费占标价 1.2%/年、洪泛管理区、挂牌 7 周:估价师可能按本楼 OnTheHouse AVM 带($1.2–1.3M)偏保守,出价前让贷款经纪做一次桌面估值。"
  },

@@ -112,7 +112,7 @@ table.hz th:nth-child(1),table.hz td:nth-child(1){min-width:120px}table.hz td:nt
 .note{font-size:12.5px;color:var(--muted)}
 .two{display:grid;grid-template-columns:1fr 1fr;gap:18px}
 .two>*{min-width:0}
-.kv{display:grid;grid-template-columns:1fr;gap:0;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:4px 14px;font-size:13.5px}
+.kv{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:0 28px;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:4px 14px;font-size:13.5px}
 .kv div{padding:7px 0;border-bottom:1px solid var(--line-2);display:grid;grid-template-columns:118px 1fr;gap:10px}
 .kv div:last-child{border-bottom:0}
 .kv div b{color:var(--muted);font-weight:600;font-size:12.5px;line-height:1.5}
@@ -269,6 +269,24 @@ td,th{overflow-wrap:anywhere}
 .covleg{font-size:12.5px;color:var(--muted);margin-top:4px}.covleg b{font-family:var(--display)}
 details.greygroup{margin:4px 0 10px}details.greygroup>summary{cursor:pointer;font-size:13px;color:var(--muted);list-style:none;padding:6px 0}details.greygroup>summary::-webkit-details-marker{display:none}details.greygroup>summary::before{content:"▸ "}details.greygroup[open]>summary::before{content:"▾ "}
 .card .note{font-size:13px}.offer .note{font-size:13px}.verdict{font-size:15.5px}
+
+/* ---------- v0.4.1: overview grid, map links, source chips, AI note, chart subtitles ---------- */
+.kv div.wide{grid-column:1/-1}
+.maplinks{display:inline-flex;gap:6px;margin-left:10px;vertical-align:middle;font:600 12px var(--display);letter-spacing:0}
+.maplinks a{text-decoration:none;border:1px solid var(--line);border-radius:999px;padding:1px 9px;background:var(--card-2);color:var(--brand)}
+.maplinks a:hover{background:var(--brand-soft)}
+.srcchips{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin-top:8px}
+.srcchips .lbl{font-size:12px;color:var(--muted)}
+.srcchips .chip{font-size:12px;padding:2px 9px}
+.srcchips .chip a{color:inherit;text-decoration:none}.srcchips .chip a:hover{text-decoration:underline}
+.ai-note{font-size:12.5px;line-height:1.55;color:var(--muted);background:var(--card-2);border:1px solid var(--line);border-left:3px solid var(--na);border-radius:0 8px 8px 0;padding:7px 12px;margin:0 0 6px}
+.chart-sub{margin:2px 0 0;line-height:1.5}
+.chart-sub b{color:var(--ink);font-weight:700}
+.chart .halo{paint-order:stroke;stroke:var(--card);stroke-width:3px;stroke-linejoin:round}
+.offer .n.tbd{font-size:15px;line-height:1.4;font-weight:700}
+table.tiers td.tbd{white-space:normal;font-size:12.5px}
+.mapl{margin:6px 0 0;font-size:12px}
+table.bs td:nth-child(2),table.bs td:nth-child(3),table.bs td:nth-child(4),table.bs td:nth-child(5){white-space:nowrap}
 
 /* ---------- responsive ---------- */
 @media(max-width:900px){.cards{grid-template-columns:repeat(2,1fr)}.cg{grid-template-columns:1fr 1fr}.two{grid-template-columns:1fr}.offer{grid-template-columns:1fr 1fr}.offer>div:nth-child(3){grid-column:1/-1}}

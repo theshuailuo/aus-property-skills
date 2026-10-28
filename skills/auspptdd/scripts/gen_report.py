@@ -19,7 +19,7 @@ usage:
 Windows: the script forces UTF-8 on stdout/stderr and every open(); no PYTHONUTF8 needed.
 No third-party packages.
 """
-import sys, os, json, re, html, math, argparse, datetime, statistics
+import sys, os, json, re, html, math, argparse, datetime, statistics, urllib.parse
 
 if hasattr(sys.stdout, "reconfigure"):
     sys.stdout.reconfigure(encoding="utf-8")
@@ -66,7 +66,7 @@ T = {
  "scatter_h": ("可比一图:土地面积 × 成交价", "Comparables in one chart: land area × sale price"),
  "scatter_note": ("点色 = 三项打分结论(红 优于 / 金 相当 / 绿 逊于);粗环 = 夹板;★ = 标的(标价);绿带 = 合理区间。", "Dot colour = three-score verdict (red superior / gold close / green inferior); thick ring = bookend; ★ = subject at list price; green band = fair range."),
  "dom_bars_h": ("在市时长对比", "Days on market, compared"), "dom_this": ("本套(约)", "This property (approx.)"), "dom_sub": ("区均(不是本套)", "Suburb median (not this one)"),
- "mort_h": ("三个价位的月供", "Repayment at the three prices"), "mort_list": ("标价", "List"),
+ "mort_h": ("三个价位的月供(按 {lvr}% 贷款)", "Repayment at the three prices (at {lvr}% LVR)"), "mort_list": ("标价", "List"),
  "ruler_more": ("›{cap} 还有 {n} 笔", "{n} more above {cap}"),
  "future_chips": ("路径一览", "Paths at a glance"),
  "priceline_h": ("我该出多少:所有价位放在一条轴上", "What to offer: every price on one axis"),
@@ -80,7 +80,8 @@ T = {
  "tiles_grey": ("以下 {n} 项免费数据查不到(点开看去哪拿)", "{n} items with no free data (open to see where to get them)"),
  "coverage": ("22 项核查覆盖度", "Coverage of the checks"), "cov_hit": ("命中 / 条件", "hit / conditional"), "cov_watch": ("要留意", "watch"), "cov_ok": ("未检出", "not detected"), "cov_none": ("免费数据无", "no free data"),
  "profile_flat": ("地块平坦:街面 {s} m → 后边界 {r} m,落差 {f} m;剖面图省略。", "Flat site: street {s} m → rear {r} m, fall {f} m; profile chart omitted."),
- "tl_strip_note": ("按真实时间比例;红点 = 现在挂牌;问号 = 待核实的记录。", "True time scale; red = current listing; ? = record to verify."),
+ "tl_strip_note": ("按真实时间比例。形状 = 事件类型(● 成交 · ◆ 出租 · ▲ 挂牌 · ▼ 调价 · 小圆点 其它);点上方数字 = 价格,下方 = 日期;红 = 现在挂牌,? = 待核实的记录。",
+                   "True time scale. Shape = event type (● sale · ◆ rented · ▲ listed · ▼ price change · small dot other); number above the marker = price, date below; red = current listing, ? = record to verify."),
  "hazard_rule": ("规则:主流洪水区 / High–Medium 分区命中 = 否决;Overland Flow / Low(PMF)命中 = 条件项(固定两个下一步:规划洪水位 vs 地板高度;保险报价);其余风险只换算成价格调整。「未检出」只在图层覆盖该 council 时写,并配一个现场/合同里确认的小动作。",
                  "Rule: mainstream flood / High–Medium precinct hit = veto; Overland Flow / Low (PMF) hit = conditional (two fixed next steps: flood planning level vs floor level; insurance quote); every other risk becomes a price adjustment. 'Not detected' is written only where the layer covers this council, with a small on-site / contract check attached."),
  "applies": ("适用", "Applies"), "paid_short": ("公开数据无(见下一步)", "Not in public data (see next step)"),
@@ -110,8 +111,8 @@ T = {
  "bk_low_warn": ("该夹板数据完整度低于 5/8,不符合夹板要求;区间已加宽并说明。", "This bookend has completeness below 5/8 and does not qualify; the range was widened and the reason stated."),
  "plv_h": ("成交价 / 官方地价 倍数交叉检验", "Sale price ÷ land value cross-check"),
  "pricing_h": ("合理区间怎么来的", "How the range was derived"),
- "mortgage": ("每差 {step} 对月供的影响:约 {delta}/月(假设利率 {rate:.2f}%、{years} 年本息同还;公式 P·r/(1−(1+r)^−n),r = 月利率,n = 月数)。",
-              "Each {step} of price moves the repayment by about {delta}/month (assumes {rate:.2f}% p.a., {years}-year principal & interest; P·r/(1−(1+r)^−n), r = monthly rate, n = months)."),
+ "mortgage": ("按 {lvr}% 贷款,房价每差 {step} 即贷款差 {loan},月供约差 {delta}/月(假设利率 {rate:.2f}%、{years} 年本息同还;公式 P·r/(1−(1+r)^−n),r = 月利率,n = 月数)。",
+              "At {lvr}% LVR, each {step} of price is {loan} of loan and moves the repayment by about {delta}/month (assumes {rate:.2f}% p.a., {years}-year principal & interest; P·r/(1−(1+r)^−n), r = monthly rate, n = months)."),
  "bank_val": ("银行估值可能低于成交价:坡地、带租约、长时间在市、原装房都会让估价师保守;差额要用自有资金补。出价前让 broker 做一次桌面估值预审。(你自己 / broker)",
               "The bank valuation may come in below the sale price: sloping land, a lease in place, a long campaign and original condition all make valuers conservative; any gap is cash from you. Ask your broker for a desktop valuation before you offer. (you / broker)"),
  "holding_h": ("持有成本(估算)", "Holding costs (estimate)"), "school_h": ("学区与通勤", "School catchment & commute"),
@@ -168,6 +169,37 @@ T = {
                   "<b>Price ruler</b> — {n} sales in {window} (scope as noted in the data), median {median}; the list price {list} sits here:"),
  "u_level": ("楼层", "Level"), "u_cars": ("车位", "Cars"), "u_aspect": ("朝向", "Aspect"), "u_levies": ("Strata 费", "Levies"),
  "u_floor": ("建筑", "Floor"), "u_pm2": ("$/m² 建筑", "$/m² floor"),
+ # ---- v0.4.1 additions
+ "offer_tbd": ("需结合与中介沟通后的信息定夺", "Set after the conversation with the agent"),
+ "src_chips": ("来源核对:", "Sources checked:"),
+ "widen_pref": ("区间说明:", "Range note:"),
+ "ai_note": ("本节由 AI 按公开数据生成,没有人工判断,可能有误;请自行核实,并留意 AI 拿不到的信息(底价、卖家动机、竞争买家、未公开缺陷)。",
+             "This section was generated by an AI from public data with no human judgement and may be wrong. Verify it yourself and remember what the AI cannot see: reserve price, vendor motivation, competing buyers, undisclosed defects."),
+ "look_at": ("看什么:", "What to look at: "),
+ "map_link": ("地图", "Map"), "sv_link": ("街景", "Street View"),
+ "tlk_sale": ("成交", "Sale"), "tlk_rent": ("出租", "Rented"), "tlk_list": ("挂牌", "Listed"), "tlk_pc": ("调价", "Price change"),
+ "tlk_other": ("其它", "Other"), "tlk_now": ("现在挂牌", "Current listing"), "tlk_q": ("待核实", "To verify"),
+ "sub_tl": ("每个标记是一件事:上方数字是价格,下方是日期;看价格随时间往哪走,以及这次挂牌价与上一笔成交差多少。",
+            "Each marker is one event: price above, date below. See which way prices moved over time and how far this listing sits from the last sale."),
+ "ph_h": ("标价变化", "List-price changes"), "ph_list": ("标价", "List price"), "ph_band": ("合理区间", "Fair range"),
+ "sub_steps": ("每一级台阶是一次调价;绿带是我们估计的合理区间,看现在的标价落在带内还是带外。",
+               "Each step is one price change; the green band is our fair range. See whether the current list price sits inside or outside it."),
+ "sub_scatter": ("标的(★)落在绿带的哪一段,土地更大的可比是否更贵;离绿带远的点要看原因(点开字母卡)。",
+                 "Where the star sits in the green band, and whether comps with more land cost more; open the letter card of any dot far from the band."),
+ "sub_scatter_u": ("标的(★)落在绿带的哪一段,面积更大的可比是否更贵;离绿带远的点要看原因(点开字母卡)。",
+                   "Where the star sits in the green band, and whether larger comps cost more; open the letter card of any dot far from the band."),
+ "sub_street": ("同街近期成交的价格有没有随时间上移;气泡越大地越大;红虚线是标价。",
+                "Whether same-street prices are drifting up over time; bigger bubble = more land; the red dashed line is the list price."),
+ "sub_map": ("可比离标的多远、在哪个方向;圈越外离得越远。红色 ★ 是标的。",
+             "How far, and in which direction, the comparables sit from the subject; outer rings are further away. The red ★ is the subject."),
+ "lg_subject": ("标的", "Subject"), "lg_bookend": ("夹板(粗环)", "Bookend (thick ring)"), "lg_rings": ("距离圈", "Distance rings"),
+ "lg_sale": ("成交(气泡 = 土地面积)", "Sale (bubble = land area)"), "lg_sale_u": ("成交(气泡 = 建筑面积)", "Sale (bubble = floor area)"),
+ "stack_h": ("同竖列 × 楼层", "Same stack × floor"), "bldg_h": ("同户型 × 成交日期", "Same layout × sale date"),
+ "bsales_h": ("楼内全部成交(未筛选,按日期)", "All sales in the building (unfiltered, by date)"),
+ "bsales_th": (("单元", "户型(房·卫·车)", "室内 m²", "价格", "日期", "来源"), ("Unit", "Layout (bd·ba·car)", "Floor m²", "Price", "Date", "Source")),
+ "strata_tip": ("strata 地块,无独立土地面积", "strata lot, no separate land area"),
+ "strata_note": ("标记为 strata 的行,土地一栏留空:strata 地块没有独立的土地面积。", "Rows marked strata leave the Land cell blank: a strata lot has no separate land area."),
+ "map_same_bldg": ("可比全部在同一栋楼内,位置图省略;见第 4 节楼栋图。", "All comparables are in the same building; the map is omitted, see the building charts in section 4."),
 }
 DISCLAIMER_END = (
  ("这是我们自己买房时会用的工具,仅供参考。本报告是一般信息,未结合您的个人情况。",
@@ -281,6 +313,14 @@ DEFAULT_BEFORE_BUY_UNIT = {
 BB_FLOOD_UNIT = {"zh": ("两家保险公司报价(含洪水)", "洪水卡是条件项:按地址拿含洪水的报价,并问 strata 保险是否承保洪水", "你"),
                  "en": ("Two insurer quotes including flood", "The flood card is conditional: get address-level quotes including flood and ask whether the strata policy covers flood", "you")}
 
+_DUP_FACT_RE = re.compile(
+    r"(?:address|地址|beds?|bedrooms?|baths?|bathrooms?|cars?|car\s*spaces?|parking|beds?\s*/\s*baths?(?:\s*/\s*cars?)?|几房|房型|户型|卧室|卫生间|车位"
+    r"|built|year\s*built|建年|建成|建成年份|建成年代|建于|建造年份"
+    r"|list(?:ing)?\s*price|asking\s*price|标价|挂牌价|last\s*sold|last\s*sale|previous\s*sale|上次成交|上一笔成交|上一次成交"
+    r"|(?:domain\s*)?(?:avm|(?:price\s*)?estimate|估价|估值)|domain.*(?:估值|估价|estimate|avm))(?:\s*[\(（][^\)）]*[\)）])?", re.I)
+def dup_fact(label):
+    """True when an overview facts row repeats something the hero panel already shows"""
+    return bool(_DUP_FACT_RE.fullmatch(re.sub(r"[:：\s]+$", "", str(label).strip())))
 def money(v):
     try: return "$%s" % format(int(round(float(v))), ",")
     except Exception: return "—"
@@ -300,6 +340,135 @@ def cls_of(status):
 # ---------------------------------------------------------------- inline SVG charts (no libraries; colours from the page tokens)
 def _nice(v):
     return ("%.1fM" % (v / 1e6)) if abs(v) >= 1e6 else (("%.0fk" % (v / 1e3)) if abs(v) >= 1e3 else ("%g" % v))
+# ---------------------------------------------------------------- shared chart helpers (v0.4.1): label de-overlap, legend rows, marker shapes, subtitles
+CW = 6.0   # approx px per Latin char at 10.5px; _tw() counts CJK as full width
+def _tw(text, fs=10.5):
+    return sum((fs if ord(ch) > 0x2E7F else fs * CW / 10.5) for ch in str(text))
+def dodge(labels, step=12, direction=1, lo=None, hi=None, tries=6):
+    """Greedy label de-overlap. labels: [{x, y (text baseline), text, anchor start|middle|end, fs?, dir?}].
+    A label that clashes with an already placed one is pushed by `step` px (direction +1 = down, -1 = up) up to `tries` times.
+    Sets lb['moved'], lb['y0'] and lb['ok'] (False = could not be placed inside [lo, hi]; the caller then draws no text, the marker keeps its <title>)."""
+    placed = []
+    for lb in sorted(labels, key=lambda q: (q["y"] * q.get("dir", direction), q["x"])):
+        dr = lb.get("dir", direction); fs = lb.get("fs", 10.5); w = _tw(lb["text"], fs) + 4; a = lb.get("anchor", "middle")
+        x0 = lb["x"] - (w if a == "end" else (w / 2 if a == "middle" else 0)); y = lb["y"]; ok = True
+        clash = lambda yy: any(not (x0 + w < q[0] or q[0] + q[1] < x0 or yy + 2 < q[2] - 9 or q[2] + 2 < yy - 9) for q in placed)
+        for _ in range(tries + 1):
+            if not clash(y): break
+            ny = y + dr * step
+            if (lo is not None and ny < lo) or (hi is not None and ny > hi): ok = False; break
+            y = ny
+        else:
+            ok = False
+        lb["y0"] = lb["y"]; lb["moved"] = abs(y - lb["y"]) > 0.5; lb["y"] = y; lb["ok"] = ok
+        if ok: placed.append((x0, w, y))
+    return labels
+def _labels_svg(labels, cls="tick"):
+    """draw dodged labels (+ a thin leader line to the marker when a label was moved); every label carries a <title> with its full text"""
+    out = []
+    for lb in labels:
+        if not lb.get("ok", True): continue
+        if lb.get("moved") and "ay" in lb:
+            out.append('<line x1="%.1f" y1="%.1f" x2="%.1f" y2="%.1f" stroke="var(--muted)" stroke-width=".7" opacity=".55"/>' % (lb["ax"], lb["ay"], lb["x"], lb["y"] - 4))
+        out.append('<text x="%.1f" y="%.1f" class="%s" text-anchor="%s"><title>%s</title>%s</text>' % (lb["x"], lb["y"], cls, lb.get("anchor", "middle"), esc(lb.get("title") or lb["text"]), esc(lb["text"])))
+    return "".join(out)
+def _shape(kind, cx, cy, r, attrs, title=""):
+    """marker shapes: circle (default) | diamond | up (triangle up) | down (triangle down)"""
+    tl_ = "<title>%s</title>" % esc(title) if title else ""
+    if kind == "diamond":
+        return '<polygon points="%.1f,%.1f %.1f,%.1f %.1f,%.1f %.1f,%.1f" %s>%s</polygon>' % (cx, cy - r - 1.5, cx + r + 1.5, cy, cx, cy + r + 1.5, cx - r - 1.5, cy, attrs, tl_)
+    if kind == "up":
+        return '<polygon points="%.1f,%.1f %.1f,%.1f %.1f,%.1f" %s>%s</polygon>' % (cx, cy - r - 1.5, cx + r + 1.5, cy + r, cx - r - 1.5, cy + r, attrs, tl_)
+    if kind == "down":
+        return '<polygon points="%.1f,%.1f %.1f,%.1f %.1f,%.1f" %s>%s</polygon>' % (cx - r - 1.5, cy - r, cx + r + 1.5, cy - r, cx, cy + r + 1.5, attrs, tl_)
+    return '<circle cx="%.1f" cy="%.1f" r="%.1f" %s>%s</circle>' % (cx, cy, r, attrs, tl_)
+def legend(x, y, items, maxw=None, rowh=16):
+    """horizontal legend row(s) under the axis. items: [(kind, colour, text)], kind dot|small|diamond|up|down|ring|dash|line|band|star.
+    Wraps to a new row when maxw is exceeded. Returns (svg, height_px)."""
+    out = []; cx0 = x; cy = y; rows = 1
+    for kind, col, text in items:
+        wd = _tw(text) + 34
+        if maxw and cx0 > x and cx0 + wd > maxw: cx0 = x; cy += rowh; rows += 1
+        cx = cx0 + 7; my = cy - 4
+        if kind == "dot": out.append(_shape("circle", cx, my, 4.5, 'fill="%s"' % col))
+        elif kind == "small": out.append(_shape("circle", cx, my, 3, 'fill="%s"' % col))
+        elif kind in ("diamond", "up", "down"): out.append(_shape(kind, cx, my, 4, 'fill="%s"' % col))
+        elif kind == "ring": out.append(_shape("circle", cx, my, 4, 'fill="none" stroke="%s" stroke-width="2.5"' % col))
+        elif kind == "dash": out.append('<line x1="%.1f" x2="%.1f" y1="%.1f" y2="%.1f" stroke="%s" stroke-dasharray="4 3" stroke-width="2"/>' % (cx - 7, cx + 7, my, my, col))
+        elif kind == "line": out.append('<line x1="%.1f" x2="%.1f" y1="%.1f" y2="%.1f" stroke="%s" stroke-width="2.5"/>' % (cx - 7, cx + 7, my, my, col))
+        elif kind == "band": out.append('<rect x="%.1f" y="%.1f" width="14" height="10" fill="%s" fill-opacity=".25"/>' % (cx - 7, my - 5, col))
+        elif kind == "star": out.append('<text x="%.1f" y="%.1f" font-size="14" text-anchor="middle" fill="%s">★</text>' % (cx, my + 5, col))
+        out.append('<text x="%.1f" y="%.1f" class="tick">%s</text>' % (cx0 + 18, cy, esc(text)))
+        cx0 += wd
+    return "".join(out), rows * rowh
+def _sub(sub):
+    """one-line 'what to look at' subtitle above a chart"""
+    return '<p class="note chart-sub"><b>%s</b>%s</p>' % (esc(t("look_at")), esc(sub)) if sub else ""
+def _svg_open(w, h):
+    return '<svg class="chart" viewBox="0 0 %d %d" role="img" preserveAspectRatio="none" style="width:100%%;height:auto;aspect-ratio:%d/%d">' % (w, h, w, h)
+def _pdate(sv):
+    s = str(sv).strip()
+    for f in ("%d %B %Y", "%Y-%m-%d", "%Y-%m", "%Y"):
+        try: return datetime.datetime.strptime(s, f)
+        except Exception: pass
+    for f, n in (("%Y-%m-%d", 10), ("%Y-%m", 7), ("%Y", 4)):
+        try: return datetime.datetime.strptime(s[:n], f)
+        except Exception: pass
+    return None
+def _time_ticks(t0, t1, maxn=7):
+    months = max(1, (t1.year - t0.year) * 12 + t1.month - t0.month)
+    step = next((s for s in (1, 2, 3, 6, 12, 24, 60) if months / s <= maxn), 60)
+    out = []
+    m = datetime.datetime(t0.year, t0.month, 1) if step < 12 else datetime.datetime(t0.year, 1, 1)
+    while m <= t1:
+        if m >= t0: out.append((m, m.strftime("%Y-%m") if step < 12 else m.strftime("%Y")))
+        mo = m.month + step
+        m = datetime.datetime(m.year + (mo - 1) // 12, (mo - 1) % 12 + 1, 1)
+    return out or [(t0, t0.strftime("%Y-%m")), (t1, t1.strftime("%Y-%m"))]
+def _wrap_px(text, maxw, fs=11):
+    """greedy wrap by pixel width (CJK breaks anywhere, Latin at spaces)"""
+    lines, cur = [], ""
+    for tok in re.findall(r"[A-Za-z0-9$.,'\-/%()]+\s*|.", str(text)):
+        if cur and _tw(cur + tok, fs) > maxw: lines.append(cur.rstrip()); cur = tok.lstrip()
+        else: cur += tok
+    if cur.strip(): lines.append(cur.rstrip())
+    return lines
+def _has(v):
+    """True for a usable positive number (None, '', 0, non-numeric -> False)"""
+    return num(v) > 0
+def _hav_m(lat1, lon1, lat2, lon2):
+    R = 6371000.0; p1, p2 = math.radians(lat1), math.radians(lat2)
+    a = math.sin((p2 - p1) / 2) ** 2 + math.cos(p1) * math.cos(p2) * math.sin(math.radians(lon2 - lon1) / 2) ** 2
+    return 2 * R * math.asin(min(1.0, math.sqrt(a)))
+def gmaps_search_url(q):
+    return "https://www.google.com/maps/search/?api=1&query=" + urllib.parse.quote(str(q), safe="")
+def gmaps_sv_url(lat, lon, q):
+    try:
+        return "https://www.google.com/maps?q=&layer=c&cbll=%s,%s" % (float(lat), float(lon))
+    except (TypeError, ValueError):
+        return gmaps_search_url(q)
+def _short_money(v):
+    return ("$%.2fM" % (v / 1e6)) if abs(v) >= 1e6 else ("$%dk" % round(v / 1e3))
+_PRICE_RE = re.compile(r"\$[\d,\.]+\s*[MKmk]?(?![A-Za-z])")
+def _event_price(ev):
+    """first '$1,170,000' / '$1.1M' / '$900k' in an event text -> number, else None"""
+    m = _PRICE_RE.search(str(ev or ""))
+    if not m: return None
+    s = m.group(0)[1:].strip(); mult = 1
+    if s and s[-1] in "MKmk": mult = 1e6 if s[-1] in "Mm" else 1e3; s = s[:-1].strip()
+    try: return float(s.replace(",", "").rstrip(".")) * mult
+    except ValueError: return None
+TL_KINDS = ("sale", "rent", "list", "price_change", "other")
+def _tl_kind(r):
+    k = str(r.get("kind") or "").strip().lower()
+    if k in TL_KINDS: return k
+    ev = str(r.get("event", "")).lower()   # no explicit kind: guess from the event text
+    if re.search(r"成交|\bsold\b", ev): return "sale"
+    if re.search(r"挂牌|\blist(?:ed|ing)?\b", ev): return "list"
+    if re.search(r"出租|放租|\brent(?:ed|al)?\b|\bleas", ev): return "rent"
+    if re.search(r"调价|降价|涨价|price (?:cut|drop|change|reduc)", ev): return "price_change"
+    return "other"
+
 def svg_line(series, labels, ylab="", fmt=None, w=720, h=220, names=None, pct=False, hline=None):
     """series: list of lists of numbers (None allowed); labels: x labels (same length). 1 series = brand colour, 2 = c1/c2 + legend."""
     fmt = fmt or _nice
@@ -336,7 +505,7 @@ def svg_line(series, labels, ylab="", fmt=None, w=720, h=220, names=None, pct=Fa
         out.append('<g class="legend">' + "".join('<rect x="%d" y="2" width="12" height="3" fill="%s"/><text x="%d" y="7" class="tick">%s</text>' % (pl + 90 * i, cols[i % 2], pl + 16 + 90 * i, esc(nm)) for i, nm in enumerate(names)) + '</g>')
     out.append('</svg>')
     return "".join(out)
-def svg_bars(values, labels, fmt=None, w=720, h=200, highlight_last=True, baseline_zero=True):
+def svg_bars(values, labels, fmt=None, w=720, h=200, highlight_last=True, baseline_zero=True, na_text=None):
     fmt = fmt or _nice; tfmt = _nice
     pl, pr, pt, pb = 46, 12, 22, 30
     vals = [v for v in values if v is not None]
@@ -349,7 +518,13 @@ def svg_bars(values, labels, fmt=None, w=720, h=200, highlight_last=True, baseli
         v = lo + (hi - lo) * k / 3
         out.append('<line x1="%d" x2="%d" y1="%.1f" y2="%.1f" class="grid"/><text x="%d" y="%.1f" class="tick" text-anchor="end">%s</text>' % (pl, w - pr, Y(v), Y(v), pl - 6, Y(v) + 4, tfmt(v)))
     for i, v in enumerate(values):
-        if v is None: continue
+        if v is None:
+            if na_text:   # no number for this slot: say why, wrapped, and keep its category label
+                ls = _wrap_px(na_text, slot - 16)
+                for j, ln in enumerate(ls):
+                    out.append('<text x="%.1f" y="%.1f" class="tick" text-anchor="middle">%s</text>' % (pl + slot * i + slot / 2, Y(lo) - 12 - 14 * (len(ls) - 1 - j) - 30, esc(ln)))
+                out.append('<text x="%.1f" y="%d" class="tick" text-anchor="middle">%s</text>' % (pl + slot * i + slot / 2, h - 8, esc(labels[i])))
+            continue
         x = pl + slot * i + (slot - bw) / 2; y = Y(v); hh = Y(lo) - y
         col = "var(--c1)" if (highlight_last and i == n - 1) else "var(--c1-soft)"
         out.append('<rect x="%.1f" y="%.1f" width="%.1f" height="%.1f" rx="3" fill="%s"><title>%s: %s</title></rect>' % (x, y, bw, max(1, hh), col, esc(labels[i]), fmt(v)))
@@ -408,7 +583,7 @@ def svg_priceline(points, bands, w=720, h=128):
             out.append('<line x1="%.1f" x2="%.1f" y1="40" y2="70" stroke="var(--brand)" stroke-width="2" stroke-dasharray="4 3"/><text x="%.1f" y="%d" class="tick" text-anchor="%s">%s %s</text>' % (x, x, x + (-4 if kind == "first" else 4), 112, "end" if kind == "first" else "start", esc(lab), money(v)))
     out.append('</svg>')
     return "".join(out)
-def svg_map(items, w=720, h=360):
+def svg_map(items, w=720, h=360, sub=None):
     pts = [c for c in items if c.get("lon") and c.get("lat")]
     if not pts: return ""
     import math as _m
@@ -418,98 +593,164 @@ def svg_map(items, w=720, h=360):
     xy = [((num(c["lon"]) - lon0) * K, (num(c["lat"]) - lat0) * 111320) for c in pts]
     R = max(1600, max(max(abs(x), abs(y)) for x, y in xy) * 1.1)
     cx, cy = w / 2, h / 2; sc = min(w, h) / 2 / R * 0.95
-    out = ['<svg class="chart" viewBox="0 0 %d %d" role="img" preserveAspectRatio="xMidYMid meet" style="width:100%%;height:auto;aspect-ratio:%d/%d">' % (w, h, w, h)]
+    body = []
     for r in (500, 1000, 1500):
         if r * sc < min(w, h) / 2:
-            out.append('<circle cx="%.1f" cy="%.1f" r="%.1f" fill="none" class="grid" stroke-dasharray="3 3"/><text x="%.1f" y="%.1f" class="tick">%d m</text>' % (cx, cy, r * sc, cx + r * sc * 0.72, cy - r * sc * 0.72, r))
-    out.append('<text x="%.1f" y="14" class="tick" text-anchor="middle">N ↑</text>' % cx)
-    col = VCOL
+            body.append('<circle cx="%.1f" cy="%.1f" r="%.1f" fill="none" class="grid" stroke-dasharray="3 3"/><text x="%.1f" y="%.1f" class="tick">%d m</text>' % (cx, cy, r * sc, cx + r * sc * 0.72, cy - r * sc * 0.72, r))
+    body.append('<text x="%.1f" y="14" class="tick" text-anchor="middle">N ↑</text>' % cx)
+    col = VCOL; labels = []; seen_v = []
     for (x, y), c in zip(xy, pts):
         px, py = cx + x * sc, cy - y * sc; v = verdict_of(c)
-        out.append('<circle cx="%.1f" cy="%.1f" r="10" fill="%s" fill-opacity=".9" stroke="var(--card)" stroke-width="2"><title>%s · %s</title></circle><text x="%.1f" y="%.1f" font-size="11" font-weight="700" text-anchor="middle" fill="#fff">%s</text>' % (px, py, col[v], esc(str(c.get("address", "")).title()), money(c.get("price")), px, py + 4, c.get("_letter", "")))
-    out.append('<text x="%.1f" y="%.1f" font-size="24" text-anchor="middle" fill="var(--bad)">★</text>' % (cx, cy + 9))
-    out.append('</svg>')
-    return "".join(out)
-def svg_street_scatter(rows, subj, w=720, h=240):
-    import datetime as _dt
-    def pdate(sv):
-        for f in ("%d %B %Y", "%Y-%m-%d", "%Y-%m"):
-            try: return _dt.datetime.strptime(str(sv).strip(), f)
-            except Exception: pass
-        return None
-    pts = [(pdate(r.get("date")), num(r.get("price")), num((r.get("floor_m2") or r.get("land")) if UNIT else r.get("land")), r.get("addr", "")) for r in rows if r.get("price")]
+        if v not in seen_v: seen_v.append(v)
+        full = "%s · %s" % (str(c.get("address", "")).title(), money(c.get("price")))
+        body.append(_shape("circle", px, py, 6.5, 'fill="%s" fill-opacity=".9" stroke="var(--card)" stroke-width="2"' % col[v], full))
+        labels.append({"x": px + 9, "y": py + 4, "text": str(c.get("_letter", "")), "anchor": "start", "fs": 11.5, "ax": px, "ay": py, "title": full})
+    dodge(labels, step=12, direction=1, lo=12, hi=h - 6)
+    body.append(_labels_svg(labels, "lab halo"))
+    body.append('<text x="%.1f" y="%.1f" font-size="24" text-anchor="middle" fill="var(--bad)">★<title>%s</title></text>' % (cx, cy + 9, esc(t("lg_subject"))))
+    lg_items = [("star", "var(--bad)", t("lg_subject"))] + [("dot", col[v], vlabel(v)) for v in ("优于", "相当", "逊于", "未知") if v in seen_v] + [("dash", "var(--muted)", "500 / 1,000 / 1,500 m")]
+    lg, lh = legend(14, h + 12, lg_items, maxw=w - 14)
+    H = h + 8 + lh
+    return _sub(sub) + _svg_open(w, H).replace('preserveAspectRatio="none"', 'preserveAspectRatio="xMidYMid meet"') + "".join(body) + lg + '</svg>'
+def svg_street_scatter(rows, subj, w=720, h=240, sub=None):
+    pts = [(_pdate(r.get("date")), num(r.get("price")), 0 if r.get("strata") else num((r.get("floor_m2") or r.get("land")) if UNIT else r.get("land")), r.get("addr", "")) for r in rows if r.get("price")]
     pts = [p for p in pts if p[0]]
     if len(pts) < 3: return ""
-    t0 = min(p[0] for p in pts); t1 = _dt.datetime.today()
-    pl, pr, pt, pb = 60, 14, 16, 30
+    t0 = min(p[0] for p in pts); t1 = datetime.datetime.today()
+    pl, pr, pt, pb = 60, 14, 22, 30
     y0, y1 = min(p[1] for p in pts) * 0.9, max(p[1] for p in pts) * 1.06
     X = lambda d: pl + (w - pl - pr) * ((d - t0).days / max(1, (t1 - t0).days)); Y = lambda v: pt + (h - pt - pb) * (1 - (v - y0) / (y1 - y0))
-    out = ['<svg class="chart" viewBox="0 0 %d %d" role="img" preserveAspectRatio="none" style="width:100%%;height:auto;aspect-ratio:%d/%d">' % (w, h, w, h)]
+    body = []
     for k in range(4):
         v = y0 + (y1 - y0) * k / 3
-        out.append('<line x1="%d" x2="%d" y1="%.1f" y2="%.1f" class="grid"/><text x="%d" y="%.1f" class="tick" text-anchor="end">%s</text>' % (pl, w - pr, Y(v), Y(v), pl - 6, Y(v) + 4, _nice(v)))
-    _m = _dt.datetime(t0.year, t0.month, 1); _step = 1 if (t1 - t0).days < 400 else (3 if (t1 - t0).days < 1100 else 12)
+        body.append('<line x1="%d" x2="%d" y1="%.1f" y2="%.1f" class="grid"/><text x="%d" y="%.1f" class="tick" text-anchor="end">%s</text>' % (pl, w - pr, Y(v), Y(v), pl - 6, Y(v) + 4, _nice(v)))
+    _m = datetime.datetime(t0.year, t0.month, 1); _step = 1 if (t1 - t0).days < 400 else (3 if (t1 - t0).days < 1100 else 12)
     while _m <= t1:
-        if _m >= t0: out.append('<text x="%.1f" y="%d" class="tick" text-anchor="middle">%s</text>' % (X(_m), h - 8, _m.strftime("%Y-%m") if _step < 12 else _m.strftime("%Y")))
-        _mo = _m.month + _step; _m = _dt.datetime(_m.year + (_mo - 1) // 12, (_mo - 1) % 12 + 1, 1)
-    lmax = max(p[2] for p in pts) or 1
+        if _m >= t0: body.append('<text x="%.1f" y="%d" class="tick" text-anchor="middle">%s</text>' % (X(_m), h - 8, _m.strftime("%Y-%m") if _step < 12 else _m.strftime("%Y")))
+        _mo = _m.month + _step; _m = datetime.datetime(_m.year + (_mo - 1) // 12, (_mo - 1) % 12 + 1, 1)
+    lmax = max(p[2] for p in pts) or 1; labels = []
     for d, v, land, addr in pts:
         r = 5 + 9 * (land / lmax) ** 0.5
-        out.append('<circle cx="%.1f" cy="%.1f" r="%.1f" fill="var(--c1)" fill-opacity=".55" stroke="var(--card)" stroke-width="1.5"><title>%s · %s · %s m²</title></circle>' % (X(d), Y(v), r, esc(addr), money(v), "%g" % land))
+        full = "%s · %s · %s · %s" % (addr, money(v), d.strftime("%Y-%m-%d"), ("%g m²" % land) if land else "—")
+        body.append(_shape("circle", X(d), Y(v), r, 'fill="var(--c1)" fill-opacity=".55" stroke="var(--card)" stroke-width="1.5"', full))
+        labels.append({"x": X(d), "y": Y(v) - r - 3, "text": _short_money(v), "anchor": "middle", "dir": -1, "ax": X(d), "ay": Y(v) - r, "title": full})
+    dodge(labels, step=12, direction=-1, lo=pt + 4)
+    body.append(_labels_svg(labels, "tick"))
+    lg_items = [("dot", "var(--c1)", t("lg_sale"))]
     if subj.get("list_price"):
-        out.append('<line x1="%d" x2="%d" y1="%.1f" y2="%.1f" stroke="var(--bad)" stroke-width="2" stroke-dasharray="5 3"/><text x="%d" y="%.1f" class="lab" text-anchor="end" fill="var(--bad)">%s</text>' % (pl, w - pr, Y(num(subj["list_price"])), Y(num(subj["list_price"])), w - pr, Y(num(subj["list_price"])) - 5, money(subj["list_price"])))
-    out.append('</svg>')
-    return "".join(out)
-def svg_timeline_strip(tl, w=720, h=70):
-    import datetime as _dt
-    def pdate(sv):
-        sv = str(sv).strip()
-        for f, n in (("%Y-%m-%d", 10), ("%Y-%m", 7), ("%Y", 4)):
-            try: return _dt.datetime.strptime(sv[:n], f)
-            except Exception: pass
-        return None
-    pts = [(pdate(r.get("date")), r) for r in tl]; pts = [p for p in pts if p[0]]
+        body.append('<line x1="%d" x2="%d" y1="%.1f" y2="%.1f" stroke="var(--bad)" stroke-width="2" stroke-dasharray="5 3"/><text x="%d" y="%.1f" class="lab" text-anchor="end" fill="var(--bad)">%s</text>' % (pl, w - pr, Y(num(subj["list_price"])), Y(num(subj["list_price"])), w - pr, Y(num(subj["list_price"])) - 5, money(subj["list_price"])))
+        lg_items.append(("dash", "var(--bad)", t("nav_list")))
+    lg, lh = legend(pl, h + 12, lg_items, maxw=w - pr)
+    return _sub(sub) + _svg_open(w, h + 8 + lh) + "".join(body) + lg + '</svg>'
+def svg_timeline_strip(tl, w=720, sub=None):
+    pts = [(_pdate(r.get("date")), r) for r in tl]; pts = sorted([p for p in pts if p[0]], key=lambda p: p[0])
     if len(pts) < 2: return ""
-    t0 = pts[0][0]; t1 = max(p[0] for p in pts); span = max(1, (t1 - t0).days)
-    pl, pr = 30, 30
+    t0 = pts[0][0]; t1 = pts[-1][0]; span = max(1, (t1 - t0).days)
+    pl, pr = 46, 46
     X = lambda d: pl + (w - pl - pr) * ((d - t0).days / span)
-    out = ['<svg class="chart" viewBox="0 0 %d %d" role="img" preserveAspectRatio="none" style="width:100%%;height:auto;aspect-ratio:%d/%d"><line x1="%d" x2="%d" y1="34" y2="34" class="grid"/>' % (w, h, w, h, pl, w - pr)]
-    for i, (d, r) in enumerate(pts):
-        last = i == len(pts) - 1; q = "?" in str(r.get("event", "")) or "待" in str(r.get("event", ""))
-        out.append('<circle cx="%.1f" cy="34" r="7" fill="%s" stroke="var(--card)" stroke-width="2"/>' % (X(d), "var(--bad)" if last else ("var(--warn)" if q else "var(--brand)")))
-        if q: out.append('<text x="%.1f" y="38" font-size="10" font-weight="700" text-anchor="middle" fill="#fff">?</text>' % X(d))
-        out.append('<text x="%.1f" y="%d" class="tick" text-anchor="%s">%s</text>' % (X(d), 16 if i % 2 == 0 else 58, "start" if i == 0 else ("end" if last else "middle"), esc(str(r.get("date"))[:7])))
-    out.append('</svg>')
-    return "".join(out)
-def svg_scatter(items, subj, rng, w=720, h=260):
+    marks, plabs, dlabs, kinds_seen, any_q = [], [], [], [], False
+    for i, (d, r) in enumerate(pts):   # layout pass with the axis at y = 0 (labels go up for price, down for date); shifted afterwards
+        last = i == len(pts) - 1; ev = str(r.get("event", "")); q = "?" in ev or "待" in ev
+        kind = _tl_kind(r)
+        price = num(r.get("price")) if r.get("price") not in (None, "") else _event_price(ev)
+        price = price if price and price > 0 else None
+        if kind not in kinds_seen: kinds_seen.append(kind)
+        any_q = any_q or q
+        full = "%s · %s%s" % (str(r.get("date")), ev, (" · " + money(price)) if price else "")
+        x = X(d)
+        marks.append((x, kind, "var(--bad)" if last else ("var(--warn)" if q else "var(--brand)"), q, full))
+        if price: plabs.append({"x": x, "y": -16, "text": money(price), "anchor": "middle", "fs": 11.5, "dir": -1, "ax": x, "ay": -8, "title": full})
+        dlabs.append({"x": x, "y": 26, "text": str(r.get("date"))[:10], "anchor": "middle", "dir": 1, "ax": x, "ay": 8, "title": full})
+    dodge(plabs, step=14, direction=-1, lo=-16 - 14 * 7, tries=8)
+    dodge(dlabs, step=12, direction=1, hi=26 + 12 * 7, tries=8)
+    AX = int(max(70, 16 - min([lb["y"] for lb in plabs if lb.get("ok")] or [-16]) + 2))
+    for lb in plabs + dlabs:
+        lb["y"] += AX; lb["ay"] += AX
+    body = ['<line x1="%d" x2="%d" y1="%d" y2="%d" class="grid"/>' % (pl, w - pr, AX, AX)]
+    for x, kind, fill, q, full in marks:
+        body.append(_shape({"rent": "diamond", "list": "up", "price_change": "down"}.get(kind, "circle"), x, AX, 4.5 if kind == "other" else 7, 'fill="%s" stroke="var(--card)" stroke-width="2"' % fill, full))
+        if q: body.append('<text x="%.1f" y="%.1f" font-size="10" font-weight="700" text-anchor="middle" fill="#fff" pointer-events="none">?</text>' % (x, AX + 3.5))
+    body.append(_labels_svg(plabs, "lab")); body.append(_labels_svg(dlabs, "tick"))
+    ly = max([lb["y"] for lb in dlabs if lb.get("ok")] or [AX + 26]) + 26
+    names = {"sale": t("tlk_sale"), "rent": t("tlk_rent"), "list": t("tlk_list"), "price_change": t("tlk_pc"), "other": t("tlk_other")}
+    shp = {"sale": "dot", "rent": "diamond", "list": "up", "price_change": "down", "other": "small"}
+    lg_items = [(shp[k], "var(--brand)", names[k]) for k in TL_KINDS if k in kinds_seen] + [("dot", "var(--bad)", t("tlk_now"))] + ([("dot", "var(--warn)", t("tlk_q"))] if any_q else [])
+    lg, lh = legend(pl - 10, ly, lg_items, maxw=w - pr)
+    return _sub(sub) + _svg_open(w, ly + lh - 6) + "".join(body) + lg + '</svg>'
+def svg_price_steps(hist, rng, w=720, h=200, sub=None):
+    """step chart of list-price changes. hist: [{date, price}]; rng: fair range [lo, hi] drawn as a green band"""
+    pts = sorted([(_pdate(x.get("date")), num(x.get("price"))) for x in hist if isinstance(x, dict) and x.get("price")], key=lambda p: (p[0] is None, p[0]))
+    pts = [p for p in pts if p[0] and p[1] > 0]
+    if len(pts) < 2: return ""
+    t0 = pts[0][0]; tl_ = pts[-1][0]; span = max(1, (tl_ - t0).days); t1 = tl_ + datetime.timedelta(days=max(14, int(span * 0.12)))
+    band = rng if (rng and len(rng) >= 2 and _has(rng[0]) and _has(rng[1])) else None
+    ys = [p[1] for p in pts] + ([num(band[0]), num(band[1])] if band else [])
+    y0, y1 = min(ys) * 0.95, max(ys) * 1.05
+    pl, pr, pt, pb = 60, 16, 26, 30
+    X = lambda d: pl + (w - pl - pr) * ((d - t0).days / max(1, (t1 - t0).days)); Y = lambda v: pt + (h - pt - pb) * (1 - (v - y0) / (y1 - y0))
+    body = []
+    for k in range(4):
+        v = y0 + (y1 - y0) * k / 3
+        body.append('<line x1="%d" x2="%d" y1="%.1f" y2="%.1f" class="grid"/><text x="%d" y="%.1f" class="tick" text-anchor="end">%s</text>' % (pl, w - pr, Y(v), Y(v), pl - 6, Y(v) + 4, _nice(v)))
+    for d, lab in _time_ticks(t0, t1):
+        body.append('<text x="%.1f" y="%d" class="tick" text-anchor="middle">%s</text>' % (X(d), h - 8, lab))
+    if band:
+        body.append('<rect x="%d" y="%.1f" width="%d" height="%.1f" fill="var(--ok)" opacity=".13"/>' % (pl, Y(num(band[1])), w - pl - pr, max(1, Y(num(band[0])) - Y(num(band[1])))))
+    path = "M%.1f,%.1f" % (X(pts[0][0]), Y(pts[0][1]))
+    for (d, p), (d2, p2) in zip(pts, pts[1:]):
+        path += " H%.1f V%.1f" % (X(d2), Y(p2))
+    path += " H%.1f" % X(t1)
+    body.append('<path d="%s" fill="none" stroke="var(--c1)" stroke-width="2.5" stroke-linejoin="round"/>' % path)
+    labels = []
+    for i, (d, p) in enumerate(pts):
+        full = "%s · %s" % (d.strftime("%Y-%m-%d"), money(p))
+        body.append(_shape("circle", X(d), Y(p), 5, 'fill="var(--c1)" stroke="var(--card)" stroke-width="2"', full))
+        labels.append({"x": X(d), "y": Y(p) - 11, "text": money(p), "anchor": "start" if i == 0 else "middle", "fs": 11.5, "dir": -1, "ax": X(d), "ay": Y(p) - 5, "title": full})
+    dodge(labels, step=13, direction=-1, lo=12)
+    body.append(_labels_svg(labels, "lab halo"))
+    lg_items = [("line", "var(--c1)", t("ph_list"))] + ([("band", "var(--ok)", "%s %s – %s" % (t("ph_band"), money(band[0]), money(band[1])))] if band else [])
+    lg, lh = legend(pl, h + 12, lg_items, maxw=w - pr)
+    return _sub(sub) + _svg_open(w, h + 8 + lh) + "".join(body) + lg + '</svg>'
+def svg_scatter(items, subj, rng, w=720, h=260, sub=None):
     xk = "floor_m2" if UNIT else "land_m2"   # x axis: floor area for units, land area for houses
     pts = [c for c in items if c.get(xk) and c.get("price")]
     if not pts: return ""
     xs = [num(c[xk]) for c in pts] + ([num(subj.get(xk))] if subj.get(xk) else [])
     ys = [num(c["price"]) for c in pts] + ([num(subj.get("list_price"))] if subj.get("list_price") else [])
     x0, x1 = min(xs) * 0.92, max(xs) * 1.06; y0, y1 = min(ys) * 0.92, max(ys) * 1.06
-    pl, pr, pt, pb = 60, 14, 16, 30
+    if x1 == x0: x0, x1 = x0 * 0.9, x1 * 1.1
+    pl, pr, pt, pb = 60, 14, 22, 30
     X = lambda v: pl + (w - pl - pr) * (v - x0) / (x1 - x0); Y = lambda v: pt + (h - pt - pb) * (1 - (v - y0) / (y1 - y0))
-    out = ['<svg class="chart" viewBox="0 0 %d %d" role="img" preserveAspectRatio="none" style="width:100%%;height:auto;aspect-ratio:%d/%d">' % (w, h, w, h)]
+    body = []
     for k in range(4):
         v = y0 + (y1 - y0) * k / 3
-        out.append('<line x1="%d" x2="%d" y1="%.1f" y2="%.1f" class="grid"/><text x="%d" y="%.1f" class="tick" text-anchor="end">%s</text>' % (pl, w - pr, Y(v), Y(v), pl - 6, Y(v) + 4, _nice(v)))
+        body.append('<line x1="%d" x2="%d" y1="%.1f" y2="%.1f" class="grid"/><text x="%d" y="%.1f" class="tick" text-anchor="end">%s</text>' % (pl, w - pr, Y(v), Y(v), pl - 6, Y(v) + 4, _nice(v)))
     for k in range(5):
         v = x0 + (x1 - x0) * k / 4
-        out.append('<text x="%.1f" y="%d" class="tick" text-anchor="%s">%.0f m²</text>' % (X(v), h - 8, "start" if k == 0 else ("end" if k == 4 else "middle"), v))
+        body.append('<text x="%.1f" y="%d" class="tick" text-anchor="%s">%.0f m²</text>' % (X(v), h - 8, "start" if k == 0 else ("end" if k == 4 else "middle"), v))
     if rng and rng[0] and rng[1]:
-        out.append('<rect x="%d" y="%.1f" width="%d" height="%.1f" fill="var(--ok)" opacity=".13"/>' % (pl, Y(float(rng[1])), w - pl - pr, max(1, Y(float(rng[0])) - Y(float(rng[1])))))
-    col = VCOL
+        body.append('<rect x="%d" y="%.1f" width="%d" height="%.1f" fill="var(--ok)" opacity=".13"/>' % (pl, Y(float(rng[1])), w - pl - pr, max(1, Y(float(rng[0])) - Y(float(rng[1])))))
+    col = VCOL; labels = []; seen_v = []; any_be = False
     for c in pts:
         v = verdict_of(c); be = c.get("bookend") if v != "未知" else None
-        out.append('<circle cx="%.1f" cy="%.1f" r="%d" fill="%s" fill-opacity=".9" stroke="%s" stroke-width="%d"><title>%s · %s · %s m²</title></circle><text x="%.1f" y="%.1f" font-size="10" font-weight="700" text-anchor="middle" fill="#fff" pointer-events="none">%s</text>' % (
-            X(num(c[xk])), Y(num(c["price"])), 9, col[v], "var(--ink-strong)" if be else "var(--card)", 3 if be else 2,
-            esc(str(c.get("address", "")).title()), money(c.get("price")), c.get(xk), X(num(c[xk])), Y(num(c["price"])) + 3.5, c.get("_letter", "")))
+        if v not in seen_v: seen_v.append(v)
+        any_be = any_be or bool(be)
+        px, py = X(num(c[xk])), Y(num(c["price"]))
+        full = "%s · %s · %s m²" % (str(c.get("address", "")).title(), money(c.get("price")), c.get(xk))
+        body.append(_shape("circle", px, py, 6.5, 'fill="%s" fill-opacity=".9" stroke="%s" stroke-width="%s"' % (col[v], "var(--ink-strong)" if be else "var(--card)", 3 if be else 2), full))
+        labels.append({"x": px + 9, "y": py + 4, "text": str(c.get("_letter", "")), "anchor": "start", "fs": 11.5, "dir": 1, "ax": px, "ay": py, "title": full})
     if subj.get(xk) and subj.get("list_price"):
         sx, sy = X(num(subj[xk])), Y(num(subj["list_price"]))
-        out.append('<text x="%.1f" y="%.1f" font-size="22" text-anchor="middle" fill="var(--bad)">★</text><text x="%.1f" y="%.1f" class="lab" text-anchor="middle">%s</text>' % (sx, sy + 8, sx, sy - 14, money(subj["list_price"])))
-    out.append('</svg>')
-    return "".join(out)
+        body.append('<text x="%.1f" y="%.1f" font-size="22" text-anchor="middle" fill="var(--bad)">★<title>%s · %s</title></text>' % (sx, sy + 8, esc(t("lg_subject")), money(subj["list_price"])))
+        labels.append({"x": sx, "y": sy - 14, "text": money(subj["list_price"]), "anchor": "middle", "fs": 11.5, "dir": -1, "ax": sx, "ay": sy - 8, "title": "%s · %s" % (t("lg_subject"), money(subj["list_price"]))})
+    dodge(labels, step=12, direction=1, lo=pt - 6, hi=h - pb - 2)
+    body.append(_labels_svg(labels, "lab halo"))
+    lg_items = [("dot", col[v], vlabel(v)) for v in ("优于", "相当", "逊于", "未知") if v in seen_v]
+    if any_be: lg_items.append(("ring", "var(--ink-strong)", t("lg_bookend")))
+    if subj.get(xk) and subj.get("list_price"): lg_items.append(("star", "var(--bad)", t("lg_subject")))
+    if rng and rng[0] and rng[1]: lg_items.append(("band", "var(--ok)", t("nav_range")))
+    lg, lh = legend(pl, h + 12, lg_items, maxw=w - pr)
+    return _sub(sub) + _svg_open(w, h + 8 + lh) + "".join(body) + lg + '</svg>'
 def tbl_src(inner):
     return '<details class="src-tbl"><summary>%s</summary>%s</details>' % (t("chart_src"), inner)
 
@@ -545,8 +786,12 @@ def sc_label(v):
     s = score_val(v)
     return {1: t("sc_better"), 0: t("sc_same"), -1: t("sc_worse"), None: t("sc_unknown")}[s]
 
-def comp_card(c, subj, warnings):
+def comp_card(c, subj, warnings, ctx=""):
     v = verdict_of(c); cls = VCLS[v]
+    _a = re.sub(r"\s*[\(（][^\)）]*[\)）]", "", str(c.get("address", ""))).strip()
+    if c.get("lat") not in (None, "") and c.get("lon") not in (None, ""): _mq = "%s,%s" % (c["lat"], c["lon"])
+    else: _mq = ("%s, %s" % (_a, ctx)) if (ctx and "," not in _a) else _a
+    ml = ('<p class="mapl"><a href="%s" target="_blank" rel="noopener">%s</a></p>' % (esc(gmaps_search_url(_mq)), t("map_link"))) if _mq else ""
     comp = completeness(c); be = c.get("bookend")
     if v == "未知" and be in ("upper", "lower"):   # an unscored card is never a bookend
         warnings.append("bookend %s has all three scores unknown and was not used as a bookend: %s" % (be, c.get("address")))
@@ -595,7 +840,7 @@ def comp_card(c, subj, warnings):
             t("sc_cond"), sc_label(sc.get("condition")), esc(c.get("built") or "—"), esc(reno),
             esc(c.get("note", "")),
             t("cg_verdict"), vlabel(v), vtail)
-        return '<details class="comp %s" id="comp-%s"%s><summary>%s</summary>%s</details>' % (cls, c.get("_letter", ""), " open" if open_ else "", head, body)
+        return '<details class="comp %s" id="comp-%s"%s><summary>%s</summary>%s%s</details>' % (cls, c.get("_letter", ""), " open" if open_ else "", head, body, ml)
     body = '''<div class="cg"><div><h5>%s</h5>%s<br>%s %s m² · LV %s</div>
 <div><h5>%s</h5>P/LV <b>%s</b> · LV %s/m² · %s/m²</div>
 <div><h5>%s</h5>%s %s(%s) · %s %s(%s) · %s %s(%s;%s / %s)<br>%s</div>
@@ -608,7 +853,7 @@ def comp_card(c, subj, warnings):
         t("sc_cond"), sc_label(sc.get("condition")), esc(c.get("built") or "—"), esc(mat), esc(reno),
         esc(c.get("note", "")),
         t("cg_verdict"), vlabel(v), vtail)
-    return '<details class="comp %s" id="comp-%s"%s><summary>%s</summary>%s</details>' % (cls, c.get("_letter", ""), " open" if open_ else "", head, body)
+    return '<details class="comp %s" id="comp-%s"%s><summary>%s</summary>%s%s</details>' % (cls, c.get("_letter", ""), " open" if open_ else "", head, body, ml)
 
 # ---------------------------------------------------------------- sections
 OPEN_BY_DEFAULT = {"s1"}   # two-layer length: summary + overview open; the rest are collapsible appendices
@@ -643,11 +888,6 @@ def build(d):
     # ---- summary (first screen)
     lo, hi = (summ.get("range") or [None, None])[:2]
     offer = summ.get("offer", {})
-    offer_html = ""
-    if offer:
-        offer_html = '<div class="offer"><div><div class="k">%s</div><div class="n">%s</div></div><div><div class="k">%s</div><div class="n">%s</div></div><div><div class="k">%s</div><div class="n">%s</div><div class="note">%s</div></div></div>' % (
-            t("offer_first"), money(offer.get("first")), t("offer_walk"), money(offer.get("walk_away")),
-            t("offer_conf"), esc(offer.get("confidence", "—")), esc(offer.get("confidence_note", "")))
     # hero: photos (hot-linked, credited) + facts panel
     ph0 = d.get("photos", {}); imgs = ph0.get("images") or []
     edition = (meta.get("edition") or "public").lower()
@@ -661,6 +901,14 @@ def build(d):
     else:
         gal = '<div class="car empty"><div>%s</div>%s%s</div>' % (t("photo_placeholder"),
             ('<a href="%s">%s</a>' % (esc(ph0["streetview_url"]), t("streetview"))) if ph0.get("streetview_url") else "", nextcell(t("photo_next")))
+    _chips = []
+    for s_ in (ph0.get("sources") or []):
+        if not isinstance(s_, dict) or not (s_.get("name") or s_.get("url")): continue
+        _ok = s_.get("ok") is not False
+        _u = str(s_.get("url") or ""); _nm = esc(s_.get("name") or _u)
+        _in = ('<a href="%s" target="_blank" rel="noopener">%s</a>' % (esc(_u), _nm)) if _u.lower().startswith(("http://", "https://")) else _nm
+        _chips.append('<span class="chip %s" title="%s">%s <b>%s</b></span>' % ("ok" if _ok else "bad", esc(s_.get("crosscheck", "")), _in, "✓" if _ok else "✗"))
+    if _chips: gal += '<div class="srcchips"><span class="lbl">%s</span>%s</div>' % (esc(t("src_chips")), "".join(_chips))
     ba = ph0.get("before_after") or []
     if ba and edition == "internal":
         gal += '<h5 style="margin-top:12px">%s</h5><div class="ba">%s</div>' % (t("ba_h"), "".join('<figure><div class="pair"><img src="%s" alt="before" referrerpolicy="no-referrer" loading="lazy"><img src="%s" alt="after" referrerpolicy="no-referrer" loading="lazy"></div><figcaption>%s</figcaption></figure>' % (esc(x.get("before")), esc(x.get("after")), esc(x.get("caption", ""))) for x in ba))
@@ -687,8 +935,13 @@ def build(d):
         if UNIT: kv2 += '<dt>%s</dt><dd>%s</dd>' % (t("k_lv"), t("k_lv_val", v=money(lv0["latest"])))
         else: kv2 += '<dt>%s</dt><dd>%s(%s)</dd>' % (t("k_lv"), money(lv0["latest"]), esc(str(lv0.get("date", ""))[:4]))
     addr_parts = re.split(r",\s*", subj.get("address", ""), maxsplit=1)
-    panel = '<div class="addr">%s</div><div class="src">%s</div><div class="facts">%s</div><dl class="kv2">%s</dl>' % (
-        esc(addr_parts[0]), esc(" · ".join(x for x in [addr_parts[1] if len(addr_parts) > 1 else "", subj.get("lot_dp", ""), subj.get("dwelling", "")] if x)), facts, kv2)
+    _addr_full = subj.get("address", ""); maplinks = ""
+    if _addr_full or (subj.get("lat") not in (None, "") and subj.get("lon") not in (None, "")):
+        _mu = subj.get("map_url") or gmaps_search_url(_addr_full)
+        _su = subj.get("streetview_url") or ph0.get("streetview_url") or gmaps_sv_url(subj.get("lat"), subj.get("lon"), _addr_full)
+        maplinks = '<span class="maplinks"><a href="%s" target="_blank" rel="noopener">%s</a><a href="%s" target="_blank" rel="noopener">%s</a></span>' % (esc(_mu), t("map_link"), esc(_su), t("sv_link"))
+    panel = '<div class="addr">%s%s</div><div class="src">%s</div><div class="facts">%s</div><dl class="kv2">%s</dl>' % (
+        esc(addr_parts[0]), maplinks, esc(" · ".join(x for x in [addr_parts[1] if len(addr_parts) > 1 else "", subj.get("lot_dp", ""), subj.get("dwelling", "")] if x)), facts, kv2)
     hero = '<section class="hero"><div class="gallery">%s</div><div class="panel">%s</div></section>' % (gal, panel)
     cards = ""
     for c in scards:
@@ -696,32 +949,32 @@ def build(d):
             esc(c.get("label")), cls_of(c.get("status")), esc(c.get("value")), esc(c.get("note", "")), nextcell(c.get("next", "")))
     offer_html = ""
     if offer:
-        offer_html = '<div class="offer"><div><div class="k">%s</div><div class="n">%s</div></div><div><div class="k">%s</div><div class="n">%s</div></div><div><div class="k">%s</div><div class="n">%s</div><div class="note">%s</div></div></div>' % (
-            t("offer_first"), money(offer.get("first")), t("offer_walk"), money(offer.get("walk_away")),
+        _fok = _has(offer.get("first"))   # first offer is optional: without it the tile says it is set after talking to the agent
+        offer_html = '<div class="offer"><div><div class="k">%s</div><div class="n%s">%s</div></div><div><div class="k">%s</div><div class="n">%s</div></div><div><div class="k">%s</div><div class="n">%s</div><div class="note">%s</div></div></div>' % (
+            t("offer_first"), "" if _fok else " tbd", money(offer.get("first")) if _fok else esc(t("offer_tbd")), t("offer_walk"), money(offer.get("walk_away")),
             t("offer_conf"), esc(offer.get("confidence", "—")), esc(offer.get("confidence_note", "")))
     summary = '%s<div class="verdict"><b>%s:</b>%s</div><div class="cards">%s</div>%s<p class="maxrisk"><b>%s:</b>%s</p><p class="note disclaimer">%s</p>' % (
         hero, t("one_line"), esc(summ.get("verdict_line", "")), cards, offer_html, t("max_risk"), esc(summ.get("max_risk", "")), t("disclaimer", date=date))
 
     S = []
     # ---- 1 overview
-    kv = ""
-    for k, v in subj.get("facts", []):
-        kv += "<div><b>%s</b>%s</div>" % (esc(k), esc(v))
-    ph = d.get("photos", {}); phtml = ""
-    if ph.get("sources"):
-        phtml += "<ul>" + "".join('<li><a href="%s">%s</a> — %s</li>' % (esc(s.get("url")), esc(s.get("name")), esc(s.get("crosscheck", ""))) for s in ph["sources"]) + "</ul>"
-        if ph.get("material_from_photos"):
-            _mfp = str(ph["material_from_photos"]); _pre = _mfp.lstrip().lower().startswith((T["material_from_photo"][0], T["material_from_photo"][1].lower()))
-            phtml += ("<p>%s</p>" % esc(_mfp)) if _pre else ("<p><b>%s:</b>%s</p>" % (t("material_from_photo"), esc(_mfp)))
-    else:
-        phtml += '<div class="paid">%s%s</div>' % (t("photo_none"), nextcell(t("photo_next")))
-    if ph.get("streetview_url"):
-        phtml += '<p class="note"><a href="%s">%s</a></p>' % (esc(ph["streetview_url"]), t("streetview"))
-    S.append(sec("s1", '<div class="two"><div><div class="kv">%s</div></div><div><h3 style="margin-top:0">%s</h3>%s</div></div>' % (kv, t("photos"), phtml)))
+    _facts = []
+    for row in subj.get("facts", []):
+        if isinstance(row, (list, tuple)) and len(row) >= 2 and not dup_fact(row[0]): _facts.append((row[0], row[1]))
+    ph = d.get("photos", {})
+    if ph.get("material_from_photos"):   # one facts row instead of a separate paragraph; a duplicated label prefix is stripped
+        _mfp = str(ph["material_from_photos"]).strip()
+        for _lab in T["material_from_photo"]:
+            if _mfp.lower().startswith(_lab.lower()):
+                _mfp = re.sub(r"^[\s:：,，\-–—]+", "", _mfp[len(_lab):]); break
+        if _mfp: _facts.append((t("material_from_photo"), _mfp))
+    kv = "".join('<div%s><b>%s</b>%s</div>' % (' class="wide"' if len(str(v)) > 90 else "", esc(k), esc(v)) for k, v in _facts)   # long values span the whole row
+    S.append(sec("s1", '<div class="kv">%s</div>' % kv))
 
     # ---- 2 timeline + ruler
     tl = d.get("timeline", [])
-    tlh = '<h3 style="margin-top:0">%s</h3>%s<p class="note">%s</p><ol class="tl">%s</ol>' % (t("tl_h"), svg_timeline_strip(tl), t("tl_strip_note") if svg_timeline_strip(tl) else "",
+    _strip = svg_timeline_strip(tl, sub=t("sub_tl"))
+    tlh = '<h3 style="margin-top:0">%s</h3>%s<p class="note">%s</p><ol class="tl">%s</ol>' % (t("tl_h"), _strip, t("tl_strip_note") if _strip else "",
           "".join('<li><span class="d">%s</span><div><div class="e">%s</div><div class="src">%s</div></div></li>' % (esc(r.get("date")), esc(r.get("event")), esc(r.get("source"))) for r in tl))
     dom = d.get("dom", {}); domh = "<h3>%s</h3>" % t("dom_h")
     if dom.get("months_approx") is not None:
@@ -732,6 +985,8 @@ def build(d):
         domh += "<h3>%s</h3>%s" % (t("dom_bars_h"), svg_hbars([(t("dom_this"), round(float(dom["months_approx"]) * 30.4), ""), (t("dom_sub"), float(dom["suburb_median_dom"]), "")], fmt=lambda v: "%.0f d" % v))
     if dom.get("price_history_text"):
         domh += "<p>%s</p>" % esc(dom["price_history_text"])
+    _phs = svg_price_steps(dom.get("price_history") or [], summ.get("range"), sub=t("sub_steps"))
+    if _phs: domh += "<h3>%s</h3>%s" % (t("ph_h"), _phs)
     if dom.get("price_history_status", "unverified") != "verified":
         domh += '<p><span class="warn">%s</span></p>%s' % (t("dom_unverified"), paid("price-history", t("dom_h")))
     # price narrative: one axis
@@ -741,10 +996,10 @@ def build(d):
         if _c.get("price"): _pts.append((letter(_i), num(_c["price"]), "comp"))
     _bands = [(_rng[0], _rng[1], "range")] + ([(_avm[0], _avm[-1], "avm")] if len(_avm) >= 2 else [])
     pline = svg_priceline(_pts, _bands)
-    tth = tt("tier_th")
-    tiers = '<h3>%s</h3><table class="tiers"><tr>%s</tr><tr><td>%s</td><td><b>%s</b></td><td>%s</td></tr><tr><td>%s</td><td><b>%s – %s</b></td><td>%s</td></tr><tr><td>%s</td><td><b>%s</b></td><td>%s</td></tr></table>' % (
+    tth = tt("tier_th"); _fok2 = _has(_of.get("first"))
+    tiers = '<h3>%s</h3><table class="tiers"><tr>%s</tr><tr><td>%s</td><td%s><b>%s</b></td><td>%s</td></tr><tr><td>%s</td><td><b>%s – %s</b></td><td>%s</td></tr><tr><td>%s</td><td><b>%s</b></td><td>%s</td></tr></table>' % (
         t("tiers_h"), "".join("<th>%s</th>" % x for x in tth),
-        t("tier_first"), money(_of.get("first")), esc(d.get("pricing", {}).get("lower", "")),
+        t("tier_first"), "" if _fok2 else ' class="tbd"', money(_of.get("first")) if _fok2 else esc(t("offer_tbd")), esc(d.get("pricing", {}).get("first_offer_text", "")),
         t("tier_fair"), money(_rng[0]), money(_rng[1]), esc(summ.get("range_note", ""))[:220] + ("…" if len(summ.get("range_note", "")) > 220 else ""),
         t("tier_walk"), money(_of.get("walk_away")), esc(_of.get("confidence_note", "")))
     pnh = ("<h3>%s</h3>%s<p class=\"note\">%s</p>%s" % (t("priceline_h"), pline, t("priceline_note"), tiers)) if pline else ""
@@ -779,7 +1034,7 @@ def build(d):
             t("range_how"), esc(summ.get("range_note", "")),
             t("ruler_lead", window=esc(rl.get("window_label", "")), n=rl.get("n", len(prices)), median=money(rl.get("median") or statistics.median(prices)), list=money(L)),
             band, dots + ticks + more, x(L), x(L), t("ruler_me", list=money(L), pct=pct), labs, t("ruler_note2") + tick_note)
-    S.append(sec("s2", tlh + domh + rh))
+    S.append(sec("s2", '<p class="ai-note">%s</p>' % esc(t("ai_note")) + tlh + domh + rh))
 
     # ---- 3 hazards
     hz = d.get("hazards", []); rows = ""; manual = []
@@ -833,17 +1088,34 @@ def build(d):
     if lvhist:
         ys = sorted(lvhist)
         _yrs = sorted(lvhist.keys()); lvh = "<h3>%s</h3>%s%s<p class=\"note\">%s</p>" % (t("lv_h"), svg_bars([num(lvhist[y]) for y in _yrs], [str(y) for y in _yrs], fmt=money, h=180), tbl_src("<table><tr>%s</tr><tr>%s</tr></table>" % ("".join("<th>%s</th>" % esc(y) for y in _yrs), "".join("<td>%s</td>" % money(lvhist[y]) for y in _yrs))), esc(ld.get("lv_note", "")))
-    ss = ld.get("street_sales", []); _sc = svg_street_scatter(ss, subj); ssh = ("<h3>%s</h3>%s" % (t("street_scatter_h"), _sc)) if _sc else ""
-    if ss:
-        ssh += "<h3>%s</h3><table><tr><th>%s</th><th>%s</th><th>%s</th><th>%s</th></tr>%s</table>" % (t("street_sales_h"),
-              "Address", "Price", "Date", "m²" if UNIT else "Land", "".join("<tr><td>%s</td><td>%s</td><td>%s</td><td>%s m²</td></tr>" % (esc(r.get("addr")), money(r.get("price")), esc(r.get("date")), esc((r.get("floor_m2") or r.get("land")) if UNIT else r.get("land"))) for r in ss))
-    if UNIT:   # neutral captions; fall / gradient text only when the data actually has a gradient
-        _pf = ld.get("profile_flat"); _grad = isinstance(_pf, dict) and num(_pf.get("fall")) != 0
-        _figa = read_fig("site_svg"); _figa = ('<h3 style="margin-top:0">%s</h3>%s' % (t("fig_a"), _figa)) if _figa else ""
-        _figb = ("<p class=\"note\">%s</p>" % t("profile_flat", s=_pf.get("street", "—"), r=_pf.get("rear", "—"), f=_pf.get("fall", 0))) if _grad else read_fig("profile_svg")
-        land_html = '<div class="two"><div>%s</div><div><div class="kv" style="grid-template-columns:1fr">%s</div>%s</div></div>%s%s' % (
-            _figa, lkv, lvh, ("<h3>%s</h3>%s" % (t("profile_h"), _figb)) if _figb else "", ssh)
+    ss = ld.get("street_sales", [])
+    def _street_table(rows_):
+        def _land(r):
+            if r.get("strata"): return '<td title="%s"></td>' % esc(t("strata_tip"))   # strata lot: no separate land area
+            return "<td>%s m²</td>" % esc((r.get("floor_m2") or r.get("land")) if UNIT else r.get("land"))
+        return "<h3>%s</h3><table><tr><th>%s</th><th>%s</th><th>%s</th><th>%s</th></tr>%s</table>%s" % (t("street_sales_h"),
+              "Address", "Price", "Date", "m²" if UNIT else "Land",
+              "".join("<tr><td>%s</td><td>%s</td><td>%s</td>%s</tr>" % (esc(r.get("addr")), money(r.get("price")), esc(r.get("date")), _land(r)) for r in rows_),
+              ('<p class="note">%s</p>' % t("strata_note")) if any(r.get("strata") for r in rows_) else "")
+    if UNIT:
+        # unit mode: no site / profile / street-scatter figures; stack x floor and layout x date charts + the unfiltered building sales
+        _bs = sorted([r for r in (ld.get("building_sales") or []) if isinstance(r, dict)], key=lambda r: _pdate(r.get("date")) or datetime.datetime.min, reverse=True)
+        if _bs:
+            _bth = tt("bsales_th")
+            _lay = lambda r: "·".join(str(r.get(k_)) if r.get(k_) not in (None, "") else "—" for k_ in ("beds", "baths", "cars"))
+            ssh = '<h3>%s</h3><div class="tw"><table class="bs"><tr>%s</tr>%s</table></div>' % (t("bsales_h"), "".join("<th>%s</th>" % esc(x) for x in _bth),
+                  "".join("<tr><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td></tr>" % (
+                      esc(r.get("unit")), esc(_lay(r)), esc(("%g" % num(r["floor_m2"])) if _has(r.get("floor_m2")) else "—"), money(r.get("price")), esc(r.get("date")), esc(r.get("source", ""))) for r in _bs))
+        else:
+            ssh = _street_table(ss) if ss else ""   # older data without building_sales keeps the street-sales table (no scatter)
+        _fa = read_fig("stack_svg"); _fb = read_fig("building_svg")
+        figs = (("<h3>%s</h3>%s" % (t("stack_h"), _fa)) if _fa else "") + (("<h3>%s</h3>%s" % (t("bldg_h"), _fb)) if _fb else "")
+        if ld.get("building_read"): figs += "<p>%s</p>" % esc(ld["building_read"])
+        top = ('<div class="two"><div><div class="kv" style="grid-template-columns:1fr">%s</div></div><div>%s</div></div>' % (lkv, lvh)) if lvh else (('<div class="kv">%s</div>' % lkv) if lkv else "")
+        land_html = top + figs + ssh
     else:
+        _sc = svg_street_scatter(ss, subj, sub=t("sub_street")); ssh = ("<h3>%s</h3>%s" % (t("street_scatter_h"), _sc)) if _sc else ""
+        if ss: ssh += _street_table(ss)
         land_html = '<div class="two"><div>%s</div><div><div class="kv" style="grid-template-columns:1fr">%s</div>%s</div></div><h3>%s</h3>%s%s' % (
         read_fig("site_svg"), lkv, lvh, t("profile_h"), (("<p class=\"note\">%s</p>" % t("profile_flat", s=ld["profile_flat"].get("street", "—"), r=ld["profile_flat"].get("rear", "—"), f=ld["profile_flat"].get("fall", 0))) if isinstance(ld.get("profile_flat"), dict) else read_fig("profile_svg")), ssh)
     S.append(sec("s4", land_html))
@@ -853,7 +1125,8 @@ def build(d):
     cp = d.get("comps", {}); items = cp.get("items", [])
     csubj = cp.get("subject") or {"land_m2": subj.get("land_m2")}
     if UNIT and not csubj.get("floor_m2"): csubj = dict(csubj, floor_m2=subj.get("floor_m2"))
-    cards_html = "".join(comp_card(c, csubj, warnings) for c in items)
+    _ctx = (re.split(r",\s*", subj.get("address", ""), maxsplit=1) + [""])[1]   # suburb / state tail of the subject address, for comp map links
+    cards_html = "".join(comp_card(c, csubj, warnings, ctx=_ctx) for c in items)
     plv = sorted(num(c["p_lv"]) for c in items if c.get("p_lv"))
     svg_map.subj = (subj.get("lon"), subj.get("lat")) if subj.get("lon") and subj.get("lat") else None
     if not svg_map.subj: delattr(svg_map, "subj")
@@ -871,29 +1144,52 @@ def build(d):
             {1: "up", 0: "eq", -1: "dn", None: "na"}[score_val(c.get("scores", {}).get("land"))], {1: "up", 0: "eq", -1: "dn", None: "na"}[score_val(c.get("scores", {}).get("slope"))], {1: "up", 0: "eq", -1: "dn", None: "na"}[score_val(c.get("scores", {}).get("condition"))], completeness(c)) for c in cp.get("items", [])))
     if _rows is not None:
         matrix = '<h3 style="margin-top:0">%s</h3><div class="tw"><table class="mx"><tr>%s</tr>%s</table></div>' % (t("matrix_h"), "".join("<th>%s</th>" % x for x in mth), _rows)
-    mp = svg_map(cp.get("items", [])); mp = ("<h3>%s</h3>%s" % (t("map_h"), mp)) if mp else ""
-    scat = svg_scatter(cp.get("items", []), subj, summ.get("range"))
-    scat = matrix + '<div class="two">' + (("<div><h3>%s</h3>%s<p class=\"note\">%s</p></div>" % (t("scatter_h"), scat, t("scatter_note"))) if scat else "<div></div>") + "<div>" + mp + "</div></div>"
+    # comparables map: skipped when every comp with coordinates is within 50 m of the subject, or they all share one coordinate (same building)
+    _cc = [(num(c["lat"]), num(c["lon"])) for c in cp.get("items", []) if c.get("lat") and c.get("lon")]
+    _skip_map = False
+    if _cc:
+        if subj.get("lat") not in (None, "") and subj.get("lon") not in (None, ""):
+            _skip_map = all(_hav_m(num(subj["lat"]), num(subj["lon"]), la, lo) <= 50 for la, lo in _cc)
+        if not _skip_map and len(_cc) >= 2: _skip_map = len({(round(la, 6), round(lo, 6)) for la, lo in _cc}) == 1
+    mp = "" if _skip_map else svg_map(cp.get("items", []), sub=t("sub_map")); mp = ("<h3>%s</h3>%s" % (t("map_h"), mp)) if mp else ""
+    scat = svg_scatter(cp.get("items", []), subj, summ.get("range"), sub=t("sub_scatter"))
+    scat_blk = ("<h3>%s</h3>%s<p class=\"note\">%s</p>" % (t("scatter_h"), scat, t("scatter_note"))) if scat else ""
+    if _skip_map:
+        scat = matrix + scat_blk + '<p class="note">%s</p>' % t("map_same_bldg")
+    else:
+        scat = matrix + '<div class="two"><div>' + scat_blk + "</div><div>" + mp + "</div></div>"
     plvh = ""
     if plv and not UNIT:   # P/LV cross-check is a land-value test; meaningless for strata units
         plvh = "<h3>%s</h3><p>%s</p>" % (t("plv_h"), esc(cp.get("p_lv_note", "")) or ("%d comps, P/LV %.2f–%.2f, median %.2f" % (len(plv), plv[0], plv[-1], statistics.median(plv))))
     pr = d.get("pricing", {}); prh = "<h3>%s</h3><p>%s</p>" % (t("pricing_h"), esc(pr.get("method_note", "")))
-    if pr.get("upper") or pr.get("lower"):
-        prh += "<ul><li><b>%s:</b>%s</li><li><b>%s:</b>%s</li></ul>" % (t("bk_upper"), esc(pr.get("upper", "")), t("bk_lower"), esc(pr.get("lower", "")))
+    _bku = pr.get("bookend_upper_text") or pr.get("upper") or ""   # legacy aliases: pricing.upper / pricing.lower (bookend texts only)
+    _bkl = pr.get("bookend_lower_text") or pr.get("lower") or ""
+    if _bku or _bkl:
+        prh += "<ul><li><b>%s:</b>%s</li><li><b>%s:</b>%s</li></ul>" % (t("bk_upper"), esc(_bku), t("bk_lower"), esc(_bkl))
     if pr.get("widen_reason"):
-        prh += '<p class="warn">%s</p>' % esc(pr["widen_reason"])
-    mg = pr.get("mortgage") or {"rate": 0.0615, "years": 30, "step": 50000}
-    _mr = float(mg.get("rate", 0.0615)) / 12; _mn = int(mg.get("years", 30)) * 12
-    _pay = lambda P: P * _mr / (1 - (1 + _mr) ** (-_mn)) if P else None
-    _three = [(t("offer_first"), summ.get("offer", {}).get("first")), (t("mort_list"), subj.get("list_price")), (t("offer_walk"), summ.get("offer", {}).get("walk_away"))]
-    _three = [(k, _pay(float(v))) for k, v in _three if v]
-    prh += ("<h3>%s</h3>%s" % (t("mort_h"), svg_bars([v for k, v in _three], [k for k, v in _three], fmt=(lambda v: money(v) + ("/月" if LANG == "zh" else "/mo")), h=170, highlight_last=False))) if _three else ""
-    r = float(mg.get("rate", 0.0615)) / 12; n = int(mg.get("years", 30)) * 12; step = float(mg.get("step", 50000))
-    delta = step * r / (1 - (1 + r) ** (-n)) if r > 0 else step / n
-    prh += "<p>%s</p><p>%s</p>" % (t("mortgage", step=money(step), delta=money(delta), rate=float(mg.get("rate", 0.0615)) * 100, years=int(mg.get("years", 30))),
+        prh += '<p class="note"><b>%s</b>%s</p>' % (esc(t("widen_pref")), esc(pr["widen_reason"]))
+    mg = pr.get("mortgage") or {}
+    _rate = float(mg.get("rate", 0.0615))
+    if _rate > 1:
+        print("mortgage.rate looks like a percent; using %g" % (_rate / 100), file=sys.stderr); _rate = _rate / 100
+    _lvr = float(mg.get("lvr", 0.8))
+    if _lvr > 1:
+        print("mortgage.lvr looks like a percent; using %g" % (_lvr / 100), file=sys.stderr); _lvr = _lvr / 100
+    _years = int(mg.get("years", 30)); _step = float(mg.get("step", 50000)); _lvr_s = "%g" % round(_lvr * 100, 2)
+    _mr = _rate / 12; _mn = _years * 12
+    _pay = lambda P: ((P * _mr / (1 - (1 + _mr) ** (-_mn))) if _mr > 0 else P / _mn) if P else None   # repayment on the loan P (= price x LVR)
+    _o2 = summ.get("offer", {})
+    _three = [(t("offer_first"), _o2.get("first")), (t("mort_list"), subj.get("list_price")), (t("offer_walk"), _o2.get("walk_away"))]
+    _three = [(k, _pay(float(v) * _lvr) if _has(v) else None) for k, v in _three]
+    _three = [(k, v) for i, (k, v) in enumerate(_three) if i == 0 or v is not None]   # a missing first offer stays as a "set later" slot; other missing prices are dropped
+    if any(v is not None for k, v in _three):
+        prh += "<h3>%s</h3>%s" % (t("mort_h", lvr=_lvr_s), svg_bars([v for k, v in _three], [k for k, v in _three], fmt=(lambda v: money(v) + ("/月" if LANG == "zh" else "/mo")), h=170, highlight_last=False, na_text=t("offer_tbd")))
+    _loan = _step * _lvr
+    delta = _pay(_loan) or 0
+    prh += "<p>%s</p><p>%s</p>" % (t("mortgage", lvr=_lvr_s, step=money(_step), loan=money(_loan), delta=money(delta), rate=_rate * 100, years=_years),
                                   esc(pr.get("bank_valuation_note")) or t("bank_val"))
     manual.append(("bank valuation", t("bank_val")))
-    S.append(sec("s5", scat + "<p>%s</p><p class=\"note\">%s %s</p>%s%s%s" % (t("comp_lead"), esc(cp.get("source_note", "")), esc(cp.get("filter_note", "")), cards_html, plvh, prh)))
+    S.append(sec("s5", '<p class="ai-note">%s</p>' % esc(t("ai_note")) + scat + "<p>%s</p><p class=\"note\">%s %s</p>%s%s%s" % (t("comp_lead"), esc(cp.get("source_note", "")), esc(cp.get("filter_note", "")), cards_html, plvh, prh)))
 
     # ---- 6 future
     fchips = '<h3 style="margin-top:0">%s</h3><div class="chips">%s</div>' % (t("future_chips"), "".join(
@@ -1044,25 +1340,28 @@ def default_brief(kind, d):
 
 SCHEMA = """data.json fields (all optional unless marked *):
 meta: lang zh|en, title, date*, one_liner, session_resume_url, edition public|internal (public = thumbnails + links only; internal = carousel + before/after), human_minutes, active_minutes, wall_minutes (machine_minutes kept for old files), video_url (footer link; default the YouTube channel), show_booking true|false (default false: no booking line)
-subject*: address*, lot_dp, land_m2*, list_price*, built, dwelling, title_type torrens|strata|community, strata_m2 (unit: strata lot area incl. balcony/car/storage; shown instead of land), beds, baths, cars, floor_m2, status_line, status_class ok|warn|bad (hero panel), facts [[label, value], ...] (overview grid), land_value {latest, date, history {year: value}}
-photos: images [{url, caption}] (hot-linked from the listing site's own URLs exactly as served, credited, never downloaded), credit_source, before_after [{before, after, caption}] (internal edition only), sources [{name, url, crosscheck}], streetview_url, material_from_photos
-summary*: verdict_line*, max_risk*, range [lo, hi]*, range_note, avm_range [lo, mid, hi] (free Domain estimate, optional), offer {first, walk_away, confidence, confidence_note},
+subject*: address*, lat, lon, map_url, streetview_url (hero Map / Street View links; default = Google Maps search / lat,lon street view), lot_dp, land_m2*, list_price*, built, dwelling, title_type torrens|strata|community, strata_m2 (unit: strata lot area incl. balcony/car/storage; shown instead of land), beds, baths, cars, floor_m2, status_line, status_class ok|warn|bad (hero panel), facts [[label, value], ...] (overview grid; rows that repeat the hero panel - address, beds/baths/cars, built, list price, last sold, Domain/AVM estimate - are skipped), land_value {latest, date, history {year: value}}
+photos: images [{url, caption}] (hot-linked from the listing site's own URLs exactly as served, credited, never downloaded), credit_source, before_after [{before, after, caption}] (internal edition only), sources [{name, url, ok (true/absent = ✓, false = ✗), crosscheck (hover text)}] (shown as source-check chips in the hero), streetview_url, material_from_photos (shown as one overview facts row)
+summary*: verdict_line*, max_risk*, range [lo, hi]*, range_note, avm_range [lo, mid, hi] (free Domain estimate, optional), offer {first (OPTIONAL: when missing the hero, tier table and mortgage block say it is set after talking to the agent), walk_away, confidence, confidence_note},
           cards: 5 x {label, status ok|warn|bad|cond|na, value, note, next}  (preferred over status_cards; if both absent, five placeholder cards with the default labels are shown —
                  house: flood / bushfire / landslip category / measured slope / development potential; unit: flood (basement/lobby) / bushfire / noise & arterial roads / strata health check / planning & supply)
 status_cards: same shape as summary.cards (older files; still read)  (flood: bad = mainstream / High–Medium hit = veto; cond = Overland Flow / Low-PMF hit = conditional)
 UNIT MODE: on when subject.title_type == "strata", subject.dwelling contains unit/apartment/flat/公寓/单元, or lot_dp contains an SP number.
   It relabels the hero area (strata lot) and land value (parent lot, entitlement needs a person), scores (land -> area & cars, slope -> level·aspect·view),
   completeness (floor_m2, cars, level, orientation|aspect, built, reno, levies, date & price; bookend needs >= 4/8), comps chart x = floor_m2,
-  hides the P/LV block, and titles section 4 "Parent lot & building" with neutral figure captions (site_svg = Figure A, profile_svg = Figure B).
-timeline: [{date, event, source}]
-dom: months_approx, basis, suburb_median_dom, suburb_dom_source, price_history_text, price_history_status verified|unverified
+  hides the P/LV block, and titles section 4 "Parent lot & building" (no site / profile / street-scatter figures there: stack_svg, building_svg, building_read and building_sales are used instead).
+timeline: [{date, event, source, kind sale|rent|list|price_change|other (marker shape; guessed from the event text when absent), price (number; when absent the first $… amount in `event` is used)}]
+dom: months_approx, basis, suburb_median_dom, suburb_dom_source, price_history_text, price_history_status verified|unverified, price_history [{date, price}] (>= 2 entries draw the list-price step chart against summary.range)
 ruler: prices [..], list, window_label, n, median, min, max
 hazards*: [{item, status ok|warn|bad|cond|na, tier covered|uncovered|paid, result, source, date, note, next*, slug}]  (status cond adds the two fixed flood next steps automatically)
-land: facts [[label, value]], site_svg (file path or inline <svg>), profile_svg, profile_flat {street, rear, fall} (replaces the profile chart on flat sites), lv_note, street_sales [{addr, price, date, land, floor_m2 (unit mode: bubble size)}]
+land: facts [[label, value]], site_svg (file path or inline <svg>), profile_svg, profile_flat {street, rear, fall} (replaces the profile chart on flat sites), lv_note, street_sales [{addr, price, date, land, strata true (house mode: blank Land cell + note), floor_m2 (older unit files)}]
+  unit mode ignores site_svg / profile_svg / street_sales charts and uses: stack_svg (same stack x floor), building_svg (same layout x sale date) - file path relative to data.json, or inline <svg> - building_read (one line under them),
+  building_sales [{unit, beds, baths, cars, floor_m2, price, date, source}] (all sales in the building, unfiltered, shown newest first)
 comps: source_note, filter_note, subject {land_m2}, p_lv_note, items (lettered A, B, C… in order) [{address, price, date, dist_m, lon, lat, land_m2, lv, lv_m2, p_lv, landslip, street_side, elev, beds, baths, floor_m2, built, storeys, wall, reno,
        level, orientation (or aspect), view, cars, levies (unit fields),
        scores {land, slope, condition: +1|0|-1|null}, verdict (optional override; all three scores null -> "Unknown": grey, collapsed, never a bookend), bookend upper|lower|null, note}]
-pricing: method_note, upper, lower, widen_reason, mortgage {rate, years, step}, bank_valuation_note
+pricing: method_note, bookend_upper_text, bookend_lower_text, first_offer_text (tier-table basis of the first-offer row), upper / lower (legacy aliases of the two bookend texts only), widen_reason (shown as a 'Range note'),
+         mortgage {rate (decimal: 0.0615 = 6.15%), years, step, lvr (decimal, default 0.8)}, bank_valuation_note
 future: [{path, status, conclusion, basis, next}], future_note
 market: vacancy {scope, rows [[y,m,pct,vacant,total]], avg12, note}, som {rows [[y,m,houses,units]], note}, dom_note, growth {rows [{period,start,current,cum,ann,kind house|unit|building (optional; colours the bar, legend when mixed)}], thirty {status none|suburb|city, text}, note}, ask [[date,houses,3bed]], rent_note, yearly {year: [median, n]}
 holding: rows [[label, value]], source_note

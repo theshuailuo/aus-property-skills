@@ -103,13 +103,6 @@ def quotes(qs):
                    for h, q in qs or [])
 
 
-def avatar(author):
-    src = (author or {}).get("avatar") or ""
-    if src.startswith("data:image/"):
-        return f'<img class="avatar" alt="罗帅" src="{html.escape(src)}">'
-    return '<div class="avatar">罗</div>'
-
-
 def build(case):
     missing = [k for k in REQUIRED if k not in case] + [f"text.{k}" for k in TEXT_KEYS if k not in case.get("text", {})]
     if missing:
@@ -121,7 +114,6 @@ def build(case):
         "pageTitle": html.escape(case["pageTitle"]),
         "topbar": topbar(case.get("topbar")),
         "eyebrow": clean(case["eyebrow"]), "title": clean(case["title"]), "subtitle": clean(case["subtitle"]),
-        "avatar": avatar(case.get("author")),
         "sectionsBefore": clean(case.get("sectionsBefore", "")) + quotes(case.get("quotes")), "sectionsAfter": clean(case.get("sectionsAfter", "")),
         "sectionsEnd": clean(case.get("sectionsEnd", "")),
     }

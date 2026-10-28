@@ -32,7 +32,6 @@
 - `help`:可覆盖某个滑动条的「?」说明
 - `sectionsBefore` / `sectionsAfter` / `sectionsEnd`:agent 写的叙述章节(房源和市场、短租规则、六道关、要人做的、附录),HTML
 - `quotes`:`[[标题, 原文], ...]`,房源描述、网页原文一律放这里,按纯文本转义显示
-- `author.avatar`:可选,罗帅头像(`data:image/...`);不给就显示「罗」字圆标
 - `topbar`:只给使用者自己用(回到会话的按钮);公开报告不填
 
 ## 4. 公开版规矩

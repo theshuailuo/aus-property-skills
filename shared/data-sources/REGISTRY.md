@@ -20,7 +20,7 @@ Every external data source a skill uses is registered here before use.
 | Aussie / Cotality 物业页(aussie.com.au/property) | 全国 | 建年、卧卫车、面积、挂牌日、价格、租赁记录、文案(JSON-LD) | 免费 | 网页(`curl` 200,约 75 s/页,202 限速;同楼批量不可行) | 只取事实与一张 og:image 缩略图链接 | 2026-10-28 | auspptdd |
 | Domain 物业档案页与楼栋页(domain.com.au/property-profile、/building-profile) | 全国 | 估值区间、租金估、在市天数、同楼全部成交 | 免费浏览 | **只能浏览器**(脚本 403);楼栋页用页内 JS 取 | 照片只放链接 + 小图;数据只用于本报告 | 2026-10-28 | auspptdd |
 | realestate.com.au | 全国 | 挂牌照片、文案、suburb 页 | 免费浏览 | **只能用户自己的浏览器**;脚本 429 | 照片只放链接 + 小图,见 `../images-policy.md` | 2026-10-22 | auspptdd |
-| OnTheHouse 成交列表与单元页(onthehouse.com.au/sold) | 全国(无官方成交层的州的主源) | 12 个月成交、价格、房数、面积、strata lot 面积 | 免费 | 网页(`curl` 可取,无限速;脚本间隔 2 s) | 只取成交事实;AVM 带标「模型值」 | 2026-10-27 | auspptdd |
+| OnTheHouse 成交列表与单元页(onthehouse.com.au/sold) | 全国(无官方成交层的州的主源) | 12 个月成交、价格、房数、面积、strata lot 面积 | 免费 | 网页(`curl` 可取,无限速;脚本间隔 2 s) | 只取成交事实;AVM 带标「模型值」 | 2026-10-27 | auspptdd, holiday-home |
 | Allhomes(allhomes.com.au) | 全国 | 同楼 / 同街 sold 列表 | 免费 | 网页(`curl` 可取) | 只取成交事实 | 2026-10-28 | auspptdd |
 | OSRM 公共路由(routing.openstreetmap.de) | 全国 | 步行距离(LMR 800 m、车站) | 免费 | API | ODbL;只取距离 | 2026-10-22 | auspptdd |
 | WA Landgate SLIP Public Services(Places_and_Addresses、Property_and_Planning、Water、Transport、Terrain、Education 等) | WA | 地址多边形、Plan Extent / SP、分区、R-Codes、heritage、DWER 洪水四层 + 洪水位点、山火、ASS、污染场地、噪音走廊、等高线、校点 | 免费 | 图层服务 | 政府公开图层,免登录;DA 登记需 SLIP 登录(不用) | 2026-10-27 | auspptdd |
@@ -32,6 +32,19 @@ Every external data source a skill uses is registered here before use.
 | TAS theLIST | TAS | 规划、地块、灾害 | 免费 | 图层服务 | 待核 | 待核(手册草拟,未冷跑) | auspptdd |
 | NT NTLIS | NT | 地块、规划 | 免费 | 网页 + 图层服务 | 待核 | 待核(手册草拟,未冷跑) | auspptdd |
 | ACT Revenue / ACTmapi | ACT | 税费、地价、规划 | 免费 | 网页 | 待核 | 待核(手册草拟,未冷跑) | auspptdd |
+| NSW Planning STRA FAQ 与短租页(planning.nsw.gov.au) | NSW | 短租天数上限名单、21 天规则、注册 | 免费 | 网页 / PDF | 政府公开信息,可引用并附链接 | 2026-10-23 | holiday-home |
+| SRO Victoria(短住税、空置住宅地税、印花税表) | VIC | 7.5% 短住税、VRLT 度假屋豁免、非自住印花税 | 免费 | 网页 | 政府公开信息 | 2026-10-23 | holiday-home |
+| Revenue NSW(印花税表、地税起征点) | NSW | 2026/27 印花税、地税 | 免费 | 网页 | 政府公开信息 | 2026-10-23 | holiday-home |
+| Queensland Revenue Office(印花税表、地税) | QLD | 印花税、地税 | 免费 | 网页 | 政府公开信息 | 2026-10-23 | holiday-home |
+| ACT Revenue 短租税页 | ACT | 5% 短租税(2027-07-01 起 7.5%) | 免费 | 网页 | 政府公开信息 | 2026-10-23 | holiday-home |
+| WA 短租登记 FAQ 与规划改革页 | WA | 强制登记、Perth 90 晚 | 免费 | 网页 | 政府公开信息 | 2026-10-22 | holiday-home |
+| ATO legal database(TR 2026/1、PCG 2026/2、PCG 2026/3)与 ATO 税改页 | 全国 | 度假屋自用测试、负扣税与 CGT 改革 | 免费 | 网页 | 政府公开信息;直接 WebFetch 可能 403,用浏览器或 curl | 2026-10-23 | holiday-home |
+| Budget 2026–27 Tax Explainer(budget.gov.au) | 全国 | 亏损隔离与结转口径 | 免费 | PDF | 政府公开信息 | 2026-10-23 | holiday-home |
+| Airbnb 帮助中心(airbnb.com.au/help/article/1857) | 全国 | 房东单边费 15.5% / 分摊费 3% | 免费 | 网页 | 只引用费率与链接 | 2026-10-22 | holiday-home |
+| Inside Airbnb(insideairbnb.com) | 11 个澳洲区域 | 逐房源挂牌数据 | 免费 | 下载包 | CC BY 4.0,引用须署名 | 2026-10-22 | holiday-home |
+| HtAG 公开区页(htag.com.au/<州>/<LGA>/<区>/) | 全国 | 区内按卧室数的典型价格、历年涨幅 | 免费浏览 | 网页 | 条款待核;只引用页面公开的数并带链接,付费层数据不用 | 2026-10-28 | holiday-home |
+| AirROI 免费市场页 | 全国 | 短租平均房价、入住率、季节性 | 免费浏览 | 网页 | 待核;页面可能以美元显示 | 2026-10-22 | holiday-home |
+| Airbtics 免费市场页 | 全国 | 年收入中位数、入住率 | 免费浏览 | 网页 | 待核;细分数据付费 | 2026-10-22 | holiday-home |
 
 > auspptdd 的行按 2026-10-22/23/27/28 四次冷跑实际取到数的日期填写;标「待核」的州只有手册,还没跑过。
 > auspptdd rows carry the dates on which a cold run actually retrieved data; states marked 待核 have a manual but no cold run yet.

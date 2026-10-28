@@ -5,11 +5,17 @@ To update: compare with the table below and reinstall any skill that is behind (
 
 | Skill | Version | Last Updated |
 |---|---|---|
+| holiday-home | 0.5.0 | 2026-10-28 |
 | auspptdd | 0.4.2 | 2026-10-28 |
 
 <!-- 每发布一个 skill 加一行,例如 | holiday-home | 0.1.0 | 2026-11-01 | -->
 
 ---
+
+### 0.3.0 (2026-10-28)
+- 新 skill `holiday-home` v0.5.0:澳洲度假屋「买还是订 / 留还是卖」。三个触发场景入口(看到当地房价、看中某套、住了某个 Airbnb),先在对话里给速览、每轮最多问 3 个问题;各州与市政短租规则;ATO TR 2026/1 + PCG 2026/3 自用日历粗筛(绿 / 黄 / 红);Airbnb 房东单边费约 15.5%、托管、持有成本、土地税后的净收益;和订房、定期、指数基金、提前还房贷、当地长租房比的持平涨幅(一把尺:每年掏的钱按定期税后利率计机会成本);2026 负扣税与 CGT 改革的「已有」入口;六道关自检。中文买入入口出交互报告(滑动条、七路对比、ATO 区随日历变),附匿名示例 `examples/lakes-entrance.html`。评测 10 例(含注入、超范围、一句话速览)。
+- 数据源登记表新增 holiday-home 12 行。
+- New skill `holiday-home` 0.5.0: buy or book / keep or sell for Australian holiday homes — short-stay rules by state and council, TR 2026/1 own-use screen, net yield after the ~15.5% host fee, breakeven growth against booking, deposit, index fund, paying down the home loan and a long-term rental (one yardstick), the 2026 reform for owners, six-gate self-check; interactive report for the Chinese buy entry with an anonymised example; 10 evals.
 
 ### 0.2.2 (2026-10-28)
 - `auspptdd` 0.4.2:并入本机副本上先行做出的四条(价格标尺拆层、剖面图永远画、可比自动链档案页、Leaflet 真地图含地块边界)与「标准图件登记表」`FIGURES` + `--check`(跑前核对缺哪张图、缺哪个字段;登记表区分 house / unit 路径,并收录 0.4.1 新图)。至此仓库与本机副本重新一致。

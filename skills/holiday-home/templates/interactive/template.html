@@ -1,0 +1,96 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{{pageTitle}}</title><style>/*__CSS__*/</style></head><body>
+{{topbar}}
+<div class="cover"><div class="wrap"><div class="eyebrow">{{eyebrow}}</div>
+<h1>{{title}}</h1>
+<p>{{subtitle}}</p></div></div>
+<div class="wrap">
+<div class="hero">
+ <div class="eyebrow">结论 · 可拖动下面的参数实时重算</div>
+ <h2 id="hl"></h2><p id="hl2"></p><p class="small" id="hl3"></p>
+ <div class="ctl-row"><span>假设房价每年涨:</span>
+  <span class="seg" id="seg"></span>
+  <span class="small">更多参数在下面「调参数」;过去的涨幅不代表未来</span></div>
+ <div id="paths"></div>
+ <div class="legend" style="margin-top:6px"><span><i style="background:var(--s2)"></i>买度假屋 · 你的用法</span><span><i style="background:var(--s2soft)"></i>买度假屋 · 其他用法</span><span><i style="background:var(--s1)"></i>买长租房</span><span><i style="background:var(--neutral)"></i>不买房</span></div>
+ <h3 style="margin:18px 0 2px;font-size:17px">什么时候能追上?持有越久,印花税、卖房成本这些一次性开销摊得越薄</h3>
+ <p class="small" style="margin:0 0 6px">每个点 = 如果在那一年卖掉,手里的净身家(和上图同一把尺)。所有路线都从同一笔首期现金出发;图上画 5 条,指数基金和「只出租不自用」省略,数字见上图。红圈 = 度假屋从这一年起一直不输给结论里对比的那条路。悬停看数字。</p>
+ <div id="tl"></div>
+ <div class="flipcard" id="flip"></div>
+ <p class="qual">一般信息,不是针对您的个人建议;房价涨幅是情景假设,不是预测;过去的涨幅不代表未来。税务、贷款和保险请咨询持牌专业人士。完整免责声明见页尾。</p>
+ <p class="small">读法:七条路起点相同,手里都是买度假屋要拿出的那笔首期现金;每年都去度假(不住自己的房就订房)。每年掏的钱按定期税后利率计机会成本。「净身家」= 卖房后到手(扣卖房成本、贷款和粗估的 CGT)+ 剩下的投资 − 这些年掏的钱连本带利。度假屋三行的颜色深浅对应不同用法。</p>
+</div>
+<div class="kpis">
+ <div class="kpi bad"><div class="l">你的用法 · 每年平均要掏</div><div class="n" id="kpi1"></div><div class="s" id="kpi1s"></div></div>
+ <div class="kpi"><div class="l" id="kpi2l"></div><div class="n" id="kpi2"></div><div class="s" id="kpi2s"></div></div>
+ <div class="kpi"><div class="l">ATO 自用测试</div><div class="n" id="kpi3"></div><div class="s" id="kpi3s"></div></div>
+ <div class="kpi"><div class="l">买入要先拿出的现金</div><div class="n" id="kpi4"></div><div class="s" id="kpi4s"></div></div>
+</div>
+<div class="panel" id="tune"><div style="display:flex;justify-content:space-between;gap:10px;align-items:baseline;flex-wrap:wrap">
+ <div><h3>调参数:跟你的情况不一样,就拖一下</h3><p class="cap">每个参数旁的 ? 有解释(电脑悬停,手机点一下)。所有图表和上面的结论会跟着变。默认值是你这次告诉我的情况和公开数据;收支和税的算法和 holiday-home 脚本一致,比较口径的差别见附录 B。</p></div>
+ <span><button class="btn" onclick="window.print()">打印 / 存 PDF(含当前参数)</button> <button class="btn" onclick="resetAll()">恢复默认</button></span></div>
+ <div class="ctls" id="ctls"></div>
+</div>
+<section><h2><span class="no">00</span>这份报告怎么算的</h2><p class="lead">罗帅判断度假屋的七步,也是下面各节的顺序。</p>
+<div class="flow">
+ <div><span class="no">1</span><b>先分清</b>消费还是投资</div>
+ <div><span class="no">2</span><b>规则</b>州、议会、ATO、地税</div>
+ <div><span class="no">3</span><b>真实收入</b>房源尽调 + 市场数据</div>
+ <div><span class="no">4</span><b>一年的账</b>每一项费用和税</div>
+ <div><span class="no">5</span><b>跟别的去处比</b>同样的钱,10 年后谁多</div>
+ <div><span class="no">6</span><b>六道关</b>洪水、山火、淡季、退出</div>
+ <div><span class="no">7</span><b>要人做的</b>税务、保险、议会、贷款</div>
+</div></section>
+{{sectionsBefore}}
+<section><h2><span class="no">03</span>一年的账:<span id="wfTitle"></span></h2>
+<p class="lead" id="wfLead"></p>
+<div class="card"><h3>从客人付的房费,到每年要自己掏的钱</h3><p class="cap">稳定年份(持有期最后一年),澳元。悬停看每一项。</p>
+<div id="wf"></div><p class="src" id="wfNote"></p>
+<p class="src">{{revBasis}}</p></div>
+</section>
+<section><h2><span class="no">04</span>你问的「住几晚、什么时候住才 make sense」</h2>
+<p class="lead">{{useLead}}</p>
+<div class="card"><h3>不同排法下每年平均要掏的钱(含不住时的订房)</h3>
+<p class="cap">颜色 = ATO 粗筛分区(✕ 红 / ! 黄 / ✓ 绿)。{{peakValNote}}其他参数跟随上面的滑动条。</p>
+<div id="sc"></div></div>
+{{useCallouts}}
+</section>
+<section><h2><span class="no">05</span>机会成本:同样的钱放在别处,房价要涨多少才打平</h2>
+<p class="lead">同样的首期现金和每年要贴的钱,如果不买房,按三种参照回报率(定期利率、指数基金长期回报、你的房贷利率)计算机会成本,度假照样订房。</p>
+<p class="small">定期、指数基金、还房贷在这里只是衡量机会成本的参照回报率,用的是通用假设,不指任何具体产品、银行或基金,也不是对它们的推荐。</p>
+<div class="card"><h3>持平涨幅 vs 当地历史涨幅</h3>
+<div class="legend"><span><i style="background:var(--s2)"></i>你设定的用法</span><span><i style="background:var(--s2soft)"></i>最优排法</span><span>虚线 = 当地历史年均涨幅({{growthSource}})</span></div>
+<div id="be"></div><p class="src">提前还房贷的回报 = 房贷利率,省下的是税后的钱,所以门槛最高。定期、指数基金按你的边际税率扣税后比较。全页用同一把尺,这里的数字和首页结论、结论卡一致。买长租房和度假屋同涨同跌,所以涨幅再高也拉不开差距。</p></div>
+<div class="card"><h3>不同房价涨幅下,持有期末的净身家</h3>
+<p class="cap">横轴是假设的房价年涨幅;悬停看每个点。存定期、还房贷两条线不受房价影响,是水平线。</p>
+<div id="wl"></div><p class="src">已扣卖房成本 2.5% 和粗估的 CGT;租金和费用按今天的价格不变;只还息贷款。</p></div>
+</section>{{sectionsAfter}}
+<section><h2><span class="no">08</span>罗帅观点</h2>
+<div class="card"><div class="author">{{avatar}}<div><div class="nm">罗帅 Shuai Luo</div><div class="ds">悉尼买家代理 · YouTube「<a href="https://www.youtube.com/@shuailuo">澳洲罗帅</a>」</div></div></div><ol class="view">
+<li>度假屋是消费,不是投资。一开始就要想清楚自己在做哪一个。作为家庭消费、钱很宽裕地买,没问题;要是「当投资」买,就得认真想。</li>
+<li>最常见的错觉是:「租金帮我养房,我们自己还能去住。」</li>
+<li>买比订划算,只有一种情况:同一个地方一年去十几次以上,而且现金流对你没有压力。多大的压力算没压力,每个人不一样。</li>
+<li>这笔钱还有别的去处:普通指数基金、另一套长租房,或者提前还自己的房贷。还房贷用的是税后的钱,省下的利息可能比定期存款强。</li>
+<li>如果我自己做短租,会用 co-host、专业平台,或者找当地靠谱的团队按收入分成。</li>
+<li>只能在学校假期去的家庭,在 ATO 眼里很可能就是度假屋:利息、市政费、地税、保险、维修可能都不能扣,只能卖房时计入 CGT 成本基数。再加上 2026 税改,2026-05-12 之后买的二手房,从 2027-07-01 起出租亏损不能抵工资。所以先看清自己的财务和现金流,再问一句:这笔钱有没有更好的去处。</li>
+<li>要做现金流,几个卧室都行,关键看回报和三道现金流测试。</li>
+<li>真要买:过一遍六道关。市场下行时议价空间可能更大,但每一次都要问:这笔钱放在别处会不会更好。</li>
+</ol>
+<p class="small">以上是罗帅根据房子本身、他的从业经验和公开资料做的个人判断,没有结合您的具体情况,不是针对您的建议。涉及税务、贷款和保险,建议您咨询持牌专业人士;如您未经专业人士审阅自行决定,相关后果由您自行承担。</p></div>
+</section>{{sectionsEnd}}
+
+<footer>
+<p>这是我们自己买房时会用的工具,仅供参考。本报告是一般信息,未结合您的个人情况。</p>
+<p>税务部分是一般信息与示例算法,以 ATO 与各州税务局的现行规定为准。建议您咨询注册税务代理(registered tax agent)或会计;如您未经专业人士审阅自行决定,相关后果由您自行承担。</p>
+<p>借贷测算只是示意,以银行或持牌贷款经纪(credit licensee)的正式评估为准。建议您在做决定前咨询持牌专业人士;如您未经专业人士审阅自行决定,相关后果由您自行承担。</p>
+<p>本报告不构成个人投资建议。具体请自行分析或寻求持牌专业人士意见。</p>
+<p>房源图片版权归原权利人。本报告只提供房源链接与缩略图,用于识别房源。</p>
+<p>数据来自报告所列公开来源,取数日期见各条,可能有延迟或误差;需要付费订阅的数据未使用,相应字段留空。</p>
+<p>本工具由罗帅(Shuai Luo,悉尼买家代理)出品,免费开源。这个工具背后的思路,罗帅在 YouTube「澳洲罗帅」这期视频里讲了:<a href="https://www.youtube.com/@shuailuo">https://www.youtube.com/@shuailuo</a></p>
+</footer>
+</div>
+<div class="dock" id="dock"></div><div id="tip"></div>
+<script type="application/json" id="case">/*__CASE__*/</script>
+<script>/*__ENGINE__*/</script>
+<script>/*__REPORT__*/</script>
+</body></html>

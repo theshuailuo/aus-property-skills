@@ -82,7 +82,7 @@ T = {
  "coverage": ("22 项核查覆盖度", "Coverage of the checks"), "cov_hit": ("命中 / 条件", "hit / conditional"), "cov_watch": ("要留意", "watch"), "cov_ok": ("未检出", "not detected"), "cov_none": ("免费数据无", "no free data"),
  "profile_flat": ("地块平坦:街面 {s} m → 后边界 {r} m,落差 {f} m。", "Flat site: street {s} m → rear {r} m, fall {f} m."),
  "map_real_h": ("可比地图(★ 标的;字母 = 可比;地块边界为官方地籍)", "Map of comparables (★ subject; letters = comparables; lot boundary from the cadastre)"),
- "map_attrib": ("底图 © OpenStreetMap 贡献者;离线时显示相对位置图。", "Base map © OpenStreetMap contributors; the relative-position chart shows when offline."),
+ "map_attrib": ("底图 © NSW Spatial Services(州外:Esri / OpenStreetMap);离线时显示相对位置图。", "Base map © NSW Spatial Services (outside NSW: Esri / OpenStreetMap); the relative-position chart shows when offline."),
  "map_failed": ("地图未加载,已改用相对位置图。", "Map did not load; showing the relative-position chart instead."),
  "map_gmaps": ("在 Google 地图中打开标的 ↗", "Open the subject in Google Maps ↗"),
  "open_profile": ("打开物业档案页 ↗", "Open the property profile ↗"),
@@ -107,6 +107,7 @@ T = {
  "ruler_me": ("标价 {list}(其中 {pct:.0f}% 的成交比它低)", "List {list} ({pct:.0f}% of sales below it)"),
  "ruler_note": ("灰点 = 每笔官方成交(滞后约 2 个月);红线 = 标价。", "Grey dots = official sales (about 2 months' lag); red line = list price."),
  "lv_h": ("官方地价 5 年史(基准日 7 月 1 日)", "Official land value, 5 years (base date 1 July)"),
+ "more_rows": ("更多 {n} 笔 ▸", "{n} more ▸"),
  "street_sales_h": ("同街官方成交记录(每物业最近一笔)", "Official sales on the same street (latest per property)"),
  "profile_h": ("沿进深的地形剖面", "Ground profile along the depth"),
  "comp_lead": ("可比先于区间:先逐张打分,再定上下限参考,最后出合理区间。标签只按三项打分——土地 / 坡度与街面侧 / 房况(建年、面积、建材、翻新);价格只当结果摆旁边。默认只展开「相当」与上下限参考两张,其余点开看;上下限只是参考,不是出价的硬边界。",
@@ -621,6 +622,33 @@ def svg_map(items, w=720, h=360, sub=None):
     lg, lh = legend(14, h + 12, lg_items, maxw=w - 14)
     H = h + 8 + lh
     return _sub(sub) + _svg_open(w, H).replace('preserveAspectRatio="none"', 'preserveAspectRatio="xMidYMid meet"') + "".join(body) + lg + '</svg>'
+def svg_aerial(ring, subj, w=720, h=540):
+    """Official aerial photo (NSW Spatial Services SIX imagery export, hot-linked, never downloaded) with the cadastral lot ring on top: the house itself.
+    Returns "" outside NSW (no free imagery export wired for other states yet)."""
+    try:
+        lat = float(subj.get("lat")); lon = float(subj.get("lon"))
+    except Exception:
+        return ""
+    if not (140.9 <= lon <= 154.0 and -37.6 <= lat <= -28.1): return ""
+    pts = [p for p in (ring or []) if isinstance(p, (list, tuple)) and len(p) >= 2] if isinstance(ring, list) else []
+    half_m = 45.0
+    if pts:
+        xs = [p[0] for p in pts]; ys = [p[1] for p in pts]
+        cx, cy = (min(xs) + max(xs)) / 2, (min(ys) + max(ys)) / 2
+        span = max((max(xs) - min(xs)) * 111320 * math.cos(math.radians(cy)), (max(ys) - min(ys)) * 110540)
+        half_m = max(35.0, span * 0.75)
+    else:
+        cx, cy = lon, lat
+    dy = half_m / 110540; dx = half_m / (111320 * math.cos(math.radians(cy))) * (w / h)
+    x0, x1, y0, y1 = cx - dx, cx + dx, cy - dy, cy + dy
+    url = ("https://maps.six.nsw.gov.au/arcgis/rest/services/public/NSW_Imagery/MapServer/export?bbox=%.6f,%.6f,%.6f,%.6f&bboxSR=4326&imageSR=4326&size=%d,%d&format=png&transparent=false&f=image" % (x0, y0, x1, y1, w, h))
+    X = lambda q: (q - x0) / (x1 - x0) * w; Y = lambda q: (y1 - q) / (y1 - y0) * h
+    poly = ('<polygon points="%s" fill="rgba(111,191,149,.18)" stroke="#6fbf95" stroke-width="3"/>' % " ".join("%.1f,%.1f" % (X(p[0]), Y(p[1])) for p in pts)) if pts else ""
+    cap = ("官方航拍影像(NSW Spatial Services SIX,热链接)· 绿框 = 官方地籍边界;房屋本体以影像为准" if LANG == "zh" else "Official aerial imagery (NSW Spatial Services SIX, hot-linked) · green = cadastral lot; the house as it stands")
+    ttl = "航拍 + 地籍" if LANG == "zh" else "Aerial + cadastre"
+    return ('<h3 style="margin-top:0">%s</h3><div class="aerial"><svg viewBox="0 0 %d %d" role="img"><image href="%s" x="0" y="0" width="%d" height="%d" preserveAspectRatio="none"/>%s</svg></div><p class="note">%s</p>' % (
+        ttl, w, h, esc(url), w, h, poly, cap))
+
 def svg_street_scatter(rows, subj, w=720, h=240, sub=None):
     pts = [(_pdate(r.get("date")), num(r.get("price")), 0 if r.get("strata") else num((r.get("floor_m2") or r.get("land")) if UNIT else r.get("land")), r.get("addr", "")) for r in rows if r.get("price")]
     pts = [p for p in pts if p[0]]
@@ -856,8 +884,15 @@ function draw(){
  if(drawn)return;
  try{
   m=L.map(el,{scrollWheelZoom:false});
-  var tl=L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png",{maxZoom:19,attribution:"&copy; OpenStreetMap contributors"}).addTo(m);
-  tl.on("tileload",function(){ok++}).on("tileerror",function(){bad++;if(!ok&&bad>=4)fail()});
+  var inNSW=(S[1]>=140.9&&S[1]<=154&&S[0]>=-37.6&&S[0]<=-28.1);
+  var PROV=[["https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}",{maxZoom:19,attribution:"Tiles &copy; Esri"}],
+            ["https://tile.openstreetmap.org/{z}/{x}/{y}.png",{maxZoom:19,attribution:"&copy; OpenStreetMap contributors"}]];
+  if(inNSW)PROV.unshift(["https://maps.six.nsw.gov.au/arcgis/rest/services/public/NSW_Base_Map/MapServer/tile/{z}/{y}/{x}",{maxZoom:20,attribution:"&copy; NSW Spatial Services"}]);
+  var pi=0,tl=null;
+  function useProv(){ok=0;bad=0;if(tl){try{m.removeLayer(tl)}catch(e){}}
+   tl=L.tileLayer(PROV[pi][0],PROV[pi][1]).addTo(m);
+   tl.on("tileload",function(){ok++}).on("tileerror",function(){bad++;if(!ok&&bad>=4){if(pi<PROV.length-1){pi++;useProv()}else{fail()}}});}
+  useProv();
   var g=L.featureGroup();
   if(R.length){L.polygon(R.map(function(q){return [q[1],q[0]]}),{color:"#1f8a56",weight:2,fillOpacity:.25}).addTo(g)}
   L.marker(S,{icon:L.divIcon({className:"cm-subj",html:"\u2605",iconSize:[26,26],iconAnchor:[13,13]}),zIndexOffset:1000}).addTo(g).bindTooltip(SN);
@@ -905,7 +940,7 @@ FIGURES = [
  ("offer_tiles", "s0", "summary.offer.walk_away", "both", ("出价三格", "Offer tiles"), None),
  ("timeline_strip", "s2", "timeline[date]>=2", "both", ("时间线条带", "Timeline strip"), None),
  ("dom_bars", "s2", "dom.months_approx+dom.suburb_median_dom", "both", ("在市天数对比条", "Days-on-market bars"), None),
- ("price_steps", "s2", "dom.price_history[date,price]>=2", "both", ("挂牌价阶梯图", "List-price step chart"), None),
+ ("price_steps", "s2", "dom.price_history[date,price]>=2", "both", ("挂牌价阶梯图", "List-price step chart"), lambda d: not (d.get("dom") or {}).get("no_guide")),
  ("price_line", "s2", "summary.range+summary.offer.walk_away", "both", ("出价价格轴", "Offer price axis"), None),
  ("tier_table", "s2", "summary.offer.walk_away", "both", ("出价三档表", "Offer tier table"), None),
  ("price_ruler", "s2", "ruler.prices", "both", ("成交价标尺", "Sale-price ruler"), None),
@@ -913,7 +948,9 @@ FIGURES = [
  ("coverage_bar", "s3", "hazards", "both", ("核查覆盖条", "Coverage bar"), None),
  ("site_map", "s4", "@land.site_svg", "house", ("地块图", "Site map"), None),
  ("ground_profile", "s4", "@land.profile_svg", "house", ("地形剖面图", "Terrain profile"), None),
- ("land_value_bars", "s4", "subject.land_value.history", "both", ("地价历史柱图", "Land-value bars"), None),
+ ("land_value_bars", "s4", "subject.land_value.history", "both", ("地价历史折线", "Land-value line"), None),
+ ("aerial_lot", "s4", "subject.lat+subject.lon+land.ring", "house", ("航拍 + 地籍(NSW)", "Aerial + cadastre (NSW)"),
+  lambda d: 140.9 <= (num((d.get("subject") or {}).get("lon")) or 0) <= 154.0 and -37.6 <= (num((d.get("subject") or {}).get("lat")) or 0) <= -28.1),
  ("street_scatter", "s4", "land.street_sales[date,price,land]>=3", "house", ("同街成交散点", "Same-street sales scatter"), None),
  ("street_table", "s4", "land.street_sales[addr,price]", "house", ("同街成交表", "Same-street sales table"), None),
  ("stack_chart", "s4", "@land.stack_svg", "unit", ("同竖列 × 楼层图", "Stack × floor chart"), None),
@@ -1064,7 +1101,7 @@ def build(d):
     cards0 = scards
     flood = cards0[0] if cards0 else {}
     navlinks = "".join('<a href="#%s">%s</a>' % (k, re.split(r"[:: ]", re.sub(r"^\d+\.\s*", "", t(k)))[0]) for k in ["s1", "s2", "s3", "s4", "s5", "s6", "s7", "s8", "s9"])
-    banner += '<nav class="sticky"><b>%s</b><span>%s %s</span><span>%s %s–%s</span><span class="%s">%s:%s</span><span class="links">%s</span></nav>' % (
+    banner += '<nav class="sticky"><b>%s</b><span>%s %s</span><span>%s %s–%s</span><span class="%s">%s:%s</span><span class="links">%s</span><button class="theme" id="themebtn" onclick="(function(){var r=document.documentElement,c=r.getAttribute(&quot;data-theme&quot;)||(matchMedia(&quot;(prefers-color-scheme: dark)&quot;).matches?&quot;dark&quot;:&quot;light&quot;),n=c===&quot;dark&quot;?&quot;light&quot;:&quot;dark&quot;;r.setAttribute(&quot;data-theme&quot;,n);try{localStorage.setItem(&quot;dd-theme&quot;,n)}catch(e){}document.getElementById(&quot;themebtn&quot;).textContent=n===&quot;dark&quot;?&quot;\u2600 \u4eae\u8272&quot;:&quot;\u263e \u6697\u8272&quot;})()">\u25d0 \u4eae/\u6697</button></nav><script>(function(){try{var v=localStorage.getItem("dd-theme");if(v){document.documentElement.setAttribute("data-theme",v);var b=document.getElementById("themebtn");if(b)b.textContent=v==="dark"?"\u2600 \u4eae\u8272":"\u263e \u6697\u8272"}}catch(e){}})()</script>' % (
         esc(short), t("nav_list"), money(subj.get("list_price")), t("nav_range"), money(lo0), money(hi0),
         cls_of(flood.get("status")), esc(flood.get("label", "")), esc(flood.get("value", "")), navlinks)
 
@@ -1271,15 +1308,17 @@ def build(d):
     lvhist = (subj.get("land_value") or {}).get("history") or {}
     if lvhist:
         ys = sorted(lvhist)
-        _yrs = sorted(lvhist.keys()); lvh = "<h3>%s</h3>%s%s<p class=\"note\">%s</p>" % (t("lv_h"), svg_bars([num(lvhist[y]) for y in _yrs], [str(y) for y in _yrs], fmt=money, h=180), tbl_src("<table><tr>%s</tr><tr>%s</tr></table>" % ("".join("<th>%s</th>" % esc(y) for y in _yrs), "".join("<td>%s</td>" % money(lvhist[y]) for y in _yrs))), esc(ld.get("lv_note", "")))
+        _yrs = sorted(lvhist.keys()); lvh = "<h3>%s</h3>%s%s<p class=\"note\">%s</p>" % (t("lv_h"), svg_line([[num(lvhist[y]) for y in _yrs]], [str(y) for y in _yrs], fmt=money, h=200), tbl_src("<table><tr>%s</tr><tr>%s</tr></table>" % ("".join("<th>%s</th>" % esc(y) for y in _yrs), "".join("<td>%s</td>" % money(lvhist[y]) for y in _yrs))), esc(ld.get("lv_note", "")))
     ss = ld.get("street_sales", [])
     def _street_table(rows_):
         def _land(r):
             if r.get("strata"): return '<td title="%s"></td>' % esc(t("strata_tip"))   # strata lot: no separate land area
             return "<td>%s m²</td>" % esc((r.get("floor_m2") or r.get("land")) if UNIT else r.get("land"))
-        return "<h3>%s</h3><table><tr><th>%s</th><th>%s</th><th>%s</th><th>%s</th></tr>%s</table>%s" % (t("street_sales_h"),
-              "Address", "Price", "Date", "m²" if UNIT else "Land",
-              "".join("<tr><td>%s</td><td>%s</td><td>%s</td>%s</tr>" % (esc(r.get("addr")), money(r.get("price")), esc(r.get("date")), _land(r)) for r in rows_),
+        _row = lambda r: "<tr><td>%s</td><td>%s</td><td>%s</td>%s</tr>" % (esc(r.get("addr")), money(r.get("price")), esc(r.get("date")), _land(r))
+        _hdr = "<tr><th>%s</th><th>%s</th><th>%s</th><th>%s</th></tr>" % ("Address", "Price", "Date", "m²" if UNIT else "Land")
+        head, rest = rows_[:3], rows_[3:]
+        more = ('<details class="more"><summary>%s</summary><table>%s%s</table></details>' % (t("more_rows", n=len(rest)), _hdr, "".join(_row(r) for r in rest))) if rest else ""
+        return "<h3>%s</h3><table>%s%s</table>%s%s" % (t("street_sales_h"), _hdr, "".join(_row(r) for r in head), more,
               ('<p class="note">%s</p>' % t("strata_note")) if any(r.get("strata") for r in rows_) else "")
     if UNIT:
         # unit mode: no site / profile / street-scatter figures; stack x floor and layout x date charts + the unfiltered building sales
@@ -1300,8 +1339,12 @@ def build(d):
     else:
         _sc = svg_street_scatter(ss, subj, sub=t("sub_street")); ssh = ("<h3>%s</h3>%s" % (t("street_scatter_h"), _sc)) if _sc else ""
         if ss: ssh += _street_table(ss)
-        land_html = '<div class="two"><div>%s</div><div><div class="kv" style="grid-template-columns:1fr">%s</div>%s</div></div><h3>%s</h3>%s%s' % (
-        read_fig("site_svg"), lkv, lvh, t("profile_h"), ((("<p class=\"note\">%s</p>" % t("profile_flat", s=ld["profile_flat"].get("street", "—"), r=ld["profile_flat"].get("rear", "—"), f=ld["profile_flat"].get("fall", 0))) if isinstance(ld.get("profile_flat"), dict) else "") + read_fig("profile_svg")), ssh)
+        _prof = ((("<p class=\"note\">%s</p>" % t("profile_flat", s=ld["profile_flat"].get("street", "—"), r=ld["profile_flat"].get("rear", "—"), f=ld["profile_flat"].get("fall", 0))) if isinstance(ld.get("profile_flat"), dict) else "") + read_fig("profile_svg"))
+        _aer = svg_aerial(ld.get("ring"), subj)
+        land_html = ('<div class="two"><div>%s</div><div><h3 style="margin-top:0">%s</h3>%s</div></div>'
+                     '<div class="two"><div><div class="kv" style="grid-template-columns:1fr">%s</div></div><div>%s</div></div>'
+                     '<div class="two"><div>%s</div><div>%s</div></div>') % (
+            read_fig("site_svg"), t("profile_h"), _prof, lkv, lvh, _aer, ssh)
     S.append(sec("s4", land_html))
 
     # ---- 5 comps
@@ -1534,7 +1577,7 @@ def default_brief(kind, d):
 SCHEMA = """data.json fields (all optional unless marked *):
 meta: lang zh|en, title, date*, one_liner, session_resume_url, edition public|internal (public = thumbnails + links only; internal = carousel + before/after), human_minutes, active_minutes, wall_minutes (machine_minutes kept for old files), video_url (footer link; default the YouTube channel), show_booking true|false (default false: no booking line)
 subject*: address*, lat, lon, map_url, streetview_url (hero Map / Street View links; default = Google Maps search / lat,lon street view), lot_dp, land_m2*, list_price*, built, dwelling, title_type torrens|strata|community, strata_m2 (unit: strata lot area incl. balcony/car/storage; shown instead of land), beds, baths, cars, floor_m2, status_line, status_class ok|warn|bad (hero panel), facts [[label, value], ...] (overview grid; rows that repeat the hero panel - address, beds/baths/cars, built, list price, last sold, Domain/AVM estimate - are skipped), land_value {latest, date, history {year: value}}
-photos: images [{url, caption}] (hot-linked from the listing site's own URLs exactly as served, credited, never downloaded), credit_source, before_after [{before, after, caption}] (internal edition only), sources [{name, url, ok (true/absent = ✓, false = ✗), crosscheck (hover text)}] (shown as source-check chips in the hero), streetview_url, material_from_photos (shown as one overview facts row)
+photos: images [{url, caption}] (hot-linked from the listing site's own URLs exactly as served, credited, never downloaded; images[0] = the current campaign's cover photo, pre-renovation / older-campaign shots last), credit_source, before_after [{before, after, caption}] (internal edition only), sources [{name, url, ok (true/absent = ✓, false = ✗), crosscheck (hover text)}] (shown as source-check chips in the hero), streetview_url, material_from_photos (shown as one overview facts row)
 summary*: verdict_line*, max_risk*, range [lo, hi]*, range_note, avm_range [lo, mid, hi] (free Domain estimate, optional), offer {first (OPTIONAL: when missing the hero, tier table and mortgage block say it is set after talking to the agent), walk_away, confidence, confidence_note},
           cards: 5 x {label, status ok|warn|bad|cond|na, value, note, next}  (preferred over status_cards; if both absent, five placeholder cards with the default labels are shown —
                  house: flood / bushfire / landslip category / measured slope / development potential; unit: flood (basement/lobby) / bushfire / noise & arterial roads / strata health check / planning & supply)
@@ -1544,7 +1587,7 @@ UNIT MODE: on when subject.title_type == "strata", subject.dwelling contains uni
   completeness (floor_m2, cars, level, orientation|aspect, built, reno, levies, date & price; bookend needs >= 4/8), comps chart x = floor_m2,
   hides the P/LV block, and titles section 4 "Parent lot & building" (no site / profile / street-scatter figures there: stack_svg, building_svg, building_read and building_sales are used instead).
 timeline: [{date, event, source, kind sale|rent|list|price_change|other (marker shape; guessed from the event text when absent), price (number; when absent the first $… amount in `event` is used)}]
-dom: months_approx, basis, suburb_median_dom, suburb_dom_source, price_history_text, price_history_status verified|unverified, price_history [{date, price}] (>= 2 entries draw the list-price step chart against summary.range)
+dom: months_approx, basis, suburb_median_dom, suburb_dom_source, price_history_text, price_history_status verified|unverified, price_history [{date, price}] (>= 2 entries draw the list-price step chart against summary.range), no_guide true (auction / no price guide: the step chart is marked not applicable in --check)
 ruler: prices [..], list, window_label, n, median, min, max
 hazards*: [{item, status ok|warn|bad|cond|na, tier covered|uncovered|paid, result, source, date, note, next*, slug}]  (status cond adds the two fixed flood next steps automatically)
 land: facts [[label, value]], site_svg (file path or inline <svg>), profile_svg (house: always drawn), profile_flat {street, rear, fall} (adds a one-line note on flat sites; the chart stays), ring [[lon, lat], ...] (cadastral lot boundary drawn on the map), lv_note, street_sales [{addr, price, date, land, strata true (house mode: blank Land cell + note), floor_m2 (older unit files)}]

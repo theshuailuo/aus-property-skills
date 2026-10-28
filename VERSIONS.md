@@ -6,11 +6,15 @@ To update: compare with the table below and reinstall any skill that is behind (
 | Skill | Version | Last Updated |
 |---|---|---|
 | holiday-home | 0.5.1 | 2026-10-28 |
-| auspptdd | 0.4.2 | 2026-10-28 |
+| auspptdd | 0.4.3 | 2026-10-28 |
 
 <!-- 每发布一个 skill 加一行,例如 | holiday-home | 0.1.0 | 2026-11-01 | -->
 
 ---
+
+### 0.3.2 (2026-10-28)
+- `auspptdd` 0.4.3(Leichhardt 独立屋冷跑 Run 5 回写):① 开跑前门卫 `scripts/browser_gate.py`——会话浏览器站点未放行就整条走无浏览器路径,流水线不再挂在一个弹窗上;REA 链接拒开立刻向人要地址;② 报告:顶栏真正悬浮(overflow clip)、亮/暗切换、土地区三行两列(地块图|剖面、文字|地价折线、官方航拍+地籍|同街散点)、同街成交表只展开 3 行、首图规矩(本次挂牌封面在前、翻新前照片在后)、可比地图瓦片链 NSW 底图→Esri→OSM(本地打开不再 Access blocked);③ `dom.no_guide` 让拍卖无指引的挂牌价阶梯图在 `--check` 记为不适用;④ state-NSW.md 加 Inner West 行(council 2017 洪水 PDF 图集结构)。
+- `auspptdd` 0.4.3 (Leichhardt house cold run 5): a pre-run browser gate so the pipeline never waits on a site prompt (REA links: ask for the address at once); sticky top bar with a light/dark toggle; land section in two-column rows with the official NSW aerial photo and lot ring, land-value line, three-row street table; cover-photo-first rule; map tile chain NSW base map → Esri → OSM; `dom.no_guide` for auctions; Inner West flood PDF notes.
 
 ### 0.3.1 (2026-10-28)
 - `holiday-home` 0.5.1:「罗帅观点」的免责句挪到这一节开头;作者栏不放照片,链到个人主页;`shared/report-template` 写明 holiday-home 用自己的交互版。

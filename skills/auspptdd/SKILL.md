@@ -1,12 +1,12 @@
 ---
 name: auspptdd
-description: Australian residential property due diligence, free public-data edition · 澳洲住宅物业尽调(公开数据免费版)。Give it an address or a listing link; it identifies the state and the title type (Torrens house or strata unit), then runs the pipeline a buyer's agent uses: facts → hazard check (flood, bushfire, slope or noise, social housing, crime) → land or parent-lot and building → comparable sales → price bookends → one HTML report. Free official data only; anything that needs a paid subscription is left blank with a note. 触发:/auspptdd、「尽调这个地址」「这个房子/公寓值不值」「check this property」「due diligence on this address」. Residential only (house / townhouse / villa / unit). 度假屋买还是订、留还是卖见 holiday-home / For holiday homes, see holiday-home. Not for commercial property.
+description: "Australian residential property due diligence, free public-data edition · 澳洲住宅物业尽调(公开数据免费版)。Give it an address or a listing link; it identifies the state and the title type (Torrens house or strata unit), then runs the pipeline a buyer's agent uses: facts → hazard check (flood, bushfire, slope or noise, social housing, crime) → land or parent-lot and building → comparable sales → price bookends → one HTML report. Free official data only; anything that needs a paid subscription is left blank with a note. 触发:/auspptdd、「尽调这个地址」「这个房子/公寓值不值」「check this property」「due diligence on this address」. Residential only (house / townhouse / villa / unit). 度假屋买还是订、留还是卖见 holiday-home / For holiday homes, see holiday-home. Not for commercial property."
 license: MIT
 metadata:
-  version: 0.4.3
+  version: 0.4.4
 ---
 
-# /auspptdd — Australian residential due diligence, free public-data edition (v0.4.3)
+# /auspptdd — Australian residential due diligence, free public-data edition (v0.4.4)
 
 A buyer's agent's working method, released as a public skill. It runs the **same report structure** the agent uses internally, but only with data that is free and public. Where a step normally needs a paid source, the report **says so, says where the data lives, and lists who gets it next** instead of guessing. Everything a public user needs is in this folder: `references/` (per-state query manuals), `scripts/` (stdlib-only Python plus one browser snippet), `templates/` (report template, example data, council and layer configs). No other skill or file is required to run it.
 

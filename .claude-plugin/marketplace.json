@@ -6,7 +6,7 @@
   },
   "metadata": {
     "description": "Agent skills for buying, holding and selling residential property in Australia, from a buyer's agent's working method. 澳洲买房全流程 AI skill。",
-    "version": "0.3.2",
+    "version": "0.3.3",
     "repository": "https://github.com/theshuailuo/aus-property-skills"
   },
   "plugins": [

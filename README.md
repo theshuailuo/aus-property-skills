@@ -26,7 +26,7 @@ flowchart LR
 
 | 位置 | skill | 做什么 | 状态 | 视频 |
 |---|---|---|---|---|
-| E 价值透视 | `auspptdd` | 给一个地址(独立屋或公寓),跑出事实、灾害、规划、可比成交、价格区间、红旗清单 | ✅ v0.4.2(NSW、WA 各冷跑过独立屋与公寓) | 待上线 |
+| E 价值透视 | `auspptdd` | 给一个地址(独立屋或公寓),跑出事实、灾害、规划、可比成交、价格区间、红旗清单 | ✅ v0.4.4(NSW、WA 各冷跑过独立屋与公寓) | 待上线 |
 | 买后 · 持有 | `holiday-home` | 度假屋:买还是订、留还是卖、自用加出租的税务 | ✅ v0.5.1(交互报告,附匿名示例) | 待上线 |
 | P 全域扫盘 | `suburb-owner` / `suburb-investor` | 自住选区 / 投资选区 | 🗓 第一批 | — |
 | R 复盘迭代 | `hold-or-sell` | 持有房体检:按购入日期、税改、贷款与现金流看留还是卖 | 🗓 第一批 | — |
@@ -45,7 +45,7 @@ flowchart LR
 npx skills add theshuailuo/aus-property-skills -a claude-code
 ```
 
-只装一个:在后面加 `--skill auspptdd` 或 `--skill holiday-home`。`-a claude-code` 别省:在 agent 会话里运行这条命令时,不加它可能装到 Claude Code 读不到的目录。
+只装一个:在后面加 `--skill auspptdd` 或 `--skill holiday-home`。默认装进当前项目的 `.claude/skills/`;想在所有项目里都能用,加 `-g` 装到用户级目录。`-a claude-code` 别省:在 agent 会话里运行这条命令时,不加它可能装到 Claude Code 读不到的目录。
 
 **方式二:Claude Code 插件市场**
 

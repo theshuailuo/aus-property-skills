@@ -1,6 +1,6 @@
 ---
 name: example-skill
-description: 写法样板,不是可用的 skill · Writing sample, not a real skill. 复制这个目录、改名、按 AGENTS.md 填内容。真正的 description 要写:做什么、触发短语(中英各几条,例如 触发:「…」「…」/ Triggers: "…")、边界(「X 见 other-skill」/ For X, see other-skill)。Not for production use; for the full rules see AGENTS.md.
+description: '写法样板,不是可用的 skill · Writing sample, not a real skill. 复制这个目录、改名、按 AGENTS.md 填内容。真正的 description 要写:做什么、触发短语(中英各几条,例如 触发:「…」「…」/ Triggers: "…")、边界(「X 见 other-skill」/ For X, see other-skill)。Not for production use; for the full rules see AGENTS.md.'
 license: MIT
 metadata:
   version: 0.1.0

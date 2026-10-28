@@ -6,11 +6,15 @@ To update: compare with the table below and reinstall any skill that is behind (
 | Skill | Version | Last Updated |
 |---|---|---|
 | holiday-home | 0.5.1 | 2026-10-28 |
-| auspptdd | 0.4.3 | 2026-10-28 |
+| auspptdd | 0.4.4 | 2026-10-28 |
 
 <!-- 每发布一个 skill 加一行,例如 | holiday-home | 0.1.0 | 2026-11-01 | -->
 
 ---
+
+### 0.3.3 (2026-10-28)
+- `auspptdd` 0.4.4:SKILL.md 的 description 加引号——原文含「: 」,严格 YAML 解析器(`npx skills add`)把整个 skill 跳过,只装得上 holiday-home;校验脚本新增同类检查。README 安装一节补 `-g`(装到用户级目录)说明。
+- `auspptdd` 0.4.4: quote the SKILL.md description (an unquoted `: ` made strict YAML parsers such as `npx skills add` skip the skill); the validator now checks for this; README notes `-g` for a user-level install.
 
 ### 0.3.2 (2026-10-28)
 - `auspptdd` 0.4.3(Leichhardt 独立屋冷跑 Run 5 回写):① 开跑前门卫 `scripts/browser_gate.py`——会话浏览器站点未放行就整条走无浏览器路径,流水线不再挂在一个弹窗上;REA 链接拒开立刻向人要地址;② 报告:顶栏真正悬浮(overflow clip)、亮/暗切换、土地区三行两列(地块图|剖面、文字|地价折线、官方航拍+地籍|同街散点)、同街成交表只展开 3 行、首图规矩(本次挂牌封面在前、翻新前照片在后)、可比地图瓦片链 NSW 底图→Esri→OSM(本地打开不再 Access blocked);③ `dom.no_guide` 让拍卖无指引的挂牌价阶梯图在 `--check` 记为不适用;④ state-NSW.md 加 Inner West 行(council 2017 洪水 PDF 图集结构)。

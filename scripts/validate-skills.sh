@@ -99,6 +99,11 @@ for base in $SKILLS_DIRS; do
 
     # name
     name_in_file=$(echo "$frontmatter" | grep "^name:" | sed 's/^name: *//' | tr -d ' "')
+    desc_raw=$(echo "$frontmatter" | grep "^description:" | sed 's/^description: *//')
+    q1="${desc_raw:0:1}"
+    if [[ -n "$desc_raw" && "$q1" != '"' && "$q1" != "'" ]] && echo "$desc_raw" | grep -qE ': | #'; then
+      echo -e "${RED}❌ $skill_dir${NC}"; echo "   description must be quoted: it contains ': ' or ' #', which strict YAML parsers (npx skills add) reject"; ((ISSUES++)); continue
+    fi
     if [[ -z "$name_in_file" ]]; then errs+=("Missing 'name' in frontmatter")
     elif [[ "$name_in_file" != "$skill_name" ]]; then errs+=("Name mismatch: directory='$skill_name' frontmatter='$name_in_file'")
     elif ! [[ "$name_in_file" =~ ^[a-z0-9]([a-z0-9-]{0,62}[a-z0-9])?$ ]] || [[ "$name_in_file" == *--* ]]; then

@@ -1,6 +1,6 @@
 {
   "skill_name": "holiday-home",
-  "version": "0.5.1",
+  "version": "0.5.2",
   "baseline": "Run each prompt once with the skill and once without (plain model). The skill should beat the baseline on the expectations marked core.",
   "evals": [
     {

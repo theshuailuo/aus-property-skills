@@ -481,6 +481,7 @@ L = {
         "gross": "毛收益率", "netY": "净收益率(未扣利息)", "cmp": "对比",
         "upfront": "买房前期现金(首付 + 印花税 + 杂费 + 家具)", "duty": "印花税",
         "duty_src": {"input": "你给的", "state_table": "按州政府现行税率表算", "rough_4pct": "按房价 4% 粗估,请用州税务局计算器替换"},
+        "alt_disc": "先读这句:本节是一般信息,只是把买度假屋要拿出的钱,和存定期、买指数基金、提前还房贷这几种常见去处放在一起比机会成本。这里用的是通用假设的参照回报率,不指任何具体产品、银行或基金;没有结合您的个人情况,不构成金融产品建议,也不是对任何产品的推荐。您的税率、贷款、风险承受力和时间安排都会改变结论,请结合自身情况自行分析,或寻求持牌专业人士意见。",
         "bookc": "每年订房花费", "alt": "不买的钱拿去", "deposit": "存定期", "index": "指数基金",
         "mortgage": "还自住房贷", "be": "房价每年至少要涨", "be_none": "30% 以内都追不上",
         "vs_lt": "对比:同样的钱买一套长租投资房,度假另订", "lt_cash": "长租房每年税后现金流",
@@ -520,6 +521,7 @@ L = {
         "gross": "Gross yield", "netY": "Net yield (before interest)", "cmp": "Comparison",
         "upfront": "Upfront cash (deposit + stamp duty + costs + furniture)", "duty": "Stamp duty",
         "duty_src": {"input": "your figure", "state_table": "from the state's current rate table", "rough_4pct": "rough 4% of price; replace with the state calculator"},
+        "alt_disc": "Read this first: This section is general information. It sets the money a holiday home ties up against a few common alternatives (a term deposit, an index fund, paying down your home loan) to show the opportunity cost. The rates are generic reference assumptions, not any specific product, bank or fund. It does not take your personal circumstances into account, is not financial product advice and does not recommend any product. Your tax rate, loans, risk tolerance and timing all change the result; please weigh it against your own situation, or seek advice from a licensed professional.",
         "bookc": "Booking holidays instead, per year", "alt": "Money not used to buy goes to",
         "deposit": "Term deposit", "index": "Index fund", "mortgage": "Pay down home loan",
         "be": "Prices must grow at least", "be_none": "Not reached even at 30% a year",
@@ -655,7 +657,7 @@ def render(res, sections, lang, summary="", quotes=()):
         yr += f"<p class=warn>{t['quar']}</p>"
     # comparison
     if c["mode"] == "buy":
-        ch = (f"<p>{t['upfront']}:<b>{money(cmp['upfront_cash'])}</b>({t['duty']} {money(cmp['stamp_duty_used'])},"
+        ch = (f"<p class=warn>{t['alt_disc']}</p><p>{t['upfront']}:<b>{money(cmp['upfront_cash'])}</b>({t['duty']} {money(cmp['stamp_duty_used'])},"
               f"{t['duty_src'][cmp['stamp_duty_source']]}) · {t['bookc']}:<b>{money(cmp['booking_cost_per_year'])}</b></p>")
         ch += table([t["alt"], t["be"]], [
             (f"{t[k]}({pct(rate_of(k))})",
@@ -669,7 +671,7 @@ def render(res, sections, lang, summary="", quotes=()):
                 (pct(float(g)), f"<b>{pct(v['holiday_growth_needed']) if v['holiday_growth_needed'] is not None else t['be_none']}</b>")
                 for g, v in vl["growth_refs"].items()])
     else:
-        ch = (f"<p>{t['sell_now']}:<b>{money(cmp['sell_now']['net_proceeds'])}</b> · "
+        ch = (f"<p class=warn>{t['alt_disc']}</p><p>{t['sell_now']}:<b>{money(cmp['sell_now']['net_proceeds'])}</b> · "
               f"{t['lt_year']}:<b>{money(cmp['long_term_year']['after_tax_cash'])}</b></p>")
 
         def be(x):

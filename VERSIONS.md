@@ -5,12 +5,16 @@ To update: compare with the table below and reinstall any skill that is behind (
 
 | Skill | Version | Last Updated |
 |---|---|---|
-| holiday-home | 0.5.1 | 2026-10-28 |
+| holiday-home | 0.5.2 | 2026-10-28 |
 | auspptdd | 0.4.4 | 2026-10-28 |
 
 <!-- 每发布一个 skill 加一行,例如 | holiday-home | 0.1.0 | 2026-11-01 | -->
 
 ---
+
+### 0.3.4 (2026-10-28)
+- `holiday-home` 0.5.2:「定期、指数基金、还房贷」机会成本对比一节,开头先放免责(交互页和静态报告中英都改):一般信息、用通用参照回报率不指具体产品、未结合个人情况、不构成金融产品建议也不是推荐,请结合自身情况自行分析或寻求持牌专业人士意见;取自 shared 通用句和投资句。
+- `holiday-home` 0.5.2: the term deposit / index fund / home loan comparison now opens with its disclaimer (interactive and static reports, ZH and EN): general information on generic reference rates, no specific product, not tailored, not financial product advice or a recommendation; weigh it against your own situation or seek a licensed professional. Built from the shared General and Investment lines.
 
 ### 0.3.3 (2026-10-28)
 - `auspptdd` 0.4.4:SKILL.md 的 description 加引号——原文含「: 」,严格 YAML 解析器(`npx skills add`)把整个 skill 跳过,只装得上 holiday-home;校验脚本新增同类检查。README 安装一节补 `-g`(装到用户级目录)说明。

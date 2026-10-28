@@ -288,6 +288,19 @@ table.tiers td.tbd{white-space:normal;font-size:12.5px}
 .mapl{margin:6px 0 0;font-size:12px}
 table.bs td:nth-child(2),table.bs td:nth-child(3),table.bs td:nth-child(4),table.bs td:nth-child(5){white-space:nowrap}
 
+/* ---------- v0.4.2: ruler layers, real map, offer disclaimer, comparable thumbnails ---------- */
+.ruler{height:124px}.ruler::before{top:64px}.ruler .dot{top:61px}.ruler .me{top:30px;height:50px}.ruler .band{top:50px;height:26px}.ruler .tick2{top:30px;bottom:44px}.ruler .lab.axis{top:84px}
+.ruler .lab.me-lab{top:102px;transform:translateX(-50%);font:700 12px var(--display);color:var(--bad);background:var(--bad-soft);padding:2px 8px;border-radius:999px;max-width:calc(100% - 8px);white-space:nowrap}
+.ruler .lab.more{top:4px}
+.cmap{height:380px;position:relative;z-index:0;border-radius:10px;border:1px solid var(--line);overflow:hidden;background:var(--card-2)}
+.cm-subj{font-size:22px;line-height:26px;text-align:center;color:var(--bad);text-shadow:0 0 3px #fff,0 0 6px #fff}
+.cm-sup,.cm-close,.cm-inf,.cm-unk{border-radius:50%;color:#fff;font:700 11px/22px var(--display);text-align:center;border:2px solid #fff;box-shadow:0 1px 3px rgba(0,0,0,.4)}
+.cm-sup{background:#b3261e}.cm-close{background:#c9a227;color:#15231c}.cm-inf{background:#1f7a4d}.cm-unk{background:#6b7480}
+.leaflet-container{font-family:var(--body)}
+.comp summary a{color:var(--brand)}
+.offerdisc{margin:-4px 0 14px;padding:10px 14px;border-left:4px solid var(--accent);background:var(--card-2);border-radius:0 8px 8px 0;font-size:13.5px;line-height:1.6;color:var(--ink-strong)}
+.cthumb{width:76px;height:56px;object-fit:cover;border-radius:5px;vertical-align:middle;margin-right:8px;border:1px solid var(--line)}
+
 /* ---------- responsive ---------- */
 @media(max-width:900px){.cards{grid-template-columns:repeat(2,1fr)}.cg{grid-template-columns:1fr 1fr}.two{grid-template-columns:1fr}.offer{grid-template-columns:1fr 1fr}.offer>div:nth-child(3){grid-column:1/-1}}
 @media(max-width:560px){.cards{grid-template-columns:1fr}.cg{grid-template-columns:1fr}.offer{grid-template-columns:1fr}.verdict>b{font-size:21px}.kv div{grid-template-columns:1fr}details.sec>*:not(summary){margin-left:12px;margin-right:12px}table{display:block;overflow-x:auto}}

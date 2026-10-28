@@ -15,6 +15,7 @@ footer with human time vs machine time.
 usage:
   python gen_report.py --data data.json --out report.html [--lang zh|en] [--template ../templates/report.html]
   python gen_report.py --schema            # print the data.json field list and exit
+  python gen_report.py --data data.json --check   # list standard figures data.json cannot produce (writes nothing)
 
 Windows: the script forces UTF-8 on stdout/stderr and every open(); no PYTHONUTF8 needed.
 No third-party packages.
@@ -64,7 +65,7 @@ T = {
  "chart_src": ("数据表(出处与原始数值)", "Data table (source and raw values)"),
  "tiles_lead": ("一眼看:红 = 命中(否决或条件项),橙 = 适用/要留意,绿 = 未检出,灰 = 免费数据查不到。点开看结果与下一步。", "At a glance: red = hit (veto or conditional), orange = applies / watch, green = not detected, grey = not in free data. Open a tile for the result and next step."),
  "scatter_h": ("可比一图:土地面积 × 成交价", "Comparables in one chart: land area × sale price"),
- "scatter_note": ("点色 = 三项打分结论(红 优于 / 金 相当 / 绿 逊于);粗环 = 夹板;★ = 标的(标价);绿带 = 合理区间。", "Dot colour = three-score verdict (red superior / gold close / green inferior); thick ring = bookend; ★ = subject at list price; green band = fair range."),
+ "scatter_note": ("点色 = 三项打分结论(红 优于 / 金 相当 / 绿 逊于);粗环 = 上下限参考;★ = 标的(标价);绿带 = 合理区间。", "Dot colour = three-score verdict (red superior / gold close / green inferior); thick ring = reference bound; ★ = subject at list price; green band = fair range."),
  "dom_bars_h": ("在市时长对比", "Days on market, compared"), "dom_this": ("本套(约)", "This property (approx.)"), "dom_sub": ("区均(不是本套)", "Suburb median (not this one)"),
  "mort_h": ("三个价位的月供(按 {lvr}% 贷款)", "Repayment at the three prices (at {lvr}% LVR)"), "mort_list": ("标价", "List"),
  "ruler_more": ("›{cap} 还有 {n} 笔", "{n} more above {cap}"),
@@ -79,7 +80,15 @@ T = {
  "street_scatter_h": ("同街成交:时间 × 价格(气泡 = 土地面积)", "Same-street sales: date × price (bubble = land area)"),
  "tiles_grey": ("以下 {n} 项免费数据查不到(点开看去哪拿)", "{n} items with no free data (open to see where to get them)"),
  "coverage": ("22 项核查覆盖度", "Coverage of the checks"), "cov_hit": ("命中 / 条件", "hit / conditional"), "cov_watch": ("要留意", "watch"), "cov_ok": ("未检出", "not detected"), "cov_none": ("免费数据无", "no free data"),
- "profile_flat": ("地块平坦:街面 {s} m → 后边界 {r} m,落差 {f} m;剖面图省略。", "Flat site: street {s} m → rear {r} m, fall {f} m; profile chart omitted."),
+ "profile_flat": ("地块平坦:街面 {s} m → 后边界 {r} m,落差 {f} m。", "Flat site: street {s} m → rear {r} m, fall {f} m."),
+ "map_real_h": ("可比地图(★ 标的;字母 = 可比;地块边界为官方地籍)", "Map of comparables (★ subject; letters = comparables; lot boundary from the cadastre)"),
+ "map_attrib": ("底图 © OpenStreetMap 贡献者;离线时显示相对位置图。", "Base map © OpenStreetMap contributors; the relative-position chart shows when offline."),
+ "map_failed": ("地图未加载,已改用相对位置图。", "Map did not load; showing the relative-position chart instead."),
+ "map_gmaps": ("在 Google 地图中打开标的 ↗", "Open the subject in Google Maps ↗"),
+ "open_profile": ("打开物业档案页 ↗", "Open the property profile ↗"),
+ "figs_missing": ("本次未能生成的标准图件", "Standard figures not produced this run"),
+ "offer_disclaimer": ("首次出价与放手价只是按公开数据推出的<b>参考锚点</b>,不是建议成交价,也不是估值。实际出价要按当时的市场环境、买家需求、同场竞价买家的数量与强度、卖方的出售动机与时间压力动态调整;拍卖或多方竞价时尤其如此。出价前请把这两个数字与你的预算、贷款预批和律师 / 买方代理的意见放在一起核。",
+                      "The first offer and walk-away price are <b>reference anchors</b> derived from public data, not a recommended purchase price and not a valuation. Adjust them to the market at the time, buyer demand, how many competing buyers are in the room and how strong they are, and the seller's motivation and time pressure — especially at auction or in multi-offer situations. Check both numbers against your budget, loan pre-approval and your solicitor / buyer's agent before offering."),
  "tl_strip_note": ("按真实时间比例。形状 = 事件类型(● 成交 · ◆ 出租 · ▲ 挂牌 · ▼ 调价 · 小圆点 其它);点上方数字 = 价格,下方 = 日期;红 = 现在挂牌,? = 待核实的记录。",
                    "True time scale. Shape = event type (● sale · ◆ rented · ▲ listed · ▼ price change · small dot other); number above the marker = price, date below; red = current listing, ? = record to verify."),
  "hazard_rule": ("规则:主流洪水区 / High–Medium 分区命中 = 否决;Overland Flow / Low(PMF)命中 = 条件项(固定两个下一步:规划洪水位 vs 地板高度;保险报价);其余风险只换算成价格调整。「未检出」只在图层覆盖该 council 时写,并配一个现场/合同里确认的小动作。",
@@ -100,15 +109,15 @@ T = {
  "lv_h": ("官方地价 5 年史(基准日 7 月 1 日)", "Official land value, 5 years (base date 1 July)"),
  "street_sales_h": ("同街官方成交记录(每物业最近一笔)", "Official sales on the same street (latest per property)"),
  "profile_h": ("沿进深的地形剖面", "Ground profile along the depth"),
- "comp_lead": ("可比先于区间:先逐张打分,再定夹板,最后出合理区间。标签只按三项打分——土地 / 坡度与街面侧 / 房况(建年、面积、建材、翻新);价格只当结果摆旁边。默认只展开「相当」与两块夹板,其余点开看。",
-               "Comparables come before the range: score each card, pick the bookends, then set the range. Labels come only from three scores — land / slope & street side / condition (year, area, material, renovation); price is shown beside as a result. Only 'Close' cards and the two bookends are open by default."),
+ "comp_lead": ("可比先于区间:先逐张打分,再定上下限参考,最后出合理区间。标签只按三项打分——土地 / 坡度与街面侧 / 房况(建年、面积、建材、翻新);价格只当结果摆旁边。默认只展开「相当」与上下限参考两张,其余点开看;上下限只是参考,不是出价的硬边界。",
+               "Comparables come before the range: score each card, pick the upper / lower reference bounds, then set the range. Labels come only from three scores — land / slope & street side / condition (year, area, material, renovation); price is shown beside as a result. Only 'Close' cards and the two reference bounds are open by default; they are references, not hard limits for your offer."),
  "v_sup": ("优于", "Superior"), "v_close": ("相当", "Close"), "v_inf": ("逊于", "Inferior"),
- "bk_upper": ("上夹板", "Upper bookend"), "bk_lower": ("下夹板", "Lower bookend"),
+ "bk_upper": ("上限参考", "Upper reference"), "bk_lower": ("下限参考", "Lower reference"),
  "completeness": ("数据完整度", "Data completeness"),
  "cg_basic": ("基本", "Basics"), "cg_price": ("价格与比率", "Price & ratios"), "cg_cmp": ("与标的比较(三项打分)", "Versus subject (three scores)"), "cg_verdict": ("结论", "Verdict"),
  "sc_land": ("土地", "Land"), "sc_slope": ("坡度/街面侧", "Slope/street side"), "sc_cond": ("房况", "Condition"),
  "sc_better": ("优", "better"), "sc_same": ("同", "same"), "sc_worse": ("逊", "worse"), "sc_unknown": ("未知", "unknown"),
- "bk_low_warn": ("该夹板数据完整度低于 5/8,不符合夹板要求;区间已加宽并说明。", "This bookend has completeness below 5/8 and does not qualify; the range was widened and the reason stated."),
+ "bk_low_warn": ("该上/下限参考的数据完整度低于 5/8,不符合要求;区间已加宽并说明。", "This reference bound has completeness below 5/8 and does not qualify; the range was widened and the reason stated."),
  "plv_h": ("成交价 / 官方地价 倍数交叉检验", "Sale price ÷ land value cross-check"),
  "pricing_h": ("合理区间怎么来的", "How the range was derived"),
  "mortgage": ("按 {lvr}% 贷款,房价每差 {step} 即贷款差 {loan},月供约差 {delta}/月(假设利率 {rate:.2f}%、{years} 年本息同还;公式 P·r/(1−(1+r)^−n),r = 月利率,n = 月数)。",
@@ -150,16 +159,16 @@ T = {
  "tl_h": ("时间线", "Timeline"),
  "ruler_note2": ("灰点 = 每笔官方成交(滞后约 2 个月);绿带 = 本报告的合理区间;红线 = 标价。", "Grey dots = official sales (about 2 months' lag); green band = this report's fair range; red line = list price."),
  "v_unk": ("未知", "Unknown"),
- "bk_unk_warn": ("三项打分全部未知,不能作夹板。", "All three scores are unknown; this card cannot be a bookend."),
+ "bk_unk_warn": ("三项打分全部未知,不能作上下限参考。", "All three scores are unknown; this card cannot be an upper / lower reference."),
  "growth_kind": ({"house": "独立屋", "unit": "公寓/单元", "building": "本楼"}, {"house": "House", "unit": "Unit", "building": "This building"}),
  # unit-mode variants: t(k) picks k + "_u" automatically when UNIT is on
  "s4_u": ("4. 母地块与楼栋 Parent lot & building", "4. Parent lot & building"),
  "f_land_u": ("m² 产权面积", "m² strata lot"),
  "k_lv_u": ("母地块地价", "Parent-lot land value"), "k_lv_val": ("{v}(份额需人)", "{v} (entitlement: needs a person)"),
  "sc_land_u": ("面积与车位", "Area & cars"), "sc_slope_u": ("楼层·朝向·景观", "Level·aspect·view"),
- "comp_lead_u": ("可比先于区间:先逐张打分,再定夹板,最后出合理区间。标签只按三项打分——面积与车位 / 楼层·朝向·景观 / 房况(建年、翻新、楼栋状况);价格只当结果摆旁边。排序:同竖列(同户型、同朝向)成交最优先,其次同楼,再次同郊区同卧室数、建筑面积 ±20%、18 个月内。默认只展开「相当」与两块夹板,其余点开看。",
-                 "Comparables come before the range: score each card, pick the bookends, then set the range. Labels come only from three scores — area & cars / level·aspect·view / condition (year, renovation, building condition); price is shown beside as a result. Ranking: same-stack sales (same floor plan, same aspect) first, then the same building, then the same suburb with the same bedrooms, floor area within ±20% and sold within 18 months. Only 'Close' cards and the two bookends are open by default."),
- "bk_low_warn_u": ("该夹板数据完整度低于 4/8,不符合夹板要求;区间已加宽并说明。", "This bookend has completeness below 4/8 and does not qualify; the range was widened and the reason stated."),
+ "comp_lead_u": ("可比先于区间:先逐张打分,再定上下限参考,最后出合理区间。标签只按三项打分——面积与车位 / 楼层·朝向·景观 / 房况(建年、翻新、楼栋状况);价格只当结果摆旁边。排序:同竖列(同户型、同朝向)成交最优先,其次同楼,再次同郊区同卧室数、建筑面积 ±20%、18 个月内。默认只展开「相当」与上下限参考两张,其余点开看;上下限只是参考,不是出价的硬边界。",
+                 "Comparables come before the range: score each card, pick the upper / lower reference bounds, then set the range. Labels come only from three scores — area & cars / level·aspect·view / condition (year, renovation, building condition); price is shown beside as a result. Ranking: same-stack sales (same floor plan, same aspect) first, then the same building, then the same suburb with the same bedrooms, floor area within ±20% and sold within 18 months. Only 'Close' cards and the two reference bounds are open by default; they are references, not hard limits for your offer."),
+ "bk_low_warn_u": ("该上/下限参考的数据完整度低于 4/8,不符合要求;区间已加宽并说明。", "This reference bound has completeness below 4/8 and does not qualify; the range was widened and the reason stated."),
  "scatter_h_u": ("可比一图:建筑面积 × 成交价", "Comparables in one chart: floor area × sale price"),
  "matrix_th_u": (("#", "地址", "成交", "价", "面积 m²", "距离", "楼层", "车位", "房况", "完整度"), ("#", "Address", "Sold", "Price", "Floor m²", "Dist", "Level", "Cars", "Cond.", "Compl.")),
  "street_scatter_h_u": ("同街/同楼成交:时间 × 价格(气泡 = 建筑面积)", "Same-street sales: date × price (bubble = floor area)"),
@@ -192,7 +201,7 @@ T = {
                 "Whether same-street prices are drifting up over time; bigger bubble = more land; the red dashed line is the list price."),
  "sub_map": ("可比离标的多远、在哪个方向;圈越外离得越远。红色 ★ 是标的。",
              "How far, and in which direction, the comparables sit from the subject; outer rings are further away. The red ★ is the subject."),
- "lg_subject": ("标的", "Subject"), "lg_bookend": ("夹板(粗环)", "Bookend (thick ring)"), "lg_rings": ("距离圈", "Distance rings"),
+ "lg_subject": ("标的", "Subject"), "lg_bookend": ("上下限参考(粗环)", "Upper / lower reference (thick ring)"), "lg_rings": ("距离圈", "Distance rings"),
  "lg_sale": ("成交(气泡 = 土地面积)", "Sale (bubble = land area)"), "lg_sale_u": ("成交(气泡 = 建筑面积)", "Sale (bubble = floor area)"),
  "stack_h": ("同竖列 × 楼层", "Same stack × floor"), "bldg_h": ("同户型 × 成交日期", "Same layout × sale date"),
  "bsales_h": ("楼内全部成交(未筛选,按日期)", "All sales in the building (unfiltered, by date)"),
@@ -786,7 +795,179 @@ def sc_label(v):
     s = score_val(v)
     return {1: t("sc_better"), 0: t("sc_same"), -1: t("sc_worse"), None: t("sc_unknown")}[s]
 
-def comp_card(c, subj, warnings, ctx=""):
+# ---------------------------------------------------------------- comparable links, same-building rule, real map
+_ST = {"CL": "close", "CRES": "crescent", "AVE": "avenue", "RD": "road", "DR": "drive", "PL": "place", "ST": "street", "CCT": "circuit", "PDE": "parade", "CT": "court", "BVD": "boulevard", "GR": "grove", "TCE": "terrace", "LANE": "lane", "WAY": "way", "HWY": "highway", "ESP": "esplanade", "CRT": "court"}
+_ADDR_TAIL = re.compile(r",\s*([A-Za-z' ]+?)\s+(NSW|VIC|QLD|SA|WA|TAS|ACT|NT)\s+(\d{4})\s*$", re.I)
+def _safe_url(u):
+    u = str(u or "").strip()
+    return u if u.lower().startswith(("http://", "https://")) else ""
+def comp_url(c, cp, subj):
+    """Link for one comparable. An explicit items[].url wins; otherwise comps.profile_url_pattern ({slug}) is filled from the
+    comparable's address plus the subject's suburb / state / postcode (a comp address that carries its own ', Suburb' or full tail uses that)."""
+    u = _safe_url(c.get("url"))
+    if u: return u
+    pat = _safe_url(cp.get("profile_url_pattern"))
+    if not pat or "{slug}" not in pat: return ""
+    addr = re.sub(r"\s*[\(（][^\)）]*[\)）]", "", str(c.get("address", ""))).strip()
+    stail = _ADDR_TAIL.search(str(subj.get("address", "")))
+    m = _ADDR_TAIL.search(addr)
+    if m: street, sub, stt, pc = addr[:m.start()], m.group(1), m.group(2), m.group(3)
+    else:
+        street, _, sub = addr.partition(",")
+        sub = sub.strip()
+        if not stail: return ""
+        stt, pc = stail.group(2), stail.group(3)
+        if not sub: sub = stail.group(1)
+    words = street.replace(",", " ").split()
+    if not words: return ""
+    if words[-1].upper() in _ST: words[-1] = _ST[words[-1].upper()]
+    slug = "-".join(w.lower() for w in words + sub.split() + [stt, pc])
+    slug = re.sub(r"-{2,}", "-", re.sub(r"[^a-z0-9-]", "", slug.replace("/", "-"))).strip("-")
+    return pat.replace("{slug}", slug) if slug else ""
+def addr_html(c, url=""):
+    a = esc(str(c.get("address", "")).title())
+    if not url: return a
+    return '<a href="%s" target="_blank" rel="noopener" title="%s">%s ↗</a>' % (esc(url), esc(t("open_profile")), a)
+def same_bldg(subj, items):
+    """True when every comparable with coordinates is within 50 m of the subject, or they all share one coordinate (same building): no map is drawn."""
+    cc = [(num(c["lat"]), num(c["lon"])) for c in items if c.get("lat") and c.get("lon")]
+    if not cc: return False
+    skip = False
+    if subj.get("lat") not in (None, "") and subj.get("lon") not in (None, ""):
+        skip = all(_hav_m(num(subj["lat"]), num(subj["lon"]), la, lo) <= 50 for la, lo in cc)
+    if not skip and len(cc) >= 2: skip = len({(round(la, 6), round(lo, 6)) for la, lo in cc}) == 1
+    return skip
+def _ring_pts(ring):
+    out = []
+    for p in ring or []:
+        try: out.append([float(p[0]), float(p[1])])
+        except (TypeError, ValueError, IndexError, KeyError): continue
+    return out if len(out) >= 3 else []
+def _jsdump(o): return json.dumps(o, ensure_ascii=False).replace("</", "<\\/")
+LEAFLET = {"js": "https://unpkg.com/leaflet@1.9.4/dist/leaflet.js", "css": "https://unpkg.com/leaflet@1.9.4/dist/leaflet.css",
+           "js_sri": "sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=", "css_sri": "sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="}
+_LEAFLET_JS = r"""(function(){
+var P=__P__,S=__S__,R=__R__,SN=__SN__,JS=__JS__,CSS=__CSS__,JSI=__JSI__,CSSI=__CSSI__;
+var box=document.getElementById("cmap-real"),el=document.getElementById("cmap"),fb=document.getElementById("cmap-fallback"),nt=document.getElementById("cmap-fail");
+var drawn=false,m=null,ok=0,bad=0;
+function fail(){if(m){try{m.remove()}catch(e){}m=null}drawn=false;box.style.display="none";fb.style.display="block";nt.style.display="block"}
+function show(){box.style.display="block";return el.offsetWidth>0}
+function draw(){
+ if(drawn)return;
+ try{
+  m=L.map(el,{scrollWheelZoom:false});
+  var tl=L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png",{maxZoom:19,attribution:"&copy; OpenStreetMap contributors"}).addTo(m);
+  tl.on("tileload",function(){ok++}).on("tileerror",function(){bad++;if(!ok&&bad>=4)fail()});
+  var g=L.featureGroup();
+  if(R.length){L.polygon(R.map(function(q){return [q[1],q[0]]}),{color:"#1f8a56",weight:2,fillOpacity:.25}).addTo(g)}
+  L.marker(S,{icon:L.divIcon({className:"cm-subj",html:"\u2605",iconSize:[26,26],iconAnchor:[13,13]}),zIndexOffset:1000}).addTo(g).bindTooltip(SN);
+  P.forEach(function(c){L.marker([c.lat,c.lon],{icon:L.divIcon({className:"cm-"+c.v,html:c.l,iconSize:[22,22],iconAnchor:[11,11]})}).addTo(g).bindTooltip(c.a+" \u00b7 "+c.p).on("click",function(){
+   if(c.u){window.open(c.u,"_blank","noopener")}else{var a=document.getElementById("comp-"+c.l);if(a){a.open=true;a.scrollIntoView({block:"center"})}}})});
+  g.addTo(m);m.fitBounds(g.getBounds().pad(.15),{maxZoom:17});
+  drawn=true;fb.style.display="none";nt.style.display="none";
+  setTimeout(function(){if(drawn&&!ok)fail()},10000);
+ }catch(e){fail()}
+}
+function start(){
+ if(drawn||!window.L)return;
+ if(show()){draw();return}
+ box.style.display="none";
+ var f=function(){if(show()){document.removeEventListener("toggle",f,true);draw()}else{box.style.display="none"}};
+ document.addEventListener("toggle",f,true);
+}
+if(window.L){start()}else{
+ var ln=document.createElement("link");ln.rel="stylesheet";ln.href=CSS;ln.integrity=CSSI;ln.crossOrigin="";document.head.appendChild(ln);
+ var sc=document.createElement("script");sc.src=JS;sc.integrity=JSI;sc.crossOrigin="";sc.onload=start;sc.onerror=fail;document.head.appendChild(sc);
+ setTimeout(function(){if(!window.L)fail()},8000);
+}
+})();"""
+def leaflet_block(pts, ring, subj, fallback_html):
+    """OpenStreetMap + Leaflet map with the self-drawn svg_map as fallback. The Leaflet CSS/JS tags exist only inside this block, so they are
+    emitted only when a map is actually drawn; the script injects them, then draws once the section is visible. Offline / CDN failure ->
+    the svg stays and a one-line note (map_failed) plus a Google Maps link shows."""
+    gm = _safe_url(subj.get("map_url")) or gmaps_search_url(subj.get("address", ""))
+    js = (_LEAFLET_JS.replace("__P__", _jsdump(pts)).replace("__S__", _jsdump([num(subj["lat"]), num(subj["lon"])])).replace("__R__", _jsdump(ring))
+          .replace("__SN__", _jsdump(esc(subj.get("address", "")))).replace("__JS__", _jsdump(LEAFLET["js"])).replace("__CSS__", _jsdump(LEAFLET["css"]))
+          .replace("__JSI__", _jsdump(LEAFLET["js_sri"])).replace("__CSSI__", _jsdump(LEAFLET["css_sri"])))
+    return ('<div id="cmap-real" style="display:none"><h3>%s</h3><div id="cmap" class="cmap"></div><p class="note">%s</p></div>'
+            '<p class="note" id="cmap-fail" style="display:none"><span class="warn">%s</span> <a href="%s" target="_blank" rel="noopener">%s</a></p>'
+            '<div id="cmap-fallback">%s</div><script>%s</script>') % (
+            t("map_real_h"), t("map_attrib"), t("map_failed"), esc(gm), t("map_gmaps"), fallback_html, js)
+
+# ---------------------------------------------------------------- standard figures (the report is consistent because this list is)
+# (id, section, required data.json fields, applies to house|unit|both, (zh name, en name), optional applicability test)
+# fields grammar: a.b.c = non-empty value; a.b[x,y]>=N = at least N list items that all carry x and y; @a.b = svg text or an existing file path;
+#                 '+' = all of, '|' = any of
+FIGURES = [
+ ("hero_gallery", "s0", "photos.images", "both", ("首图相册", "Hero photo gallery"), None),
+ ("source_chips", "s0", "photos.sources", "both", ("来源核对标签", "Source-check chips"), None),
+ ("status_cards", "s0", "summary.cards|status_cards", "both", ("五张状态卡", "Five status cards"), None),
+ ("offer_tiles", "s0", "summary.offer.walk_away", "both", ("出价三格", "Offer tiles"), None),
+ ("timeline_strip", "s2", "timeline[date]>=2", "both", ("时间线条带", "Timeline strip"), None),
+ ("dom_bars", "s2", "dom.months_approx+dom.suburb_median_dom", "both", ("在市天数对比条", "Days-on-market bars"), None),
+ ("price_steps", "s2", "dom.price_history[date,price]>=2", "both", ("挂牌价阶梯图", "List-price step chart"), None),
+ ("price_line", "s2", "summary.range+summary.offer.walk_away", "both", ("出价价格轴", "Offer price axis"), None),
+ ("tier_table", "s2", "summary.offer.walk_away", "both", ("出价三档表", "Offer tier table"), None),
+ ("price_ruler", "s2", "ruler.prices", "both", ("成交价标尺", "Sale-price ruler"), None),
+ ("hazard_tiles", "s3", "hazards", "both", ("风险方块", "Hazard tiles"), None),
+ ("coverage_bar", "s3", "hazards", "both", ("核查覆盖条", "Coverage bar"), None),
+ ("site_map", "s4", "@land.site_svg", "house", ("地块图", "Site map"), None),
+ ("ground_profile", "s4", "@land.profile_svg", "house", ("地形剖面图", "Terrain profile"), None),
+ ("land_value_bars", "s4", "subject.land_value.history", "both", ("地价历史柱图", "Land-value bars"), None),
+ ("street_scatter", "s4", "land.street_sales[date,price,land]>=3", "house", ("同街成交散点", "Same-street sales scatter"), None),
+ ("street_table", "s4", "land.street_sales[addr,price]", "house", ("同街成交表", "Same-street sales table"), None),
+ ("stack_chart", "s4", "@land.stack_svg", "unit", ("同竖列 × 楼层图", "Stack × floor chart"), None),
+ ("building_chart", "s4", "@land.building_svg", "unit", ("户型 × 成交日图", "Layout × sale-date chart"), None),
+ ("building_sales", "s4", "land.building_sales[price,date]", "unit", ("楼内成交表", "Building sales table"), None),
+ ("comp_matrix", "s5", "comps.items[address,price]", "both", ("可比一览表", "Comparables matrix"), None),
+ ("comp_scatter", "s5", "comps.items[land_m2,price]", "house", ("可比散点(土地 × 价)", "Comparables scatter (land × price)"), None),
+ ("comp_scatter", "s5", "comps.items[floor_m2,price]", "unit", ("可比散点(面积 × 价)", "Comparables scatter (floor × price)"), None),
+ ("comp_map", "s5", "comps.items[lon,lat]+subject.lon+subject.lat", "both", ("可比地图", "Comparables map"),
+  lambda d: not same_bldg(d.get("subject") or {}, (d.get("comps") or {}).get("items") or [])),
+ ("comp_cards", "s5", "comps.items[address,price]", "both", ("可比卡片", "Comparable cards"), None),
+ ("mortgage_bars", "s5", "subject.list_price|summary.offer.walk_away", "both", ("月供对比柱", "Mortgage bars"), None),
+ ("future_chips", "s6", "future", "both", ("未来规划标签", "Future-plan chips"), None),
+ ("vacancy_line", "s7", "market.vacancy.rows", "both", ("空置率折线", "Vacancy line"), None),
+ ("stock_lines", "s7", "market.som.rows", "both", ("在售量折线", "Stock-on-market lines"), None),
+ ("growth_bars", "s7", "market.growth.rows", "both", ("增长率条", "Growth bars"), None),
+ ("yearly_line", "s7", "market.yearly", "both", ("年度中位价折线", "Yearly median line"), None),
+ ("asking_lines", "s7", "market.ask", "both", ("挂牌均价折线", "Asking-price lines"), None),
+ ("count_progress", "foot", "hazards", "both", ("桌面 / 现场进度条", "Desktop vs field bar"), None),
+]
+def _fig_term(d, term):
+    term = term.strip()
+    if term.startswith("@"):
+        v = _dig(d, term[1:])
+        if not v: return False
+        if str(v).lstrip().startswith("<svg"): return True
+        fp = str(v) if os.path.isabs(str(v)) else os.path.join(os.path.dirname(os.path.abspath(d.get("_path") or ".")), str(v))
+        return os.path.exists(fp)
+    m = re.fullmatch(r"([A-Za-z_.]+)(?:\[([^\]]+)\])?(?:>=(\d+))?", term)
+    cur = _dig(d, m.group(1))
+    if cur in (None, "", [], {}): return False
+    if m.group(2) is None: return True
+    if not isinstance(cur, list): return False
+    need = [x.strip() for x in m.group(2).split(",")]
+    return sum(1 for it in cur if isinstance(it, dict) and all(it.get(n) not in (None, "", [], {}) for n in need)) >= int(m.group(3) or 1)
+def _dig(d, path):
+    cur = d
+    for k in path.split("."):
+        cur = cur.get(k) if isinstance(cur, dict) else None
+        if cur is None: return None
+    return cur
+def figures_check(d):
+    """[(id, section, fields, ok, name)] for the standard figures that apply to this data.json (house or unit); ok = the data the figure needs is present."""
+    unit = is_unit(d); out = []
+    for fid, sec_, spec, scope, names, applies in FIGURES:
+        if scope != "both" and (scope == "unit") != unit: continue
+        if applies is not None and not applies(d): continue
+        ok = any(all(_fig_term(d, term) for term in alt.split("+")) for alt in spec.split("|"))
+        out.append((fid, sec_, spec, ok, names[0 if LANG == "zh" else 1]))
+    return out
+def fig_warning(r):
+    return "standard figure %s (%s, %s) not produced: needs %s" % (r[0], r[1], r[4], r[2])
+
+def comp_card(c, subj, warnings, ctx="", url=""):
     v = verdict_of(c); cls = VCLS[v]
     _a = re.sub(r"\s*[\(（][^\)）]*[\)）]", "", str(c.get("address", ""))).strip()
     if c.get("lat") not in (None, "") and c.get("lon") not in (None, ""): _mq = "%s,%s" % (c["lat"], c["lon"])
@@ -806,8 +987,10 @@ def comp_card(c, subj, warnings, ctx=""):
     if be == "lower": tags += '<span class="tag be">%s</span>' % t("bk_lower")
     sdots = "".join('<i class="sd %s" title="%s"></i>' % ({1: "up", 0: "eq", -1: "dn", None: "na"}[score_val(c.get("scores", {}).get(k))], k) for k in SCORE_KEYS)
     cdots = "".join('<i class="cd%s"></i>' % (" on" if i < comp else "") for i in range(8))
-    head = '%s<b>%s</b> · %s · <b>%s</b><span class="sdots">%s</span><span class="cmp">%s %d/8 <span class="cdots">%s</span></span><span class="dist">%s</span>' % (
-        tags, esc(str(c.get("address", "")).title()), esc(c.get("date", "")), money(c.get("price")), sdots,
+    thumb = ('<img class="cthumb" src="%s" alt="" referrerpolicy="no-referrer" loading="lazy">' % esc(c["thumb"])) if _safe_url(c.get("thumb")) else ""
+    if thumb and url: thumb = '<a href="%s" target="_blank" rel="noopener" title="%s">%s</a>' % (esc(url), esc(t("open_profile")), thumb)
+    head = '%s%s<b>%s</b> · %s · <b>%s</b><span class="sdots">%s</span><span class="cmp">%s %d/8 <span class="cdots">%s</span></span><span class="dist">%s</span>' % (
+        tags, thumb, addr_html(c, url), esc(c.get("date", "")), money(c.get("price")), sdots,
         t("completeness"), comp, cdots, (str(c.get("dist_m")) + " m") if c.get("dist_m") is not None else "")
     land_cmp = ""
     if c.get("land_m2") and subj.get("land_m2"):
@@ -953,6 +1136,7 @@ def build(d):
         offer_html = '<div class="offer"><div><div class="k">%s</div><div class="n%s">%s</div></div><div><div class="k">%s</div><div class="n">%s</div></div><div><div class="k">%s</div><div class="n">%s</div><div class="note">%s</div></div></div>' % (
             t("offer_first"), "" if _fok else " tbd", money(offer.get("first")) if _fok else esc(t("offer_tbd")), t("offer_walk"), money(offer.get("walk_away")),
             t("offer_conf"), esc(offer.get("confidence", "—")), esc(offer.get("confidence_note", "")))
+        offer_html += '<div class="offerdisc">%s</div>' % t("offer_disclaimer")
     summary = '%s<div class="verdict"><b>%s:</b>%s</div><div class="cards">%s</div>%s<p class="maxrisk"><b>%s:</b>%s</p><p class="note disclaimer">%s</p>' % (
         hero, t("one_line"), esc(summ.get("verdict_line", "")), cards, offer_html, t("max_risk"), esc(summ.get("max_risk", "")), t("disclaimer", date=date))
 
@@ -1018,7 +1202,6 @@ def build(d):
             if p > mx: continue
             b = int((p - mn) // binw); bins[b] = bins.get(b, 0) + 1
         dots = "".join('<div class="dot" style="left:%.1f%%;top:%dpx"></div>' % (x(mn + (b + 0.5) * binw), 46 - 7 * min(k, 5)) for b, c in bins.items() for k in range(c))
-        dots += "".join('<div class="cl" style="left:%.1f%%;top:%dpx" title="%s %s">%s</div>' % (x(num(c["price"])), 4 + 14 * (i % 2), esc(str(c.get("address", "")).title()), money(c.get("price")), letter(i)) for i, c in enumerate(d.get("comps", {}).get("items", [])) if c.get("price") and mn <= num(c["price"]) <= mx)
         over = sum(1 for p in prices if p > mx)
         more = ('<div class="lab more">%s</div>' % t("ruler_more", cap=money(mx), n=over)) if over else ""
         step = 500000 if mx - mn > 2000000 else 250000
@@ -1030,10 +1213,10 @@ def build(d):
         tick_note = (" " + " / ".join("%s %s" % (lab, money(v)) for lab, v in _ticks) + (" = 虚线。" if LANG == "zh" else " = dashed lines.")) if _ticks else ""
         lo_r, hi_r = (summ.get("range") or [None, None])[:2]
         band = ('<div class="band" style="left:%.1f%%;width:%.1f%%"></div>' % (x(float(lo_r)), max(0.5, x(float(hi_r)) - x(float(lo_r))))) if lo_r and hi_r else ""
-        rh += "<h3>%s</h3><p class=\"note\">%s</p><p>%s</p><div class=\"ruler\">%s%s<div class=\"me\" style=\"left:%.1f%%\"></div><div class=\"lab\" style=\"left:%.1f%%;top:2px;color:#b42318;font-weight:700\">%s</div>%s</div><p class=\"note\">%s</p>" % (
+        rh += "<h3>%s</h3><p class=\"note\">%s</p><p>%s</p><div class=\"ruler\">%s%s<div class=\"me\" style=\"left:%.1f%%\"></div><div class=\"lab me-lab\" style=\"left:%.1f%%\">%s</div>%s</div><p class=\"note\">%s</p>" % (
             t("range_how"), esc(summ.get("range_note", "")),
             t("ruler_lead", window=esc(rl.get("window_label", "")), n=rl.get("n", len(prices)), median=money(rl.get("median") or statistics.median(prices)), list=money(L)),
-            band, dots + ticks + more, x(L), x(L), t("ruler_me", list=money(L), pct=pct), labs, t("ruler_note2") + tick_note)
+            band, dots + ticks + more, x(L), max(15, min(85, x(L))), t("ruler_me", list=money(L), pct=pct), labs, t("ruler_note2") + tick_note)
     S.append(sec("s2", '<p class="ai-note">%s</p>' % esc(t("ai_note")) + tlh + domh + rh))
 
     # ---- 3 hazards
@@ -1081,7 +1264,8 @@ def build(d):
         if not p: return ""
         if p.lstrip().startswith("<svg"): return p
         fp = p if os.path.isabs(p) else os.path.join(os.path.dirname(os.path.abspath(d["_path"])), p)
-        return open(fp, encoding="utf-8").read() if os.path.exists(fp) else '<p class="na">[%s missing: %s]</p>' % (key, esc(p))
+        if not os.path.exists(fp): return '<p class="na">[%s missing: %s]</p>' % (key, esc(p))
+        with open(fp, encoding="utf-8") as fh: return fh.read()
     lkv = "".join("<div><b>%s</b>%s</div>" % (esc(k), esc(v)) for k, v in ld.get("facts", []))
     lvh = ""
     lvhist = (subj.get("land_value") or {}).get("history") or {}
@@ -1117,7 +1301,7 @@ def build(d):
         _sc = svg_street_scatter(ss, subj, sub=t("sub_street")); ssh = ("<h3>%s</h3>%s" % (t("street_scatter_h"), _sc)) if _sc else ""
         if ss: ssh += _street_table(ss)
         land_html = '<div class="two"><div>%s</div><div><div class="kv" style="grid-template-columns:1fr">%s</div>%s</div></div><h3>%s</h3>%s%s' % (
-        read_fig("site_svg"), lkv, lvh, t("profile_h"), (("<p class=\"note\">%s</p>" % t("profile_flat", s=ld["profile_flat"].get("street", "—"), r=ld["profile_flat"].get("rear", "—"), f=ld["profile_flat"].get("fall", 0))) if isinstance(ld.get("profile_flat"), dict) else read_fig("profile_svg")), ssh)
+        read_fig("site_svg"), lkv, lvh, t("profile_h"), ((("<p class=\"note\">%s</p>" % t("profile_flat", s=ld["profile_flat"].get("street", "—"), r=ld["profile_flat"].get("rear", "—"), f=ld["profile_flat"].get("fall", 0))) if isinstance(ld.get("profile_flat"), dict) else "") + read_fig("profile_svg")), ssh)
     S.append(sec("s4", land_html))
 
     # ---- 5 comps
@@ -1126,7 +1310,7 @@ def build(d):
     csubj = cp.get("subject") or {"land_m2": subj.get("land_m2")}
     if UNIT and not csubj.get("floor_m2"): csubj = dict(csubj, floor_m2=subj.get("floor_m2"))
     _ctx = (re.split(r",\s*", subj.get("address", ""), maxsplit=1) + [""])[1]   # suburb / state tail of the subject address, for comp map links
-    cards_html = "".join(comp_card(c, csubj, warnings, ctx=_ctx) for c in items)
+    cards_html = "".join(comp_card(c, csubj, warnings, ctx=_ctx, url=comp_url(c, cp, subj)) for c in items)
     plv = sorted(num(c["p_lv"]) for c in items if c.get("p_lv"))
     svg_map.subj = (subj.get("lon"), subj.get("lat")) if subj.get("lon") and subj.get("lat") else None
     if not svg_map.subj: delattr(svg_map, "subj")
@@ -1134,24 +1318,29 @@ def build(d):
     _sd = lambda c, k: {1: "up", 0: "eq", -1: "dn", None: "na"}[score_val(c.get("scores", {}).get(k))]
     if UNIT:   # floor m² / level (+ level·aspect·view score) / cars (+ area & cars score)
         _rows = "".join('<tr class="%s"><td><a href="#comp-%s" class="letter">%s</a></td><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td><i class="sd %s"></i> %s</td><td><i class="sd %s"></i> %s</td><td><i class="sd %s"></i></td><td>%d/8</td></tr>' % (
-            VCLS[verdict_of(c)], c.get("_letter"), c.get("_letter"), esc(str(c.get("address", "")).title()), esc(str(c.get("date", ""))), money(c.get("price")), esc(c.get("floor_m2") or "—"), ("%s m" % c.get("dist_m")) if c.get("dist_m") is not None else "—",
+            VCLS[verdict_of(c)], c.get("_letter"), c.get("_letter"), addr_html(c, comp_url(c, cp, subj)), esc(str(c.get("date", ""))), money(c.get("price")), esc(c.get("floor_m2") or "—"), ("%s m" % c.get("dist_m")) if c.get("dist_m") is not None else "—",
             _sd(c, "slope"), esc(c.get("level") if c.get("level") not in (None, "") else "—"), _sd(c, "land"), esc(c.get("cars") if c.get("cars") not in (None, "") else "—"), _sd(c, "condition"), completeness(c)) for c in cp.get("items", []))
     else:
         _rows = None
     matrix = '<h3 style="margin-top:0">%s</h3><div class="tw"><table class="mx"><tr>%s</tr>%s</table></div>' % (t("matrix_h"), "".join("<th>%s</th>" % x for x in mth), "".join(
         '<tr class="%s"><td><a href="#comp-%s" class="letter">%s</a></td><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td><i class="sd %s"></i></td><td><i class="sd %s"></i></td><td><i class="sd %s"></i></td><td>%d/8</td></tr>' % (
-            VCLS[verdict_of(c)], c.get("_letter"), c.get("_letter"), esc(str(c.get("address", "")).title()), esc(str(c.get("date", ""))), money(c.get("price")), c.get("p_lv") or "—", ("%s m" % c.get("dist_m")) if c.get("dist_m") is not None else "—",
+            VCLS[verdict_of(c)], c.get("_letter"), c.get("_letter"), addr_html(c, comp_url(c, cp, subj)), esc(str(c.get("date", ""))), money(c.get("price")), c.get("p_lv") or "—", ("%s m" % c.get("dist_m")) if c.get("dist_m") is not None else "—",
             {1: "up", 0: "eq", -1: "dn", None: "na"}[score_val(c.get("scores", {}).get("land"))], {1: "up", 0: "eq", -1: "dn", None: "na"}[score_val(c.get("scores", {}).get("slope"))], {1: "up", 0: "eq", -1: "dn", None: "na"}[score_val(c.get("scores", {}).get("condition"))], completeness(c)) for c in cp.get("items", [])))
     if _rows is not None:
         matrix = '<h3 style="margin-top:0">%s</h3><div class="tw"><table class="mx"><tr>%s</tr>%s</table></div>' % (t("matrix_h"), "".join("<th>%s</th>" % x for x in mth), _rows)
-    # comparables map: skipped when every comp with coordinates is within 50 m of the subject, or they all share one coordinate (same building)
-    _cc = [(num(c["lat"]), num(c["lon"])) for c in cp.get("items", []) if c.get("lat") and c.get("lon")]
-    _skip_map = False
-    if _cc:
-        if subj.get("lat") not in (None, "") and subj.get("lon") not in (None, ""):
-            _skip_map = all(_hav_m(num(subj["lat"]), num(subj["lon"]), la, lo) <= 50 for la, lo in _cc)
-        if not _skip_map and len(_cc) >= 2: _skip_map = len({(round(la, 6), round(lo, 6)) for la, lo in _cc}) == 1
-    mp = "" if _skip_map else svg_map(cp.get("items", []), sub=t("sub_map")); mp = ("<h3>%s</h3>%s" % (t("map_h"), mp)) if mp else ""
+    # comparables map: skipped when every comp with coordinates is within 50 m of the subject, or they all share one coordinate (same building).
+    # Otherwise a real OpenStreetMap / Leaflet map (subject star, lot boundary, lettered comps coloured by verdict, click = profile link);
+    # the self-drawn svg_map is the fallback when offline or the CDN fails (then map_failed + a Google Maps link show).
+    _skip_map = same_bldg(subj, cp.get("items", []))
+    mp = ""
+    if not _skip_map:
+        _svg = svg_map(cp.get("items", []), sub=t("sub_map")); _fb = ("<h3>%s</h3>%s" % (t("map_h"), _svg)) if _svg else ""
+        _pts = [{"l": c.get("_letter"), "lon": num(c["lon"]), "lat": num(c["lat"]), "a": esc(str(c.get("address", "")).title()), "p": money(c.get("price")), "v": VCLS[verdict_of(c)], "u": comp_url(c, cp, subj)}
+                for c in cp.get("items", []) if c.get("lon") and c.get("lat")]
+        if _pts and subj.get("lon") not in (None, "") and subj.get("lat") not in (None, ""):
+            mp = leaflet_block(_pts, _ring_pts(d.get("land", {}).get("ring")), subj, _fb)
+        else:
+            mp = _fb
     scat = svg_scatter(cp.get("items", []), subj, summ.get("range"), sub=t("sub_scatter"))
     scat_blk = ("<h3>%s</h3>%s<p class=\"note\">%s</p>" % (t("scatter_h"), scat, t("scatter_note"))) if scat else ""
     if _skip_map:
@@ -1288,6 +1477,10 @@ def build(d):
     bl = d.get("blockers", []) if (meta.get("edition") or "public").lower() == "internal" else []
     if bl:
         glh += "<h3>%s</h3><table><tr><th>#</th><th>Step</th><th>Issue</th><th>Workaround</th></tr>%s</table>" % (t("blockers_h"), "".join("<tr><td>%s</td><td>%s</td><td>%s</td><td>%s</td></tr>" % (esc(b.get("n")), esc(b.get("step")), esc(b.get("issue")), esc(b.get("workaround"))) for b in bl))
+    _miss = [r for r in figures_check(d) if not r[3]]
+    for r in _miss: warnings.append(fig_warning(r))
+    if _miss and edition == "internal":
+        glh += "<h3>%s</h3><ul>%s</ul>" % (t("figs_missing"), "".join("<li><b>%s</b> (%s · %s): %s</li>" % (esc(r[4]), esc(r[0]), esc(r[1]), esc(r[2])) for r in _miss))
     S.append(sec("s9", glh))
 
     # ---- counts + footer
@@ -1354,10 +1547,10 @@ timeline: [{date, event, source, kind sale|rent|list|price_change|other (marker 
 dom: months_approx, basis, suburb_median_dom, suburb_dom_source, price_history_text, price_history_status verified|unverified, price_history [{date, price}] (>= 2 entries draw the list-price step chart against summary.range)
 ruler: prices [..], list, window_label, n, median, min, max
 hazards*: [{item, status ok|warn|bad|cond|na, tier covered|uncovered|paid, result, source, date, note, next*, slug}]  (status cond adds the two fixed flood next steps automatically)
-land: facts [[label, value]], site_svg (file path or inline <svg>), profile_svg, profile_flat {street, rear, fall} (replaces the profile chart on flat sites), lv_note, street_sales [{addr, price, date, land, strata true (house mode: blank Land cell + note), floor_m2 (older unit files)}]
+land: facts [[label, value]], site_svg (file path or inline <svg>), profile_svg (house: always drawn), profile_flat {street, rear, fall} (adds a one-line note on flat sites; the chart stays), ring [[lon, lat], ...] (cadastral lot boundary drawn on the map), lv_note, street_sales [{addr, price, date, land, strata true (house mode: blank Land cell + note), floor_m2 (older unit files)}]
   unit mode ignores site_svg / profile_svg / street_sales charts and uses: stack_svg (same stack x floor), building_svg (same layout x sale date) - file path relative to data.json, or inline <svg> - building_read (one line under them),
   building_sales [{unit, beds, baths, cars, floor_m2, price, date, source}] (all sales in the building, unfiltered, shown newest first)
-comps: source_note, filter_note, subject {land_m2}, p_lv_note, items (lettered A, B, C… in order) [{address, price, date, dist_m, lon, lat, land_m2, lv, lv_m2, p_lv, landslip, street_side, elev, beds, baths, floor_m2, built, storeys, wall, reno,
+comps: source_note, filter_note, profile_url_pattern (e.g. https://www.domain.com.au/property-profile/{slug}; builds a link per comparable from its address + the subject's suburb/state/postcode), subject {land_m2}, p_lv_note, items (lettered A, B, C… in order) [{address, url (optional, wins over the pattern; matrix row, card title and map marker link to it), thumb (optional image URL, hot-linked exactly as served, credited, never downloaded - same rule as photos.images; shown as a small thumbnail on the card), price, date, dist_m, lon, lat, land_m2, lv, lv_m2, p_lv, landslip, street_side, elev, beds, baths, floor_m2, built, storeys, wall, reno,
        level, orientation (or aspect), view, cars, levies (unit fields),
        scores {land, slope, condition: +1|0|-1|null}, verdict (optional override; all three scores null -> "Unknown": grey, collapsed, never a bookend), bookend upper|lower|null, note}]
 pricing: method_note, bookend_upper_text, bookend_lower_text, first_offer_text (tier-table basis of the first-offer row), upper / lower (legacy aliases of the two bookend texts only), widen_reason (shown as a 'Range note'),
@@ -1382,20 +1575,36 @@ def main():
     ap.add_argument("--lang", choices=["zh", "en"], help="override meta.lang")
     ap.add_argument("--template", default=os.path.join(HERE, "..", "templates", "report.html"))
     ap.add_argument("--schema", action="store_true", help="print the data.json field list and exit")
+    ap.add_argument("--check", action="store_true", help="with --data: list the standard figures data.json cannot produce (house / unit aware), as WARNING lines; writes nothing; exit 0 unless the data file is unreadable")
     a = ap.parse_args()
     if a.schema:
         print(SCHEMA); return
-    if not a.data or not a.out:
-        ap.error("--data and --out are required (or use --schema)")
+    if not a.data or (not a.out and not a.check):
+        ap.error("--data and --out are required (or use --schema / --check)")
     global LANG
-    d = json.load(open(a.data, encoding="utf-8")); d["_path"] = os.path.abspath(a.data)
+    if a.check:
+        try:
+            with open(a.data, encoding="utf-8") as fh: d = json.load(fh)
+            if not isinstance(d, dict): raise ValueError("top level is not an object")
+        except (OSError, ValueError) as e:
+            print("ERROR: cannot read %s: %s" % (a.data, e), file=sys.stderr); sys.exit(2)
+        d["_path"] = os.path.abspath(a.data)
+        if a.lang: d.setdefault("meta", {})["lang"] = a.lang
+        LANG = (d.get("meta") or {}).get("lang", LANG)
+        res = figures_check(d); miss = [r for r in res if not r[3]]
+        print("check: %s mode, %d standard figures apply" % ("unit" if is_unit(d) else "house", len(res)))
+        for r in miss: print("WARNING: " + fig_warning(r))
+        print("check: %d/%d producible, %d missing (nothing written)" % (len(res) - len(miss), len(res), len(miss)))
+        return
+    with open(a.data, encoding="utf-8") as fh: d = json.load(fh)
+    d["_path"] = os.path.abspath(a.data)
     if a.lang: d.setdefault("meta", {})["lang"] = a.lang
     title, banner, summary, sections, foot, warnings = build(d)
-    tpl = open(a.template, encoding="utf-8").read()
+    with open(a.template, encoding="utf-8") as fh: tpl = fh.read()
     out = (tpl.replace("{{LANG}}", "zh-CN" if LANG == "zh" else "en").replace("{{TITLE}}", esc(title)).replace("{{BANNER}}", banner)
            .replace("{{SUMMARY}}", summary).replace("{{SECTIONS}}", sections).replace("{{FOOTER}}", foot)
            .replace("{{EXPAND_ALL}}", t("expand_all")).replace("{{COLLAPSE_ALL}}", t("collapse_all")).replace("{{TOOLBAR_HINT}}", t("toolbar_hint")))
-    open(a.out, "w", encoding="utf-8").write(out)
+    with open(a.out, "w", encoding="utf-8") as fh: fh.write(out)
     for w in warnings: print("WARNING:", w, file=sys.stderr)
     print("written", a.out, len(out), "bytes")
 

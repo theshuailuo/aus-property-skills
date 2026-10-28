@@ -95,7 +95,7 @@
    1280000,
    1400000
   ],
-  "range_note": "三明治法(同楼):上夹板 10/90 $1,425,000(2026-02,136 m²、podium 庭院 + 公园景观)——同规格放在更好位置,减景观/庭院溢价约 2–4% ≈ $1.37M–1.40M;下夹板 66/90 $1,380,000(2025-12,137 m²、2 车位,楼层朝向未知)——与标的几乎同规格,成交前挂了 6 个月,减去「标的朝向景观未知」的不确定性约 5–7% ≈ $1.28M–1.31M。旁证:106/90 $1.5M(3 车位);Terrace Rd 其它楼 3 房 13 笔 $1.20M–1.56M、中位 $1.35M;全区 3 房非独立屋 12 个月中位见标尺。两头都没有标的的朝向/景观/翻新信息,区间按规则放宽。",
+  "range_note": "三明治法(同楼):上限参考 10/90 $1,425,000(2026-02,136 m²、podium 庭院 + 公园景观)——同规格放在更好位置,减景观/庭院溢价约 2–4% ≈ $1.37M–1.40M;下限参考 66/90 $1,380,000(2025-12,137 m²、2 车位,楼层朝向未知)——与标的几乎同规格,成交前挂了 6 个月,减去「标的朝向景观未知」的不确定性约 5–7% ≈ $1.28M–1.31M。旁证:106/90 $1.5M(3 车位);Terrace Rd 其它楼 3 房 13 笔 $1.20M–1.56M、中位 $1.35M;全区 3 房非独立屋 12 个月中位见标尺。两头都没有标的的朝向/景观/翻新信息,区间按规则放宽。",
   "avm_range": [
    1200000,
    1250000,
@@ -104,7 +104,7 @@
   "offer": {
    "walk_away": 1380000,
    "confidence": "中",
-   "confidence_note": "放手价 $1.38M = 同楼 66 号同规格成交价,超过它就等于买一套更好位置的 10 号。把握「中」:夹板两笔都是同楼同户型(6/8、5/8),但标的朝向景观、翻新、levies 年度都未核;洪水为条件项(地下车库高程 + strata 保险两项拿到前出价只能是条件出价)。"
+   "confidence_note": "放手价 $1.38M = 同楼 66 号同规格成交价,超过它就等于买一套更好位置的 10 号。把握「中」:上下限参考两笔都是同楼同户型(6/8、5/8),但标的朝向景观、翻新、levies 年度都未核;洪水为条件项(地下车库高程 + strata 保险两项拿到前出价只能是条件出价)。"
   },
   "cards": [
    {
@@ -573,6 +573,7 @@
  "comps": {
   "source_note": "来源:OnTheHouse 成交列表与单元页(Cotality/Landgate 数据,免费、curl 可开、无限速)+ Aussie 单元页(限速,8 次后 202)+ REIWA 郊区页(内嵌 JSON)。WA 没有官方逐笔成交图层。打分轴(unit 版):面积与车位 / 楼层·朝向·景观 / 房况(建年、翻新)。",
   "filter_note": "筛选:① 同楼(SP 58159)近 12 个月全部住宅成交 6 笔(3 房 3 笔、2 房 3 笔);② East Perth 其它 3 房非独立屋成交,$1.2M–1.6M,近 12 个月,取 Terrace Rd / Adelaide Tce 一线 11 笔 + 2 笔河湾对照。OnTheHouse 列表只回溯到 2025-10-27,所以是 12 个月样本;其它楼成交没有面积、楼层、建年。",
+  "profile_url_pattern": "https://www.domain.com.au/property-profile/{slug}",
   "subject": {
    "land_m2": 187,
    "floor_m2": 136
@@ -581,6 +582,7 @@
   "items": [
    {
     "address": "10/90 Terrace Rd(同楼)",
+    "thumb": "https://images.corelogic.asia/0x0/filters:watermark(cla-digital-assets-prod,watermarks/logo.png,-2p,-2p,30,16,16)/assets/perm/mgkmauoevui7boqag5pzjrqzkm?signature=5f4a63c5d1b8d0e11e77c66d2eb724b59abc82d5f617a861b3dd42786fb370e1",
     "price": 1425000,
     "date": "26 February 2026",
     "dist_m": 0,
@@ -613,6 +615,7 @@
    },
    {
     "address": "106/90 Terrace Rd(同楼)",
+    "thumb": "https://images.corelogic.asia/0x0/filters:watermark(cla-digital-assets-prod,watermarks/logo.png,-2p,-2p,30,16,16)/assets/perm/tphsawvcdei7bfgbtwbziysufa?signature=769431917b6142646fbc1999005f55bd9a563babb314b84a3bef6a683e710bc8",
     "price": 1500000,
     "date": "13 December 2025",
     "dist_m": 0,
@@ -638,12 +641,13 @@
      "condition": 0
     },
     "bookend": null,
-    "note": "同楼 137 m²、3 车位(多 1 个车位,约 +$50–80k)、strata lot 197 m²;Strata $3,634+$1,774/季(文案)说明 entitlement 更大。楼层朝向未知。优于,但完整度 5/8,不做上夹板(unit 10 更贴近)",
+    "note": "同楼 137 m²、3 车位(多 1 个车位,约 +$50–80k)、strata lot 197 m²;Strata $3,634+$1,774/季(文案)说明 entitlement 更大。楼层朝向未知。优于,但完整度 5/8,不做上限参考(unit 10 更贴近)",
     "cars": 3,
     "levies": "$3,634 + $1,774/季(挂牌文案)"
    },
    {
     "address": "66/90 Terrace Rd(同楼)",
+    "thumb": "https://images.corelogic.asia/0x0/filters:watermark(cla-digital-assets-prod,watermarks/logo.png,-2p,-2p,30,16,16)/assets/perm/gi23whjxhui7bjdkb747loutdm?signature=6e275b9e41c7c5eed05069bbdfe4d8b3753bf35db461076a5459f29145d53cb2",
     "price": 1380000,
     "date": "2 December 2025",
     "dist_m": 0,
@@ -669,11 +673,12 @@
      "condition": 0
     },
     "bookend": "lower",
-    "note": "同楼 137 m²、2 车位、strata lot 185 m²,与标的几乎同规格;2025-05-22 挂牌、12 月成交(约 6 个月,成交日可能是过户日)。楼层朝向未知 → 相当。完整度 5/8,作下夹板",
+    "note": "同楼 137 m²、2 车位、strata lot 185 m²,与标的几乎同规格;2025-05-22 挂牌、12 月成交(约 6 个月,成交日可能是过户日)。楼层朝向未知 → 相当。完整度 5/8,作下限参考",
     "cars": 2
    },
    {
     "address": "29/90 Terrace Rd(同楼 2 房)",
+    "thumb": "https://images.corelogic.asia/0x0/filters:watermark(cla-digital-assets-prod,watermarks/logo.png,-2p,-2p,30,16,16)/assets/perm/uuwlxrfksai7bmgahxwwkjdml4?signature=c16378b4bd78c3d8b27dabd52db9c8d0b612d124677188526195124ecdbf0f44",
     "price": 940000,
     "date": "22 February 2026",
     "dist_m": 0,
@@ -703,6 +708,7 @@
    },
    {
     "address": "99/90 Terrace Rd(同楼 2 房)",
+    "thumb": "https://images.corelogic.asia/0x0/filters:watermark(cla-digital-assets-prod,watermarks/logo.png,-2p,-2p,30,16,16)/assets/perm/54zp37ov64i7bgediwmt3f7s6m?signature=346b85fbfe3955d7987abb5d9ad422b9ff031b7323e7ebfba3a1cb17182711cf",
     "price": 980000,
     "date": "22 December 2025",
     "dist_m": 0,
@@ -732,6 +738,7 @@
    },
    {
     "address": "35/90 Terrace Rd(同楼 2 房)",
+    "thumb": "https://images.corelogic.asia/0x0/filters:watermark(cla-digital-assets-prod,watermarks/logo.png,-2p,-2p,30,16,16)/assets/perm/wqkdpeklvmi7bivyjeupmehay4?signature=c1dac7c7f6186c0fe61a4117edafa4d34bee0ad5f48fe563a3edf53a0c6f51c8",
     "price": 930000,
     "date": "6 November 2025",
     "dist_m": 0,
@@ -761,6 +768,7 @@
    },
    {
     "address": "91/60 Terrace Rd",
+    "thumb": "https://images.corelogic.asia/0x0/filters:watermark(cla-digital-assets-prod,watermarks/logo.png,-2p,-2p,30,16,16)/assets/perm/jwxsixqatei6rctpnvlox77ypq?signature=30e91cd5a0603e397315897b4c04cbfa650eecf2b4c59a8eccc9734fe69e78a7",
     "price": 1480000,
     "date": "28 July 2026",
     "dist_m": 189,
@@ -786,10 +794,11 @@
      "condition": null
     },
     "bookend": null,
-    "note": "Terrace Rd 河畔楼;面积/楼层/建年未知;3 房 2 卫 2 车位(OnTheHouse 成交列表)。完整度 3/8,不做夹板,只画价位"
+    "note": "Terrace Rd 河畔楼;面积/楼层/建年未知;3 房 2 卫 2 车位(OnTheHouse 成交列表)。完整度 3/8,不作上下限参考,只画价位"
    },
    {
     "address": "63/100 Terrace Rd",
+    "thumb": "https://images.corelogic.asia/0x0/filters:watermark(cla-digital-assets-prod,watermarks/logo.png,-2p,-2p,30,16,16)/assets/perm/sdkm2y2tiui7dalyzfizpbz2my?signature=cf3b408ace1ef4a84156a9b36df9d60699c9c5cbf2a9ee8ca62db029aa70b7c2",
     "price": 1330000,
     "date": "6 July 2026",
     "dist_m": 80,
@@ -815,10 +824,11 @@
      "condition": null
     },
     "bookend": null,
-    "note": "隔壁 100 号;面积未知;3 房 2 卫 2 车位(OnTheHouse 成交列表)。完整度 3/8,不做夹板,只画价位"
+    "note": "隔壁 100 号;面积未知;3 房 2 卫 2 车位(OnTheHouse 成交列表)。完整度 3/8,不作上下限参考,只画价位"
    },
    {
     "address": "75/78 Terrace Rd",
+    "thumb": "https://images.corelogic.asia/0x0/filters:watermark(cla-digital-assets-prod,watermarks/logo.png,-2p,-2p,30,16,16)/assets/perm/mcpqkgapp4i6zcfrrxpfx5c2o4?signature=71375af50c51edc740e91d0e7c79b30133b4ddc8109eae65e3fcc6afe2b59ef2",
     "price": 1349786,
     "date": "4 June 2026",
     "dist_m": 86,
@@ -844,10 +854,11 @@
      "condition": null
     },
     "bookend": null,
-    "note": "78 号;面积未知;3 房 2 卫 2 车位(OnTheHouse 成交列表)。完整度 3/8,不做夹板,只画价位"
+    "note": "78 号;面积未知;3 房 2 卫 2 车位(OnTheHouse 成交列表)。完整度 3/8,不作上下限参考,只画价位"
    },
    {
     "address": "60/100 Terrace Rd",
+    "thumb": "https://images.corelogic.asia/0x0/filters:watermark(cla-digital-assets-prod,watermarks/logo.png,-2p,-2p,30,16,16)/assets/perm/a6ns3diwymi7dex4hxutmdf27u?signature=5128c86a111cf8f72237b2db0764b742f3770647fa391595a751cccadd8c0f17",
     "price": 1200000,
     "date": "28 May 2026",
     "dist_m": 80,
@@ -873,10 +884,11 @@
      "condition": null
     },
     "bookend": null,
-    "note": "隔壁 100 号;面积未知,价位接近标价;3 房 2 卫 2 车位(OnTheHouse 成交列表)。完整度 3/8,不做夹板,只画价位"
+    "note": "隔壁 100 号;面积未知,价位接近标价;3 房 2 卫 2 车位(OnTheHouse 成交列表)。完整度 3/8,不作上下限参考,只画价位"
    },
    {
     "address": "24/98 Terrace Rd",
+    "thumb": "https://images.corelogic.asia/0x0/filters:watermark(cla-digital-assets-prod,watermarks/logo.png,-2p,-2p,30,16,16)/assets/perm/7gon46rj3mi7dntaigr2ovdheu?signature=9ae2fe63b8f6e83faf3d683f59e8f7c521ae01e9ea5051b20e62bf84a1bd64d9",
     "price": 1200000,
     "date": "1 May 2026",
     "dist_m": 63,
@@ -902,10 +914,11 @@
      "condition": null
     },
     "bookend": null,
-    "note": "98 号;OTH 记 193 m²(疑为总面积);3 房 2 卫 2 车位(OnTheHouse 成交列表)。完整度 3/8,不做夹板,只画价位"
+    "note": "98 号;OTH 记 193 m²(疑为总面积);3 房 2 卫 2 车位(OnTheHouse 成交列表)。完整度 3/8,不作上下限参考,只画价位"
    },
    {
     "address": "103/42-52 Terrace Rd",
+    "thumb": "https://images.corelogic.asia/0x0/filters:watermark(cla-digital-assets-prod,watermarks/logo.png,-2p,-2p,30,16,16)/assets/perm/ipm6q3mx4mi7bnuyh5w4viv5xm?signature=afe58caf8a861c5625a647c68943ced083976bd5656ea53ad7e1994469492954",
     "price": 1400000,
     "date": "3 March 2026",
     "dist_m": 287,
@@ -931,10 +944,11 @@
      "condition": null
     },
     "bookend": null,
-    "note": "42–52 号;面积未知;3 房 2 卫 2 车位(OnTheHouse 成交列表)。完整度 3/8,不做夹板,只画价位"
+    "note": "42–52 号;面积未知;3 房 2 卫 2 车位(OnTheHouse 成交列表)。完整度 3/8,不作上下限参考,只画价位"
    },
    {
     "address": "93/78 Terrace Rd",
+    "thumb": "https://images.corelogic.asia/0x0/filters:watermark(cla-digital-assets-prod,watermarks/logo.png,-2p,-2p,30,16,16)/assets/perm/ncieasridyi7dj6l3mrmj4a5zy?signature=9c6ff049ddd160d709edfe0f8e5f12cc73ef59909f5f7b2af50f3d3a3da51d0e",
     "price": 1295000,
     "date": "25 January 2026",
     "dist_m": 86,
@@ -960,10 +974,11 @@
      "condition": null
     },
     "bookend": null,
-    "note": "78 号;面积未知;3 房 2 卫 2 车位(OnTheHouse 成交列表)。完整度 3/8,不做夹板,只画价位"
+    "note": "78 号;面积未知;3 房 2 卫 2 车位(OnTheHouse 成交列表)。完整度 3/8,不作上下限参考,只画价位"
    },
    {
     "address": "82/78 Terrace Rd",
+    "thumb": "https://images.corelogic.asia/0x0/filters:watermark(cla-digital-assets-prod,watermarks/logo.png,-2p,-2p,30,16,16)/assets/perm/5aqnclv76yi7bogh4ekhiq4rvq?signature=33aefe1c96d21579725547a94e749dd6f1693160768ef790fee70986f1fc4463",
     "price": 1350000,
     "date": "2 November 2025",
     "dist_m": 86,
@@ -989,10 +1004,11 @@
      "condition": null
     },
     "bookend": null,
-    "note": "78 号;面积未知;3 房 2 卫 2 车位(OnTheHouse 成交列表)。完整度 3/8,不做夹板,只画价位"
+    "note": "78 号;面积未知;3 房 2 卫 2 车位(OnTheHouse 成交列表)。完整度 3/8,不作上下限参考,只画价位"
    },
    {
     "address": "6b/70 Terrace Rd",
+    "thumb": "https://images.corelogic.asia/0x0/filters:watermark(cla-digital-assets-prod,watermarks/logo.png,-2p,-2p,30,16,16)/assets/perm/aa6okeoayai7bnkm5vxpu3c7za?signature=bc7e8edbef3cada28b2bac7733f7e27f3078b3ca4ee53b09d15a427ae9a15db0",
     "price": 1370000,
     "date": "9 December 2025",
     "dist_m": 118,
@@ -1018,10 +1034,11 @@
      "condition": null
     },
     "bookend": null,
-    "note": "70 号;面积未知;3 房 2 卫 2 车位(OnTheHouse 成交列表)。完整度 3/8,不做夹板,只画价位"
+    "note": "70 号;面积未知;3 房 2 卫 2 车位(OnTheHouse 成交列表)。完整度 3/8,不作上下限参考,只画价位"
    },
    {
     "address": "185/189 Adelaide Tce",
+    "thumb": "https://images.corelogic.asia/0x0/filters:watermark(cla-digital-assets-prod,watermarks/logo.png,-2p,-2p,30,16,16)/assets/perm/byeegxyymii7dheuin47a4stcy?signature=ac6cffdfa702ad245c0bbd4c6535a91e3f4a3b045d4b5535069f9894ad49b1ad",
     "price": 1275000,
     "date": "11 August 2026",
     "dist_m": 96,
@@ -1047,10 +1064,11 @@
      "condition": null
     },
     "bookend": null,
-    "note": "母地块北侧 Adelaide Tce 一面(同一街区);面积未知;3 房 2 卫 2 车位(OnTheHouse 成交列表)。完整度 3/8,不做夹板,只画价位"
+    "note": "母地块北侧 Adelaide Tce 一面(同一街区);面积未知;3 房 2 卫 2 车位(OnTheHouse 成交列表)。完整度 3/8,不作上下限参考,只画价位"
    },
    {
     "address": "213/189 Adelaide Tce",
+    "thumb": "https://images.corelogic.asia/0x0/filters:watermark(cla-digital-assets-prod,watermarks/logo.png,-2p,-2p,30,16,16)/assets/perm/4hkaadfwrai7bcjicxthvhlmju?signature=d7433250c8b970fb88e835e945265938ea2fc9a0a0063faa1a2ca20cfce56ecd",
     "price": 1400000,
     "date": "11 February 2026",
     "dist_m": 96,
@@ -1076,10 +1094,11 @@
      "condition": null
     },
     "bookend": null,
-    "note": "同上;面积未知;3 房 2 卫 2 车位(OnTheHouse 成交列表)。完整度 3/8,不做夹板,只画价位"
+    "note": "同上;面积未知;3 房 2 卫 2 车位(OnTheHouse 成交列表)。完整度 3/8,不作上下限参考,只画价位"
    },
    {
     "address": "2/22 Kensington St",
+    "thumb": "https://images.corelogic.asia/0x0/filters:watermark(cla-digital-assets-prod,watermarks/logo.png,-2p,-2p,30,16,16)/assets/perm/63w3e7judmi7dnl4jhqgtluv3e?signature=81c1440ac8111eef3c0e39dde011cbe58012a760b7eaddf67c07312454ecd7e3",
     "price": 1365000,
     "date": "25 September 2026",
     "dist_m": 1475,
@@ -1105,10 +1124,11 @@
      "condition": null
     },
     "bookend": null,
-    "note": "Claisebrook 一侧 1.5 km;面积未知;3 房 2 卫 2 车位(OnTheHouse 成交列表)。完整度 3/8,不做夹板,只画价位"
+    "note": "Claisebrook 一侧 1.5 km;面积未知;3 房 2 卫 2 车位(OnTheHouse 成交列表)。完整度 3/8,不作上下限参考,只画价位"
    },
    {
     "address": "9/40 Victory Tce",
+    "thumb": "https://images.corelogic.asia/0x0/filters:watermark(cla-digital-assets-prod,watermarks/logo.png,-2p,-2p,30,16,16)/assets/perm/d2e5am72hii67jiigwxa2rjbvq?signature=1f5775a1c9f04bf5978c413d568bf99b8e9fe5f9d2d66c270d2f871be701386c",
     "price": 1560000,
     "date": "10 September 2026",
     "dist_m": 1607,
@@ -1134,16 +1154,16 @@
      "condition": null
     },
     "bookend": null,
-    "note": "Claisebrook 河湾 1.6 km;面积未知;3 房 2 卫 2 车位(OnTheHouse 成交列表)。完整度 3/8,不做夹板,只画价位"
+    "note": "Claisebrook 河湾 1.6 km;面积未知;3 房 2 卫 2 车位(OnTheHouse 成交列表)。完整度 3/8,不作上下限参考,只画价位"
    }
   ]
  },
  "pricing": {
-  "method_note": "Strata 模块:可比只取同楼同户型做夹板(两笔完整度 ≥5/8),其它楼 3 房成交只画价位不打分(无面积/楼层)。三项打分改为:面积与车位 / 楼层·朝向·景观 / 房况。土地含量(母地块 UV × entitlement)两项均无免费源,未计算。",
+  "method_note": "Strata 模块:可比只取同楼同户型作上下限参考(两笔完整度 ≥5/8),其它楼 3 房成交只画价位不打分(无面积/楼层)。三项打分改为:面积与车位 / 楼层·朝向·景观 / 房况。土地含量(母地块 UV × entitlement)两项均无免费源,未计算。",
   "bookend_upper_text": "10/90 Terrace Rd $1,425,000(2026-02-26,136 m²、2 车位、podium 一层 25 m² 庭院 + Langley Park 景观,Renouf Real Estate)——同户型更好位置;减景观与庭院溢价 ≈ $1.37M–1.40M",
   "bookend_lower_text": "66/90 Terrace Rd $1,380,000(2025-12-02,137 m²、2 车位、strata lot 185 m²,Realestate 88;挂牌 2025-05-22)——与标的同规格,楼层朝向未知;标的 Level 2 朝西南、只有 20 m² 阳台,减不确定性 ≈ $1.28M–1.31M",
   "first_offer_text": "首次出价不在报告里定数,要结合与中介沟通后的信息再定。参考点:卖方自己定的「Offers Over」门槛 $1,249,000,与本楼 OnTheHouse AVM 带($1.2–1.3M,模型值)的中点约 $1.25M;挂了约 7 周、超区均在市 14 天四倍,卖方有谈判空间。",
-  "widen_reason": "标的的朝向景观、室内翻新、levies 年度都没核;两块夹板的楼层(66)与翻新都未知;其它楼 13 笔没有面积。区间两头各放宽约 $20k。「两房 ≤ house 中位一半」规则只覆盖两房,本例三房不适用;参考:标价 ÷ East Perth house 中位 = 0.66(REIWA $1.905M,n=22)/ 0.80(Cotality $1.558M),house 样本太小,不作判断依据。",
+  "widen_reason": "标的的朝向景观、室内翻新、levies 年度都没核;上下限参考两张的楼层(66)与翻新都未知;其它楼 13 笔没有面积。区间两头各放宽约 $20k。「两房 ≤ house 中位一半」规则只覆盖两房,本例三房不适用;参考:标价 ÷ East Perth house 中位 = 0.66(REIWA $1.905M,n=22)/ 0.80(Cotality $1.558M),house 样本太小,不作判断依据。",
   "mortgage": {
    "rate": 0.0615,
    "years": 30,

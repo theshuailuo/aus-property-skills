@@ -26,7 +26,7 @@
 
 - `today`(YYYY-MM-DD,算 2027-07-01 前还剩几年)、`pageTitle`、`eyebrow`、`title`、`subtitle`
 - `defaults`:滑动条初值。键名:`price lvr rate rev0 mgmtFee peak off peakBlocked insurance otherHold mtr deposit index homeLoanRate ltRent bookNights bookNightly growth years vrltEscalate`
-- `model`:`state`(NSW / VIC / QLD 用内置印花税表,其他州给 `dutyRate` 或 `duty`)、`vrlt`(只有 VIC 为 true)、`peakVal` / `offVal`(让一晚旺季 / 淡季给客人能多收多少)、`adr`、`platformFee`、`levy`、`directCosts`、`landTax`、`cpi`、`sellPct`、`otherCosts`、`furnishing`、`dwelling`、`optOwn{peak, off}`
+- `model`:`state`(NSW / VIC / QLD 用内置印花税表,其他州给 `dutyRate` 或 `duty`)、`vrlt`(只有 VIC 为 true)、`peakVal` / `offVal`(让一晚旺季 / 淡季给客人能多收多少)、`adr`、`platformFee`、`levy`、`directCosts`、`landTax`、`cpi`、`sellPct`、`otherCosts`、`furnishing`、`dwelling`、`optOwn{peak, off}`、`revRange`(可选,`[低, 高]`,全年房费,和 `rev0` 同口径;填了首页结论句带每年要掏的区间。只有一个收入来源时才不填)
 - `growthRefs`:两条当地历史涨幅,带来源(如过去 5 年、过去 10 年);`growthButtons`:首页三个涨幅按钮
 - `text`:11 条本地化句子:`growthHistory growthSource rev0Hint revRefs revBasis optDesc optShort redFlags[] useLead peakValNote useCallouts`
 - `help`:可覆盖某个滑动条的「?」说明

@@ -262,6 +262,8 @@ function render() {
   $('hl').innerHTML = `按你们的用法,这套房每年平均要掏 <span class="big">${fmt(you.cashYear)}</span>,是每年订房(${fmt(book)})的 <span class="big">${(you.cashYear / book).toFixed(1)} 倍</span>;`
     + `房价年涨 ${pc(S.growth)} 的话,${S.years} 年后身家比「${best.label}」${diff < 0 ? '少' : '多'} <span class="big">${wan(Math.abs(diff))}</span>。`;
   const opt = P.res.opt;
+  const range = M.revRange ? M.revRange.map(v => HH.paths(cfg(S, {rev0: v}), S.growth).res.you.cashYear) : null;
+  if (range) $('hl').innerHTML += ` <span class="small">这只是一个点:全年房费按 ${fmt(M.revRange[0])} 到 ${fmt(M.revRange[1])} 算,每年要掏 ${fmt(range[0])} 到 ${fmt(range[1])}。</span>`;
   const bestKey = alts[0][0], pv = Math.pow(1.025, S.years);
   const beG = beOne('you', bestKey, c);
   let lo = 0, hi = 250000; for (let i = 0; i < 40; i++) { const mid = (lo + hi) / 2; const r = HH.paths(cfg(S, {rev0: mid}), S.growth).res; if (r.you.W >= r[bestKey].W) hi = mid; else lo = mid; }
@@ -292,7 +294,8 @@ function render() {
   const own = S.peak + S.off;
   $('wfNote').innerHTML = `* 持有成本 ${fmt(h.m.hold)} = 保险 ${fmt(S.insurance)} + 市政水费、维修、水电网 ${fmt(S.otherHold)} + 土地税 ${fmt(M.landTax)}`
     + (!M.vrlt ? '' : own < 28 ? ` + 空置住宅地税 ${fmt(h.m.hold - S.insurance - S.otherHold - M.landTax)}(自住 ${own} 晚不满 4 周;${S.vrltEscalate ? '按 1%→2%→3% 递增,第 3 年起 3%' : '按每年 1%'})` : '(自住满 4 周,空置税豁免)')
-    + `。第一年(2027-07-01 前亏损还能抵工资)净结果 ${fmt(h.m.afterFirst)}。`;
+    + `。第一年(2027-07-01 前亏损还能抵工资)净结果 ${fmt(h.m.afterFirst)}。`
+    + `净收益率(未扣利息)${pc((h.m.rev - h.m.levy - h.m.plat - h.m.mgmt - h.m.direct - h.m.hold) / S.price).replace('-', '−')} = (房费 − 平台费 − 短住税 − 托管 − 清洁等直接成本 − 上面的持有成本)÷ 房价,已按自住少收的房费算,托管费按 ${pc(S.mgmtFee, 0)} 算。别人说的净收益可能没算托管、维修或自住少收的房费,比较前先对口径。`;
   $('sc').innerHTML = scenarioChart();
   $('be').innerHTML = beSvg;
   $('wl').innerHTML = wealthChart();

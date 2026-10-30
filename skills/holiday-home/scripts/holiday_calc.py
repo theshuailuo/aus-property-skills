@@ -482,6 +482,7 @@ L = {
         "upfront": "买房前期现金(首付 + 印花税 + 杂费 + 家具)", "duty": "印花税",
         "duty_src": {"input": "你给的", "state_table": "按州政府现行税率表算", "rough_4pct": "按房价 4% 粗估,请用州税务局计算器替换"},
         "alt_disc": "先读这句:本节是一般信息,只是把买度假屋要拿出的钱,和存定期、买指数基金、提前还房贷这几种常见去处放在一起比机会成本。这里用的是通用假设的参照回报率,不指任何具体产品、银行或基金;没有结合您的个人情况,不构成金融产品建议,也不是对任何产品的推荐。您的税率、贷款、风险承受力和时间安排都会改变结论,请结合自身情况自行分析,或寻求持牌专业人士意见。",
+        "net_def": "口径:净收益率 = (一年房费 − 平台费 − 短住税 − 托管 − 清洁等直接成本 − 保险、市政水费、维修、水电网和地税)÷ 房价,已按自住少收的房费算,托管费按 {mgmt} 算,未扣利息和税。别人说的净收益可能没算托管、维修或自住少收的房费,比较前先对口径。", "range_line": "上面只是收入区间里的一个点。收入取 {lo} 到 {hi} 时,税后现金流是 {a} 到 {b}。",
         "bookc": "每年订房花费", "alt": "不买的钱拿去", "deposit": "存定期", "index": "指数基金",
         "mortgage": "还自住房贷", "be": "房价每年至少要涨", "be_none": "30% 以内都追不上",
         "vs_lt": "对比:同样的钱买一套长租投资房,度假另订", "lt_cash": "长租房每年税后现金流",
@@ -522,6 +523,7 @@ L = {
         "upfront": "Upfront cash (deposit + stamp duty + costs + furniture)", "duty": "Stamp duty",
         "duty_src": {"input": "your figure", "state_table": "from the state's current rate table", "rough_4pct": "rough 4% of price; replace with the state calculator"},
         "alt_disc": "Read this first: This section is general information. It sets the money a holiday home ties up against a few common alternatives (a term deposit, an index fund, paying down your home loan) to show the opportunity cost. The rates are generic reference assumptions, not any specific product, bank or fund. It does not take your personal circumstances into account, is not financial product advice and does not recommend any product. Your tax rate, loans, risk tolerance and timing all change the result; please weigh it against your own situation, or seek advice from a licensed professional.",
+        "net_def": "Basis: net yield = (a year's room revenue − platform fee − short-stay levy − management − cleaning and other direct costs − insurance, rates, water, repairs, utilities and land tax) ÷ price, after the revenue lost to your own stays, with management at {mgmt}, before interest and tax. Figures quoted by others may leave out management, repairs or the revenue lost to own stays, so check the basis before comparing.", "range_line": "That is one point in the revenue range. With revenue from {lo} to {hi}, after-tax cash flow runs from {a} to {b}.",
         "bookc": "Booking holidays instead, per year", "alt": "Money not used to buy goes to",
         "deposit": "Term deposit", "index": "Index fund", "mortgage": "Pay down home loan",
         "be": "Prices must grow at least", "be_none": "Not reached even at 30% a year",
@@ -632,6 +634,13 @@ def render(res, sections, lang, summary="", quotes=()):
     qt = "".join(f"<h2>{e(q[0])}</h2><div class=card><p class=small>{t['quote_note']}</p>"
                  f"<blockquote>{e(q[1])}</blockquote></div>" for q in quotes)
 
+    rng = ""
+    ends = {r["label"]: r for r in res["what_if"]}
+    if "revenue_low" in ends and "revenue_high" in ends:
+        lo, hi = ends["revenue_low"], ends["revenue_high"]
+        rng = "<p><b>" + t["range_line"].format(lo=money(lo["gross_rent"]), hi=money(hi["gross_rent"]),
+                                                a=money(lo["after_tax_cash"]), b=money(hi["after_tax_cash"])) + "</b></p>"
+
     def rate_of(k):
         return c["home_loan_rate"] if k == "mortgage" else c["alt_returns"][k]
 
@@ -653,6 +662,7 @@ def render(res, sections, lang, summary="", quotes=()):
     if round(f["first_year_after_tax_cash"]) != round(f["after_tax_cash"]):
         yr += f"<p class=small>{t['first']}:{money(f['first_year_after_tax_cash'])}</p>"
     yr += f"<p>{t['gross']} <b>{pct(res['yields']['gross'])}</b> · {t['netY']} <b>{pct(res['yields']['net_before_interest'])}</b></p>"
+    yr += f"<p class=small>{t['net_def'].format(mgmt=pct(c['mgmt_fee']))}</p>"
     if f["loss_quarantined"]:
         yr += f"<p class=warn>{t['quar']}</p>"
     # comparison
@@ -699,7 +709,7 @@ def render(res, sections, lang, summary="", quotes=()):
 <meta name="viewport" content="width=device-width,initial-scale=1"><title>{e(t['title'])}</title><style>{CSS}</style></head><body>
 <header><div class=wrap><h1>{e(t['title'])} · {e(title)}</h1><div>{date.today().isoformat()} · {money(c['price'])}</div></div></header>
 <div class=wrap>
-{f"<div class=card style='border-left:5px solid #0b6e74'>{clean_html(summary)}</div>" if summary else ""}
+{f"<div class=card style='border-left:5px solid #0b6e74'>{clean_html(summary)}{rng}</div>" if summary or rng else ""}
 {block(before)}
 {qt}
 <h2>{t['ato']}</h2><div class=card>{ato}</div>

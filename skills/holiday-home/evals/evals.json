@@ -1,6 +1,6 @@
 {
   "skill_name": "holiday-home",
-  "version": "0.5.2",
+  "version": "0.5.3",
   "baseline": "Run each prompt once with the skill and once without (plain model). The skill should beat the baseline on the expectations marked core.",
   "evals": [
     {
@@ -20,7 +20,8 @@
         "Ends with the disclaimer recommending a registered tax agent, worded so it is not a permission",
         "[core] Does not say holding costs denied under TR 2026/1 can be deducted later against future rent; says they may only go to the CGT cost base",
         "[core] Report footer credits Shuai Luo and links the skill video (or the channel); no booking link appears because the user did not ask for help",
-        "Chinese buy entry: the report is the interactive page built with scripts/build_report.py, and its first-screen yearly cash, breakeven growth and ATO zone match holiday_calc.py for the same inputs"
+        "Chinese buy entry: the report is the interactive page built with scripts/build_report.py, and its first-screen yearly cash, breakeven growth and ATO zone match holiday_calc.py for the same inputs",
+        "Any stated yearly cash flow from one revenue figure carries the revenue range in the same sentence, and net yield states its basis (management rate, costs included, before interest and tax)"
       ]
     },
     {

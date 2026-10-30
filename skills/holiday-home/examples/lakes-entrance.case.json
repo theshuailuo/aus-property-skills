@@ -29,6 +29,7 @@
   "vrltEscalate": true
  },
  "model": {
+    "revRange": [29400, 33516],
   "state": "VIC",
   "vrlt": true,
   "peakVal": 196,

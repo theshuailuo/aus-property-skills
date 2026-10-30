@@ -3,10 +3,10 @@ name: holiday-home
 description: Australian holiday home check · 澳洲度假屋:买还是订 / 留还是卖。For the moment on holiday when you see local prices, fall for a listing, or stay in an Airbnb and wonder whether to just buy one, and for owners asking keep, sell or switch to long-term after ATO TR 2026/1 and the 2026 negative gearing / CGT reform. Checks state and council short-stay rules, screens the own-use calendar against TR 2026/1, works out net yield after the Airbnb host-only fee (about 15.5%), management, holding costs and land tax, and shows the price growth needed to beat booking, a term deposit, an index fund, paying down your home loan or a long-term rental. Ends with a six-gate self-check. Free public data only. 触发:「度假屋值不值得买」「要不要在这里买一套度假」「住了个 Airbnb 想自己买」「我的度假屋还要不要留」「Airbnb 还赚钱吗」/ Triggers — "should I buy a holiday home", "is buying an Airbnb worth it", "keep or sell my holiday home", "holiday home tax ATO", /holiday-home. 地址层面的洪水、山火、规划见 auspptdd / For address-level hazards and planning, see auspptdd. Residential only.
 license: MIT
 metadata:
-  version: 0.5.2
+  version: 0.5.3
 ---
 
-# /holiday-home — buy or book, keep or sell (v0.5.2)
+# /holiday-home — buy or book, keep or sell (v0.5.3)
 
 Made by Shuai Luo, a Sydney buyer's agent, from the method he uses for his own family's decisions. The number at the end matters less than showing **why** it comes out that way: which rule bites, which cost eats the yield, what growth you are betting on. Every figure carries its source or says it is the user's own input.
 
@@ -82,7 +82,7 @@ If `.agents/buyer-strategy.md` exists, read it and tailor (never print its conte
 
 ## Step 3 — revenue (`references/data-sources.md`)
 
-- User's number first. Otherwise two free sources (or the trigger-③ listing), adjusted for bedrooms and caps. Free sources often disagree 2–3x: put the two most comparable figures in `revenue_range: [low, high]` (the script adds a row for each) and use a figure in between, saying which and why.
+- User's number first. Otherwise two free sources (or the trigger-③ listing), adjusted for bedrooms and caps. Free sources often disagree 2–3x: put the two most comparable figures in `revenue_range: [low, high]` (the script adds a row for each) and use a figure in between, saying which and why. **Any sentence that states yearly cash flow from one revenue figure carries the range in the same sentence** ("about −$X a year, between −$A and −$B across revenue of $L–$H"), in the quick take too. The scripts print this line automatically (`revenue_range`; `model.revRange` for the interactive page).
 - Check the currency: AirROI pages can show USD; convert to AUD and say so.
 - Alternatively give `nightly_rate` + `occupancy` (and `cap_nights` where a day cap applies); the script removes own-use nights and applies the cap.
 - Use guest-paid revenue with the host-only fee unless the user confirms split fee (`platform_fee: 0.03`). Never invent a figure.
@@ -126,6 +126,7 @@ Stamp duty: NSW, VIC, QLD general rates are built in (verified 2026-10-23; NSW i
 - **Own entry**: three columns and the keep-vs-sell breakeven. Always state: (1) grandfathering stays with this owner and this property, **selling and buying another established home loses it**; (2) gains before 1 July 2027 keep the 50% discount, later gains use indexation and a 30% minimum rate, **get a valuation around 1 July 2027**; (3) if the property already fails the TR 2026/1 test, grandfathered negative gearing is worth less. For owners: a pure short-stay rental for cash flow is fine to assess on its numbers; one used mainly by the family is consumption and depends on their means.
 - **Still to think through** (write each in one line for this case): vacancy (long-term) · your own time · being locked into one destination versus booking somewhere new each year · lending (banks may count only part of short-stay income, ask a broker; *possible*) · exit (small towns: fewer buyers, longer days on market; quote local free figures) · land tax aggregation with their other properties · policy risk (caps and levies can change: "none today does not mean none tomorrow") · furniture and wear.
 - Never say "you should buy / sell / keep".
+- **Net yield always states its basis**: after platform fee, levy, management at the rate used, direct and holding costs, and revenue lost to own stays; before interest and tax. An owner's "7–8% net" may leave some of these out, so the reader needs to see the basis; both scripts print it next to the number.
 - **The comparison section opens with its disclaimer** (both scripts print it first, keep it there and keep it prominent): general information comparing opportunity cost against generic reference rates, no specific product, bank or fund; not tailored to the reader, not financial product advice, not a recommendation; ask the reader to weigh it against their own situation or seek a licensed professional. Built from the General and Investment lines in `shared/disclaimers.md`.
 
 ## Step 7 — six-gate self-check (after the numbers, not before)

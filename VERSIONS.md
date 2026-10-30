@@ -5,12 +5,16 @@ To update: compare with the table below and reinstall any skill that is behind (
 
 | Skill | Version | Last Updated |
 |---|---|---|
-| holiday-home | 0.5.2 | 2026-10-28 |
+| holiday-home | 0.5.3 | 2026-10-30 |
 | auspptdd | 0.4.4 | 2026-10-28 |
 
 <!-- 每发布一个 skill 加一行,例如 | holiday-home | 0.1.0 | 2026-11-01 | -->
 
 ---
+
+### 0.3.5 (2026-10-30)
+- `holiday-home` 0.5.3:一年现金流只给一个收入点时,同一句带上收入区间(静态报告按 `revenue_range`、交互页按 `model.revRange` 自动出);净收益率旁边写清口径(扣了哪些费、托管费率、未扣利息和税),方便和业主自述的数字对比。
+- `holiday-home` 0.5.3: yearly cash flow from one revenue figure now carries the revenue range in the same sentence (automatic from `revenue_range` and `model.revRange`); net yield states its basis next to the number, so it can be compared with figures quoted by owners.
 
 ### 0.3.4 (2026-10-28)
 - `holiday-home` 0.5.2:「定期、指数基金、还房贷」机会成本对比一节,开头先放免责(交互页和静态报告中英都改):一般信息、用通用参照回报率不指具体产品、未结合个人情况、不构成金融产品建议也不是推荐,请结合自身情况自行分析或寻求持牌专业人士意见;取自 shared 通用句和投资句。
